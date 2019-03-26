@@ -1,10 +1,13 @@
 <?PHP
 include "../Entities/admin.php";
 include "../Cores/AdminC.php";
+	echo "<script>alert(\"Connectez vous\")</script>";
 
 if (isset($_POST['username']) and isset($_POST['email']) and isset($_POST['pwd']))
 
 {
+		echo "<script>alert(\"Connectez vous\")</script>";
+
 	if (!empty($_POST['username']) and !empty($_POST['email']) and !empty($_POST['pwd']))
 {$admin1=new Admin($_POST['username'],$_POST['email'],$_POST['pwd']);
 
