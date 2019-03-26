@@ -1,0 +1,158 @@
+.main
+{
+left: -20px
+top:-20px;
+width: 100%;
+height: 700px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+border-radius: 10px;
+z-index: 1;
+}
+.da-img .pic-slide
+{position: absolute;
+top: 70px;
+margin-right:200px;
+ }
+ .da-img
+ {
+  position: relative;
+  top : 60px;
+ }
+
+ /*.up
+      {border: solid black;
+border-top: : 30px solid #181A1C;
+    border-left: 620px outset transparent;
+    border-right: 550px outset transparent;  display: inline-block;
+  padding: 3px;
+   transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);}*/
+      
+body {
+ 
+ /* font-family: Arial, Helvetica, sans-serif;*/
+ height: 100%;
+background-color: #ffbd07;
+    background-repeat: no-repeat;
+     background-size: cover;
+width: 100%;
+    
+
+}
+
+
+
+.tri {
+  position: relative;
+    left: 0;
+     top: 95px;    
+    border-top: 30px outset rgba(255, 255, 255, .4);
+    border-left: 620px outset transparent;
+    border-right: 550px outset transparent;
+    margin-top: 0px;
+
+  }
+  .topnav-left
+  {
+    float: left;
+      margin-left: 150px;
+
+  }
+  
+.topnav {
+  
+position: fixed ;
+z-index: 200;
+top: 0;
+background-color:rgba(255, 255, 255, .4);
+border-radius: 10px;
+  left: 0;
+  right: 0;
+  font-family: myfont ;
+  color: white;
+}
+
+/*.aadi-header-collaspe 
+{ background-color:#ffffff;
+
+}*/
+
+div .topnav-centered .zink {
+  float: none;
+  position: fixed;
+  top: 10px;
+  left: 600px;
+  font-family:Stencil ;
+  font-size: 70px;
+  color: #ffd025;
+
+}
+
+.topnav-right {
+  float: right;
+  margin-right: 150px;
+
+}
+
+.footer
+{position: absolute;
+   width: 100%;
+   left: 0;
+   right: 0;
+background-color: #181A1C;
+margin-top: 200px;}
+@font-face
+{
+ font-family:
+  myfont;
+  src: url(myfont.otf);
+}
+ a {
+ float: left;
+  font-style: bold;
+  padding: 20px  50px;
+  text-decoration: none;
+  font-size: 22px;
+  
+     color: white;
+
+}
+
+div a:hover {
+  opacity: 0.6;
+
+
+}
+
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px)
+ {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 5px;
+    transform: none;
+  }
+}
+
+@media all and (max-width: 1024px)
+{
+    body
+    {
+    }
+
+}
+
+
+ 
+
