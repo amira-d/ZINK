@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-FR">
+
+<head>
+    <meta charset="utf-8">
+<title> CONNEXION </title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <form method="POST" action="ajoutclient.php" id="connexion">
+
+    <h1>Connexion </h1>
+    <div class="col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <strong>Client</strong> 
+                                                    </div>
+                                                    <div class="card-body card-block">
+                                                        <form action="ajoutclient.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                                                 <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">nom</label></div>
+                                                                <div class="col-12 col-md-9"><input type="nom" id="nom" name="nom" placeholder="nom" class="form-control"><small class="form-text text-muted">please entrer votre nom </small><span id="missing_nom"></span></div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">prenom</label></div>
+                                                                <div class="col-12 col-md-9"><input type="prenom" id="prenom" name="prenom" placeholder="prenom" class="form-control"><small class="form-text text-muted">please entrer votre prenom </small><span id="missing_prenom"></span></div>
+                                                            </div>
+                                                             
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">cin</label></div>
+                                                                <div class="col-12 col-md-9"><input type="cin" id="cin" name="cin" placeholder="cin" class="form-control"><small class="help-block form-text">Please enter votre cin</small><span id="missing_barcode"></span></div>
+
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">mail</label></div>
+                                                                <div class="col-12 col-md-9"><input type="mail" id="mail" name="mail" placeholder="nour.trabelsi@esprit.tn" class="form-control"><small class="help-block form-text">Please enter votre mail</small><span id="missing_quantity"></span></div>
+                                                            </div>
+            
+                                                            <!--</div>-->
+                                                                <div class="row form-group">
+                                                                    <div class="col col-md-3"><label for="select" class=" form-contegotrol-label">sexe</label></div>
+                                                                    <div class="col-12 col-md-9">
+                                                                        <select name="sexe" id="sexe" class="form-control">
+                                                                            <option value="0">homme</option>
+                                                                            <option value="1">femme</option>
+                                                                            
+                                                                        </select><span id="missing_sexe"></span>
+                                                                    </div>
+                                                                </div>
+                                                                 
+
+                                                        </form>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <button type="submit" id="ajouter" class="btn btn-primary btn-sm" value="ajouter" onclick="myFunction()" >
+                                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                                        </button>
+                                                        <button type="reset" id="reset" class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-ban"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+    
+  <script type="text/javascript" src="connexion.js">
+      
+
+  </script>
+
+</body>
+
+
+
+</html>
+
+
+
