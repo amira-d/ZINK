@@ -87,11 +87,11 @@
                 <div class="categories-grid wow fadeInLeft">
                     <nav class="categories text-center">
                         <ul class="portfolio_filter">
-                             <li><a href="Menu.html" data-filter="*">All</a></li>
+                             <li><a href="Menu.php" data-filter="*">All</a></li>
                             <li><a href="Menu-two.php"class="active" data-filter=".photography">Soupes.Salade<a></li>
-                            <li><a href="Menu-three.html"  data-filter=".logo" >On the grill</a></li>
-                            <li><a href="Menu-four.html"  data-filter=".graphics">Burgers</a></li>
-                            <li><a href="Menu-five.html" data-filter=".ads" >Boissons</a></li>
+                            <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
+                            <li><a href="Menu-four.php"  data-filter=".graphics">Burgers</a></li>
+                            <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
                         </ul>
                     </nav>
                 </div>
