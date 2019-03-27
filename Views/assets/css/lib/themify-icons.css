@@ -1142,10 +1142,3 @@
 .ti-rss-alt:before {
 	content: "\e75f";
 }
-.ti-annonce:before {
-	content:  "\e760" ;
-
-}
-.ti-carriere:before {
-	content: "\e761"
-}
