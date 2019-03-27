@@ -82,14 +82,14 @@
  <div class="main-container portfolio-inner clearfix">
         <!-- portfolio div -->
         <div class="portfolio-div">
-            <div class="portfolio" >
-
-                <div class="categories-grid wow fadeInLeft">
+            <div class="portfolio">
+                <!-- portfolio_filter -->
+                 <div class="categories-grid wow fadeInLeft">
                     <nav class="categories text-center">
                         <ul class="portfolio_filter">
                              <li><a href="Menu.php" data-filter="*">All</a></li>
-                            <li><a href="Menu-two.php"class="active" data-filter=".photography">Soupes.Salade<a></li>
-                            <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
+                            <li><a href="Menu-two.php"c data-filter=".photography">Soupes.Salade<a></li>
+                            <li><a href="Menu-three.php" class="active" data-filter=".logo" >On the grill</a></li>
                             <li><a href="Menu-four.php"  data-filter=".graphics">Burgers</a></li>
                             <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
                         </ul>
@@ -105,8 +105,8 @@ $prodC=new ProduitC();
 $liste=$prodC->afficherProduit();
 while ($data=$liste->fetch())
 {
-  if ($data['Type_P'] == 'salades ')
-      {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
+  if ($data['Type_P'] == 'grill ')
+     {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
                    echo  "<div href='' class='portfolio_item'>";
                            echo "<img src=' ../web/".$data['image']."' alt='image'class='img-responsive' style=/>";
 
@@ -135,7 +135,6 @@ while ($data=$liste->fetch())
 }
 
 ?>
-
                 </div>
                 <!-- end portfolio_container -->
             </div>
@@ -145,169 +144,7 @@ while ($data=$liste->fetch())
     </div>
     <!-- end main container -->
   </section>
-     <!-- <div class="row">
-
-         <div class="twelve columns collapsed">
-
-
-            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
-
-          	   <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-01" title="">
-                        <img alt="" src="images/portfolio/coffee.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Coffee</h5>
-                              <p>Illustrration</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> 
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-02" title="">
-                        <img alt="" src="images/portfolio/console.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Console</h5>
-                              <p>Web Development</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> 
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-03" title="">
-                        <img alt="" src="images/portfolio/judah.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Judah</h5>
-                              <p>Webdesign</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> 
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-04" title="">
-                        <img alt="" src="images/portfolio/into-the-light.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Into The Light</h5>
-                              <p>Photography</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> 
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-05" title="">
-                        <img alt="" src="images/portfolio/farmerboy.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Farmer Boy</h5>
-                              <p>Branding</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> 
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-06" title="">
-                        <img alt="" src="images/portfolio/girl.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Girl</h5>
-                              <p>Photography</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> 
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-07" title="">
-                        <img alt="" src="images/portfolio/origami.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Origami</h5>
-                              <p>Illustrration</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> 
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-08" title="">
-                        <img alt="" src="images/portfolio/retrocam.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Retrocam</h5>
-                              <p>Web Development</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div>  
-
-            </div> -->
-
-
-
-         <!-- Modal Popup
-	      --------------------------------------------------------------- -->
-
-        
-
-
-
-
-   <!-- Call-To-Action Section
-   ================================================== -->
-   
-
-
-   
-
-
+    
    <!-- footer
    ================================================== -->
    <footer>
@@ -353,8 +190,7 @@ while ($data=$liste->fetch())
     <script src="js1/bootstrap.min.js"></script>
     <script src="js1/menu.js"></script>
     <script src="js1/animated-headline.js"></script>
-    
-
+ 
 </body>
 
 </html>

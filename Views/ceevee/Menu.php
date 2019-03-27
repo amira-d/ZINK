@@ -82,48 +82,60 @@
  <div class="main-container portfolio-inner clearfix">
         <!-- portfolio div -->
         <div class="portfolio-div">
-            <div class="portfolio" >
-
-                <div class="categories-grid wow fadeInLeft">
+            <div class="portfolio">
+                <!-- portfolio_filter -->
+                 <div class="categories-grid wow fadeInLeft">
                     <nav class="categories text-center">
                         <ul class="portfolio_filter">
-                             <li><a href="Menu.html" data-filter="*">All</a></li>
-                            <li><a href="Menu-two.html"class="active" data-filter=".photography">Soupes.Salade<a></li>
-                            <li><a href="Menu-three.html"  data-filter=".logo" >On the grill</a></li>
-                            <li><a href="Menu-four.html"  data-filter=".graphics">Burgers</a></li>
-                            <li><a href="Menu-five.html" data-filter=".ads" >Boissons</a></li>
+                             <li><a href="Menu.php" class="active"data-filter="*">All</a></li>
+                            <li><a href="Menu-two.php"c data-filter=".photography">Soupes.Salade<a></li>
+                            <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
+                            <li><a href="Menu-four.php"  data-filter=".graphics">Burgers</a></li>
+                            <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
                         </ul>
                     </nav>
                 </div>
                 <!-- portfolio_filter -->
 
                 <!-- portfolio_container -->
-                <?php
+  <?php
+  include "C:\wamp64\www\Cores\ProduitC.php";
+
 $prodC=new ProduitC();
 $liste=$prodC->afficherProduit();
-$data=$liste->fetch();
-while ($data)
+while ($data=$liste->fetch())
 {
-  if ($data['Type_P'] == 'grill')
-  {
-     echo "<div class="col-md-4 col-sm-6 graphics ads">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src='{$data['name']' alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>";
-                  }
-  }
+     {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
+                   echo  "<div href='' class='portfolio_item'>";
+                           echo "<img src=' ../web/".$data['image']."' alt='image'class='img-responsive' style=/>";
+
+
+                           echo "<div style='padding:5px;'>";
+                              echo "<h1 style='bottom: 50px;'>".$data['nom_P']."</h1>";
+
+                            echo "<p class='desc' style='position:relative; bottom: 280px; left: 200px;width:250px; height:100px; overflow:hidden; border-top: 2px inset grey;border-bottom: 2px inset grey;'>".$data['Description']."</p>";
+                            echo "</div>";
+
+
+                            echo "<div class='portfolio_item_hover' style=' width:500px; height:200px;'>";
+                              echo  "<div class='portfolio-border clearfix'>";
+                                    echo "<div class='item_info' style=''>";
+                                       echo "<span>".$data['Prix']." dt</span>";
+                                       echo "<em>Add to cart</em>";
+                                    echo"</div>";
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo"</div>";
+}
+  
+
+
+}
 
 
 ?>
+               
 
                 </div>
                 <!-- end portfolio_container -->
@@ -342,8 +354,7 @@ while ($data)
     <script src="js1/bootstrap.min.js"></script>
     <script src="js1/menu.js"></script>
     <script src="js1/animated-headline.js"></script>
-    
-
+   
 </body>
 
 </html>
