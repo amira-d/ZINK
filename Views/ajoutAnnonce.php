@@ -19,12 +19,11 @@ $image = $_FILES['image']['name'];
 	$ann=new Annonce($image,$_POST['titre'],$_POST['type'],$_POST['description']);
 
 $annC=new AnnonceC();
-	echo "<script>alert(\"dddd vous\")</script>";
+echo "<script>alert(\"Votre annonce est en cours de traitement \")</script>";
 
 $annC->ajouterAnnonce($ann);
-header('Location :annonces-produit.html');
-	echo "<script>alert(\"Connectez vous\")</script>";
-
+header('Location: annonces-produit.html');
+echo "<script>alert(\"Annonce enregistrée avec succès\")</script>";
 
 /*if (move_uploaded_file($_FILES['image']['tmp_name'], $target ))
 {
