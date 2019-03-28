@@ -15,7 +15,7 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 
      else
      {
-	        $target= "ZINK/" .basename($_FILES['image']['name']);
+	        $target= "../zink" .basename($_FILES['image']['name']);
 			$image = $_FILES['image']['name'];
 
 					if (move_uploaded_file($_FILES['image']['tmp_name'], $target ))
@@ -30,15 +30,16 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 			$annC=new AnnonceC();
 			echo "<script>alert(\"Votre annonce est en cours de traitement \")</script>";
 			$annC->ajouterAnnonce($ann);
-	        header("Refresh: 2 ;url=annonces-produit.html");
-			echo "<script>alert(\"Annonce enregistrée avec succès\")</script>";
-		    header("Refresh: 2 ;url=annonces-produit.html");
+	        header("Refresh: 1 ;url=annonces-produit.html");
+			echo " <script>if (confirm(\"Annonce enregistrée avec succès ! Voulez vous voir un aperçu ?\")) { window.location.replace('index2.html')  ;  }  else { window.location.replace('index-2.html')  ; } </script>";
+
+		    
 	 }
 }
 else
 {
 	echo "<script>alert(\"Veuillez vérifier les champs !\")</script>";
-    header("Refresh: 2 ;url=annonces-produit.html");
+    header("Refresh: 1.25 ;url=annonces-produit.html");
 }
 
 

@@ -57,6 +57,34 @@ class AdminC {
 
 
 	}
+	function recupererUser($pwd)
+	{		
+
+		$sql="select userName from admin where  Password='".$pwd."'";
+		$db = config::getConnexion();
+		try
+		{
+		$liste=$db->query($sql);
+		
+         if ($liste->rowCount() > 0 )
+         {
+         	return true ;
+         }
+         else {
+         	return false;
+         }       
+
+         }
+       
+
+
+        catch (Exception $e)
+        {
+            die('Erreur: '.$e->getMessage());
+        }
+
+
+	}
 	
 	
 }
