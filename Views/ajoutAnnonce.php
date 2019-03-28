@@ -31,7 +31,7 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 			echo "<script>alert(\"Votre annonce est en cours de traitement \")</script>";
 			$annC->ajouterAnnonce($ann);
 	        header("Refresh: 1 ;url=annonces-produit.html");
-			echo " <script>if (confirm(\"Annonce enregistrée avec succès ! Voulez vous voir un aperçu ?\")) { window.location.replace('index-2.html')  ;  }  else { window.location.replace('annonces-produit.html')  ; } </script>";
+			echo " <script>if (confirm(\"Annonce enregistrée avec succès ! Voulez vous voir un aperçu ?\")) { window.location.replace('ZINK_FI/Z-news.php')  ;  }  else { window.location.replace('annonces-produit.html')  ; } </script>";
 
 		    
 	 }
