@@ -166,15 +166,15 @@ if (isset($_GET['namep'])){
 		echo "<script>alert(\"dddd vous\")</script>";
 
 	$prodC=new ProduitC();
-  //$result=$prodC->recupererP($_GET['namep']);
+  $result=$prodC->recupererP($_GET['namep']);
     	echo "<script>alert(\"thgfd vous\")</script>";
 
-	/*foreach($result as $row){
+	foreach($result as $row){
 		$nom=$row['nom_P'];
-		$type=$row['type_P'];
-		$desc=$row['description'];
+		$type=$row['Type_P'];
+		$desc=$row['Description'];
 		$Prix=$row['Prix'];
-		$image=$row['image'];*/
+		$image=$row['image'];
 ?>
 
 										<form class="form-horizontal" method="POST" enctype="multipart/form-data">
@@ -208,7 +208,7 @@ if (isset($_GET['namep'])){
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Details</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description" ></textarea>
+                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description" value="<?php echo $desc ?>"  ></textarea>
                                             </div>
                                         </div>
 
@@ -229,6 +229,7 @@ if (isset($_GET['namep'])){
                                     <?PHP
 
                                        }
+                                   }
                                    
                                        
 
