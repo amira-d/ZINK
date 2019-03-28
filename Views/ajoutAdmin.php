@@ -1,6 +1,7 @@
 <?PHP
 include "../Entities/admin.php";
 include "../Cores/AdminC.php";
+	
 	echo "<script>alert(\"Connectez vous\")</script>";
 
 if (isset($_POST['username']) and isset($_POST['email']) and isset($_POST['pwd']))
@@ -18,7 +19,7 @@ if (isset($_POST['username']) and isset($_POST['email']) and isset($_POST['pwd']
 	echo "<script>alert(\"Connectez vous\")</script>";
 
    header('Location: page-login.html'); 
-   }
+    }
 
  }
 else
