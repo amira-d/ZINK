@@ -19,7 +19,7 @@
     ================================================== -->
      
    <link rel="stylesheet" href="css/default.css">
-  <link rel="stylesheet" href="css/layout.css">
+   <link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
 
@@ -59,7 +59,7 @@
 
   <!-- Header
    ================================================== -->
-   <header  id="news">
+   <header id="home" style="height: 211px;">
 
        <!-- Start cSlider -->
             <div id="da-slider" class="da-slider">
