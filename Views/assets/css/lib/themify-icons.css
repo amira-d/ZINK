@@ -73,7 +73,7 @@
 }
 
 [class^="ti-"], [class*=" ti-"] {
-	font-family: 'themify';
+	font-family:  'Montserrat', sans-serif;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -1141,4 +1141,11 @@
 }
 .ti-rss-alt:before {
 	content: "\e75f";
+}
+.ti-annonce:before {
+	content:  "\e760" ;
+
+}
+.ti-carriere:before {
+	content: "\e761"
 }
