@@ -55,7 +55,7 @@ class ProduitC {
         }
 	}
 	function modifierp($prod,$nom){
-		$sql="UPDATE produit SET nom_P=:nom, type_P=:type,prix=:price,image=:img,Description=:description  where nom_P = :noms";
+		$sql="UPDATE produit SET nom_P=:nom,Description=:description,Type_P=:type,prix=:price,image=:img where nom_P = :noms";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -70,7 +70,7 @@ try{
 		
 		$datas = array(':nom'=>$Name, ':Description'=>$Description, ':type'=>$type,':price'=>$price,':img'=>$image);
 		$req->bindValue(':nom',$Name);
-		$req->bindValue(':Description',$Description);
+		$req->bindValue(':description',$Description);
 		$req->bindValue(':type',$type);
 		$req->bindValue(':price',$price);
 		$req->bindValue(':img',$image);
@@ -91,8 +91,8 @@ try{
    function recupererP($nom)
     {
         $db=config::getConnexion();
-        $stmt = $db->prepare("SELECT * FROM produit where nom_P = :nom");
-        $stmt->bindValue(":nom",$nom, PDO::PARAM_STR);
+        $stmt = $db->prepare("SELECT * FROM produit where nom_P =:nom ");
+        $stmt->bindValue(':nom',$nom, PDO::PARAM_STR);
         try{
         $stmt->execute();
         $liste= $stmt->fetchAll();

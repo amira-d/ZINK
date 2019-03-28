@@ -41,7 +41,7 @@
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
-                            <li><a href="modifierprod.php">Change Product</a></li>
+                            <li><a href="modifierp1.html">Change Product</a></li>
 
                         </ul>
                     </li>
@@ -218,7 +218,7 @@ if (isset($_GET['namep'])){
                                                 <input type="text" class="form-control" placeholder="$00.00" name="price" >
                                             </div>
                                         </div>
-                                          <input type="hidden" name="check" >
+                                          <input type="hidden" name="check" value="<?PHP echo $_GET['namep'];?>" >
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
@@ -237,8 +237,25 @@ if (isset($_POST['ch']))
 {
     $prod=new Produit($_POST['nom'],$_POST['description'],$_POST['type'],$_POST['price'],$_POST['image']);
 echo "<script> alert(\"one\") </script>";
-    $prodC->modifierp($prod,$_GET['namep']);
+$proC= new ProduitC();
+    $proC->modifierp($prod,$_POST['check']);
     echo "<script> alert(\"two\") </script>";
+    if ($_POST['type']== 'boisson')
+    {
+header('Location: ceevee/Menu-five.php');
+    }
+    if ($_POST['type']== 'salade')
+    {
+header('Location: ceevee/Menu-two.php');
+    }
+    if ($_POST['type']== 'grill')
+    {
+header('Location: ceevee/Menu-three.php');
+    }
+    if ($_POST['type']== 'burger')
+    {
+header('Location: ceevee/Menu-four.php');
+    }
 }
 else
 {echo "<script> alert(\"fgd vous\") </script>";}

@@ -105,7 +105,7 @@ $prodC=new ProduitC();
 $liste=$prodC->afficherProduit();
 while ($data=$liste->fetch())
 {
-  if ($data['Type_P'] == 'salades ')
+  if ($data['Type_P'] == 'salade ')
       {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
                    echo  "<div href='' class='portfolio_item'>";
                            echo "<img src=' ../web/".$data['image']."' alt='image'class='img-responsive' style=/>";
