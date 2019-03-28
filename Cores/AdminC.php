@@ -4,7 +4,7 @@ class AdminC {
 
 	
 	function ajouterAdmin($admin){
-		$sql="insert into admin (userName,Email,Password) values (:username, :email,:pwd)";
+		$sql="insert into admin (userName,Email,Password) values (:userName,:Email,:PWD)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
@@ -13,9 +13,9 @@ class AdminC {
         $email=$admin->getEmail();
         $pwd=$admin->getPWD();
         
-		$req->bindValue(':username',$username);
-		$req->bindValue(':email',$email);
-		$req->bindValue(':pwd',$pwd);
+		$req->bindValue(':userName',$userName);
+		$req->bindValue(':Email',$Email);
+		$req->bindValue(':password',$PWD);
 		
 		
 		
