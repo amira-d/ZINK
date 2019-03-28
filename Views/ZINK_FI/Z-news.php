@@ -83,11 +83,24 @@ include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
 $ann1C=new AnnonceC();
 $listeannonces=$ann1C->afficherAnnonce();
 
-var_dump($listeannonces->fetchAll());
+//var_dump($listeannonces->fetchAll());
 
 
-$data=$listeannonces->fetch();
-
+while ($data=$listeannonces->fetch())
+{
+     {echo "<div class='col-md-4 col-sm-6 graphics ads'>";
+                           echo "<img src=' ../web/".$data['image']."' alt='image' class='img-responsive'/>";
+                           echo "<p>".$data['titre']."</p>";
+                            echo "<p>".$data['description']."</p>";
+                            echo "<div class='portfolio_item_hover'>";
+                              echo  "<div class='portfolio-border clearfix'>";
+                                    echo "<div class='item_info'>";
+                                       echo "<p>".$data['type']." </p>";
+                                    echo"</div>";
+                                echo "</div>";
+                            echo "</div>";
+                    echo"</div>";}
+}
   
 
 
