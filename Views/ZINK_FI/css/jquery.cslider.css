@@ -27,7 +27,7 @@ da-slider {
     width:100%;
     height:100%;
     background:#332e1a;
-    opacity:0.85;
+    opacity:100%;
     filter: alpha(opacity=85);
 }
 .da-slider .container {
