@@ -54,27 +54,28 @@ class ProduitC {
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierProduit($prod,$nom){
-		$sql="UPDATE produit SET nom_P=:nom, type_P=:type,prix=:price,image=:img,Description=:description WHERE nom_P=:nom";
+	function modifierp($prod,$nom){
+		$sql="UPDATE produit SET nom_P=:nom,Description=:description,Type_P=:type,prix=:price,image=:img where nom_P = :noms";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
 		
-        $nom=$prod->getnom();
+        $Name=$prod->getnom();
         $Description=$prod->getDescription();
         $type=$prod->getType();
         $price=$prod->getPrice();
         $image=$prod->getImage();
 		
-		$datas = array(':nom'=>$nom, ':Description'=>$Description, ':type'=>$type,':price'=>$price,':img'=>$image);
-		$req->bindValue(':nom',$nom);
-		$req->bindValue(':Description',$Description);
+		$datas = array(':nom'=>$Name, ':Description'=>$Description, ':type'=>$type,':price'=>$price,':img'=>$image);
+		$req->bindValue(':nom',$Name);
+		$req->bindValue(':description',$Description);
 		$req->bindValue(':type',$type);
 		$req->bindValue(':price',$price);
 		$req->bindValue(':img',$image);
-		
+				$req->bindValue(':noms',$nom);
+
 		
             $s=$req->execute();
 			
@@ -87,19 +88,20 @@ try{
         }
 		
 	}
-	function recupererEmploye($nom){
-		$sql="SELECT * from produit where nom_P=$nom";
-		$db = config::getConnexion();
-		try{
-		$liste=$db->query($sql);
-		return $liste;
-		}
+   function recupererP($nom)
+    {
+        $db=config::getConnexion();
+        $stmt = $db->prepare("SELECT * FROM produit where nom_P =:nom ");
+        $stmt->bindValue(':nom',$nom, PDO::PARAM_STR);
+        try{
+        $stmt->execute();
+        $liste= $stmt->fetchAll();
+        return $liste;
+        }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
-	}
-	
-	
-}
+    }
 
+}
 ?>

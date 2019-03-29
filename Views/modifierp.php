@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Upload Menu</title>
+    <title>Foodmin : Modify Menu</title>
 	
 	<!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -31,13 +28,8 @@
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
 <body>
-
-    <body>
-
-
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+	<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -128,15 +120,14 @@
         </div>
     </div>
 </div>
-
-    <div class="content-wrap">
+ <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 p-0">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Add new product</h1>
+                                <h1>Change product</h1>
                             </div>
                         </div>
                     </div><!-- /# column -->
@@ -165,56 +156,111 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-									<div class="menu-upload-form">
-										<form class="form-horizontal" method="POST" action="ajoutProduit.php" enctype="multipart/form-data">
+									<div class="menu-upload-form">	
+
+
+                                         <?PHP
+include "../Entities/produit.php";
+include "../Cores/ProduitC.php";
+if (isset($_GET['namep'])){
+		echo "<script>alert(\"dddd vous\")</script>";
+
+	$prodC=new ProduitC();
+  $result=$prodC->recupererP($_GET['namep']);
+    	echo "<script>alert(\"thgfd vous\")</script>";
+
+	foreach($result as $row){
+		$nom=$row['nom_P'];
+		$type=$row['Type_P'];
+		$desc=$row['Description'];
+		$Prix=$row['Prix'];
+		$image=$row['image'];
+?>
+
+										<form class="form-horizontal" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Upload Product</label>
+                                            <label class="col-sm-2 control-label">Modify Product</label>
                                             <div class="col-sm-10">
                                                 <div class="form-control file-input dark-browse-input-box">
                                                     <label for="inputFile-2">
                                                                 <span class="btn btn-danger dark-input-button">
-                                                                    <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value"  name="image">
+                                                                    <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value" name="image" >
                                                                     <i class="fa fa-file-archive-o"></i>
                                                                 </span>
                                                     </label>
-                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files">
+                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files" name="image" >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Name Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Title" name="nom">
+                                                <input type="text" class="form-control" placeholder="Type your menu Title" name="nom" >
                                             </div>
                                         </div>
                                          <div class="form-group">
                                             <label class="col-sm-2 control-label">Type Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Type" name="type">
+                                                <input type="text" class="form-control" placeholder="Type your menu Type" name="type" >
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Details</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description"></textarea>
+                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description" value="<?php echo $desc ?>"  ></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Price</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="$00.00" name="price">
+                                                <input type="text" class="form-control" placeholder="$00.00" name="price" >
                                             </div>
                                         </div>
+                                          <input type="hidden" name="check" value="<?PHP echo $_GET['namep'];?>" >
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="submit" name="submit">Upload</button>
+                                                <button type="submit" class="submit" name="ch">Upload</button>
                                             </div>
                                         </div>
                                     </form>
-									</div>
+                                    <?PHP
+
+                                       }
+                                   }
+                                   
+                                       
+
+if (isset($_POST['ch']))
+{
+    $prod=new Produit($_POST['nom'],$_POST['description'],$_POST['type'],$_POST['price'],$_POST['image']);
+echo "<script> alert(\"one\") </script>";
+$proC= new ProduitC();
+    $proC->modifierp($prod,$_POST['check']);
+    echo "<script> alert(\"two\") </script>";
+    if ($_POST['type']== 'boisson')
+    {
+header('Location: ceevee/Menu-five.php');
+    }
+    if ($_POST['type']== 'salade')
+    {
+header('Location: ceevee/Menu-two.php');
+    }
+    if ($_POST['type']== 'grill')
+    {
+header('Location: ceevee/Menu-three.php');
+    }
+    if ($_POST['type']== 'burger')
+    {
+header('Location: ceevee/Menu-four.php');
+    }
+}
+else
+{echo "<script> alert(\"fgd vous\") </script>";}
+?>
+</div>
                                 </div>
 							</div><!-- /# card -->
 						</div><!-- /# column -->
@@ -236,3 +282,4 @@
 
 <!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
+

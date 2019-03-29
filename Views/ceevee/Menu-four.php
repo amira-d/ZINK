@@ -84,164 +84,60 @@
         <div class="portfolio-div">
             <div class="portfolio">
                 <!-- portfolio_filter -->
-                <div class="categories-grid wow fadeInLeft">
+                 <div class="categories-grid wow fadeInLeft">
                     <nav class="categories text-center">
                         <ul class="portfolio_filter">
-                             <li><a href="Menu.html" data-filter="*">All</a></li>
-                            <li><a href="Menu-two.html" data-filter=".photography">Soupes.Salade<a></li>
-                            <li><a href="Menu-three.html"  data-filter=".logo" >On the grill</a></li>
-                            <li><a href="Menu-four.html" class="active" data-filter=".graphics">Burgers</a></li>
-                            <li><a href="Menu-five.html" data-filter=".ads">Boissons</a></li>
+                             <li><a href="Menu.php" data-filter="*">All</a></li>
+                            <li><a href="Menu-two.php"c data-filter=".photography">Soupes.Salade<a></li>
+                            <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
+                            <li><a href="Menu-four.php"  class="active"data-filter=".graphics">Burgers</a></li>
+                            <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
                         </ul>
                     </nav>
                 </div>
                 <!-- portfolio_filter -->
 
                 <!-- portfolio_container -->
-                <div class="no-padding portfolio_container clearfix">
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-6  fashion logo">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
+  <?php
+  include "C:\wamp64\www\Cores\ProduitC.php";
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-6 ads graphics">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
+$prodC=new ProduitC();
+$liste=$prodC->afficherProduit();
+while ($data=$liste->fetch())
+{
+    if ($data['Type_P'] == 'burger')
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-12 photography">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
+      {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
+                   echo  "<div href='' class='portfolio_item'>";
+                           echo "<img src=' ../web/".$data['image']."' alt='image'class='img-responsive' style=/>";
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-6 fashion ads">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-6 graphics ads">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
+                           echo "<div style='padding:5px;'>";
+                              echo "<h1 style='bottom: 50px;'>".$data['nom_P']."</h1>";
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-12 photography">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
+                            echo "<p class='desc' style='position:relative; bottom: 280px; left: 200px;width:250px; height:100px; overflow:hidden; border-top: 2px inset grey;border-bottom: 2px inset grey;'>".$data['Description']."</p>";
+                            echo "</div>";
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-6 graphics ads">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-6 graphics ads">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
+                            echo "<div class='portfolio_item_hover' style=' width:500px; height:200px;'>";
+                              echo  "<div class='portfolio-border clearfix'>";
+                                    echo "<div class='item_info' style=''>";
+                                       echo "<span>".$data['Prix']." dt</span>";
+                                       echo "<em>Add to cart</em>";
+                                    echo"</div>";
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo"</div>";
+}
+  
 
-                    <!-- single work -->
-                    <div class="col-md-4 col-sm-6 graphics ads">
-                        <a href="single-project.html" class="portfolio_item">
-                            <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                            <div class="portfolio_item_hover">
-                                <div class="portfolio-border clearfix">
-                                    <div class="item_info">
-                                        <span></span>
-                                        <em>Add to cart</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end single work -->
+
+}
+  
+
+
+?>
 
                 </div>
                 <!-- end portfolio_container -->

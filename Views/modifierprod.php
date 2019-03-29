@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Upload Menu</title>
+    <title>Foodmin : Modify Menu</title>
 	
 	<!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -49,7 +49,7 @@
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
-                            <li><a href="modifierp1.html">Change Product</a></li>
+                            <li><a href="modifierprod.php">Change Product</a></li>
 
                         </ul>
                     </li>
@@ -136,7 +136,7 @@
                     <div class="col-lg-8 p-0">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Add new product</h1>
+                                <h1>Change product</h1>
                             </div>
                         </div>
                     </div><!-- /# column -->
@@ -166,7 +166,22 @@
                                 </div>
                                 <div class="card-body">
 									<div class="menu-upload-form">
-										<form class="form-horizontal" method="POST" action="ajoutProduit.php" enctype="multipart/form-data">
+                                         <label>Name of the product to change</label><input type="text" name="namep">
+                                        
+
+                                                 <?php
+                                       include "../Entities/produit.php";
+                                        include "../Cores/ProduitC.php";
+                             if (isset($_GET['nom'])){
+                             $prodC=new ProduitC();
+                             $result=$prodC->recupererP($_GET['nom']);
+                             foreach($result as $row){
+        $nom=$row['nom_P'];
+        $type=$row['Type_P'];
+        $desc=$row['Description'];
+        $Prix=$row['Prix'];
+?>
+										<form class="form-horizontal" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload Product</label>
                                             <div class="col-sm-10">
@@ -177,43 +192,54 @@
                                                                     <i class="fa fa-file-archive-o"></i>
                                                                 </span>
                                                     </label>
-                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files">
+                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files" >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Name Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Title" name="nom">
+                                                <input type="text" class="form-control" placeholder="Type your menu Title" name="nom" value="<?php echo $nom; ?>">
                                             </div>
                                         </div>
                                          <div class="form-group">
                                             <label class="col-sm-2 control-label">Type Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Type" name="type">
+                                                <input type="text" class="form-control" placeholder="Type your menu Type" name="type" value="<?php echo $type; ?>">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Details</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description"></textarea>
+                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description" value="<?php echo $desc ;?>"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Price</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="$00.00" name="price">
+                                                <input type="text" class="form-control" placeholder="$00.00" name="price" value="<?php echo $Prix ;?>">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="submit" name="submit">Upload</button>
+                                                <button type="submit" class="submit" name="Change">Upload</button>
                                             </div>
                                         </div>
                                     </form>
+
+                                           <?PHP
+    
+}
+}
+if (isset($_POST['Change'])){
+    $prod=new Produit($_POST['nom'],$_POST['description'],$_POST['type'],$_POST['price'],$_POST['image']);
+    $prodC->modifierp($prod,$_GET['nom']);
+}
+?>
+
 									</div>
                                 </div>
 							</div><!-- /# card -->
