@@ -83,6 +83,7 @@
         <!-- portfolio div -->
         <div class="portfolio-div">
             <div class="portfolio">
+                <a href="index.html" class="retour" style="font-family: 'opensans-light'; text-decoration: none; font-size: 20px; font-style: bold; color: grey;">Go back home</a>
                 <!-- portfolio_filter -->
                  <div class="categories-grid wow fadeInLeft">
                     <nav class="categories text-center">
@@ -105,16 +106,16 @@ $prodC=new ProduitC();
 $liste=$prodC->afficherProduit();
 while ($data=$liste->fetch())
 {
-  if ($data['Type_P'] == 'grill ')
+  if ($data['Type_P'] == 'grill')
      {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
                    echo  "<div href='' class='portfolio_item'>";
-                           echo "<img src=' ../web/".$data['image']."' alt='image'class='img-responsive' style=/>";
+                           echo "<img src=' ../web/".$data['image']."' alt='image'class='img-responsive' style='height:180px;width:180px;border-radius:20px;'/>";
 
 
                            echo "<div style='padding:5px;'>";
                               echo "<h1 style='bottom: 50px;'>".$data['nom_P']."</h1>";
 
-                            echo "<p class='desc' style='position:relative; bottom: 280px; left: 200px;width:250px; height:100px; overflow:hidden; border-top: 2px inset grey;border-bottom: 2px inset grey;'>".$data['Description']."</p>";
+                            echo "<p class='desc' style='position:relative; bottom: 250px; left: 200px;width:250px; max-height:200px; overflow:hidden; border-top: 2px inset grey;border-bottom: 2px inset grey;font: 18px grey 'opensans-light';'>".$data['Description']."</p>";
                             echo "</div>";
 
 
@@ -133,6 +134,7 @@ while ($data=$liste->fetch())
 
 
 }
+
 
 ?>
                 </div>
@@ -166,7 +168,7 @@ while ($data=$liste->fetch())
            
          </div>
 
-         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+         
 
       </div>
 

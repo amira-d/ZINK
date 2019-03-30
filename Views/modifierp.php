@@ -1,5 +1,3 @@
-
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +16,6 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-	
 	<!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
@@ -42,6 +39,8 @@
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
                             <li><a href="modifierp1.html">Change Product</a></li>
+                                                                                    <li><a href="supprimerp.php">Delete Product</a></li>
+
 
                         </ul>
                     </li>
@@ -159,15 +158,14 @@
 									<div class="menu-upload-form">	
 
 
-                                         <?PHP
+ <?PHP
 include "../Entities/produit.php";
 include "../Cores/ProduitC.php";
+
 if (isset($_GET['namep'])){
-		echo "<script>alert(\"dddd vous\")</script>";
 
 	$prodC=new ProduitC();
   $result=$prodC->recupererP($_GET['namep']);
-    	echo "<script>alert(\"thgfd vous\")</script>";
 
 	foreach($result as $row){
 		$nom=$row['nom_P'];
@@ -177,7 +175,7 @@ if (isset($_GET['namep'])){
 		$image=$row['image'];
 ?>
 
-										<form class="form-horizontal" method="POST" enctype="multipart/form-data">
+										<form class="form-horizontal" onsubmit="return test2(event)" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Modify Product</label>
                                             <div class="col-sm-10">
@@ -188,77 +186,78 @@ if (isset($_GET['namep'])){
                                                                     <i class="fa fa-file-archive-o"></i>
                                                                 </span>
                                                     </label>
-                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files" name="image" >
+                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files"   >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Name Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Title" name="nom" >
+                                                <input type="text" class="form-control" placeholder="Type your menu Title" id="nom"name="nom" value="<?php echo $nom ?>" >
                                             </div>
                                         </div>
                                          <div class="form-group">
                                             <label class="col-sm-2 control-label">Type Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Type" name="type" >
+                                                <input type="text" class="form-control" placeholder="Type your menu Type"id="type" name="type" value="<?php echo $type ?>" >
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Details</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description" value="<?php echo $desc ?>"  ></textarea>
+                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" id="description" name="description"   value="<?php echo $desc ?>"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Price</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="$00.00" name="price" >
+                                                <input type="text" class="form-control" placeholder="$00.00" name="price" id="price" value="<?php echo $Prix ?>" >
                                             </div>
                                         </div>
                                           <input type="hidden" name="check" value="<?PHP echo $_GET['namep'];?>" >
 
                                         <div class="form-group">
+                                            <p id="erreur"></p>
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" class="submit" name="ch">Upload</button>
                                             </div>
                                         </div>
                                     </form>
-                                    <?PHP
-
+<?php
                                        }
                                    }
-                                   
-                                       
-
+                                   $msg="";
 if (isset($_POST['ch']))
 {
-    $prod=new Produit($_POST['nom'],$_POST['description'],$_POST['type'],$_POST['price'],$_POST['image']);
-echo "<script> alert(\"one\") </script>";
+   $target= "web/" .basename($_FILES['image']['name']);
+$Images = $_FILES['image']['name'];
+
+    $prod=new Produit($_POST['nom'],$_POST['description'],$_POST['type'],$_POST['price'],$Images);
 $proC= new ProduitC();
     $proC->modifierp($prod,$_POST['check']);
-    echo "<script> alert(\"two\") </script>";
-    if ($_POST['type']== 'boisson')
-    {
-header('Location: ceevee/Menu-five.php');
-    }
-    if ($_POST['type']== 'salade')
-    {
-header('Location: ceevee/Menu-two.php');
-    }
-    if ($_POST['type']== 'grill')
-    {
-header('Location: ceevee/Menu-three.php');
-    }
-    if ($_POST['type']== 'burger')
-    {
-header('Location: ceevee/Menu-four.php');
-    }
+if (move_uploaded_file($_FILES['image']['tmp_name'], $target ))
+{
+    $msg = "DONE";
 }
+    echo $_POST['check'];
+    if ($_POST['type'] == 'boisson')
+    {echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/ceevee/Menu-five.php' />";}
+ else if ($_POST['type'] == 'salade')
+    {echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/ceevee/Menu-two.php' />";}
+ else if ($_POST['type'] == 'burger')
+    {echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/ceevee/Menu-four.php' />";}
+ else if ($_POST['type'] == 'grill')
+    {echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/ceevee/Menu-three.php' />";}
 else
-{echo "<script> alert(\"fgd vous\") </script>";}
+
+{echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/index-2.html' />";
+
+}
+
+//header('Location: ceevee/Menu-three.php');
+}
 ?>
 </div>
                                 </div>
@@ -283,3 +282,46 @@ else
 <!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
 
+<script type="text/javascript">
+   function test2(event)
+{   
+
+var nom=document.getElementById("nom");
+var type=document.getElementById("type");
+var description=document.getElementById("description");
+var price=document.getElementById("price");
+var erreur;
+if (!nom.value)
+{
+    erreur="nom  empty "
+}
+if(!type.value)
+{
+    erreur="type empty";
+}
+if(!description.value)
+{
+    erreur="description empty";
+}
+if(!price.value)
+{
+    erreur="price empty";
+}
+
+if (erreur)
+{   event.preventDefault();
+alert("vos champs sont vides ");
+document.getElementById("erreur").innerHTML = erreur;
+
+}
+
+
+
+
+
+
+
+
+
+}
+</script>

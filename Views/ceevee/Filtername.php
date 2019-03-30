@@ -57,8 +57,8 @@
 	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
          <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="index.html">Home</a></li>
-            <li><a class="smoothscroll" href="#portfolio">Works</a></li>
+            <li ><a class="smoothscroll" href="index.html">Home</a></li>
+            <li><a class="current"class="smoothscroll" href="#portfolio">Works</a></li>
          </ul> <!-- end #nav -->
 
       </nav> <!-- end #nav-wrap -->
@@ -83,21 +83,35 @@
         <!-- portfolio div -->
         <div class="portfolio-div">
             <div class="portfolio">
-                <a href="index.html" class="retour"style="font-family: 'opensans-light'; text-decoration: none; font-size: 20px; font-style: bold; color: grey;">Go back home</a>
                 <!-- portfolio_filter -->
+                <a href="index.html" class="retour" style="font-family: 'opensans-light'; text-decoration: none; font-size: 20px; font-style: bold; color: grey;">Go back home</a>
                  <div class="categories-grid wow fadeInLeft">
                     <nav class="categories text-center">
                         <ul class="portfolio_filter">
-                             <li><a href="Menu.php" data-filter="*">All</a></li>
+                             <li><a href="Menu.php" class="active"data-filter="*">All</a></li>
                             <li><a href="Menu-two.php"c data-filter=".photography">Soupes.Salade<a></li>
                             <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
                             <li><a href="Menu-four.php"  data-filter=".graphics">Burgers</a></li>
-                            <li><a href="Menu-five.php"class="active" data-filter=".ads" >Boissons</a></li>
+                            <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
                         </ul>
                     </nav>
                 </div>
                 <!-- portfolio_filter -->
-    
+                <div class="filtering">
+                  Filter by :
+                  <ul>
+                    <li>
+                      price
+                    </li>
+                    <li>
+                      name
+                    </li>
+                  
+                  </ul>
+                </div>
+
+                <!-- portfolio_container -->
+                <div class="block">
   <?php
   include "C:\wamp64\www\Cores\ProduitC.php";
 
@@ -105,9 +119,7 @@ $prodC=new ProduitC();
 $liste=$prodC->afficherProduit();
 while ($data=$liste->fetch())
 {
-     if ($data['Type_P'] == 'boisson')
-
-    {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
+     {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
                    echo  "<div href='' class='portfolio_item'>";
                            echo "<img src=' ../web/".$data['image']."' alt='image'class='img-responsive' style='height:180px;width:180px;border-radius:20px;'/>";
 
@@ -135,8 +147,16 @@ while ($data=$liste->fetch())
 
 }
 
+
 ?>
+</div>
+               
+
+                </div>
                 <!-- end portfolio_container -->
+                <div class="paginationskills">
+                  <div id="previous page "></div>
+                </div>
             </div>
             <!-- portfolio -->
         </div>
@@ -144,19 +164,25 @@ while ($data=$liste->fetch())
     </div>
     <!-- end main container -->
   </section>
-    
+     <!-- <div class="row">
+
+         <div class="twelve columns collapsed">
+
+
+
+
    
 
 
    <!-- footer
    ================================================== -->
-   <footer>
+  <footer class="footer" >
 
       <div class="row">
 
          <div class="twelve columns">
 
-            <ul class="social-links">
+            <ul class="social-links" style="">
                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -169,7 +195,7 @@ while ($data=$liste->fetch())
            
          </div>
 
-         
+        
 
       </div>
 
@@ -193,7 +219,11 @@ while ($data=$liste->fetch())
     <script src="js1/bootstrap.min.js"></script>
     <script src="js1/menu.js"></script>
     <script src="js1/animated-headline.js"></script>
-    
+    <script type="text/javascript" src="js/Pagination.js"></script>
+      
+
+
+   
 </body>
 
 </html>

@@ -47,9 +47,9 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-   margin: 0;
+ header, hgroup, menu, nav, section, summary,
+time, mark, audio, video,footer {
+   margin: 20;
    padding: 0;
    border: 0;
    outline: 0;
@@ -59,7 +59,11 @@ time, mark, audio, video {
 }
 
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
+header,hgroup,menu,nav,section {
+   display: block;
+}
+footer
+{
    display: block;
 }
 
@@ -596,6 +600,7 @@ input[type="checkbox"] { display: inline; }
    width: 96%;
    max-width: 1020px;
    margin: 0 auto;
+   
 }
 /* fixed width for IE8 */
 .ie .row { width: 1000px ; }

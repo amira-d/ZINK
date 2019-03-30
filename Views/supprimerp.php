@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,13 +28,8 @@
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
 <body>
-
-    <body>
-
-
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+	<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -49,7 +41,9 @@
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
-                            <li><a href="modifierprod.php">Change Product</a></li>
+                            <li><a href="modifierp1.html">Change Product</a></li>
+                                                                                    <li><a href="supprimerp.php">Delete Product</a></li>
+
 
                         </ul>
                     </li>
@@ -128,15 +122,14 @@
         </div>
     </div>
 </div>
-
-    <div class="content-wrap">
+ <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 p-0">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Change product</h1>
+                                <h1>Delete product</h1>
                             </div>
                         </div>
                     </div><!-- /# column -->
@@ -145,7 +138,7 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
-                                    <li class="active">Menu Upload</li>
+                                    <li class="active">Menu Delete</li>
                                 </ol>
                             </div>
                         </div>
@@ -156,7 +149,7 @@
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Menu Upload</h4>
+                                    <h4>Delete</h4>
 									<div class="card-header-right-icon">
                                         <ul>
                                             <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
@@ -165,82 +158,25 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-									<div class="menu-upload-form">
-                                         <label>Name of the product to change</label><input type="text" name="namep">
-                                        
+									<div class="menu-upload-form">	
+										<form class="form-horizontal" onsubmit="return test2(event)" method="POST" enctype="multipart/form-data">
 
-                                                 <?php
-                                       include "../Entities/produit.php";
-                                        include "../Cores/ProduitC.php";
-                             if (isset($_GET['nom'])){
-                             $prodC=new ProduitC();
-                             $result=$prodC->recupererP($_GET['nom']);
-                             foreach($result as $row){
-        $nom=$row['nom_P'];
-        $type=$row['Type_P'];
-        $desc=$row['Description'];
-        $Prix=$row['Prix'];
-?>
-										<form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Upload Product</label>
-                                            <div class="col-sm-10">
-                                                <div class="form-control file-input dark-browse-input-box">
-                                                    <label for="inputFile-2">
-                                                                <span class="btn btn-danger dark-input-button">
-                                                                    <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value"  name="image">
-                                                                    <i class="fa fa-file-archive-o"></i>
-                                                                </span>
-                                                    </label>
-                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Name Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Title" name="nom" value="<?php echo $nom; ?>">
-                                            </div>
-                                        </div>
-                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Type Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your menu Type" name="type" value="<?php echo $type; ?>">
-                                            </div>
-                                        </div>
+                                         <label>Name of the product to delete</label><input type="text" 
+                                         name="namep" id="nom">
+                                         <p id="erreur">  </p>
+                                         <button type="submit" ></button>
 
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Product Details</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your menu Details" name="description" value="<?php echo $desc ;?>"></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Product Price</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="$00.00" name="price" value="<?php echo $Prix ;?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="submit" name="Change">Upload</button>
-                                            </div>
-                                        </div>
                                     </form>
+                                    <?PHP
+include "../Cores/ProduitC.php";
+$employeC=new ProduitC();
+if (isset($_POST["namep"])){
+    $employeC->supprimerp($_POST["namep"]);
+}
 
-                                           <?PHP
-    
-}
-}
-if (isset($_POST['Change'])){
-    $prod=new Produit($_POST['nom'],$_POST['description'],$_POST['type'],$_POST['price'],$_POST['image']);
-    $prodC->modifierp($prod,$_GET['nom']);
-}
 ?>
-
-									</div>
+                                   
+</div>
                                 </div>
 							</div><!-- /# card -->
 						</div><!-- /# column -->
@@ -262,3 +198,34 @@ if (isset($_POST['Change'])){
 
 <!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
+
+<script type="text/javascript">
+   function test2(event)
+{   
+
+var nom=document.getElementById("nom");
+
+var erreur;
+if (!nom.value)
+{
+    erreur="nom  empty "
+}
+
+
+if (erreur)
+{   event.preventDefault();
+alert("vos champs sont vides ");
+document.getElementById("erreur").innerHTML = erreur;
+
+}
+
+
+
+
+
+
+
+
+
+}
+</script>
