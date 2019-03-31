@@ -42,6 +42,8 @@
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
                             <li><a href="modifierp1.html">Change Product</a></li>
+                                                                                    <li><a href="supprimerp.php">Delete Product</a></li>
+
 
                         </ul>
                     </li>
@@ -157,10 +159,11 @@
                                 </div>
                                 <div class="card-body">
 									<div class="menu-upload-form">	
-										<form class="form-horizontal" method="GET" action="modifierp.php" enctype="multipart/form-data">
+										<form class="form-horizontal" method="GET" action="modifierp.php" onsubmit="return test2(event)"enctype="multipart/form-data">
 
-                                         <label>Name of the product to change</label><input type="text" 
+                                         <label>Name of the product to change</label><input type="text" id="nom"
                                          name="namep">
+                                         <p id="erreur"> </p>
                                          <button type="submit" ></button>
 
                                     </form>
@@ -188,4 +191,32 @@
 <!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
 
-</body>
+<script type="text/javascript">
+   function test2(event)
+{   
+
+var nom=document.getElementById("nom");
+
+if (!nom.value)
+{
+    erreur="nom  empty "
+}
+
+
+if (erreur)
+{   event.preventDefault();
+alert("vos champs sont vides ");
+document.getElementById("erreur").innerHTML = erreur;
+
+}
+
+
+
+
+
+
+
+
+
+}
+</script>

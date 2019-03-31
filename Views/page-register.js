@@ -1,12 +1,13 @@
-document.getElementById("inscription").addEventListener("submit",function(e)
+
+function test()
 {
-	e.preventDefault();
 var email=document.getElementById("Email");
 var Pwd=document.getElementById("PWD");
 var user= document.getElementById("userName")
-var erreur;
+var erreur='';
 if (!email.value)
 {
+
 	erreur="Email password empty "
 }
 if(!Pwd.value)
@@ -16,9 +17,12 @@ if(!Pwd.value)
 if ((!Pwd.value)&&(!email.value))
 {
 	erreur="Please fill your email and password";
-}
-if (erreur)
+}if (erreur)
 {
+
 document.getElementById("erreur").innerHTML = erreur;
 }
-})
+}
+
+
+ 

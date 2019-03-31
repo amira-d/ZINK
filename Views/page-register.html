@@ -16,7 +16,7 @@
     <!-- Retina iPad Touch Icon-->
     <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
     <!-- Retina iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <link rel="apple-touch-icon" sizes="114x114"  href="http://placehold.it/114.png/000/fff">
     <!-- Standard iPad Touch Icon--> 
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
@@ -42,7 +42,7 @@
 						</div>
 						<div class="login-form">
 							<h4>Register to Administration</h4>
-							<form  action="ajoutAdmin.php" method="POST" id="inscription">
+							<form  action="ajoutAdmin.php" onsubmit="return test(event)" method="POST" id="inscription">
 								<div class="form-group">
 									<label>User Name</label>
 									<input type="text" class="form-control" placeholder="User Name" name="username"
@@ -55,34 +55,63 @@
 								<div class="form-group">
 									<label>Password</label>
 									<input type="password" class="form-control" placeholder="Password" name = "pwd" id="PWD">
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox"> Agree the terms and policy 
-									</label>									
-								</div>
+								
+							
 								<br/>
-								<p id="erreur"></p>
-								<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
-								<div class="social-login-content">
-									<div class="social-button">
-										<button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i>Register with facebook</button>
-									</div>
-								</div>
-								<div class="register-link m-t-15 text-center">
-									<p>Already have account ? <a href="page-login.html"> Sign in</a></p>
-								</div>
-							</form>
+								<p id="erreur"></p></div>
+								<button type="submit"  class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>									
+								<div>
+								<p>Already have account ? <a href="page-login.html"> Sign in</a></p>
+							         </div>
+                                   
+
+                                   </form>
+								
+								</div>	
+
+							
+						
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-<script type="text/javascript" src="register.js"></script>
-<script type="text/javascript" src="page-register.js"></script>
 </body>
 
 
 <!-- Mirrored from zebratheme.com/html/fooadmin/page-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:15:18 GMT -->
 </html>
+<script type="text/javascript">
+	
+
+
+
+function test(event)
+{
+var email=document.getElementById("Email");
+var Pwd=document.getElementById("PWD");
+var user= document.getElementById("userName")
+var erreur='';
+if (!email.value)
+{
+
+	erreur="Email password empty "
+}
+if(!Pwd.value)
+{
+	erreur="password empty";
+}
+if ((!Pwd.value)&&(!email.value))
+{
+	erreur="Please fill your email and password";
+}if (erreur)
+{
+	event.preventDefault();
+
+document.getElementById("erreur").innerHTML = erreur;
+}
+}
+
+
+ 
+</script>

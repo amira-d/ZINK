@@ -13,13 +13,20 @@ class AdminC {
         $email=$admin->getEmail();
         $pwd=$admin->getPWD();
         
-		$req->bindValue(':userName',$userName);
-		$req->bindValue(':Email',$Email);
-		$req->bindValue(':password',$PWD);
+		$req->bindValue(':userName',$username);
+		$req->bindValue(':Email',$email);
+		$req->bindValue(':PWD',$pwd);
 		
 		
 		
-            $req->execute();
+            if($req->execute())
+            {
+            	return true;
+            }
+            else
+            {
+            	return false;
+            }
            
         }
         catch (Exception $e){
