@@ -155,6 +155,50 @@
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
+                                    <h4>Announcement delete</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="menu-upload-form">
+                                        <?PHP
+
+                                                include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
+                                                $ann1C=new AnnonceC();
+                                                $listeannonces=$ann1C->afficherAnnonce();
+
+                                                //var_dump($listeannonces->fetchAll());
+
+
+                                                while ($data=$listeannonces->fetch())
+                                                {
+                                                     {echo "<div class='col-md-4 col-sm-6 graphics ads'>";
+                                                                           echo "<img src='web/".$data['image']."' alt='image' class='img-responsive'/>";
+                                                                           echo "<p>".$data['titre']."</p>";
+                                                                            echo "<p>".$data['description']."</p>";
+                                                                            echo "<div class='portfolio_item_hover'>";
+                                                                              echo  "<div class='portfolio-border clearfix'>";
+                                                                                    echo "<div class='item_info'>";
+                                                                                       echo "<p>".$data['type']." </p>";
+                                                                                       echo"<button class=submit type=submit name=submit<a class=smoothscroll href=#news>Update</a> </button>";
+                                                                                    echo"</div>";
+                                                                                echo "</div>";
+                                                                            echo "</div>";
+                                                                    echo"</div>";}
+                                                }
+  
+
+
+                                                    ?>
+                                    </div>
+                                </div>
+                            </div><!-- /# card -->
+                        </div><!-- /# column -->
+                    </div><!-- /# row -->
+                </div><!-- /# main content -->
+                <div class="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card alert">
+                                <div class="card-header">
                                     <h4>Announcement Upload</h4>
 									<div class="card-header-right-icon">
                                         <ul>
@@ -218,6 +262,22 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card alert">
+                                <?PHP
+
+$db=config::getConnexion();
+$titre = $_GET['titre'];
+$emps=$db->query("SELECT * FROM  a_produit WHERE titre=$titre");
+           while ($row = $emps->fetch()) {
+            $submit= $row['submit'];
+            $titre = $row['titre'];
+            $type = $row['type'];
+            $description = $row['description'];
+   
+            
+        }
+?>
+<section id="news">  
+
                                 <div class="card-header">
                                     <h4>Announcement Update</h4>
                                     <div class="card-header-right-icon">
@@ -276,65 +336,21 @@
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="submit" name="submit">Update</button>
+                                                <input type="submit" class="submit" name="submit" value="update">
+                                                <?php     header("Refresh: 1.25 ;url=annonces-produit.php"); ?>
                                             </div>
                                         </div>
                                     </form>
+                                 
                                     </div>
                                 </div>
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
                 </div><!-- /# main content -->
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card alert">
-                                <div class="card-header">
-                                    <h4>Announcement delete</h4>
-                                    <div class="card-header-right-icon">
-                                        <ul>
-                                            <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
-                                            <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="menu-upload-form">
-                                        <?PHP
+                                    </section>
 
-                                                include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-                                                $ann1C=new AnnonceC();
-                                                $listeannonces=$ann1C->afficherAnnonce();
-
-                                                //var_dump($listeannonces->fetchAll());
-
-
-                                                while ($data=$listeannonces->fetch())
-                                                {
-                                                     {echo "<div class='col-md-4 col-sm-6 graphics ads'>";
-                                                                           echo "<img src='/web".$data['image']."' alt='image' class='img-responsive'/>";
-                                                                           echo "<p>".$data['titre']."</p>";
-                                                                            echo "<p>".$data['description']."</p>";
-                                                                            echo "<div class='portfolio_item_hover'>";
-                                                                              echo  "<div class='portfolio-border clearfix'>";
-                                                                                    echo "<div class='item_info'>";
-                                                                                       echo "<p>".$data['type']." </p>";
-                                                                                    echo"</div>";
-                                                                                echo "</div>";
-                                                                            echo "</div>";
-                                                                    echo"</div>";}
-                                                }
-  
-
-
-                                                    ?>
-                                    </div>
-                                </div>
-                            </div><!-- /# card -->
-                        </div><!-- /# column -->
-                    </div><!-- /# row -->
-                </div><!-- /# main content -->
+                
             </div><!-- /# container-fluid -->
         </div><!-- /# main -->
     </div><!-- /# content wrap -->

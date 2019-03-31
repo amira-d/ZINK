@@ -29,7 +29,7 @@ class AnnonceC {
 	
 	function afficherAnnonce(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * From a_produit";
+		$sql="SElECT * From a_produit Order by id Desc";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

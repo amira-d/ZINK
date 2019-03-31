@@ -22,6 +22,13 @@
    <link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/unix.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -132,10 +139,10 @@
 
 
 
+ 
 
 
-
-
+<div class="menu-upload-form">
 <?PHP
 
 include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
@@ -164,6 +171,7 @@ while ($data=$listeannonces->fetch())
 
 
 ?>
+</div>
 <section id="contact">
 
          <div class="row section-head">
