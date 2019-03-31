@@ -9,7 +9,7 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 	if (empty($_POST['submit']) and empty($_POST['titre']) and empty($_POST['description']) and empty($_POST['type']))
      {	
      	echo "<script>alert(\"Veuillez vérifier les champs ! Tous les champs doivent être remplis . \")</script>";
-	header("Refresh: 2 ;url=annonces-produit.html");
+	header("Refresh: 2 ;url=annonces-produit.php");
 			
      }
 
@@ -30,8 +30,8 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 			$annC=new AnnonceC();
 			echo "<script>alert(\"Votre annonce est en cours de traitement \")</script>";
 			$annC->ajouterAnnonce($ann);
-	        header("Refresh: 1 ;url=annonces-produit.html");
-			echo " <script>if (confirm(\"Annonce enregistrée avec succès ! Voulez vous voir un aperçu ?\")) { window.location.replace('ZINK_FI/Z-news.php')  ;  }  else { window.location.replace('annonces-produit.html')  ; } </script>";
+	        header("Refresh: 1 ;url=annonces-produit.php");
+			echo " <script>if (confirm(\"Annonce enregistrée avec succès ! Voulez vous voir un aperçu ?\")) { window.location.replace('ZINK_FI/Z-news.php')  ;  }  else { window.location.replace('annonces-produit.php')  ; } </script>";
 
 		    
 	 }
@@ -39,7 +39,7 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 else
 {
 	echo "<script>alert(\"Veuillez vérifier les champs !\")</script>";
-    header("Refresh: 1.25 ;url=annonces-produit.html");
+    header("Refresh: 1.25 ;url=annonces-produit.php");
 }
 
 

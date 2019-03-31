@@ -49,7 +49,7 @@
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
-                                                        <li><a href="modifierp1.html">Change Product</a></li>
+                            <li><a href="modifierp1.html">Change Product</a></li>
 
                             <li><a href="annonces-produit.html">Annonces produit</a></li>
                         </ul>
@@ -301,7 +301,34 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="menu-upload-form">
-                                        
+                                        <?PHP
+
+                                                include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
+                                                $ann1C=new AnnonceC();
+                                                $listeannonces=$ann1C->afficherAnnonce();
+
+                                                //var_dump($listeannonces->fetchAll());
+
+
+                                                while ($data=$listeannonces->fetch())
+                                                {
+                                                     {echo "<div class='col-md-4 col-sm-6 graphics ads'>";
+                                                                           echo "<img src='/web".$data['image']."' alt='image' class='img-responsive'/>";
+                                                                           echo "<p>".$data['titre']."</p>";
+                                                                            echo "<p>".$data['description']."</p>";
+                                                                            echo "<div class='portfolio_item_hover'>";
+                                                                              echo  "<div class='portfolio-border clearfix'>";
+                                                                                    echo "<div class='item_info'>";
+                                                                                       echo "<p>".$data['type']." </p>";
+                                                                                    echo"</div>";
+                                                                                echo "</div>";
+                                                                            echo "</div>";
+                                                                    echo"</div>";}
+                                                }
+  
+
+
+                                                    ?>
                                     </div>
                                 </div>
                             </div><!-- /# card -->

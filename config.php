@@ -5,7 +5,7 @@
     public static function getConnexion() {
       if (!isset(self::$instance)) {
     try{
-        self::$instance = new PDO('mysql:host=localhost;dbname=projet-web', 'root', '');
+        self::$instance = new PDO('mysql:host=localhost;dbname=projetweb', 'root', 'amira1999');
     self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }catch(Exception $e){
             die('Erreur: '.$e->getMessage());

@@ -59,7 +59,7 @@
 
   <!-- Header
    ================================================== -->
-   <header id="home" style="height: 211px;">
+   <header id="home" style="height:100px;">
 
        <!-- Start cSlider -->
             <div id="da-slider" class="da-slider">
@@ -100,7 +100,7 @@
                             <img src="images/Slider03.png" width="320" alt="image03">
                         </div>
                     </div>
-                    <!-- Start third slide -->
+                    <!-- Start third slide -->  
                     <!-- Start cSlide navigation arrows -->
                     <div class="da-arrows">
                         <span class="da-arrows-prev"></span>
