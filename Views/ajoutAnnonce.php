@@ -15,10 +15,9 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 
      else
      {
-	        $target= "../zink" .basename($_FILES['image']['name']);
-			$image = $_FILES['image']['name'];
-
-					if (move_uploaded_file($_FILES['image']['tmp_name'], $target ))
+	        $target="../zink".basename($_FILES['image']['name']);
+			$image =$_FILES['image']['name'];
+					if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
 						{
 							$msg= "IMAGE LOADED SUCCESSFULLY" ; 
 						}
