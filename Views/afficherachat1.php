@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:00 GMT -->
-<head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Order List</title>
+    <title>Foodmin : Calendar</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -25,19 +19,14 @@
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/calendar/fullcalendar.css" rel="stylesheet" />
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-</head>
 
-<body>
-
-    <body>
-
-
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -46,13 +35,9 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="../ceevee/index.html">Resto</a></li>
-                            <li><a href="restaurant-favourite-list.html">Panier</a></li>
+                            <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
-                                                        <li><a href="modifierp1.html">Change Product</a></li>
-                                                                                    <li><a href="supprimerp.php">Delete Product</a></li>
-
-
                         </ul>
                     </li>
                     
@@ -74,12 +59,9 @@
                 </ul>
             </div>
         </div>
-    </div><!-- /# sidebar -->
+    </div>
 
-
-
-
-    <div class="header">
+<div class="header">
         <div class="pull-left">
             <div class="logo"><a href="index-2.html"><span>Foodmin</span></a></div>
             <div class="hamburger sidebar-toggle">
@@ -129,91 +111,128 @@
             </ul>
         </div>
     </div>
-</div>
-    
-    <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid">
+                                        <tr>
+                                            <?PHP
+include "../Core/AchatA.php";
+$AchatA=new achatA();
+$listeachat=$AchatA->afficherachats();
+
+//var_dump($listeingredients->fetchAll());
+?>
+<!--<table border="1">
+<tr>
+<td>id</td>
+<td>barcode</td>
+<td>quantity</td>
+<td>category</td>
+<td>type</td>
+<td>supprimer</td>
+<td>modifier</td>
+</tr>-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+   <!-- <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"> -->
+    <!--<link rel="stylesheet" href="themify-icons.css">
+    <link rel="stylesheet" href="flag-icon.min.css">
+    <link rel="stylesheet" href="cs-skin-elastic.css">
+    <link rel="stylesheet" href="dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="buttons.bootstrap4.min.css">-->
+
+    <link rel="stylesheet" href="style.css">
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Data table</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
                 <div class="row">
-                    <div class="col-lg-8 p-0">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Dashboard 1</h1>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Data Table</strong>
                             </div>
-                        </div>
-                    </div><!-- /# column -->
-                    <div class="col-lg-4 p-0">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <ol class="breadcrumb text-right">
-                                    <li><a href="#">Dashboard</a></li>
-                                    <li class="active">Blank</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div><!-- /# column -->
-                </div><!-- /# row -->
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card alert">
-                                <div class="order-list-item">
-                                    <table class="table">
-                                        <thead>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
                                         <tr>
-                                            
-                                            <th>refence</th>
+                                            <th>Reference</th>
                                             <th>Prix</th>
-                                            <th>nombres ae produits</th>
-                                            
+                                            <th>Nombre des produits</th>
+                                            <th>supprimer</th>
+                                            <th>modifier</th>
+                                            <th>vider panier</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
+                                    </thead>
+                                    <tbody>
                                         <tr>
-                                            
-                                            <td>6677</td>
-                                            <td><button type="button" class="btn btn-success btn-rounded">$29</button></td>
-                                            <td><button type="button" class="btn btn-primary btn-rounded">2</button></td>
+<?PHP
+foreach($listeachat as $row){
+  ?>
+  <tr>
+  <td><?PHP echo $row['ref']; ?></td>
+  <td><?PHP echo $row['prix']; ?></td>
+  <td><?PHP echo $row['nbr']; ?></td>
+  <td><form method="POST" action="supprimerachat1.php">
+  <input type="submit" name="supprimer" value="supprimer">
+  <input type="hidden" value="<?PHP echo $row['ref']; ?>" name="ref">
+  </form>
+  </td>
+  <td><a href="modifierachat1.php?ref=<?PHP echo $row['ref']; ?>">
+  Modifier</a></td>
+  </form>
+  </td>
+  <td><form method="POST" action="rachat1.php">
+  <input type="submit" name="vider" value="vider">
 
-                                        </tr>
+  <?PHP
+}
+?>
+</tr>
+                                      
 
-                                        <tr>
-                                            
-                                            <td>7788</td>
-                                            <td><button type="button" class="btn btn-success btn-rounded">$25</button></td>
-                                            <td><button type="button" class="btn btn-primary btn-rounded">3</button></td>
-                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <tr>
-                                            
-                                            <td>8899</td>
-                                            <td><button type="button" class="btn btn-success btn-rounded">$29</button></td>
-                                            <td><button type="button" class="btn btn-primary btn-rounded">2</button></td>
-                                        </tr>
 
-                                        
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div><!-- /# card -->
-                        </div><!-- /# column -->
-                    </div><!-- /# row -->
-                </div><!-- /# main content -->
-            </div><!-- /# container-fluid -->
-        </div><!-- /# main -->
-    </div><!-- /# content wrap -->
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
 
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+
+    </div> 
+    </table>
+</body>
+                  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
-    <script src="assets/js/lib/rating1/jRate.min.js"></script><!-- scripit init-->
-    <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
-    <script src="assets/js/scripts.js"></script><!-- scripit init-->
-</body>
+    
+    <script src="assets/js/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="assets/js/lib/moment/moment.js"></script>
+    <script src="assets/js/lib/calendar/fullcalendar.min.js"></script>
+    <script src="assets/js/lib/calendar/fullcalendar-init.js"></script>  
 
-
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:06 GMT -->
-</html>
+</HTMl>

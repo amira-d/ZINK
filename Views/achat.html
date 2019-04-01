@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-FR">
+
+<head>
+    <meta charset="utf-8">
+<title> PANIER</title>
+<link rel="stylesheet"  href="ZINK_FI/css/layout.css">
+<link rel="stylesheet" href="ZINK_FI/css/media-queries.css">
+<link rel="stylesheet" href="ZINK_FI/css/default.css">
+
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/unix.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <form method="POST" action="ajoutachat.php" id="connexion">
+    <h1>**PANIER** </h1>
+    <div class="col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <strong>panier</strong> 
+                                                    </div>
+                                                    <div class="card-body card-block">
+                                                        <form action="ajoutachat.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                                                 <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">ref</label></div>
+                                                                <div class="col-12 col-md-9"><input type="ref" id="ref" name="ref" placeholder="ref" class="form-control" required><small class="form-text text-muted">referenceeeeeee </small><span id="missing_reference"></span></div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                
+                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">prix</label></div>
+                                                                <div class="col-12 col-md-9"><input type="prix" id="prix" name="prix" placeholder="prix" class="form-control" required><small class="form-text text-muted">prixxxxxxxxxx</small><span id="missing_prix"></span></div>
+                                                            </div>
+                                                             
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">nombre</label></div>
+                                                                <div class="col-12 col-md-9"><input type="nbr" id="nbr" name="nbr" placeholder="nbr" class="form-control" required><small class="help-block form-text">nombreeeeeeeeeee</small><span id="missing_nombre"></span></div>
+
+                                                            </div>
+                                                            
+            
+                                                          
+                                                                 
+
+                                                        </form>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <button type="submit" id="ajouter" class="btn btn-primary btn-sm" value="ajouter" onclick="myFunction()" >
+                                                            <i class="fa fa-dot-circle-o"></i> Submit
+                        
+                                                        </button>
+                                                        <button type="reset" id="reset" class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-ban"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+    
+  <script type="text/javascript" src="connexion.js">
+      
+
+  </script>
+  
+</body>
+
+
+
+</html>
+
+
