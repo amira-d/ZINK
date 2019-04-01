@@ -143,6 +143,7 @@
 
 
 <div class="menu-upload-form">
+
 <?PHP
 
 include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
@@ -171,6 +172,7 @@ while ($data=$listeannonces->fetch())
 
 
 ?>
+
 </div>
 <section id="contact">
 

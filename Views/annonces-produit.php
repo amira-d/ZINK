@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,8 +32,6 @@
 
 <body>
 
-    <body>
-
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
@@ -52,11 +48,7 @@
 
                             <li><a href="modifierp1.html">Change Product</a></li>
 
-                                                                                                                                              <li><a href="supprimerp.php">Delete Product</a></li>
-                                                                                  
-
-
-                            <li><a href="annonces-produit.html">Annonces produit</a></li>
+                         <li><a href="annonces-produit.html">Annonces produit</a></li>
                         </ul>
                     </li>
                     
@@ -131,7 +123,7 @@
             </ul>
         </div>
     </div>
-</div>
+
 
     <div class="content-wrap">
         <div class="main">
@@ -160,10 +152,10 @@
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Announcement delete</h4>
+                                    <h4>Announcements</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="menu-upload-form">
+                                   
                                         <?PHP
 
                                                 include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
@@ -183,17 +175,19 @@
                                                                               echo  "<div class='portfolio-border clearfix'>";
                                                                                     echo "<div class='item_info'>";
                                                                                        echo "<p>".$data['type']." </p>";
-                                                                                       echo"<button class=submit type=submit name=submit<a class=smoothscroll href=#news>Update</a> </button>";
+                                                                                       echo"<a href=majAnnonce.php > Update </a>";
+                                                                                        echo"<a href=majAnnonce.php > Delete </a>";
+
                                                                                     echo"</div>";
                                                                                 echo "</div>";
                                                                             echo "</div>";
                                                                     echo"</div>";}
-                                                }
+                                                            }
   
 
 
                                                     ?>
-                                    </div>
+                                   
                                 </div>
                             </div><!-- /# card -->
                         </div><!-- /# column -->
@@ -263,102 +257,12 @@
 						</div><!-- /# column -->
 					</div><!-- /# row -->
 				</div><!-- /# main content -->
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card alert">
-                                <?PHP
-
-$db=config::getConnexion();
-$titre = $_GET['titre'];
-$emps=$db->query("SELECT * FROM  a_produit WHERE titre=$titre");
-           while ($row = $emps->fetch()) {
-            $submit= $row['submit'];
-            $titre = $row['titre'];
-            $type = $row['type'];
-            $description = $row['description'];
-   
-            
-        }
-?>
-<section id="news">  
-
-                                <div class="card-header">
-                                    <h4>Announcement Update</h4>
-                                    <div class="card-header-right-icon">
-                                        <ul>
-                                            <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
-                                            <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="menu-upload-form">
-                                        <form class="form-horizontal" method="POST" action="majAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous modifier cette annonce ?')">
-                                        <div class="form-group">
-                                             <div class="form-group">
-                                            <label class="col-sm-2 control-label">Search announcement</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your announcement Title" name="titre">
-                                            </div>
-                                        </div>
-                                            <label class="col-sm-2 control-label">Update announcement</label>
-                                            <div class="col-sm-10">
-                                                  
-                                                <div class="form-control file-input dark-browse-input-box">
-
-                                                    <label for="inputFile-2">
-                                                                <span class="btn btn-danger dark-input-button">
-                                                                    <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value"  name="image">
-                                                                    <i class="fa fa-file-archive-o"></i>
-                                                                </span>
-                                                    </label>
-                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Name Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your announcement Title" name="titre">
-                                            </div>
-                                        </div>
-                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Type Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your announcement Type" name="type">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Product Details</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your announcement Details" name="description"></textarea>
-                                            </div>
-                                        </div>
-
-                                
-
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <input type="submit" class="submit" name="submit" value="update">
-                                                <?php     header("Refresh: 1.25 ;url=annonces-produit.php"); ?>
-                                            </div>
-                                        </div>
-                                    </form>
-                                 
-                                    </div>
-                                </div>
-                            </div><!-- /# card -->
-                        </div><!-- /# column -->
-                    </div><!-- /# row -->
-                </div><!-- /# main content -->
-                                    </section>
+                
 
                 
             </div><!-- /# container-fluid -->
         </div><!-- /# main -->
-    </div><!-- /# content wrap -->
+    </div><!-- /# content wrap --=
 
     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
@@ -367,6 +271,7 @@ $emps=$db->query("SELECT * FROM  a_produit WHERE titre=$titre");
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
+
 </body>
 
 
