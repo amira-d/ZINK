@@ -1,34 +1,38 @@
 <?PHP
 include "../Entities/admin.php";
 include "../Cores/AdminC.php";
-	echo "<script>alert(\"Connectez vous\")</script>";
-
+	
 if (isset($_POST['username']) and isset($_POST['email']) and isset($_POST['pwd']))
 
 {
-		echo "<script>alert(\"Connectez vous\")</script>";
 
 	if (!empty($_POST['username']) and !empty($_POST['email']) and !empty($_POST['pwd']))
-{$admin1=new Admin($_POST['username'],$_POST['email'],$_POST['pwd']);
+    {
+	$admin1=new Admin($_POST['username'],$_POST['email'],$_POST['pwd']);
 
-$admin1C=new AdminC();
+    $admin1C=new AdminC();
 
-$admin1C->ajouterAdmin($admin1);
-	echo "<script>alert(\"Connectez vous\")</script>";
+    if($admin1C->ajouterAdmin($admin1))
+	{	
+								header('Location: page-login.html'); 
 
-header('Location: page-login.html'); }
+
+echo "<script>alert(\"Connectez vous\")</script>";
+
+}
+
+    
+
+ 
 else
 {
+						header('Location: page-register.html'); 
+
 		echo "<script>alert(\"Les champs sont vides\")</script>";
-		header('Location: page-register.html'); }
-
-
-
-
-	
+}
+}
 }
 else{
-	echo "vérifier les champs";
 	echo "<script>alert(\"verifier les champs\")</script>";
 }
 //*/

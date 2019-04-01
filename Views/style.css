@@ -1645,13 +1645,13 @@ header .form-inline {
 .custom-tab .nav-tabs > a.active,
 .custom-tab .nav-tabs > li.active > a:hover {
   border-color: transparent transparent;
-  color: #ff2e44;
+  color: #f39c12;
   position: relative; }
 
 .custom-tab .nav-tabs > a.active > a:after,
 .custom-tab .nav-tabs > li.active > a:focus:after,
 .custom-tab .nav-tabs > li.active > a:hover:after {
-  background: #ff2e44;
+  background: #f39c12;
   bottom: -1px;
   content: "";
   height: 2px;
@@ -1880,7 +1880,7 @@ header .form-inline {
   text-transform: uppercase; }
 
 .login-form label a {
-  color: #ff2e44; }
+  color: #f39c12; }
 
 .social-login-content {
   margin: 0 -30px;
@@ -1906,7 +1906,7 @@ header .form-inline {
   padding: 19px; }
 
 .register-link a {
-  color: #ff2e44; }
+  color: #f39c12; }
 
 .cpu-load {
   width: 100%;
