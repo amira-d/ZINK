@@ -30,7 +30,7 @@
 </head>
 <body>
 	
-	 <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+	< <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -45,7 +45,7 @@
 
                             <li><a href="modifierp1.html">Change Product</a></li>
 
-                         <li><a href="annonces-produit.html">Annonces produit</a></li>
+                         <li><a href="annonces-produit.php">Annonces produit</a></li>
                         </ul>
                     </li>
                     
@@ -70,7 +70,7 @@
 
 
 
-    <div class="header">
+   <div class="header">
         <div class="pull-left">
             <div class="logo"><a href="index-2.html"><span>ZINK</span></a></div>
             <div class="hamburger sidebar-toggle">
@@ -124,16 +124,14 @@
 <?PHP
 include "../Entities/annonce.php";
 include "../Cores/annonceC.php";
-if (isset($_GET['id'])){
+if (isset($_GET['titre'])){
   $annC=new AnnonceC();
-    $result=$annC->recupererAnnonce($_GET['id']);
-
+    $result=$annC->recupererAnnonce($_GET['titre']);
   foreach($result as $row){
     $titre=$row['titre'];
     $type=$row['type'];
     $description=$row['description'];
     $image=$row['image'];
-  
 ?>
   <div class="content-wrap">
         <div class="main">
@@ -180,7 +178,7 @@ if (isset($_GET['id'])){
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Details</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="<?PHP echo $description ?>" name="description"></textarea>
+                                                <textarea class="form-control" rows="3" value="<?PHP echo $description ?>" name="description"></textarea>
                                             </div>
                                         </div>
 
@@ -190,12 +188,34 @@ if (isset($_GET['id'])){
                                             <div class="col-sm-offset-2 col-sm-10">
                                             	<input type="submit" name="update" value="Update">
                                            
-                                                <input type="hidden" name="id_ini" value="<?PHP echo $_GET['id'];?>">
+                                                <input type="hidden" name="titre_ini" value="<?PHP echo $_GET['titre'];?>">
                                             </div>
                                         </div>
+                                        <?PHP
+  }
+}
+
+if (isset($_POST['update'])){
+	$target="../zink".basename($_FILES['image']['name']);
+			$image =$_FILES['image']['name'];
+					if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
+						{
+							$msg= "IMAGE LOADED SUCCESSFULLY" ; 
+						}
+					else
+					{
+						$msg = "Problem with uploading";
+					}
+  $annonce=new annonce($_POST['titre'],$_POST['type'],$_POST['description'],$image);
+  $annC->modifierAnnonce($annonce,$_POST['titre_ini']);
+  echo"<script>window.location.replace('annonces-produit.php')</script>";
+
+  //header('Location: annonces-produit.php');
+}
+?>
                                     </form>
-									</div>
-                                </div>
+									</div><!--form div-->
+                                </div><!--body card-->
 							</div><!-- /# card -->
 						</div><!-- /# column -->
 					</div><!-- /# row -->
@@ -207,17 +227,7 @@ if (isset($_GET['id'])){
         </div><!-- /# main -->
     </div><!-- /# content wrap -->
 
-<?PHP
-  }
-}
-if (isset($_POST['update'])){
-	
-  $annonce=new annonce($_POST['titre'],$_POST['type'],$_POST['description'],$image);
-  $annC->modifierAnnonce($annonce,$_POST['id_ini']);
-  echo $_POST['id_ini'];
 
-}
-?>
 
     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
@@ -228,4 +238,4 @@ if (isset($_POST['update'])){
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
 
 </body>
-</HTMl>
+</html>>

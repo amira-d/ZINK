@@ -153,30 +153,57 @@
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcements</h4>
-                                </div>
-                                <div class="order-list-item">
-                                   
-                                        <?PHP
+                                    <div style="position: relative; top: -29px; right: -788px;">
+                                    <select name="Tri" onchange="submit();">
+                                                <option value="plus" selected>Plus récent</option>
+                                                <option value="moins">Moins récent</option>
+                                              </select>
+                                              </div>
 
-                                                include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-                                                $ann1C=new AnnonceC();
-                                                $listeannonces=$ann1C->afficherAnnonce();
+                                              <div class="form-group">
+                                              <div class="input-group input-group-rounded">
+                                                <span class="input-group-btn">
+                                                <button class="btn btn-primary btn-group-left" type="submit"><i class="ti-close"></i></button>
+                                                 </span>  
 
-                                                //var_dump($listeannonces->fetchAll());
- ?>
+                                                 <input type="text" placeholder="Search "  class="form-control" name="titre">
 
-                   <table class="table">
+                                                <span class="input-group-btn">
+                                                    <form action=annonceS-produit.php >
+                                                <input class="btn btn-primary btn-group-right" type="submit" value="Search" name="Search">
+                                                <!--<i class="ti-search"></i>-->
+                                                  <input type="hidden" value="<?PHP echo titre ; ?>" name="titre">
+                                                 </form>
+                                                 </span>
+                                             </div>
+                                             </div>
+                               </div>
+
+
+<div class="order-list-item">
+<table class="table">
+<thead>
 <tr>
-<td>id</td>
-<td>titre</td>
-<td>type</td>
-<td>description</td>
-<td>image</td>
-<td>supprimer</td>
-<td>modifier</td>
+<th>ID</th>
+<th>Titre</th>
+<th>Type</th>
+<th>Description</th>
+<th>Image</th>
+<th>Supprimer</th>
+<th>Modifier</th>
 </tr>
 
-<?PHP
+ </thead>
+ <tbody>
+                                   
+ <?PHP
+
+include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
+$ann1C=new AnnonceC();
+$listeannonces=$ann1C->afficherAnnonce();
+
+ 
+$data=$listeannonces->fetch();
 foreach($listeannonces as $row){
   ?>
   <tr>
@@ -184,20 +211,19 @@ foreach($listeannonces as $row){
   <td><?PHP echo $row['titre']; ?></td>
   <td><?PHP echo $row['type']; ?></td>
   <td><?PHP echo $row['description']; ?></td>
-  <td><?PHP echo $row['image']; ?></td>
+  <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
   <td><form method="POST" action="supprimerAnnonce.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
   </form>
   </td>
- <!-- <td><a href="supprimerAnnonce.php?id=<?PHP echo $row['id']; ?>">
-  Delete</a></td>-->
-  <td><a href="majAnnonce.php?id=<?PHP echo $row['id']; ?>">
+  <td><a href="majAnnonce.php?titre=<?PHP echo $row['titre']; ?>">
   Update</a></td>
   </tr>
   <?PHP
 }
 ?>
+</tbody>
 </table>
 
 
@@ -282,6 +308,8 @@ foreach($listeannonces as $row){
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
+    <script src="assets/js/scripts.js"></script><!-- scripit init-->
+    <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
 
 </body>

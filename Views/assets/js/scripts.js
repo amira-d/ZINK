@@ -165,3 +165,8 @@
 
 
 })(jQuery);
+
+
+function submit(){
+    $sql="SElECT * From a_produit ";
+}

@@ -51,8 +51,8 @@ class AnnonceC {
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierAnnonce($ann,$id){
-		$sql="UPDATE a_produit SET titre=:titre, type=:type , description=:description , image=:image WHERE id=:id";
+	function modifierAnnonce($ann,$titre){
+		$sql="UPDATE a_produit SET titre=:titre ,type=:type , description=:description , image=:image WHERE titre='".$titre."'";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -64,10 +64,10 @@ try{
         $type=$ann->getType();
         $image=$ann->getImage();
 
-        echo"<script>alert('!!!!!!!!!'')</script";
+        echo"<script>alert('!!!!!!!!!'')</script>";
 		
-		$datas = array(':id'=>$id ,':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
-		$req->bindValue(':id',$titre);
+		$datas = array(':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
+		//$req->bindValue(':id',$id);
 		$req->bindValue(':titre',$titre);
 	    $req->bindValue(':type',$type);
 		$req->bindValue(':description',$description);
@@ -75,7 +75,7 @@ try{
 		
             $s=$req->execute();
 			
-           // header('Location: index.php');
+          // header('Location: annonces-produit.php');
         }
         catch (Exception $e){
             echo " Erreur ! ".$e->getMessage();
@@ -84,8 +84,8 @@ try{
         }
 		
 	}
-	function recupererAnnonce($id){
-		$sql="SELECT * from a_produit where id=$id";
+	function recupererAnnonce($titre){
+		$sql="SELECT * from a_produit where titre='$titre'";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -99,4 +99,28 @@ try{
 	
 }
 
+		function recherchetitre($titre){
+		$sql="SElECT * From a_produit where titre='$titre' ";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+	
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+		}
+		function triAlph(){
+			$sql="SElECT * From a_produit ORDER by titre DESC ";
+			$db = config::getConnexion();
+			try{
+			$liste=$db->query($sql);
+		
+			return $liste;
+			}
+	        catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+	        }	
+		}
 ?>
