@@ -28,7 +28,6 @@ class AnnonceC {
 	}
 	
 	function afficherAnnonce(){
-		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SElECT * From a_produit Order by id Desc";
 		$db = config::getConnexion();
 		try{
@@ -39,40 +38,40 @@ class AnnonceC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function supprimerEmploye($cin){
-		$sql="DELETE FROM employe where cin= :cin";
+	function supprimerannonce($id){
+		$sql="DELETE FROM a_produit where id= :id";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':cin',$cin);
+		$req->bindValue(':id',$id);
 		try{
             $req->execute();
-           // header('Location: index.php');
+           header('Location: index.php');
         }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierProduit($prod,$nom){
-		$sql="UPDATE produit SET nom_P=:nom, type_P=:type,prix=:price,image=:img,Description=:description WHERE nom_P=:nom";
+	function modifierAnnonce($ann,$id){
+		$sql="UPDATE a_produit SET titre=:titre, type=:type , description=:description , image=:image WHERE id=:id";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
+       // $id=$ann->getId();
+        $titre=$ann->getTitre();
+        $description=$ann->getDesc();
+        $type=$ann->getType();
+        $image=$ann->getImage();
+
+        echo"<script>alert('!!!!!!!!!'')</script";
 		
-        $nom=$prod->getnom();
-        $Description=$prod->getDescription();
-        $type=$prod->getType();
-        $price=$prod->getPrice();
-        $image=$prod->getImage();
-		
-		$datas = array(':nom'=>$nom, ':Description'=>$Description, ':type'=>$type,':price'=>$price,':img'=>$image);
-		$req->bindValue(':nom',$nom);
-		$req->bindValue(':Description',$Description);
-		$req->bindValue(':type',$type);
-		$req->bindValue(':price',$price);
-		$req->bindValue(':img',$image);
-		
+		$datas = array(':id'=>$id ,':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
+		$req->bindValue(':id',$titre);
+		$req->bindValue(':titre',$titre);
+	    $req->bindValue(':type',$type);
+		$req->bindValue(':description',$description);
+		$req->bindValue(':image',$image);
 		
             $s=$req->execute();
 			
@@ -85,8 +84,8 @@ try{
         }
 		
 	}
-	function recupererEmploye($nom){
-		$sql="SELECT * from produit where nom_P=$nom";
+	function recupererAnnonce($id){
+		$sql="SELECT * from a_produit where id=$id";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

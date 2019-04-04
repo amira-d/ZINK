@@ -1,5 +1,6 @@
 <?PHP
 class Annonce{
+	private $id;
 	private $titre;
 	private $type;
 	private $description;
@@ -24,6 +25,9 @@ class Annonce{
 	}	
 	function getImage(){
 		return $this->image;
+	}
+	function getId(){
+		return $this->id;
 	}
 
 

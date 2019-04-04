@@ -154,7 +154,7 @@
                                 <div class="card-header">
                                     <h4>Announcements</h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="order-list-item">
                                    
                                         <?PHP
 
@@ -163,35 +163,45 @@
                                                 $listeannonces=$ann1C->afficherAnnonce();
 
                                                 //var_dump($listeannonces->fetchAll());
+ ?>
+
+                   <table class="table">
+<tr>
+<td>id</td>
+<td>titre</td>
+<td>type</td>
+<td>description</td>
+<td>image</td>
+<td>supprimer</td>
+<td>modifier</td>
+</tr>
+
+<?PHP
+foreach($listeannonces as $row){
+  ?>
+  <tr>
+  <td><?PHP echo $row['id']; ?></td>
+  <td><?PHP echo $row['titre']; ?></td>
+  <td><?PHP echo $row['type']; ?></td>
+  <td><?PHP echo $row['description']; ?></td>
+  <td><?PHP echo $row['image']; ?></td>
+  <td><form method="POST" action="supprimerAnnonce.php">
+  <input type="submit" name="supprimer" value="supprimer">
+  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+  </form>
+  </td>
+ <!-- <td><a href="supprimerAnnonce.php?id=<?PHP echo $row['id']; ?>">
+  Delete</a></td>-->
+  <td><a href="majAnnonce.php?id=<?PHP echo $row['id']; ?>">
+  Update</a></td>
+  </tr>
+  <?PHP
+}
+?>
+</table>
 
 
-                                                while ($data=$listeannonces->fetch())
-                                                {
-                                                     {echo "<div class='col-md-4 col-sm-6 graphics ads'>";
-                                                                           echo "<img src='web/".$data['image']."' alt='image' class='img-responsive'/>";
-                                                                           echo "<p>".$data['titre']."</p>";
-                                                                            echo "<p>".$data['description']."</p>";
-                                                                            echo "<div class='portfolio_item_hover'>";
-                                                                              echo  "<div class='portfolio-border clearfix'>";
-                                                                                    echo "<div class='item_info'>";
-                                                                                       echo "<p>".$data['type']." </p>";
-                                                                                       echo"<a href=majAnnonce.php > Update </a>";
-                                                                                       ?><td>
-    <button type="submit" name="supprimer" class="btn btn-danger btn-sm" value="supprimer"action="supprimerAnnonce.php">
-        <i class="fa fa-ban"></i> delete</button>
-    <input type="hidden" value="<?PHP echo $_GET['titre']; ?>" name="tire">
-    
-    </td><?php
-
-                                                                                    echo"</div>";
-                                                                                echo "</div>";
-                                                                            echo "</div>";
-                                                                    echo"</div>";}
-                                                            }
-  
-
-
-                                                    ?>
+                                                
                                    
                                 </div>
                             </div><!-- /# card -->
@@ -205,10 +215,7 @@
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
 									<div class="card-header-right-icon">
-                                        <ul>
-                                            <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
-                                            <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
-                                        </ul>
+                                      
                                     </div>
                                 </div>
                                 <div class="card-body">
