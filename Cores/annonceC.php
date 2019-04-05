@@ -85,7 +85,7 @@ try{
 		
 	}
 	function recupererAnnonce($titre){
-		$sql="SELECT * from a_produit where titre='$titre'";
+		$sql="SELECT * from a_produit where titre=:titre";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -97,10 +97,11 @@ try{
 	}
 	
 	
-}
+
 
 		function recherchetitre($titre){
-		$sql="SElECT * From a_produit where titre='$titre' ";
+		$sql="SElECT * From a_produit where titre='".$titre."'" ;
+		//$sql="SElECT * From a_produit where titre LIKE "'%$requete%'" ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -111,6 +112,7 @@ try{
             die('Erreur: '.$e->getMessage());
         }	
 		}
+
 		function triAlph(){
 			$sql="SElECT * From a_produit ORDER by titre DESC ";
 			$db = config::getConnexion();
@@ -123,4 +125,5 @@ try{
 	            die('Erreur: '.$e->getMessage());
 	        }	
 		}
+	}
 ?>

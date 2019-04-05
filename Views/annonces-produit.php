@@ -123,6 +123,7 @@
             </ul>
         </div>
     </div>
+ 
 
 
     <div class="content-wrap">
@@ -161,24 +162,22 @@
                                               </div>
 
                                               <div class="form-group">
+                                               <form method="POST" action="annonces-produit.php">
+
                                               <div class="input-group input-group-rounded">
                                                 <span class="input-group-btn">
                                                 <button class="btn btn-primary btn-group-left" type="submit"><i class="ti-close"></i></button>
                                                  </span>  
-
-                                                 <input type="text" placeholder="Search "  class="form-control" name="titre">
-
+                                                 <input type="text" placeholder="Search "  class="form-control" name="titre_ini">
+                                                 
                                                 <span class="input-group-btn">
-                                                    <form action=annonceS-produit.php >
-                                                <input class="btn btn-primary btn-group-right" type="submit" value="Search" name="Search">
+                                                <input class="btn btn-primary btn-group-right" type="submit" value="Search" name="Search" >
                                                 <!--<i class="ti-search"></i>-->
-                                                  <input type="hidden" value="<?PHP echo titre ; ?>" name="titre">
-                                                 </form>
-                                                 </span>
+                                            </span>
                                              </div>
                                              </div>
-                               </div>
-
+                            
+                                  
 
 <div class="order-list-item">
 <table class="table">
@@ -197,10 +196,9 @@
  <tbody>
                                    
  <?PHP
-
 include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-$ann1C=new AnnonceC();
-$listeannonces=$ann1C->afficherAnnonce();
+$ann2C=new AnnonceC();
+$listeannonces=$ann2C->afficherAnnonce();
 
  
 $data=$listeannonces->fetch();
@@ -222,6 +220,7 @@ foreach($listeannonces as $row){
   </tr>
   <?PHP
 }
+
 ?>
 </tbody>
 </table>
