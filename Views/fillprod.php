@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +32,13 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="jquery.lwMultiSelect.js"></script>
+		<link rel="stylesheet" href="jquery.lwMultiSelect.css" />
 </head>
-  
+
 <body>
 
     <body>
@@ -51,6 +58,7 @@
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
                             <li><a href="modifierp1.html">Change Product</a></li>
                                                                                     <li><a href="supprimerp.php">Delete Product</a></li>
+                                                                                    <li><a href="afficheringprod.php"> Product Details</a></li>
 
 
                         </ul>
@@ -147,18 +155,20 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
-                                    <li class="active">Menu Upload</li>
+                                    <li class="active">fill product</li>
                                 </ol>
                             </div>
                         </div>
                     </div><!-- /# column -->
                 </div><!-- /# row -->
+           
                 <div class="main-content">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Menu Upload</h4>
+                                    <a href="ceevee/Menu.php" style="text-decoration: none; color: grey; float: right;">Wanna see your final Menu?</a>
+                                    <h4>Fill your product by ingredient</h4>
 									<div class="card-header-right-icon">
                                         <ul>
                                             <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
@@ -166,58 +176,38 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <?php
+
+include"../Cores/ingredientC.php";
+$country = '';
+$nom= $_GET['mavar'];
+
+$prodC=new ingredientC();
+$liste=$prodC->afficheringredients();
+while ($data=$liste->fetch())
+    # code...
+{ 
+    $country .= '<option value="'.$data["id"].'">'.$data["id"].'</option>';
+}
+
+
+?>
                                 <div class="card-body">
 									<div class="menu-upload-form">
-										<form class="form-horizontal" onsubmit="return test2(event)" method="POST" action="ajoutProduit.php" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Upload Product</label>
-                                            <div class="col-sm-10">
-                                                <div class="form-control file-input dark-browse-input-box">
-                                                    <label for="inputFile-2">
-                                                                <span class="btn btn-danger dark-input-button">
-                                                                    <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value"  name="image">
-                                                                    <i class="fa fa-file-archive-o"></i>
-                                                                </span>
-                                                    </label>
-                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Name Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="nom"placeholder="Type your menu Title" name="nom">
-                                            </div>
-                                        </div>
-                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Type Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="type"placeholder="Type your menu Type" name="type">
-                                            </div>
-                                        </div>
+                                
+													<form method="POST" action="insert.php" id="insert_data">
+				<input type="text" name="name"readonly="readonly"id="name" >
 
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Product Details</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3"id="description" placeholder="Type your menu Details" name="description"></textarea>
-                                            </div>
-                                        </div>
+				<select name="ingredient[]" id="ingredient" multiple 
+                class="form-control">
+                    <?php echo $country; ?>
+				</select>
+				<br />
+                                          <input type="hidden" name="hidden_city" id="hidden_city" >
+				<input type="submit" name="insert" id="action" class="btn btn-info" value="Insert" />
+			</form>                       
+                                </div>
 
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Product Price</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="price"placeholder="$00.00" name="price">
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="form-group">              
-                                                                    <p id="erreur"></p>
-
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="submit" name="submit">Upload</button>
-                                            </div>
-                                        </div>
-                                    </form>
 									</div>
                                 </div>
 							</div><!-- /# card -->
@@ -228,16 +218,81 @@
         </div><!-- /# main -->
     </div><!-- /# content wrap -->
 
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
-    <script src="assets/js/lib/mmc-common.js"></script>
+       <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
+
 </body>
  <!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
+<script>
+$(document).ready(function(){
+
+	$('#ingredient').lwMultiSelect();
+
+
+var val = "<?php echo $nom ?>";
+document.getElementById("name").value = val;
+
+
+
+
+}
+    );
+
+	$('#insert_data').on('submit', function(event){
+        if($('#ingredient').val() == '')
+        {
+            alert("Please Select ingredient");
+            return false;
+        }
+        else
+        {
+
+            $('#hidden_city').val($('#ingredient').val());
+            //$('#action').attr('disabled', 'disabled');
+           
+            //(test);
+            var form_data = $(this).serialize();  
+            var array= $('select#ingredient').val()
+            alert(array[0]);
+
+            $.ajax({
+                url:"insert.php",
+                method:"POST",
+                data:form_data,
+                success:function(data)
+                {
+                                            alert('Data Inserted');
+                    $('#action').attr("disabled", "disabled");
+                    if(data == 'done')
+                    {
+                        $('#ingredient').html('');
+                        $('#ingredient').data('plugin_lwMultiSelect').updateList();
+                        $('#ingredient').data('plugin_lwMultiSelect').removeAll();
+                        $('#insert_data')[0].reset();
+                        alert('Data Inserted');
+                    }
+                }
+            });
+            }
+
+            });
+
+        
+        
+       
+        
+       
+
+
+
+</script>
+
 <script type="text/javascript">
    function test2(event)
 {   

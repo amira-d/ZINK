@@ -168,10 +168,12 @@
 
                                     </form>
                                     <?PHP
-include "../Cores/ProduitC.php";
+include "../Cores/ingprodC.php";
 $employeC=new ProduitC();
+$prodC=new ingprodC();
 if (isset($_POST["namep"])){
     $employeC->supprimerp($_POST["namep"]);
+    $prodC->supprimerip($_POST["namep"]);
 }
 
 ?>

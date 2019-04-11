@@ -241,8 +241,12 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $target ))
 {
     $msg = "DONE";
 }
-    echo $_POST['check'];
-    if ($_POST['type'] == 'boisson')
+    echo $_POST['check']; 
+     $name=$_POST['nom'];
+
+    echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/modifieringp.php?mavar=$nom'/>";
+
+    /*if ($_POST['type'] == 'boisson')
     {echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/ceevee/Menu-five.php' />";}
  else if ($_POST['type'] == 'salade')
     {echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/ceevee/Menu-two.php' />";}
@@ -254,7 +258,9 @@ else
 
 {echo "<meta http-equiv='refresh' content='2;url=http://localhost:82/ZINK/Views/index-2.html' />";
 
-}
+}*/                                 
+
+
 
 //header('Location: ceevee/Menu-three.php');
 }

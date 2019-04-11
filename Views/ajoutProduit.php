@@ -11,7 +11,7 @@ if (isset($_POST['submit']) and isset($_POST['price']) and isset($_POST['type'])
 {$target= "web/" .basename($_FILES['image']['name']);
 $image = $_FILES['image']['name'];
 
-
+$nom=  $_POST['nom'];
 	$prod=new Produit($_POST['nom'],$_POST['description'],$_POST['type'],$_POST['price'],$image);
 
 $prodC=new ProduitC();
@@ -27,7 +27,7 @@ else
 	$msg = "Problem with uploading";
 }
 
-header('Location: ceevee/Menu.php');	
+  header("location:fillprod.php?mavar=".$nom);
 }
 else
 {
@@ -42,7 +42,7 @@ else
 }
 else{
 	echo "vérifier les champs";
-	echo "<script>alert(\"verifier les champs\")</script>";
+	echo "<script>alert(\"verifier les champs1111111\")</script>";
 }
 
 
