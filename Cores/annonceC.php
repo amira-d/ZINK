@@ -1,5 +1,5 @@
 <?PHP
-include "../config.php";
+include "C:/wamp64/www/ZINK/zink/config.php";
 class AnnonceC {
 
 
@@ -28,8 +28,8 @@ class AnnonceC {
 	}
 	
 	function afficherAnnonce(){
-		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * From a_produit";
+		
+		$sql="SElECT * From a_produit Order by id Desc";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -39,11 +39,11 @@ class AnnonceC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function supprimerEmploye($cin){
-		$sql="DELETE FROM employe where cin= :cin";
+	function supprimerannonce($titre){
+		$sql="DELETE FROM a_produit where titre= :titre";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':cin',$cin);
+		$req->bindValue(':titre',$titre);
 		try{
             $req->execute();
            // header('Location: index.php');
@@ -52,26 +52,25 @@ class AnnonceC {
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierProduit($prod,$nom){
-		$sql="UPDATE produit SET nom_P=:nom, type_P=:type,prix=:price,image=:img,Description=:description WHERE nom_P=:nom";
+	function modifierAnnonce($prod,$nom){
+		$sql="UPDATE a_produit SET titre=:titre, type=:type,description=:description,image=:img WHERE titre=:titre";
 		
 		$db = config::getConnexion();
-		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+	
 try{		
         $req=$db->prepare($sql);
 		
-        $nom=$prod->getnom();
-        $Description=$prod->getDescription();
-        $type=$prod->getType();
-        $price=$prod->getPrice();
-        $image=$prod->getImage();
+       
+        $titre=$ann->getTitre();
+        $type=$ann->getType();
+        $description=$ann->getDesc();
+        $image=$ann->getImage();
 		
-		$datas = array(':nom'=>$nom, ':Description'=>$Description, ':type'=>$type,':price'=>$price,':img'=>$image);
-		$req->bindValue(':nom',$nom);
-		$req->bindValue(':Description',$Description);
+		$datas = array(':titre'=>$titre, ':type'=>$type, ':description'=>$description,':img'=>$image);
+	    $req->bindValue(':titre',$titre);
 		$req->bindValue(':type',$type);
-		$req->bindValue(':price',$price);
-		$req->bindValue(':img',$image);
+		$req->bindValue(':description',$description);
+		$req->bindValue(':image',$image);
 		
 		
             $s=$req->execute();
@@ -85,7 +84,7 @@ try{
         }
 		
 	}
-	function recupererEmploye($nom){
+	function recupererAnnonce($titre){
 		$sql="SELECT * from produit where nom_P=$nom";
 		$db = config::getConnexion();
 		try{

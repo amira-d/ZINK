@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,11 +30,22 @@
 </head>
 
 <body>
-
-    <body>
-
-
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+<?PHP
+include "../Entities/annonce.php";
+include "../Cores/annonceC.php";
+if (isset($_GET['titre']))
+{
+  $annonceC=new annonceC();
+    $result=$annonceC->recupererannonce($_GET['titre']);
+  foreach($result as $row){
+    $titre=$row['titre'];
+    $type=$row['type'];
+    $description=$row['description'];
+    $image=$row['image'];}
+}
+     
+?>
+	<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -49,9 +57,12 @@
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
-                                                        <li><a href="modifierp1.html">Change Product</a></li>
+
+                            <li><a href="modifierp1.html">Change Product</a></li>
+
                                                                                                                                               <li><a href="supprimerp.php">Delete Product</a></li>
                                                                                   
+
 
                             <li><a href="annonces-produit.html">Annonces produit</a></li>
                         </ul>
@@ -137,7 +148,7 @@
                     <div class="col-lg-8 p-0">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Add new Announcement</h1>
+                                <h1>Manage announcements :</h1>
                             </div>
                         </div>
                     </div><!-- /# column -->
@@ -152,13 +163,17 @@
                         </div>
                     </div><!-- /# column -->
                 </div><!-- /# row -->
-                <div class="main-content">
+
+
+
+<div class="main-content">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card alert">
+
                                 <div class="card-header">
-                                    <h4>Announcement Upload</h4>
-									<div class="card-header-right-icon">
+                                    <h4>Announcement Update</h4>
+                                    <div class="card-header-right-icon">
                                         <ul>
                                             <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
                                             <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
@@ -166,12 +181,27 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-									<div class="menu-upload-form">
-										<form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data">
+                                    <div class="menu-upload-form">
+                                        <form class="form-horizontal" method="POST" action="majAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous modifier cette annonce ?')">
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Upload announcement</label>
+                                             <div class="form-group">
+                                            <label class="col-sm-2 control-label">Search announcement</label>
                                             <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="Type your announcement Title" name="titre">
+                                            </div>
+                                              <div class="col-sm-offset-2 col-sm-10">
+                                                <input type="submit" class="submit" name="submit" value="update">
+                                              
+                                            </div>
+                                        </div>
+                                        </form>
+
+                                         <form class="form-horizontal" method="POST" action="majAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous modifier cette annonce ?')">
+                                            <label class="col-sm-2 control-label">Update announcement</label>
+                                            <div class="col-sm-10">
+                                                  
                                                 <div class="form-control file-input dark-browse-input-box">
+
                                                     <label for="inputFile-2">
                                                                 <span class="btn btn-danger dark-input-button">
                                                                     <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value"  name="image">
@@ -181,24 +211,24 @@
                                                     <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files">
                                                 </div>
                                             </div>
-                                        </div>
+                                      
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Name Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your announcement Title" name="titre">
+                                                <input type="text" class="form-control" value="<?PHP echo $titre ?>" name="titre">
                                             </div>
                                         </div>
                                          <div class="form-group">
                                             <label class="col-sm-2 control-label">Type Product</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your announcement Type" name="type">
+                                                <input type="text" class="form-control" value="<?PHP echo $type ?>" name="type">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Product Details</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your announcement Details" name="description"></textarea>
+                                                <textarea class="form-control" rows="3" value="<?PHP echo $description ?>" name="description"></textarea>
                                             </div>
                                         </div>
 
@@ -206,29 +236,49 @@
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="submit" name="submit">Upload</button>
+                                                <input type="submit" class="submit" name="submit" value="update">
+                                              
                                             </div>
                                         </div>
                                     </form>
-									</div>
-                                </div>
-							</div><!-- /# card -->
-						</div><!-- /# column -->
-					</div><!-- /# row -->
-				</div><!-- /# main content -->
-            </div><!-- /# container-fluid -->
-        </div><!-- /# main -->
-    </div><!-- /# content wrap -->
+                                 <?php
 
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+if (isset($_POST['modifier'])){
+  $client=new client($_POST['cin'],$_POST['nom'],$_POST['prenom'],$_POST['mail'],$_POST['sexe']);
+  $clientC->modifierclient($client,$_POST['cin_ini']);
+  echo $_POST['cin_ini'];
+  header('Location: afficherclient.php');
+}
+
+
+ $submit = $_POST['submite'];
+ $titre=$_POST['titre'];
+ $type=$_POST['type'];
+ $description=$_POST['description'];
+
+
+$db=config::getConnexion();
+$result=$db->prepare("UPDATE a_produit SET `submit`='$submit' , `titre`='$titre' , `type`='$type' , `description`='$description'  WHERE `a_produit`.`id`='$id'    ");
+$result->execute();
+header('location: annonces-produit.php');
+
+ ?>
+                                 </div>
+                            </div><!-- /# card -->
+                        </div><!-- /# column -->
+                    </div><!-- /# row -->
+                </div><!-- /# main content -->
+                            </div><!-- /# container-fluid -->
+    
+
+
+
+  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
-</body>
-
-
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
+    </body>
 </html>
