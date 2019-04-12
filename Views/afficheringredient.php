@@ -114,27 +114,9 @@
     </div>
 
 
-<?PHP
-include "../Cores/ingredientC.php";
-$ingredient1C=new ingredientc();
-$listeingredients=$ingredient1C->afficheringredients();
 
-//var_dump($listeingredients->fetchAll());
-?>
-<!--<table border="1">
-<tr>
-<td>id</td>
-<td>barcode</td>
-<td>quantity</td>
-<td>category</td>
-<td>type</td>
-<td>supprimer</td>
-<td>modifier</td>
-</tr>-->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
 
-\assets\css\lib
 
     <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
    <!-- <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"> -->
@@ -172,56 +154,19 @@ $listeingredients=$ingredient1C->afficheringredients();
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Table</strong>
-                                                      <form action="#" class="pull-right position">
-                                                    <div class="input-append">
-                                                        <input type="text" class="sr-input" placeholder="Search stock" id="search">
-                                                            <td><form method="POST" action="rechercheringredient.php">
-                                                    <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button> 
-                                                    </form>
-                                                    </td>
-                                                        
-                                                    </div>
-                                                </form>
-                            </div>
-                            <div class="card-body">
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>barcode</th>
-                                            <th>quantity</th>
-                                            <th>category</th>
-                                            <th>type</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-<?PHP
-foreach($listeingredients as $row){
-	?>
-	<tr>
-	<td><?PHP echo $row['id']; ?></td>
-	<td><?PHP echo $row['barcode']; ?></td>
-	<td><?PHP echo $row['quantity']; ?></td>
-	<td><?PHP echo $row['category']; ?></td>
-	<td><?PHP echo $row['type']; ?></td>
-	<td><form method="POST" action="supprimeringredient.php">
-	<button type="submit" name="supprimer" class="btn btn-danger btn-sm" value="supprimer">
-		<i class="fa fa-ban"></i> delete</button>
-	<input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
-	</form>
-	</td>
-	<td><a href="modifieringredient.php?edit=<?PHP echo $row['id']; ?>">
-	Modifier</a></td>
-	</tr>
-	<?PHP
-}
-?>
-                                        </tr>
+                                                      
+<div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+                </div>
+            </div>
+            <br />
+            <div id="result"></div>
+        </div>
+        <div style="clear:both"></div>
                                       
 
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
@@ -233,20 +178,54 @@ foreach($listeingredients as $row){
 
 
     </div> 
-                  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+                 <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+
+  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+      
+
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(query)
+    {
+        $.ajax({
+            url:"fetch.php",
+            method:"post",
+            data:{query:query},
+            success:function(data)
+            {
+                $('#result').html(data);
+            }
+        });
+    }
     
-    <script src="assets/js/lib/jquery-ui/jquery-ui.min.js"></script>
-    <script src="assets/js/lib/moment/moment.js"></script>
-    <script src="assets/js/lib/calendar/fullcalendar.min.js"></script>
-    <script src="assets/js/lib/calendar/fullcalendar-init.js"></script>  
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();            
+        }
+    });
+});
+</script>
 
 
 
 
 
 
+                                       
+                                                    
+                           
