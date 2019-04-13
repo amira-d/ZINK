@@ -102,6 +102,7 @@ try{
 		function recherchetitre($titre){
 		//$sql=`SElECT * From a_produit where titre="'.$titre'"` ;
 		$sql ="SELECT * FROM a_produit WHERE titre LIKE '%:titre%' ORDER BY id";
+		//$sql="SElECT * From a_produit where titre like "'&$titre&'" ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
