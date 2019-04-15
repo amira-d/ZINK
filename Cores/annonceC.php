@@ -28,7 +28,7 @@ class AnnonceC {
 	}
 	
 	function afficherAnnonce(){
-		$sql="SElECT * From a_produit Order by id Desc";
+		$sql="SElECT * From a_produit ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -52,13 +52,13 @@ class AnnonceC {
         }
 	}
 	function modifierAnnonce($ann,$titre){
-		$sql="UPDATE a_produit SET titre=:titre ,type=:type , description=:description , image=:image WHERE titre='".$titre."'";
+		$sql="UPDATE a_produit SET titre=:titre ,type=:type , description=:description , image=:image WHERE titre='".$titre."' ";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
-       // $id=$ann->getId();
+        $id=$ann->getId();
         $titre=$ann->getTitre();
         $description=$ann->getDesc();
         $type=$ann->getType();
@@ -67,7 +67,7 @@ try{
         echo"<script>alert('!!!!!!!!!'')</script>";
 		
 		$datas = array(':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
-		//$req->bindValue(':id',$id);
+		$req->bindValue(':id',$id);
 		$req->bindValue(':titre',$titre);
 	    $req->bindValue(':type',$type);
 		$req->bindValue(':description',$description);
@@ -85,7 +85,7 @@ try{
 		
 	}
 	function recupererAnnonce($titre){
-		$sql="SELECT * from a_produit where titre=:titre";
+		$sql="SELECT * from a_produit where titre='$titre' ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
