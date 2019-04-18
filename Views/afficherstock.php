@@ -26,6 +26,92 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+         <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <li class="label">Main</li>
+                    <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
+                    <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="../ceevee/index.html">Resto</a></li>
+                            <li><a href="restaurant-favourite-list.html">Favourite</a></li>
+                            <li><a href="restaurant-order-list.html">Order List</a></li>
+                            <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="label">Apps</li>
+                    <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
+                    <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
+                    
+                    
+                    
+                    <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                           
+                            <li><a href="page-reset-password.html">Forgot password</a></li>
+                        </ul>
+                    </li>
+                    
+                 <li><a href="page-login.html"><i class="ti-close"></i> Logout</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<div class="header">
+        <div class="pull-left">
+            <div class="logo"><a href="index-2.html"><span>Foodmin</span></a></div>
+            <div class="hamburger sidebar-toggle">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
+
+        <div class="pull-right p-r-15">
+            <ul>
+                <li class="header-icon dib"><i class="ti-bell"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">Recent Notifications</span>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                               
+                                <li class="text-center">
+                                    <a href="" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="header-icon dib"><i class="ti-email"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <a href="email.html"><i class="ti-pencil-alt pull-right"></i></a>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                
+                                <li class="text-center">
+                                    <a href="app-email.html" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
+                   
+                     
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
 
 <?PHP
