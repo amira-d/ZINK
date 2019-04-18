@@ -99,9 +99,11 @@
 
                 <!-- portfolio_container -->
   <?php
-  include "C:\wamp64\www\Cores\ProduitC.php";
+  $var='salade';
+  include "commun.php";
+  ?>
 
-$prodC=new ProduitC();
+<!--$prodC=new ProduitC();
 $liste=$prodC->afficherProduit();
 while ($data=$liste->fetch())
 {
@@ -130,7 +132,7 @@ while ($data=$liste->fetch())
                     echo"</div>";
 }
   
-
+ 
 
 }
 
@@ -139,15 +141,15 @@ while ($data=$liste->fetch())
 
                 </div>
                 <!-- end portfolio_container -->
-            </div>
+            <!--</div>
             <!-- portfolio -->
-        </div>
+        <!--</div>
         <!-- end portfolio div -->
     </div>
     <!-- end main container -->
   </section>
      
-   <footer>
+   <!--<footer>
 
       <div class="row">
 
@@ -174,7 +176,7 @@ while ($data=$liste->fetch())
 
    <!-- Java Script
    ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 
@@ -185,9 +187,9 @@ while ($data=$liste->fetch())
    <script src="js/init.js"></script>
        <script src="js/animated-headline.js"></script>
     <!-- jQuery -->
-    <script src="js1/jquery-2.1.1.js"></script>
+    <!--<script src="js1/jquery-2.1.1.js"></script>
     <!--  plugins -->
-    <script src="js1/bootstrap.min.js"></script>
+    <!--<script src="js1/bootstrap.min.js"></script>
     <script src="js1/menu.js"></script>
     <script src="js1/animated-headline.js"></script>
     

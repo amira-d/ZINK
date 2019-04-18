@@ -1,21 +1,4 @@
-<section id="portfolio">
- <div class="main-container portfolio-inner clearfix">
-        <!-- portfolio div -->
-        <div class="portfolio-div">
-            <div class="portfolio">
-                <!-- portfolio_filter -->
-                <a href="index.html" class="retour" style="font-family: stencil; text-decoration: none; font-size: 20px; font-style: bold; color: grey;">Go back home</a>
-                 <div class="categories-grid wow fadeInLeft">
-                    <nav class="categories text-center">
-                        <ul class="portfolio_filter">
-                             <li><a href="Menu.php" class="active"data-filter="*">All</a></li>
-                            <li><a href="Menu-two.php"c data-filter=".photography">Soupes.Salade<a></li>
-                            <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
-                            <li><a href="Menu-four.php"  data-filter=".graphics">Burgers</a></li>
-                            <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
-                        </ul>
-                    </nav>
-                </div>
+
                 <!-- portfolio_filter -->
                 <div class="filtering" style="  float: right; position: relative; bottom: 150px;">
                   <h2 style="color: #ffbf00;font-size: 15px; font-family: stencil;">Filter by :</h2>
@@ -25,6 +8,8 @@
      <h1>Price</h1>
      <input type="hidden" id="hidden_minimum_price" value="10" />
                     <input type="hidden" id="hidden_maximum_price" value="2000" />
+                                        <input type="hidden" name="qq"id="type" value= <?php echo $var; ?>>
+
                     <p id="price_show">10 - 2000</p>
                     <div id="price_range"></div>
                 </div> 
@@ -135,11 +120,13 @@ $(document).ready(function(){
         var action = 'fetch_data';
         var minimum_price = $('#hidden_minimum_price').val();
         var maximum_price = $('#hidden_maximum_price').val();
+                var type = $('#type').val();
+
         var nom_P= get_filter('name');
         $.ajax({
             url:"fetch_data.php",
             method:"POST",
-            data:{action:action, minimum_price:minimum_price,nom_P:nom_P, maximum_price:maximum_price},
+            data:{action:action,type:type, minimum_price:minimum_price,nom_P:nom_P, maximum_price:maximum_price},
             success:function(data){
                 $('.filter_data').html(data);
             }

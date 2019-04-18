@@ -11,7 +11,7 @@ function afficheringredient ($ingredient){
 	}
 
 	function ajouteringredient($ingredient){
-		$sql="INSERT INTO ingredient (id,barcode,quantity,category,type) values (:id, :barcode,:quantity,:category,:type)";
+		$sql="INSERT INTO ingredient (id,barcode,quantity,category,type) values (:id, :barcode,:quantity,:acategory,:type)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);

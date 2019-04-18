@@ -69,12 +69,29 @@
       
    </header> <!-- Header End -->
 
-
+<section id="portfolio">
+ <div class="main-container portfolio-inner clearfix">
+        <!-- portfolio div -->
+        <div class="portfolio-div">
+            <div class="portfolio">
+                <!-- portfolio_filter -->
+                <a href="index.html" class="retour" style="font-family: stencil; text-decoration: none; font-size: 20px; font-style: bold; color: grey;">Go back home</a>
+                 <div class="categories-grid wow fadeInLeft">
+                    <nav class="categories text-center">
+                        <ul class="portfolio_filter">
+                             <li><a href="Menu.php" class="active"data-filter="*">All</a></li>
+                            <li><a href="Menu-two.php"c data-filter=".photography">Soupes.Salade<a></li>
+                            <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
+                            <li><a href="Menu-four.php"  data-filter=".graphics">Burgers</a></li>
+                            <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
+                        </ul>
+                    </nav>
+                </div>
  <?php 
-
+$var= 'menu';
  include 'commun.php';
  ?>
-
+ 
 
 
 
