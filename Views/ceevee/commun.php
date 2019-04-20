@@ -1,21 +1,26 @@
 
                 <!-- portfolio_filter -->
-                <div class="filtering" style="  float: right; position: relative; bottom: 150px;">
-                  <h2 style="color: #ffbf00;font-size: 15px; font-family: stencil;">Filter by :</h2>
+                <div class="filtering" id="fix" style="  float: right;  
+  border: 1px solid #ffbf00 ; padding: 10px;
+
+
+ 
+ position: fixed;right: 80px;top: 200px; bottom: 150px;">
+                  <h2 style="color: #ffbf00;font-size: 25px; font-family: stencil;text-align: center;">Filter by :</h2>
                   
                     
                       <div class="list-group" style="padding: 0;">
      <h1>Price</h1>
-     <input type="hidden" id="hidden_minimum_price" value="10" />
-                    <input type="hidden" id="hidden_maximum_price" value="2000" />
+     <input type="hidden" id="hidden_minimum_price" value="3" />
+                    <input type="hidden" id="hidden_maximum_price" value="45" />
                                         <input type="hidden" name="qq"id="type" value= <?php echo $var; ?>>
 
-                    <p id="price_show">10 - 2000</p>
-                    <div id="price_range"></div>
+                    <p id="price_show" style="text-align: center; position: relative;bottom: 30px;">3 - 45</p>
+                    <div id="price_range" style="position: relative;bottom: 30px;"></div>
                 </div> 
-                <div class="list-group">
+                <div class="list-group" style="position: relative;bottom: 40px;">
                   <h1>Name</h1>
-                       <input type="checkbox"  class="common_selector name" value="nom_P"  > 
+                       <label style=" padding: 5px; position: relative; bottom: 30px;">Sort by Name      <input type="checkbox" class="common_selector name" value="nom_P" style="size: 50px;"  ></label>
                   
 
 
@@ -81,7 +86,7 @@
 
    <!-- Java Script
    ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 
@@ -97,7 +102,6 @@
     <script src="js1/bootstrap.min.js"></script>
     <script src="js1/menu.js"></script>
     <script src="js1/animated-headline.js"></script>
-    <script type="text/javascript" src="js/Pagination.js"></script>
 
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -105,7 +109,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href = "css/jquery-ui.css" rel = "stylesheet">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
+
+    
+  <script src="js2/owl.carousel.min.js"></script>
+  <script src="js2/circle-progress.min.js"></script>
+  <script src="js2/main.js"></script>
+
       
 
  <script>
@@ -149,10 +158,10 @@ $(document).ready(function(){
 
     $('#price_range').slider({
         range:true,
-        min:10,
-        max:2000,
-        values:[10, 2000],
-        step:100,
+        min:3,
+        max:45,
+        values:[3, 45],
+        step:5,
         stop:function(event, ui)
         {
             $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);
@@ -164,3 +173,14 @@ $(document).ready(function(){
 
 });
 </script>
+ <script type="text/javascript">
+  function fixDiv() {
+  var $cache = $('#fix'); 
+  if ($(window).scrollTop() > 350) 
+    $cache.css({'position': 'fixed', 'top': '300px'}); 
+  else
+    $cache.css({'position': 'relative', 'top': 'auto'});
+}
+$(window).scroll(fixDiv);
+fixDiv();
+    </script>

@@ -46,7 +46,7 @@ class ProduitC {
 	}
 	function filtername(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * From produit ORDER by nom_P DESC ";
+		$sql="SElECT * From produit ORDER by nom_P ASC ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

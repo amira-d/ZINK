@@ -30,15 +30,21 @@
 
     <!-- Bootstrap -->
     <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css1/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css1/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css1/flaticon.css"/>
+  <link rel="stylesheet" href="css1/owl.carousel.css"/>
+  <link rel="stylesheet" href="css1/anotherstyle.css"/>
+  <link rel="stylesheet" href="css1/animate.css"/>
+
+
 
     <!-- main css -->
 
 
    <!-- Script
    ================================================== -->
-	<script src="js/modernizr.js"></script>
-   <script src="js1/modernizr.js"></script>
-
+	
    <!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.png" >
@@ -71,22 +77,65 @@
 
 <section id="portfolio">
  <div class="main-container portfolio-inner clearfix">
+
         <!-- portfolio div -->
         <div class="portfolio-div">
             <div class="portfolio">
                 <!-- portfolio_filter -->
-                <a href="index.html" class="retour" style="font-family: stencil; text-decoration: none; font-size: 20px; font-style: bold; color: grey;">Go back home</a>
-                 <div class="categories-grid wow fadeInLeft">
-                    <nav class="categories text-center">
-                        <ul class="portfolio_filter">
+                <a href="index.html" class="retour" style="font-family: stencil; text-decoration: none; font-size: 20px; font-style: bold; color: #ffc515;">Go back home</a>
+              
+    <div class="container" style="position: relative;right: 150px; ">
+                        <!--<ul class="portfolio_filter">
                              <li><a href="Menu.php" class="active"data-filter="*">All</a></li>
-                            <li><a href="Menu-two.php"c data-filter=".photography">Soupes.Salade<a></li>
+                            <li><a href="Menu-two.php"c data-filter=".photography">Soupes&Salade<a></li>
                             <li><a href="Menu-three.php"  data-filter=".logo" >On the grill</a></li>
                             <li><a href="Menu-four.php"  data-filter=".graphics">Burgers</a></li>
                             <li><a href="Menu-five.php" data-filter=".ads" >Boissons</a></li>
-                        </ul>
-                    </nav>
-                </div>
+                        </ul>-->
+                        <ul class="mp-menu-tab-nav nav nav-tabs" style="width: 100%;" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active"href="Menu.php" >
+            <i class="flaticon-001-wine"></i>
+            <div class="mpm-text">
+              <h5>All</h5>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"href="Menu-two.php" >
+            <i class="flaticon-013-salad"></i>
+            <div class="mpm-text">
+              <h5>Soupes&Salades</h5>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="Menu-three.php" >
+            <i class="flaticon-006-steak"></i>
+            <div class="mpm-text">
+              <h5>On the grill</h5>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Menu-four.php">
+            <i class="flaticon-032-hamburger"></i>
+            <div class="mpm-text">
+              <h5>Burgers</h5>
+            </div>
+          </a>
+
+        </li>
+         <li class="nav-item" style="position:  ;">
+          <a class="nav-link" href="Menu-five.php" >
+            <i class="flaticon-005-coffee-1"></i>
+            <div class="mpm-text">
+              <h5>Boissons</h5>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
  <?php 
 $var= 'menu';
  include 'commun.php';

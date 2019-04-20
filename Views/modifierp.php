@@ -219,7 +219,7 @@ if (isset($_GET['namep'])){
                                           <input type="hidden" name="check" value="<?PHP echo $_GET['namep'];?>" >
 
                                         <div class="form-group">
-                                            <p id="erreur"></p>
+                                            <p id="erreur" style="color: red;"></p>
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" class="submit" name="ch">Upload</button>
                                             </div>

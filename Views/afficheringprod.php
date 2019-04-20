@@ -1,20 +1,11 @@
 
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:00 GMT -->
-<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Order List</title>
-	
-	<!-- ================= Favicon ================== -->
+    <title>Foodmin : Calendar</title>
+    
+    <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -25,23 +16,18 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-	
-	<!-- Styles -->
+    
+    <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/calendar/fullcalendar.css" rel="stylesheet" />
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-</head>
 
-<body>
-
-    <body>
-
-
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -53,14 +39,6 @@
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
-                                                        <li><a href="modifierp1.html">Change Product</a></li>
-                                                       <li><a href="supprimerp.php">Delete Product</a></li>
-                                                                                                                                           <li><a href="afficheringprod.php"> Product Details</a></li>
-
-
-
-
-
                         </ul>
                     </li>
                     
@@ -82,12 +60,9 @@
                 </ul>
             </div>
         </div>
-    </div><!-- /# sidebar -->
+    </div>
 
-
-
-
-    <div class="header">
+<div class="header">
         <div class="pull-left">
             <div class="logo"><a href="index-2.html"><span>Foodmin</span></a></div>
             <div class="hamburger sidebar-toggle">
@@ -137,96 +112,118 @@
             </ul>
         </div>
     </div>
-</div>
-	
-    <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid">
+
+
+
+ 
+
+
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+   <!-- <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"> -->
+    <!--<link rel="stylesheet" href="themify-icons.css">
+    <link rel="stylesheet" href="flag-icon.min.css">
+    <link rel="stylesheet" href="cs-skin-elastic.css">
+    <link rel="stylesheet" href="dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="buttons.bootstrap4.min.css">-->
+
+    <link rel="stylesheet" href="style.css">
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Data table</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3" style="position: relative;left: 250px;">
+            <div class="animated fadeIn">
                 <div class="row">
-                    <div class="col-lg-8 p-0">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Dashboard 1</h1>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Data Table</strong>
+                                                      
+<div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+                </div>
+            </div>
+            <br />
+            <div id="result"></div>
+        </div>
+        <div style="clear:both"></div>
+                                      
+
                             </div>
                         </div>
-                    </div><!-- /# column -->
-                    <div class="col-lg-4 p-0">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <ol class="breadcrumb text-right">
-                                    <li><a href="#">Dashboard</a></li>
-                                    <li class="active">Blank</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div><!-- /# column -->
-                </div><!-- /# row -->
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card alert">
-                                <div class="order-list-item">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>name of the product </th>
-                                            <th>ingredient</th>
-                                            
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        <tr>
-                                             <?php
-                                        include '../Cores/ingprodC.php';
-                                        include '../Entities/ingprod.php';
+                    </div>
 
 
-                                             $ingp = new ingprodC();
-                                             $liste= $ingp->afficherip();
-                                             while ($data=$liste->fetch()) {
-
-                                                    echo '<tr>';
+                </div>
+            </div><!-- .animated -->
 
 
-                                                   echo "<td style='font-size:18px; font-family:stencil ;position: relative;'>".$data["nom_P"]."</td>";
-                                                   echo "<td style='font-size:18px; font-family:stencil ;position: relative; left: 200px;'>".$data["id"]."</td>";
-                                                   echo "<td><div class='half-full-stars'></div></td>";
-                                                   echo "</tr>";
+                 <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
 
-
-
-
-                                             }
-
-                                        ?>
-
-                                       </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-							</div><!-- /# card -->
-						</div><!-- /# column -->
-					</div><!-- /# row -->
-                </div><!-- /# main content -->
-            </div><!-- /# container-fluid -->
-        </div><!-- /# main -->
-    </div><!-- /# content wrap -->
-
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
-    <script src="assets/js/lib/rating1/jRate.min.js"></script><!-- scripit init-->
-    <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
-    <script src="assets/js/scripts.js"></script><!-- scripit init-->
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+      
+
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(query)
+    {
+        $.ajax({
+            url:"fetch2.php",
+            method:"post",
+            data:{query:query},
+            success:function(data)
+            {
+                $('#result').html(data);
+            }
+        });
+    }
+    
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();            
+        }
+    });
+});
+</script>
 
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:06 GMT -->
-</html>
-<?php
 
-?>
+
+
+
+                                       
+                                                    
+                           

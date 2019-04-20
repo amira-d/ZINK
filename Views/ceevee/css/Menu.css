@@ -216,10 +216,20 @@ bottom: 300px;
     list-style: none;
     margin: 20px 0;
 }
+@font-face {
+  font-family: myFirstFont;
+  src: url(Lato-Italic.ttf);
+}
+.portfolio_filter li a 
+{
+            font-family: myFirstFont;
+color: red;
 
+font-size: 100px;
+}
 .portfolio .categories-grid .categories ul li a {
     display: inline-block;
-    color: #60606e;
+
     padding: 0 10px;
     margin: 0 10px;
     -webkit-transition: all .2s ease-in-out .2s;
@@ -240,9 +250,6 @@ bottom: 300px;
     text-decoration: none;
 }
 
-.portfolio_filter {
-    padding-left: 0;
-}
 
 .portfolio_item {
     position: relative;
@@ -323,15 +330,27 @@ bottom: 300px;
     transform: translateX(0);
 }
 
-.portfolio .categories-grid .categories ul li {
+.portfolio .categories-grid .categories ul {
     float: left;
     padding-right: 2px;
+              font-family: myFirstFont;
+color: red;
+
+font-size: 100px;
 }
 
 .portfolio .categories-grid .categories ul li a {
     padding: 0 10px;
+ font:MyFirst;
     -webkit-transition: all .2s ease-in-out .2s;
     transition: all .2s ease-in-out .2s;
+
+}
+.portfolio-div
+{
+position: absolute;
+left: 
+
 }
 
 .portfolio_filter {
@@ -339,6 +358,8 @@ bottom: 300px;
     display: inline-block;
     margin: 0 auto;
     text-align: center;
+           font-family: myFirstFont;
+color: red;
 }
 .portfolio-div {
   padding: 10px;}
@@ -351,6 +372,7 @@ bottom: 300px;
   position: relative;
   bottom: 10px;
   margin: 5px;
+
 }
 .retour
 {

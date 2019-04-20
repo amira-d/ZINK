@@ -27,6 +27,8 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
 </head>
 <body>
 	<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
@@ -149,7 +151,7 @@
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Delete</h4>
+                                    <h4>Delete</h4><br/>
 									<div class="card-header-right-icon">
                                         <ul>
                                             <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
@@ -163,8 +165,8 @@
 
                                          <label>Name of the product to delete</label><input type="text" 
                                          name="namep" id="nom">
-                                         <p id="erreur">  </p>
-                                         <button type="submit" ></button>
+                                         <p id="erreur" style="color: red;">  </p>
+                                         <button type="submit" class="myButton" >Delete</button>
 
                                     </form>
                                     <?PHP
