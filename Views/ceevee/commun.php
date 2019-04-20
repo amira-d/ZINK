@@ -177,7 +177,7 @@ $(document).ready(function(){
   function fixDiv() {
   var $cache = $('#fix'); 
   if ($(window).scrollTop() > 350) 
-    $cache.css({'position': 'fixed', 'top': '300px'}); 
+    $cache.css({'position': 'fixed', 'top': '200px'}); 
   else
     $cache.css({'position': 'relative', 'top': 'auto'});
 }

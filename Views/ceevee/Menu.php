@@ -30,7 +30,6 @@
 
     <!-- Bootstrap -->
     <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css1/bootstrap.min.css"/>
   <link rel="stylesheet" href="css1/font-awesome.min.css"/>
   <link rel="stylesheet" href="css1/flaticon.css"/>
   <link rel="stylesheet" href="css1/owl.carousel.css"/>
@@ -63,7 +62,7 @@
 	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
          <ul id="nav" class="nav">
-            <li ><a class="smoothscroll" href="index.html">Home</a></li>
+            <li ><a class="index" href="index.html">Home</a></li>
             <li><a class="current"class="smoothscroll" href="#portfolio">Works</a></li>
          </ul> <!-- end #nav -->
 
