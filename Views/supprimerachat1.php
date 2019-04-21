@@ -1,4 +1,3 @@
-
 <?PHP
 include "../core/AchatA.php";
 $AchatA=new AchatA();

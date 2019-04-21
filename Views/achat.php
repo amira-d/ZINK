@@ -32,7 +32,7 @@ class achat{
 	function setnbr($nbr){
 		$this->nbr=$nbr;
 	}
-	
+
 	
 }
 ?>

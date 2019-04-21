@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
-    <link href="assets/css/lib/calendar/fullcalendar.css" rel="stylesheet" />
+    <link href="assets/css/lib/calendar/fullcalendar.css" rel="stylesheeta" />
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
@@ -177,9 +177,6 @@ $listeachat=$AchatA->afficherachats();
                                             <th>Prix</th>
                                             <th>Nombre des produits</th>
                                             <th>supprimer</th>
-                                            <th>modifier</th>
-                                            <th>vider panier</th>
-                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -194,14 +191,6 @@ foreach($listeachat as $row){
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['ref']; ?>" name="ref">
   </form>
-  </td>
-  <td><a href="modifierachat1.php?ref=<?PHP echo $row['ref']; ?>">
-  Modifier</a></td>
-  </form>
-  </td>
-  <td><form method="POST" action="rachat1.php">
-  <input type="submit" name="vider" value="vider">
-
   <?PHP
 }
 ?>

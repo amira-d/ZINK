@@ -1,4 +1,3 @@
-
 <?PHP
 include "../config.php";
 class AchatA {
@@ -23,7 +22,18 @@ function afficherachat ($achat){
         }
 		
 	}
-	
+	function afficherachat1(){
+		$sql="SElECT * From panier e inner join achat a on e.reft= a.ref";
+		
+		$db = config3::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
 	function afficherachats(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SElECT * From achat order by ref";
@@ -32,7 +42,7 @@ function afficherachat ($achat){
 		$liste=$db->query($sql);
 		return $liste;
 		}
-        catch (Exception $e){
+	        catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }	
 	}
@@ -48,7 +58,8 @@ function afficherachat ($achat){
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         } }
-
+        
+       
         /*function rachat(){
 		$sql="TRUNCATE TABLE achat ";
 		$db = config::getConnexion();
@@ -90,6 +101,22 @@ try{
         }
 		
 	}
+	function fetch_data()
+    {
+    $output='';
+    $conn=mysqli_connect("localhost","root","","projetb");
+    $sql="SELECT * FROM achat ORDER BY ref";
+    $result=mysqli_query($conn,$sql);
+    while ($row=mysqli_fetch_array($result)) {
+        $output .='<tr>
+                            <td>'.$row["ref"].'</td>
+                            <td>'.$row["prix"].'</td>
+                            <td>'.$row["nbr"].'</td>
+                                            </tr>
+                    ';
+    }
+    return $output;
+}
 	function recupererachat($ref){
 		$sql="SELECT * from achat where ref=$ref";
 		$db = config::getConnexion();

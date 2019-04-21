@@ -285,7 +285,7 @@
             <div class="link-box">
                <a href="http://www.behance.net" target="_blank">Details</a>
 		         <a class="popup-modal-dismiss">Close</a><br><br>
-               <a href="../afficherachat.php" target="_blank">panier</a>
+               <a href="../achat.html" target="_blank">panier</a>
             </div>
            
 
@@ -304,7 +304,7 @@
             <div class="link-box">
                <a href="http://www.behance.net" target="_blank">Details</a>
 		         <a class="popup-modal-dismiss">Close</a>
-               <a href="../afficherachatss" target="_blank">panier</a>
+               <a href="../achat.html.php" target="_blank">panier</a>
             </div>
 
 	      </div><!-- modal-02 End -->
@@ -702,7 +702,12 @@
 
             </aside>
 
-      </div>                                 
+      </div>
+      
+
+                                                      ?>
+                                       
+
    </section> <!-- Contact Section End-->
 
 
