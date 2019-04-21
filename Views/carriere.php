@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<!-- Mirrored from zebratheme.com/html/fooadmin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:03:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Zink : Upload announcement</title>
+    <title>ZINK : Admin </title>
 	
 	<!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -23,17 +25,19 @@
 	<!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">jkjkjkk
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-      <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-        <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body>
+
+   <body>
 
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
@@ -42,23 +46,33 @@
                 <ul>
                     <li class="label">Main</li>
                     <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
+                   
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="../ceevee/index-2.html">Resto</a></li>
+                            <li><a href="ceevee/index.html">Resto</a></li>
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
 
                             <li><a href="modifierp1.html">Change Product</a></li>
 
-                         <li><a href="annonces-produit.html">Annonces produit</a></li>
+                                                        <li><a href="modifierp1.html">Change Product</a></li>
+                                                                                    <li><a href="supprimerp.php">Delete Product</a></li>
+
+
+                            <li><a href="annonces-produit.php">Annonces produit</a></li>
+
                         </ul>
                     </li>
                     
-                    <li class="label">Utilities</li>
+                    <li class="label">Apps</li>
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                    <li><a href="carriere.html"><i class="ti-carriere"></i>Carriere</a></li> 
+                    <li><a href="carriere.html"><i class="ti-carriere"></i>Carriere</a></li>
+
+                    
+                    
+                    
                     <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                            
@@ -126,17 +140,16 @@
             </ul>
         </div>
     </div>
- 
+</div>
 
-
-    <div class="content-wrap">
+   <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 p-0">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Manage announcements :</h1>
+                                <h1>Manage job offers :</h1>
                             </div>
                         </div>
                     </div><!-- /# column -->
@@ -145,7 +158,7 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
-                                    <li class="active">News Upload</li>
+                                    <li class="active">Job offer Upload</li>
                                 </ol>
                             </div>
                         </div>
@@ -156,7 +169,7 @@
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Announcements</h4>
+                                    <h4>Job offers</h4>
                                     <div style="position: relative; top: -29px; right: -788px;">
                                     <select name="Tri" onchange="submit();">
                                                 <option value="plus" selected>Plus récent</option>
@@ -199,10 +212,10 @@
  <tbody>
                                    
  <?PHP
-include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-include "C:/wamp64/www/ZINK/zink/Entities/annonce.php";
-$ann2C=new AnnonceC();
- $listeannonces=$ann2C->afficherAnnonce();
+include "C:/wamp64/www/ZINK/zink/Cores/recruC.php";
+include "C:/wamp64/www/ZINK/zink/Entities/recrutement.php";
+$r2C=new recruC();
+ $listeannonces=$r2C->afficherRecrutement();
 $data=$listeannonces->fetch();
 
 
@@ -211,15 +224,16 @@ foreach($listeannonces as $row){
   <tr>
   <td><?PHP echo $row['id']; ?></td>
   <td><?PHP echo $row['titre']; ?></td>
-  <td><?PHP echo $row['type']; ?></td>
+  <td><?PHP echo $row['service']; ?></td>
   <td><?PHP echo $row['description']; ?></td>
+  <td><?PHP echo $row['deadline']; ?></td>
   <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
-  <td><form method="POST" action="supprimerAnnonce.php">
+  <td><form method="POST" action="supprimerRecrutement.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
   </form>
   </td>
-  <td><a href="majAnnonce.php?titre=<?PHP echo $row['titre']; ?>">
+  <td><a href="majRecru.php?id=<?PHP echo $row['id']; ?>">
   Update</a></td>
   </tr>
 
@@ -246,13 +260,13 @@ foreach($listeannonces as $row){
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
-									<div class="card-header-right-icon">
+                                    <div class="card-header-right-icon">
                                       
                                     </div>
                                 </div>
                                 <div class="card-body">
-									<div class="menu-upload-form">
-										<form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
+                                    <div class="menu-upload-form">
+                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
                                             <div class="col-sm-10">
@@ -295,38 +309,52 @@ foreach($listeannonces as $row){
                                             </div>
                                         </div>
                                     </form>
-									</div>
+                                    </div>
                                 </div>
-							</div><!-- /# card -->
-						</div><!-- /# column -->
-					</div><!-- /# row -->
-				</div><!-- /# main content -->
+                            </div><!-- /# card -->
+                        </div><!-- /# column -->
+                    </div><!-- /# row -->
+                </div><!-- /# main content -->
                 
 
                 
             </div><!-- /# container-fluid -->
         </div><!-- /# main -->
     </div><!-- /# content wrap -->
-
+	
     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-    <!--<script src="assets/js/lib/bootstrap.min.js"></script>--><!-- bootstrap -->
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
+	<!--  Chart js -->
+	<script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+	<script src="assets/js/lib/chart-js/chartjs-init.js"></script>
+	<!-- // Chart js -->
+	
+	<!--  Datamap -->
+    <script src="assets/js/lib/datamap/d3.min.js"></script>
+    <script src="assets/js/lib/datamap/topojson.js"></script>
+    <script src="assets/js/lib/datamap/datamaps.world.min.js"></script>
+    <script src="assets/js/lib/datamap/datamap-init.js"></script>
+	<!-- // Datamap -->-->
+    <script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script>	
+    <script src="assets/js/lib/weather/weather-init.js"></script>
+    <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
-    <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
-    <script src="assets/js/scripts.js"></script><!-- scripit init-->
-      <!-- Page level plugins -->
-  <script src="assets/datatables/jquery.dataTables.min.js"></script>
-  <script src="assets/datatables/dataTables.bootstrap4.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="assets/demo/datatables-demo.js"></script>
-
-
 </body>
 
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
+<!-- Mirrored from zebratheme.com/html/fooadmin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:03:45 GMT -->
 </html>
+
+
+
+
+
+
+
+
+

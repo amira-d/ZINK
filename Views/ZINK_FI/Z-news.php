@@ -66,7 +66,7 @@
 
   <!-- Header
    ================================================== -->
-   <header id="home" style="height:100px;">
+   <header style="height:100px;">
 
        <!-- Start cSlider -->
             <div id="da-slider" class="da-slider">

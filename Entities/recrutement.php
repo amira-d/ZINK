@@ -53,9 +53,9 @@ class Recrutement{
 	function setService($service){
 		$this->service=$service;
 	}
-	function getDeadline($deadline){
+	/*function getDeadline($deadline){
 		$this->deadline=$deadline;
-	}
+	}*/
 	
 	
 }
