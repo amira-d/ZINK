@@ -153,8 +153,8 @@ $(document).ready(function(){
  <script type="text/javascript">
   function fixDiv() {
   var $cache = $('#fix'); 
-  if ($(window).scrollTop() > 350) 
-    $cache.css({'position': 'fixed', 'top': '200px'}); 
+  if ($(window).scrollTop() > 180) 
+    $cache.css({'position': 'fixed', 'top': '280px'}); 
   else
     $cache.css({'position': 'relative', 'top': 'auto'});
 }

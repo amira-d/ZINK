@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Client</title>
+    <title>Foodmin : Client Fidèle</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -37,7 +37,7 @@
                     <li class="label">Main</li>
                     <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                  
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
+                       <ul>
                             <li><a href="ceevee/index.html">Resto</a></li>
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="afficherCommandeAdmin.php">Order List</a></li>
@@ -133,7 +133,7 @@
 
 
 
-  
+
 
 
 
@@ -141,47 +141,14 @@
 
 
 <?PHP
-include "../cores/clientC.php";
-$db=config::getConnexion();
-$client1C=new clientC();
-$listeclient=$client1C->afficherclients();
-$produitparpage=3;
-$produittotalreq=$db->query('SELECT cin from client ');
-            $produittotal= $produittotalreq->rowCount();
-        //$produittotal= $listeclient->rowCount();
-        $pagestotales=ceil($produittotal/$produitparpage);
-if( isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0)
-{
-    $_GET['page']=intval($_GET['page']);
-    $pagecourante=$_GET['page'];
-}
-else
-{
-    $pagecourante=1;
-}
-$depart=($pagecourante-1)*$produitparpage;
-$result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage);
+include "../cores/clientfC.php";
+$clientf1C=new clientfC();
+$listeclientf=$clientf1C->afficherclientfs();
 
 //var_dump($listeEmployes->fetchAll());
 ?>
 
 
-
-<!--
-
-<?php
-
-$db=config::getConnexion();
-$result=$db->query('SELECT * from client ORDER BY cin');
-?>
-<?php
-if (isset($_GET['search'])&&!empty($_GET['search'])) {
-    $search=htmlspecialchars($_GET['search']);
-    $result=$db->query('SELECT * from client WHERE cin LIKE "%'.$search.'%" or name LIKE "%'.$search.'%" or prenom LIKE "%'.$search.'%" or sexe LIKE "%'.$search.'%"');
-   
-}
-?>
--->
 
 
   
@@ -235,7 +202,7 @@ if (isset($_GET['search'])&&!empty($_GET['search'])) {
                              
 
                             <div class="card-body">
-                               <form action="afficherclient.php" method="GET">
+                               <form action="afficherclientf.php" method="GET">
                                 
                          
                                  
@@ -254,31 +221,22 @@ if (isset($_GET['search'])&&!empty($_GET['search'])) {
                                     </thead>
                                     <tbody>
                                         <tr>
-
-
-                        
-
-
-
-
-
-
 <?PHP
-foreach($listeclient as $row){
+foreach($listeclientf as $row){
   ?>
 
   <tr>
-  <td><?PHP echo $row['cin']; ?></td>
+  <td ><?PHP echo $row['cin']; ?></td>
   <td><?PHP echo $row['nom']; ?></td>
   <td><?PHP echo $row['prenom']; ?></td>
   <td><?PHP echo $row['mail']; ?></td>
   <td><?PHP echo $row['sexe']; ?></td>
-  <td><form method="POST" action="supprimerclient.php">
- <center> <h2><input type="submit"  value="Delete" class="btn btn-danger btn-xs"class ="fa fa-trash-o"></h2></center>
+  <td><form method="POST" action="supprimerclientf.php">
+ <center> <input type="submit"  value="Delete"class="btn btn-danger btn-xs"class ="fa fa-trash-o"></center>
   <input type="hidden" value="<?PHP echo $row['cin']; ?>" name="cin">
   </form>
   </td>
-  <td><center><a href="modifierclient.php?edit=<?PHP echo $row['cin']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 
+  <td><center><a href="modifierclientf.php?edit=<?PHP echo $row['cin']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 
   edit</a></center></td>
   </tr>
   <?PHP
@@ -295,38 +253,21 @@ foreach($listeclient as $row){
 
 
    </div>
-
                         </div>
-                                  <?php 
-                                for ($i=1;$i<$pagestotales;$i++)
-                                {?>
-                                    <ul class="pagination">
-                                 <!-- echo ' <a href="shop.php?page='.$i.'">'.$i.'</a>' ; -->
-                                  <li> 
-                                    <?php 
-                                    echo ' <a href="afficherclient.php?page='.$i.'">'.$i.'</a>' ;
-                                    ?>
-                                  </li>
-                                 <?php
-                                }
-                                ?>
                     </div>
 
 
                 </div>
             </div><!-- .animated -->
-
-  
         </div><!-- .content -->
 
 
 
  </div> 
-
     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-  <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller --> 
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-   <!-- <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap --> 
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     

@@ -1,59 +1,84 @@
-
 function myFunction() { 
 var i=0;
-var ref=document.getElementById('ref').value;
-var ref_m=document.getElementById("missing_reference");
-ref_m.textContent="";
+var nom=document.getElementById('nom').value;
+var nom_m=document.getElementById("missing_nom");
+nom_m.textContent="";
 
-if (!ref) {
-
-//e.preventDefault();
-//alert("false");
-
-ref_m.textContent="ref missing";
-ref_m.style.color='red';}
-else
-i++;
-var prix=document.getElementById('prix').value;
-var prix_m=document.getElementById("missing_prix");
-prix_m.textContent="";
-
-if (!prix) {
+if (!nom) {
 
 //e.preventDefault();
 //alert("false");
 
-prix_m.textContent="prix missing";
-prix_m.style.color='red';}
-else 
-	if (isFinite(prix))
-i++;
+nom_m.textContent="nom missing";
+nom_m.style.color='red';}
 else
-	{prix_m.textContent="not a number";
-prix_m.style.color='red';}
+i++;
+var prenom=document.getElementById('prenom').value;
+var prenom_m=document.getElementById("missing_prenom");
+prenom_m.textContent="";
 
-
-var nbr=document.getElementById('nbr').value;
-var nbr_m=document.getElementById("missing_nombre");
-nbr_m.textContent="";
-if (!nbr) {
+if (!prenom) {
 
 //e.preventDefault();
 //alert("false");
 
-nbr_m.textContent="nbr missing";
-nbr_m.style.color='red';}
+prenom_m.textContent="prenom missing";
+prenom_m.style.color='red';}
 else
-	if (isFinite(nbr))
+i++;
+
+
+
+var cin=document.getElementById('cin').value;
+var cin_m=document.getElementById("missing_cin");
+cin_m.textContent="";
+if (!cin) {
+
+//e.preventDefault();
+//alert("false");
+
+cin_m.textContent="cin missing";
+cin_m.style.color='red';}
+else
+	if (isFinite(cin))
 i++;
 else
-	{nbr_m.textContent="not a number";
-nbr_m.style.color='red';}
+	{cin_m.textContent="not";
+cin_m.style.color='red';}
+
+var mail=document.getElementById('mail').value;
+var mail_m=document.getElementById("missing_mail");
+mail_m.textContent="";
+if (mail==0) {
+
+//e.preventDefault();
+//alert("false");
+
+mail_m.textContent="mail missing";
+mail_m.style.color='red';}
+else
+i++;
 
 
-if(i==3)
+
+var sexe=document.getElementById('sexe').value;
+var sexe_m=document.getElementById("missing_sexe");
+sexe_m.textContent="";
+
+if (sexe==sexe) {
+
+//e.preventDefault();
+//alert("false");
+
+sexe_m.textContent="sexe missing";
+sexe_m.style.color='red';
+}
+else
+i++;
+
+if(i==5)
 	alert("yaas");
 //else
-//	e.preventDefault();
+	//e.preventDefault();
 
 }

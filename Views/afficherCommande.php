@@ -71,8 +71,8 @@
               
 <?PHP
 
-include "../entites/Commande.php";
-include "../cores/CommandeC.php";
+include "../Entities/Commande.php";
+include "../Cores/CommandeC.php";
 //require_once  ('C:\xampp\htdocs\Commandes\views\consulterCommande.php');
 
 $commande1C=new CommandeC();

@@ -1,10 +1,9 @@
-
-
-  <meta charset="utf-8">
+ 
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Client</title>
+    <title>Foodmin : Calendar</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -133,6 +132,10 @@
 
 
 
+
+
+
+
   
 
 
@@ -140,193 +143,105 @@
 
 
 
-<?PHP
-include "../cores/clientC.php";
-$db=config::getConnexion();
-$client1C=new clientC();
-$listeclient=$client1C->afficherclients();
-$produitparpage=3;
-$produittotalreq=$db->query('SELECT cin from client ');
-            $produittotal= $produittotalreq->rowCount();
-        //$produittotal= $listeclient->rowCount();
-        $pagestotales=ceil($produittotal/$produitparpage);
-if( isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0)
-{
-    $_GET['page']=intval($_GET['page']);
-    $pagecourante=$_GET['page'];
-}
-else
-{
-    $pagecourante=1;
-}
-$depart=($pagecourante-1)*$produitparpage;
-$result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage);
-
-//var_dump($listeEmployes->fetchAll());
-?>
 
 
-
-<!--
-
-<?php
+ <?php
+include "../config.php";
+include "../entities/client.php";
+include "../entities/clientf.php";
 
 $db=config::getConnexion();
-$result=$db->query('SELECT * from client ORDER BY cin');
-?>
-<?php
-if (isset($_GET['search'])&&!empty($_GET['search'])) {
-    $search=htmlspecialchars($_GET['search']);
-    $result=$db->query('SELECT * from client WHERE cin LIKE "%'.$search.'%" or name LIKE "%'.$search.'%" or prenom LIKE "%'.$search.'%" or sexe LIKE "%'.$search.'%"');
-   
-}
-?>
--->
+$result=$db->query('SELECT * FROM client');
+$results=$db->query('SELECT * FROM clientf');
+$nbc=0;
+$nbf=0;
+ while ($row = $result->fetch()) 
+ {
+ $nbc++;
+ }
+ while ($row = $results->fetch()) 
+ {
+ $nbf++;
+ }
+ $nbt=$nbc+$nbf;
+ $nbcp=($nbc*100)/$nbt;
+ $nbfp=($nbf*100)/$nbt;
 
+?>
 
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endiff]-->
+
+<head>
   
-   <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-\assets\css\lib
-
-    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
-   <!-- <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"> -->
-    <!--<link rel="stylesheet" href="themify-icons.css">
-    <link rel="stylesheet" href="flag-icon.min.css">
-    <link rel="stylesheet" href="cs-skin-elastic.css">
-    <link rel="stylesheet" href="dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="buttons.bootstrap4.min.css">-->
-
-    <link rel="stylesheet" href="style.css">
-<div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                      <div style="width:300px; margin:auto;">
-                        <h1>Dashboard </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                           <li class="active">Data table</li>
-                        </ol>
-                    </div>
-                </div>
-            </div> 
-        </div>
-
-        <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><strong class="card-title">Data Table</strong></h3>
-                                <input type="" name="">
-                            </div>
 
 
-                             
-
-                            <div class="card-body">
-                               <form action="afficherclient.php" method="GET">
-                                
-                         
-                                 
-                              
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>cin</th>
-                                            <th>nom</th>
-                                            <th>prenom</th>
-                                            <th>mail</th>
-                                            <th>sexe</th>
-                                            <th>supprimer</th>
-                                            <th>modifier</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
 
-                        
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
 
 
 
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['clients', <?php echo $nbc?>],
+          ['client fidèle', <?php echo $nbf ?>]
+        ]);
+
+        var options = {
+          title: 'la partitions des clients'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 
 
+</head>
 
-<?PHP
-foreach($listeclient as $row){
-  ?>
-
+<body>
+  
+	
+	    <center><div id="piechart" style="width: 1600px; height: 750px;"></div></center>
+		<br>
+ <center><table style="width:50%">
   <tr>
-  <td><?PHP echo $row['cin']; ?></td>
-  <td><?PHP echo $row['nom']; ?></td>
-  <td><?PHP echo $row['prenom']; ?></td>
-  <td><?PHP echo $row['mail']; ?></td>
-  <td><?PHP echo $row['sexe']; ?></td>
-  <td><form method="POST" action="supprimerclient.php">
- <center> <h2><input type="submit"  value="Delete" class="btn btn-danger btn-xs"class ="fa fa-trash-o"></h2></center>
-  <input type="hidden" value="<?PHP echo $row['cin']; ?>" name="cin">
-  </form>
-  </td>
-  <td><center><a href="modifierclient.php?edit=<?PHP echo $row['cin']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 
-  edit</a></center></td>
+   <th>clients</th>
+    <th>clients fidèle</th> 
+    <th><center>clients totale</center></th>
   </tr>
-  <?PHP
-}
-?>
-                         
-                                        </tr>
-                                      
-
-                                    </tbody>
-                                    </form>
-
-</table>
-
-
-   </div>
-
-                        </div>
-                                  <?php 
-                                for ($i=1;$i<$pagestotales;$i++)
-                                {?>
-                                    <ul class="pagination">
-                                 <!-- echo ' <a href="shop.php?page='.$i.'">'.$i.'</a>' ; -->
-                                  <li> 
-                                    <?php 
-                                    echo ' <a href="afficherclient.php?page='.$i.'">'.$i.'</a>' ;
-                                    ?>
-                                  </li>
-                                 <?php
-                                }
-                                ?>
-                    </div>
-
-
-                </div>
-            </div><!-- .animated -->
-
-  
-        </div><!-- .content -->
-
-
-
- </div> 
-
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-  <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller --> 
+  <tr>
+    <td> <?php  echo $nbc;?></td>
+    <td><?php  echo $nbf;?></td> 
+   <td> <center><?php  echo $nbt;?></center></td>
+  </tr>
+  <tr>
+    <td> <?php  echo $nbcp?> %</td>
+    <td> <?php echo $nbfp?> %</td> 
+   <td> <center>100 %</center></td>
+  </tr>
+</table></center>
+			                                                                                      
+</body>
+</html>
+  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-   <!-- <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap --> 
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     
@@ -342,8 +257,6 @@ foreach($listeclient as $row){
     <script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>  
     <script src="assets/js/lib/data-table/jszip.min.js"></script>  
     <script src="assets/js/lib/data-table/datatables-init.js"></script>  
-
-
 
 
 

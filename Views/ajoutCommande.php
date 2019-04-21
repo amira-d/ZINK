@@ -53,8 +53,8 @@
 
 
 <?PHP
-include "../entites/Commande.php";
-include "../cores/CommandeC.php";
+include "../Entities/Commande.php";
+include "../Cores/CommandeC.php";
 
 // define variables and set to empty values
 $cinErr  =$nomErr = $prenomErr = $numeroErr = $emailErr  = $heuresErr = $minutesErr = $produitsErr= $quantiteErr  = "";
@@ -291,15 +291,19 @@ header('Location: sendmail1.php?email='.$email.'');
 
                   <div>
 
-                     <button type="submit" name="submit" class="submit" > COMMANDER </button>
+                     <button type="submit" name="submit" class="submit" > COMMANDER AU ZINK </button>
                      <span id="image-loader">
                         <img alt="" src="images/loader.gif">
                      </span>
                   </div>
+
+
+          </fieldset>
+           </form> <!-- Form End -->
+                    
                   
 
-					</fieldset>
-				   </form> <!-- Form End -->
+              
 
                <!-- contact-warning -->
                <div id="message-warning"> Error boy</div>
@@ -314,6 +318,7 @@ header('Location: sendmail1.php?email='.$email.'');
             <aside class="four columns footer-widgets">
 
                <div class="widget widget_contact">
+                
 
 					   <h4>Address and Phone</h4>
 					   <p class="address">
@@ -324,9 +329,9 @@ header('Location: sendmail1.php?email='.$email.'');
 					   </p>
 					   <div>
                      <a href="consulterCommande.html"> <button type="submit" name="submit" class="submit1"> CONSULTER COMMANDES </button></a>
-                     <span id="image-loader">
-                       <img alt="" src="images/loader.gif">
-                     </span>
+                     
+                     <a href="aaaaaa.php"> <button type="submit" name="submit" class="submit1"> livresaier a domicile </button></a>
+                    
                   </div>
 
 

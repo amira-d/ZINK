@@ -1,6 +1,26 @@
+<?php
+include "../entities/faq.php";
+$db=config::getConnexion();
+if (isset($_GET['search'])&&!empty($_GET['search']))
+{   
 
+}
+else
+{
+    $result=$db->query('SELECT * FROM faq');
+}
 
-  <meta charset="utf-8">
+?>
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,7 +50,25 @@
     <link href="assets/css/lib/datatable/buttons.bootstrap.min" rel="stylesheet">
     <link href="assets/css/lib/datatable/dataTables.bootstrap.min" rel="stylesheet">
 
-     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+
+<h4><body>
+
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+      
+
+
+
+ <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -77,6 +115,7 @@
         </div>
     </div>
 
+
 <div class="header">
         <div class="pull-left">
             <div class="logo"><a href="index-2.html"><span>Foodmin</span></a></div>
@@ -86,6 +125,9 @@
                 <span class="line"></span>
             </div>
         </div>
+
+
+
 
         <div class="pull-right p-r-15">
             <ul>
@@ -104,7 +146,9 @@
                         </div>
                     </div>
                 </li>
-                <li class="header-icon dib"><i class="ti-email"></i>
+
+
+ <li class="header-icon dib"><i class="ti-email"></i>
                     <div class="drop-down">
                         <div class="dropdown-content-heading">
                             <a href="email.html"><i class="ti-pencil-alt pull-right"></i></a>
@@ -130,62 +174,7 @@
 
 
 
-
-
-
-  
-
-
-
-
-
-
-<?PHP
-include "../cores/clientC.php";
-$db=config::getConnexion();
-$client1C=new clientC();
-$listeclient=$client1C->afficherclients();
-$produitparpage=3;
-$produittotalreq=$db->query('SELECT cin from client ');
-            $produittotal= $produittotalreq->rowCount();
-        //$produittotal= $listeclient->rowCount();
-        $pagestotales=ceil($produittotal/$produitparpage);
-if( isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0)
-{
-    $_GET['page']=intval($_GET['page']);
-    $pagecourante=$_GET['page'];
-}
-else
-{
-    $pagecourante=1;
-}
-$depart=($pagecourante-1)*$produitparpage;
-$result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage);
-
-//var_dump($listeEmployes->fetchAll());
-?>
-
-
-
-<!--
-
-<?php
-
-$db=config::getConnexion();
-$result=$db->query('SELECT * from client ORDER BY cin');
-?>
-<?php
-if (isset($_GET['search'])&&!empty($_GET['search'])) {
-    $search=htmlspecialchars($_GET['search']);
-    $result=$db->query('SELECT * from client WHERE cin LIKE "%'.$search.'%" or name LIKE "%'.$search.'%" or prenom LIKE "%'.$search.'%" or sexe LIKE "%'.$search.'%"');
-   
-}
-?>
--->
-
-
-  
-   <meta charset="utf-8">
+ <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 \assets\css\lib
@@ -199,7 +188,7 @@ if (isset($_GET['search'])&&!empty($_GET['search'])) {
     <link rel="stylesheet" href="buttons.bootstrap4.min.css">-->
 
     <link rel="stylesheet" href="style.css">
-<div class="breadcrumbs">
+<center><div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
@@ -208,19 +197,21 @@ if (isset($_GET['search'])&&!empty($_GET['search'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-8">
+            </div></center>
+
+
+<div class="col-sm-8">
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                           <li class="active">Data table</li>
+                           <li class="active"></li>
                         </ol>
                     </div>
                 </div>
             </div> 
         </div>
 
-        <div class="content mt-3">
+ <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
 
@@ -232,101 +223,81 @@ if (isset($_GET['search'])&&!empty($_GET['search'])) {
                             </div>
 
 
-                             
 
-                            <div class="card-body">
-                               <form action="afficherclient.php" method="GET">
-                                
-                         
-                                 
-                              
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+
+       <center> <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"> Listes FAQ </strong>
+                            </div>
+                           <center> <div class="card-body">
+                              <center> <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>cin</th>
-                                            <th>nom</th>
-                                            <th>prenom</th>
-                                            <th>mail</th>
-                                            <th>sexe</th>
-                                            <th>supprimer</th>
-                                            <th>modifier</th>
+                                            <th><center>Identifiant </center></th>
+                                            <th> <center>Questions</center> </th>
+                                            <th><center> Réponses</center> </th>
+                                            <th><center> Actions</center></th>
+
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-
-
-                        
-
-
-
-
-
-
-<?PHP
-foreach($listeclient as $row){
-  ?>
-
-  <tr>
-  <td><?PHP echo $row['cin']; ?></td>
-  <td><?PHP echo $row['nom']; ?></td>
-  <td><?PHP echo $row['prenom']; ?></td>
-  <td><?PHP echo $row['mail']; ?></td>
-  <td><?PHP echo $row['sexe']; ?></td>
-  <td><form method="POST" action="supprimerclient.php">
- <center> <h2><input type="submit"  value="Delete" class="btn btn-danger btn-xs"class ="fa fa-trash-o"></h2></center>
-  <input type="hidden" value="<?PHP echo $row['cin']; ?>" name="cin">
-  </form>
-  </td>
-  <td><center><a href="modifierclient.php?edit=<?PHP echo $row['cin']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 
-  edit</a></center></td>
-  </tr>
-  <?PHP
-}
-?>
-                         
-                                        </tr>
-                                      
-
-                                    </tbody>
-                                    </form>
-
-</table>
-
-
-   </div>
-
-                        </div>
-                                  <?php 
-                                for ($i=1;$i<$pagestotales;$i++)
-                                {?>
-                                    <ul class="pagination">
-                                 <!-- echo ' <a href="shop.php?page='.$i.'">'.$i.'</a>' ; -->
-                                  <li> 
-                                    <?php 
-                                    echo ' <a href="afficherclient.php?page='.$i.'">'.$i.'</a>' ;
+                                   <tbody>
+                                    <?php while ($row = $result->fetch()) { 
                                     ?>
-                                  </li>
-                                 <?php
-                                }
-                                ?>
+                                              <tr>
+
+                                       
+                                            <td>  <?php echo $row['id']; ?></td>
+                                            <td> <?php echo $row['question']; ?></td>
+                                            <td><?php echo $row['reponse']; ?></td>
+                                            <td>  
+              <a href="modifier-faq.php?edit=<?php echo $row['id']; ?>&edit2=<?php echo $row['question']; ?>&edit3=<?php echo $row['reponse']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+
+               <a href="supprimer-faq.php?del=<?php echo $row['id']; ?>" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Delete</a>
+                                             </td>
+                                        </tr>
+                                        
+                                        <?php
+                                        }
+                                        ?>
+                                        </tbody>
+                                </table></center> 
+                            </div></center>
+                        </div>
                     </div>
 
 
                 </div>
             </div><!-- .animated -->
-
-  
         </div><!-- .content -->
 
 
+    </div><!-- /#right-panel -->
 
- </div> 
+    <!-- Right Panel -->
 
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-  <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller --> 
+
+
+
+<script type="text/javascript">
+        let search=document.getElementById("search");
+        search.addEventListener("keydown",function (e)
+        {
+            if (e.keyCode==13)
+                document.location="tables-clients.php?r="+search.value;
+            e.stopPropagation(); 
+        });
+        </script>
+
+</body></h4>
+<script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-   <!-- <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap --> 
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     
@@ -342,8 +313,4 @@ foreach($listeclient as $row){
     <script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>  
     <script src="assets/js/lib/data-table/jszip.min.js"></script>  
     <script src="assets/js/lib/data-table/datatables-init.js"></script>  
-
-
-
-
-
+</html>
