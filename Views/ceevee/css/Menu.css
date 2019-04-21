@@ -706,13 +706,14 @@ call-to-action .button {
 /* i. Footer
 /* ------------------------------------------------------------------ */
 
-footer {
+.footer {
    left: 0;
    bottom: 0;
    width: 100%;
-  
+  height: 500%
    color: white;
    text-align: center;
+   position: absolute;
 }
 
 footer a, footer a:visited { color: #525252; }

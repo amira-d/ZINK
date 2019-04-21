@@ -21,7 +21,9 @@
 	<link rel="stylesheet" href="css/Menu.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
-     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/layout.css">
+          <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <link href = "css/jquery-ui.css" rel = "stylesheet">
     <!-- Custom CSS -->
        <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +37,8 @@
   <link rel="stylesheet" href="css1/owl.carousel.css"/>
   <link rel="stylesheet" href="css1/anotherstyle.css"/>
   <link rel="stylesheet" href="css1/animate.css"/>
+         <link href="css1/bootstrap.min.css" rel="stylesheet">
+
 
 
 

@@ -18,26 +18,26 @@
 	<!-- CSS
     ================================================== -->
    <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/Menu.css">
+  <link rel="stylesheet" href="css/Menu.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href = "css/jquery-ui.css" rel = "stylesheet">
+    <!-- Custom CSS -->
        <link href="css/bootstrap.min.css" rel="stylesheet">
 
-       <link href="css/style.css" rel="stylesheet">
  <link rel="icon" href="img/fav.png" type="image/x-icon">
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
-
-    <!-- main css -->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css1/bootstrap.min.css"/>
   <link rel="stylesheet" href="css1/font-awesome.min.css"/>
   <link rel="stylesheet" href="css1/flaticon.css"/>
   <link rel="stylesheet" href="css1/owl.carousel.css"/>
   <link rel="stylesheet" href="css1/anotherstyle.css"/>
   <link rel="stylesheet" href="css1/animate.css"/>
+         <link href="css1/bootstrap.min.css" rel="stylesheet">
+
+
 
 
    <!-- Script

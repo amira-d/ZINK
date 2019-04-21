@@ -106,8 +106,7 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href = "css/jquery-ui.css" rel = "stylesheet">
+   
     <!-- Custom CSS -->
 
     
@@ -177,7 +176,7 @@ $(document).ready(function(){
   function fixDiv() {
   var $cache = $('#fix'); 
   if ($(window).scrollTop() > 350) 
-    $cache.css({'position': 'fixed', 'top': '200px'}); 
+    $cache.css({'position': 'fixed', 'top': '300px'}); 
   else
     $cache.css({'position': 'relative', 'top': 'auto'});
 }
