@@ -59,30 +59,7 @@
 
    <!-- footer
    ================================================== -->
-  <footer class="footer" >
-
-      <div class="row">
-
-         <div class="twelve columns">
-
-            <ul class="social-links" style="">
-               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-               <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-               <li><a href="#"><i class="fa fa-skype"></i></a></li>
-            </ul>
-
-           
-         </div>
-
-        
-
-      </div>
-
-   </footer> <!-- Footer End-->
+  
 
    <!-- Java Script
    ================================================== -->
@@ -106,7 +83,8 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
-   
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href = "css/jquery-ui.css" rel = "stylesheet">
     <!-- Custom CSS -->
 
     
@@ -176,7 +154,7 @@ $(document).ready(function(){
   function fixDiv() {
   var $cache = $('#fix'); 
   if ($(window).scrollTop() > 350) 
-    $cache.css({'position': 'fixed', 'top': '300px'}); 
+    $cache.css({'position': 'fixed', 'top': '200px'}); 
   else
     $cache.css({'position': 'relative', 'top': 'auto'});
 }

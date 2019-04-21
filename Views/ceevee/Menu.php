@@ -17,13 +17,11 @@
 
 	<!-- CSS
     ================================================== -->
-   <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/Menu.css">
+    <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/Menu.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
-     <link rel="stylesheet" href="css/layout.css">
-          <link rel="stylesheet" href="css/bootstrap.min.css">
-
+     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href = "css/jquery-ui.css" rel = "stylesheet">
     <!-- Custom CSS -->
        <link href="css/bootstrap.min.css" rel="stylesheet">
