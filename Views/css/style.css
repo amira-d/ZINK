@@ -816,148 +816,6 @@ ol {
 	border-bottom: 2px dotted rgba(255, 255, 255, 0.25);
 }
 
-/*---------------------
-  Footer Section
------------------------*/
-
-.footer-bg-area {
-	height: 553px;
-	position: relative;
-}
-
-.map-warp {
-	height: 417px;
-	background: #888;
-}
-
-.contact-form-area {
-	position: absolute;
-	width: 100%;
-	left: 0;
-	top: -212px;
-}
-
-.contact-form-warp {
-	background: #fff;
-	padding: 45px 95px 65px;
-}
-
-.contact-form-warp .section-title {
-	margin-bottom: 67px;
-}
-
-.contact-form input,
-.contact-form textarea {
-	width: 100%;
-	border: none;
-	background: #eff4f6;
-	padding: 10px 27px;
-	font-size: 12px;
-	height: 52px;
-	margin-bottom: 17px;
-}
-
-.contact-form textarea {
-	padding-top: 21px;
-	height: 190px;
-	margin-bottom: 25px;
-}
-
-.copyright {
-	position: absolute;
-	width: 100%;
-	bottom: 27px;
-	left: 0;
-	color: #777777;
-	font-size: 14px;
-	text-align: center;
-}
-
-.copyright-s2 {
-	width: 100%;
-	background: #000000;
-	padding: 23px 0;
-	text-align: center;
-}
-
-.copyright-s2 p {
-	color: #777777;
-	margin-bottom: 0;
-	font-size: 14px;
-}
-
-/*--------------
-  Other Page
------------------
-=================*/
-
-.page-top-info {
-	height: 678px;
-	text-align: center;
-	display: table;
-	width: 100%;
-}
-
-.page-top-info .ptf-center {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.page-top-info h2 {
-	padding-top: 80px;
-	line-height: normal;
-	font-size: 110px;
-	color: #fff;
-}
-
-.page-top-info h2 span {
-	color: #ffc515;
-}
-
-/*---------------
-    About Page
------------------*/
-
-.chefs-section {
-	padding-top: 130px;
-	padding-bottom: 60px;
-}
-
-.chefs {
-	padding-top: 30px;
-}
-
-.chef {
-	text-align: center;
-	margin-bottom: 40px;
-}
-
-.chef h4 {
-	color: #ffc515;
-	padding-top: 40px;
-	margin-bottom: 30px;
-}
-
-.chef p {
-	font-size: 14px;
-	color: #fff;
-	margin-bottom: 0;
-}
-
-.brands-section {
-	padding: 87px 0;
-}
-
-.bs-item img {
-	opacity: 0.6;
-	-webkit-transition: all 0.4s;
-	-o-transition: all 0.4s;
-	transition: all 0.4s;
-}
-
-.bs-item:hover img {
-	opacity: 1;
-}
 
 /*---------------
   Menu Page
@@ -1440,9 +1298,7 @@ ol {
 	.contact-form-warp {
 		padding: 45px 50px 65px;
 	}
-	.footer-bg-area {
-		height: 615px;
-	}
+	
 	.contact-img {
 		display: none;
 	}
@@ -1469,9 +1325,7 @@ ol {
 	.contact-form-warp {
 		padding: 45px 30px 65px;
 	}
-	.footer-bg-area {
-		height: 590px;
-	}
+	
 	.section-title h2:after,
 	.section-title h2:before {
 		display: none;
