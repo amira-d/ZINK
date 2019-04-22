@@ -90,7 +90,7 @@
         <div class="portfolio-div">
             <div class="portfolio" >
   <a href="index.html" class="retour" style="font-family: 'opensans-light'; text-decoration: none; font-size: 20px; font-style: bold; color: grey;">Go back home</a>
-                <div class="container" style="position: relative;right: 150px; ">
+                <div class="container" style="position: relative; right: 10px; ">
                         <!--<ul class="portfolio_filter">
                              <li><a href="Menu.php" class="active"data-filter="*">All</a></li>
                             <li><a href="Menu-two.php"c data-filter=".photography">Soupes&Salade<a></li>

@@ -710,9 +710,9 @@ body {
 	.contact-img {
 		display: none;
 	}
-	.mp-menu-tab-nav .nav-item {
-		width: 50%;
-		margin-bottom: 20px;
+	.portfolio  {
+		width: 150%;
+		margin-bottom: 2000px;
 	}
 	.featured-section {
 		background-image: none !important;
@@ -765,5 +765,9 @@ body {
 	.hs-content p {
 		padding-top: 10px;
 		text-align: center;
+	}
+		.mp-menu-tab-nav .nav-item {
+		width: 100%;
+		margin-bottom: 20px;
 	}
 }
