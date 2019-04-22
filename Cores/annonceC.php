@@ -79,8 +79,7 @@ try{
         }
         catch (Exception $e){
             echo " Erreur ! ".$e->getMessage();
-   echo " Les datas : " ;
-  print_r($datas);
+  
         }
 		
 	}

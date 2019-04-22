@@ -4,7 +4,7 @@ class recruC {
 
 
 	function ajouterRecrutement($ann){
-		$sql="insert into a_recrutement(titre,description,service,deadline,image) values (:titre,:description,:service,:deadline,:image)";
+		$sql="insert into a_recrutement(titre,description,departement,deadline,image) values (:titre,:description,:service,:deadline,:image)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
@@ -30,7 +30,7 @@ class recruC {
 	}
 	
 	function afficherRecrutement(){
-		$sql="SElECT * From a_recrutement Order by id Desc";
+		$sql="SELECT * From a_recrutement Order by id Desc";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -53,43 +53,43 @@ class recruC {
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierRecrutement($ann,$titre){
-		$sql="UPDATE a_recrutement SET titre=:titre , description=:description , image=:image , service=:service , deadline=:deadline WHERE titre='".$titre."'";
+	function modifierRecrutement($ann,$id){
+		$sql="UPDATE a_recrutement SET titre=:titre , description=:description ,  departement=:service , deadline=:deadline, image=:image  WHERE id='".$id."'";
 		
 		$db = config::getConnexion();
-		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+		//  $db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
        // $id=$ann->getId();
         $titre=$ann->getTitre();
-        $description=$ann->getDesc();
-        $image=$ann->getImage();
         $service=$ann->getService();
+        $description=$ann->getDesc();
         $deadline=$ann->getDeadline();
+        $image=$ann->getImage();
 
-        echo"<script>alert('!!!!!!!!!'')</script>";
+        
+
 		
-		$datas = array(':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
+		$datas = array(':titre'=>$titre,':departement'=>$service,':description'=>$description,':deadline'=>$deadline ,':image'=>$image);
 		//$req->bindValue(':id',$id);
 		$req->bindValue(':titre',$titre);
-	    $req->bindValue(':service',$service);
-		$req->bindValue(':deadline',$deadline);
+	    $req->bindValue(':departement',$service);
 		$req->bindValue(':description',$description);
+		$req->bindValue(':deadline',$deadline);
 		$req->bindValue(':image',$image);
 		
             $s=$req->execute();
 			
-          // header('Location: annonces-produit.php');
+
         }
         catch (Exception $e){
             echo " Erreur ! ".$e->getMessage();
-   echo " Les datas : " ;
-  print_r($datas);
+ 
         }
 		
 	}
-	function recupererRecrutement($titre){
-		$sql="SELECT * from a_recrutement where titre=:titre";
+	function recupererRecrutement($id){
+		$sql="SELECT * from a_recrutement where id='$id'";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

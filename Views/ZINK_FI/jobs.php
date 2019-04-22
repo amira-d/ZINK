@@ -126,7 +126,7 @@
             <li><a class="smoothscroll" href="#about">About</a></li>
             <li><a class="smoothscroll" href="#portfolio">Works</a></li>
             <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
-            <li class="current"><a class="smoothscroll" href="#news">Z-News & Jobs</a></li>
+            <li class="current"><a class="smoothscroll" href="index">Z-News & Jobs</a></li>
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
          </ul> <!-- end #nav -->
 

@@ -1,6 +1,6 @@
 <?PHP
 class Recrutement{
-	private $id;
+	private $id ;
 	private $titre;
 	private $description;
     private $service;
@@ -53,9 +53,9 @@ class Recrutement{
 	function setService($service){
 		$this->service=$service;
 	}
-	/*function getDeadline($deadline){
+	function setDeadline($deadline){
 		$this->deadline=$deadline;
-	}*/
+	}
 	
 	
 }
