@@ -144,7 +144,7 @@
         </div>
     </div>
 </div>
-	
+    
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -168,19 +168,26 @@
                             </div>
                   <div class="topnav">
 
-           <form action="afficherlivraison.php">
-   <input type="submit" value="Consulter les Livraisons" class="btn btn-success btn-rounded" style="height: 50px ;  padding: 15px ;  margin-left: 220px  " />
+           <form action="afficherCommandeAdmin.php">
+   <input type="submit" value="Consulter les Commandes" class="btn btn-success btn-rounded" style="height: 50px ;  padding: 15px ;  margin-left: 220px  " />
 </form>
-
-
-
+<br>
+      <form action="admin-map.php">
+   <input type="submit" value="Les localisations sur la Map" class="btn btn-success btn-rounded" style="height: 50px ;  padding: 15px ;  margin-left: 220px  " />
+</form>
+                       
+ 
 
 <?PHP
-include "../Entities/Commande.php";
-include "../Cores/CommandeC.php";
-$commande1C=new CommandeC();
-$listeCommandes=$commande1C->afficherCommandes($commande1C);
+include "../Entities/Livraison.php";
+include "../Cores/LivraisonC.php";
+include_once 'locations_model.php';
+
+$livraison1C=new LivraisonC();
+$listeLivraisons=$livraison1C->afficherLivraison($livraison1C);
 ?>
+
+
 
   </div><!-- /# column -->
                 </div><!-- /# row -->
@@ -194,6 +201,7 @@ $listeCommandes=$commande1C->afficherCommandes($commande1C);
                                     <table class="table">
                                         <thead>
                                         <tr>
+                                            <th>identifiant localisation</th>
                                             <th>cin</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>
@@ -201,11 +209,9 @@ $listeCommandes=$commande1C->afficherCommandes($commande1C);
                                             <th>Email</th>
                                             <th>Heures</th>
                                             <th>Minutes</th>
-                                            <th>Menu</th>
-                                            <th>Prix</th>
-                                            <th>Quantite</th>
-                                              <th>Commande</th>
-                                             <th>vallider </th>
+                                     
+                                   
+                                        
                                             <th>Annuler</th>
                                              
                                            
@@ -213,20 +219,23 @@ $listeCommandes=$commande1C->afficherCommandes($commande1C);
                                         </thead>
 
                                                <tbody>
-                                              
-                                        
-                                       
+
+
+
+
 <?php 
-foreach($listeCommandes as $row)
+foreach($listeLivraisons as $row)
             
-{ if (isset($_POST['submit1'])){
-   $commande1=new commande($row['cin'],$row['nom'],$row['prenom'],$row['numero'],$row['email'],$row['heures'],$row['minutes'],$row['produits'],$row['prix'],$row['quantite'],$row['etat']);
-    $commande1C->validerCommande($commande1,$_POST['cin1']); 
+{ if (isset($_POST['submit'])){
+$livraison1=new livraison($cin,$nom,$prenom,$numero,$email,$heures,$minutes,$_POST['location'],$_POST['etat']);
+    $livraison1C->validerLivraison($livraison1,$row['cin1']); 
    // echo $_POST['cin_ini'];
   // header('Location: afficherEmploye.php');
 } ?>                                 
                                             
                                             <tr>
+
+                                            <td><?PHP echo $row['location']; ?></td>
                                             <td><?PHP echo $row['cin']; ?></td>
                                             <td><?PHP echo $row['nom']; ?></td>
                                             <td><?PHP echo $row['nom']; ?></td>
@@ -234,25 +243,13 @@ foreach($listeCommandes as $row)
                                             <td><?PHP echo $row['email']; ?></td>
                                             <td><?PHP echo $row['heures']; ?></td>
                                             <td><?PHP echo $row['minutes']; ?></td>
-                                            <td><?PHP echo $row['produits']; ?></td>
-                                            <td><?PHP echo $row['prix']; ?></td>
-                                            <td><?PHP echo $row['quantite']; ?></td>
+                                       
                                             <?php 
-                                 if ($row['etat']==0)
-                           {
-                            echo "<p Commmande en cours de traitement</p>";
-                            }
-                            else
-                            {
-                            echo "<p Commmande Validee</p>";
-                           }
+                           
+
 
 ?>
-                                            <td><?PHP echo $row['etat'];  ?></td>
-                                            <form  method="post">  
-                                            <td><input type="submit" name="submit1" class="btn btn-success btn-rounded" value="√""></td>
-                                            <input type="hidden"   name="cin1" value="<?PHP echo $row['cin'];?>">
-                                               </form> 
+                                           
 
                                             <form  method="post" action="supprimerCommandeAdmin.php" >    
                                             <td><button   type="submit" class="btn btn-primary btn-rounded">X</button></td>
@@ -266,16 +263,23 @@ foreach($listeCommandes as $row)
                                                                       <?php 
 
 
-
-
 }
+
+
  ?>                      
                                                 
 
                                     </table> 
-                                </div>
-							</div><!-- /# card -->
-						</div><!-- /# column -->
+
+
+  </div><!-- /# column -->
+                </div><!-- /# row -->
+                <div class="main-content">
+                    <div class="row">
+
+
+
+  
 					</div><!-- /# row -->
                 </div><!-- /# main content -->
             </div><!-- /# container-fluid -->
@@ -291,6 +295,9 @@ foreach($listeCommandes as $row)
     <script src="assets/js/lib/rating1/jRate.min.js"></script><!-- scripit init-->
     <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyA-AB-9XZd-iQby-bNLYPFyb0pR2Qw3orw&callback=initMap">
+</script>
 </body>
 
 

@@ -1,6 +1,6 @@
 <?PHP
-include "../entites/Commande.php";
-include "../cores/CommandeC.php";
+include "../Entities/Commande.php";
+include "../Cores/CommandeC.php";
 
 if (isset($_POST['cin']))
 {

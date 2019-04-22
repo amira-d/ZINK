@@ -153,6 +153,8 @@ $(document).ready(function(){
   var $cache = $('#fix'); 
   if ($(window).scrollTop() > 250) 
     $cache.css({'position': 'fixed', 'top': '300px'}); 
+  if ($(window).scrollTop() > 180) 
+    $cache.css({'position': 'fixed', 'top': '280px'}); 
   else
     $cache.css({'position': 'relative', 'top': '100px' });
 }

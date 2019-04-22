@@ -66,8 +66,8 @@
 
          </div>
          <?PHP
-include "../entites/Commande.php";
-include "../cores/CommandeC.php";
+include "../Entities/Commande.php";
+include "../Cores/CommandeC.php";
 if (isset($_GET['cin'])){
 $commandeC=new CommandeC();
 
@@ -91,7 +91,7 @@ $commandeC=new CommandeC();
 				}
 
 if (isset($_POST['submit'])){
-			$commande=new commande($_POST['cin'],$_POST['nom'],$_POST['prenom'],$_POST['numero'],$_POST['email'],$_POST['heures'],$_POST['minutes'],$_POST['produits'],$_POST['prix'],$_POST['quantite'],"Non validee");
+			$commande=new commande($_POST['cin'],$_POST['nom'],$_POST['prenom'],$_POST['numero'],$_POST['email'],$_POST['heures'],$_POST['minutes'],$_POST['produits'],$_POST['prix'],$_POST['quantite'],"Non Validee");
 	$commandeC->modifierCommande($commande,$_POST['cin_ini']);
 
 	header('Location: afficherCommande.php?cin='.$cin.'');
@@ -154,7 +154,7 @@ if (isset($_POST['submit'])){
                 
 
                   <div>
-                     <input  type="submit" name="submit" class="submit" value="Modifier" > 
+                     <input  type="submit" name="submit" class="submit" value="take food" > 
                      <span id="image-loader">
                         <img alt="" src="images/loader.gif">
                      </span>

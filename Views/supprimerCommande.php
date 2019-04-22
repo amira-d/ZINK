@@ -76,8 +76,8 @@
 
                  
 <?PHP
-include "../entites/Commande.php";
-include "../cores/CommandeC.php";
+include "../Entities/Commande.php";
+include "../Cores/CommandeC.php";
 
  $commandeC=new CommandeC();
  $cin=$_GET['cin'];

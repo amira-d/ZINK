@@ -1,15 +1,29 @@
+<?php
+include "../entities/faq.php";
 
-<!DOCTYPE html>
-<html lang="en">
 
+if (isset($_POST['id'])&&isset($_POST['question'])&&isset($_POST['reponse']))
+{
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:03:45 GMT -->
+    	$e=new faq($_POST['id'],$_POST['question'],$_POST['reponse']);
+        $e->ajouter();
+}    
+?>
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endiff]-->
+
 <head>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Admin Kit</title>
+    <title>Foodmin : Client</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -26,20 +40,23 @@
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
-    <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
-    <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
+    <link href="assets/css/lib/calendar/fullcalendar.css" rel="stylesheet" />
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/lib/datatable/buttons.bootstrap.min" rel="stylesheet">
+    <link href="assets/css/lib/datatable/dataTables.bootstrap.min" rel="stylesheet">
+
 
 </head>
 
 <body>
+  
 
-   <body>
+
+
 
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
@@ -48,9 +65,7 @@
                 <ul>
                     <li class="label">Main</li>
                     <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
-                    
-
-      <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="ceevee/index.html">Resto</a></li>
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
@@ -144,8 +159,11 @@
         </div>
     </div>
 </div>
-	
-    <div class="content-wrap">
+
+
+
+    
+          <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
@@ -156,143 +174,80 @@
                             </div>
                         </div>
                     </div><!-- /# column -->
-
                     <div class="col-lg-4 p-0">
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
-                                    <li class="active">Blank</li>
+                                    <li><a href="#">App </a></li>
+                                    <li class="active">Calendar</li>
                                 </ol>
                             </div>
-                            </div>
-                  <div class="topnav">
-
-           <form action="afficherlivraison.php">
-   <input type="submit" value="Consulter les Livraisons" class="btn btn-success btn-rounded" style="height: 50px ;  padding: 15px ;  margin-left: 220px  " />
-</form>
-
-
-
-
-<?PHP
-include "../Entities/Commande.php";
-include "../Cores/CommandeC.php";
-$commande1C=new CommandeC();
-$listeCommandes=$commande1C->afficherCommandes($commande1C);
-?>
-
-  </div><!-- /# column -->
+                        </div>
+                    </div><!-- /# column -->
                 </div><!-- /# row -->
                 <div class="main-content">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card alert">
-                                <div class="order-list-item">
-
-              
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>cin</th>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Numero</th>
-                                            <th>Email</th>
-                                            <th>Heures</th>
-                                            <th>Minutes</th>
-                                            <th>Menu</th>
-                                            <th>Prix</th>
-                                            <th>Quantite</th>
-                                              <th>Commande</th>
-                                             <th>vallider </th>
-                                            <th>Annuler</th>
-                                             
-                                           
-                                        </tr>
-                                        </thead>
-
-                                               <tbody>
-                                              
-                                        
-                                       
-<?php 
-foreach($listeCommandes as $row)
-            
-{ if (isset($_POST['submit1'])){
-   $commande1=new commande($row['cin'],$row['nom'],$row['prenom'],$row['numero'],$row['email'],$row['heures'],$row['minutes'],$row['produits'],$row['prix'],$row['quantite'],$row['etat']);
-    $commande1C->validerCommande($commande1,$_POST['cin1']); 
-   // echo $_POST['cin_ini'];
-  // header('Location: afficherEmploye.php');
-} ?>                                 
-                                            
-                                            <tr>
-                                            <td><?PHP echo $row['cin']; ?></td>
-                                            <td><?PHP echo $row['nom']; ?></td>
-                                            <td><?PHP echo $row['nom']; ?></td>
-                                            <td><?PHP echo $row['numero']; ?></td>
-                                            <td><?PHP echo $row['email']; ?></td>
-                                            <td><?PHP echo $row['heures']; ?></td>
-                                            <td><?PHP echo $row['minutes']; ?></td>
-                                            <td><?PHP echo $row['produits']; ?></td>
-                                            <td><?PHP echo $row['prix']; ?></td>
-                                            <td><?PHP echo $row['quantite']; ?></td>
-                                            <?php 
-                                 if ($row['etat']==0)
-                           {
-                            echo "<p Commmande en cours de traitement</p>";
-                            }
-                            else
-                            {
-                            echo "<p Commmande Validee</p>";
-                           }
-
-?>
-                                            <td><?PHP echo $row['etat'];  ?></td>
-                                            <form  method="post">  
-                                            <td><input type="submit" name="submit1" class="btn btn-success btn-rounded" value="√""></td>
-                                            <input type="hidden"   name="cin1" value="<?PHP echo $row['cin'];?>">
-                                               </form> 
-
-                                            <form  method="post" action="supprimerCommandeAdmin.php" >    
-                                            <td><button   type="submit" class="btn btn-primary btn-rounded">X</button></td>
-                                               <input type="hidden" value="<?PHP echo $row['cin']; ?>" name="cin">
-                                               </form>
-                                     </tr>              
-                                             
-                                              </tbody>
-                                            
-
-                                                                      <?php 
-
-
-
-
-}
- ?>                      
-                                                
-
-                                    </table> 
+                                <div class="card-header">
+                                    <h4></h4>
                                 </div>
-							</div><!-- /# card -->
-						</div><!-- /# column -->
-					</div><!-- /# row -->
-                </div><!-- /# main content -->
-            </div><!-- /# container-fluid -->
-        </div><!-- /# main -->
-    </div><!-- /# content wrap -->
+                                <div class="card-body">
+                                    <div class="row">
 
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+
+
+
+
+
+<div class="content mt-3">
+<form action="ajout-faq.php" method="post" name="faq" class="form-horizontal">
+                                    <div class="row form-group">
+<div class="col col-md-3"><label class=" form-control-label">Identifiant</label></div>
+<div class="col-12 col-md-9"><input type="text" id="identifiant" name="id" onblur="verifPseudo(this)" placeholder="Identifiant" class="form-control"><small class="form-text text-muted"></small></div>
+                                        <div class="col-12 col-md-9">
+                                                                  
+                                                                </div>
+                                                            </div>                                                           
+ <div class="col col-md-3">
+    <label for="password-input" class=" form-control-label" required >Question </label>
+    <span id="missing_question"></span></div>
+                                                                <div class="col-12 col-md-9">
+                                                                    <textarea id="question" name="question" rows="5" cols="40"></textarea> </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="password-input" class=" form-control-label" required >Réponse </label><span id="missing_reponse"></span></div>
+                                                                <div class="col-12 col-md-9"><textarea id="reponse" name="reponse" rows="5" cols="40"></textarea> </div>
+                                                            </div>
+
+                                                                
+                                                        <button type="submit" id="ajouter" class="btn btn-primary btn-sm" onclick="myFunction()" >
+                                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                                        </button>
+                                                        <button type="reset" class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-ban"></i> Reset
+                                                        </button>
+                                                        </form>
+                                                    </div>
+
+                                 <script type="text/javascript" src="connexion2.js">
+      
+
+  </script>
+
+			                                                                                      
+</body>
+<script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
-    <script src="assets/js/lib/rating1/jRate.min.js"></script><!-- scripit init-->
-    <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
-    <script src="assets/js/scripts.js"></script><!-- scripit init-->
-</body>
+    
+    <script src="assets/js/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="assets/js/lib/moment/moment.js"></script>
+    <script src="assets/js/lib/calendar/fullcalendar.min.js"></script>
+    <script src="assets/js/lib/calendar/fullcalendar-init.js"></script>
 
-
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:06 GMT -->
 </html>
