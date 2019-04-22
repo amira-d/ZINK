@@ -1,5 +1,5 @@
 <?php
-include "../entities/faq.php";
+include "../Entities/faq.php";
 
 
 //testConnexion();
@@ -18,32 +18,47 @@ $x=0;
 
     <!-- ************************* CSS Files ************************* -->
 
-   
-   <!--- Basic Page Needs
-   ================================================== -->
-   <meta charset="utf-8">
-    <title>ZINK</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+   <HTML>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-   <!-- Mobile Specific Metas
-   ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-   <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/layout.css">
+      <link rel="stylesheet" href="css/default.css">
+   <link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
+      <link rel="stylesheet" href="css/commande.css">
 
    <!-- Script
    ================================================== -->
-    <script src="js/modernizr.js"></script>
+   <script src="js/modernizr.js"></script>
 
-   <!-- Favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="photo.jpg" >
+    <header id="home">
+
+      <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+         <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+          <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="PageMenu.html">Home</a></li>
+            <li><a class="smoothscroll" href="#about">About</a></li>
+            <li><a class="smoothscroll" href="#portfolio">Menu</a></li>
+            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
+            <li><a class="smoothscroll" href="#testimonials">Z-News</a></li>
+            <li><a class="smoothscroll" href="#contact">Contact</a></li>
+           <li><a class="smoothscroll" href="listeFAQ.php">FAQ</a></li>
+            <li><a class="smoothscroll" href="clientF.html">Client</a></li>
+            <li><a class="ti-calendar" href="consulterCommande.html">Consulter Commande</a></li>
+            <!-- <li><a class="smoothscroll" href="clientF.html">Client</a></li>-->
+         </ul><!-- end #nav -->
+
+      </nav> <!-- end #nav-wrap -->
+      
+
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
+      </p>
+
+   </header> <!-- Header End -->
 
 </head>
 

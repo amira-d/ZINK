@@ -34,6 +34,7 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -155,6 +156,7 @@
                             </div>
                         </div>
                     </div><!-- /# column -->
+
                     <div class="col-lg-4 p-0">
                         <div class="page-header">
                             <div class="page-title">
@@ -163,18 +165,15 @@
                                     <li class="active">Blank</li>
                                 </ol>
                             </div>
-                        </div>
+                            </div>
                   <div class="topnav">
- 
-  <div class="search-container">
 
-    <form method="post">
-         <!--  <h4  style ="color:red"> Entrer le CIN :</h4> -->
-      <input type="text" placeholder="Search.." name="search">
-      <button "submit" name="submit" class="submit" ><i class="fa fa-search"></i></button>
-    </form>
-  </div>
-</div>
+           <form action="afficherlivraison.php">
+   <input type="submit" value="Consulter les Livraisons" class="btn btn-success btn-rounded" style="height: 50px ;  padding: 15px ;  margin-left: 220px  " />
+</form>
+
+
+
 
 <?PHP
 include "../Entities/Commande.php";
@@ -220,9 +219,9 @@ $listeCommandes=$commande1C->afficherCommandes($commande1C);
 <?php 
 foreach($listeCommandes as $row)
             
-{ if (isset($_POST['submit'])){
+{ if (isset($_POST['submit1'])){
    $commande1=new commande($row['cin'],$row['nom'],$row['prenom'],$row['numero'],$row['email'],$row['heures'],$row['minutes'],$row['produits'],$row['prix'],$row['quantite'],$row['etat']);
-    $commande1C->validerCommande($commande1,$row['cin']); 
+    $commande1C->validerCommande($commande1,$_POST['cin1']); 
    // echo $_POST['cin_ini'];
   // header('Location: afficherEmploye.php');
 } ?>                                 
@@ -249,9 +248,9 @@ foreach($listeCommandes as $row)
                            }
 
 ?>
-                                            <td><?PHP echo $row['etat']; ?></td>
+                                            <td><?PHP echo $row['etat'];  ?></td>
                                             <form  method="post">  
-                                            <td><input type="submit" name="submit" class="btn btn-success btn-rounded" value="√""></td>
+                                            <td><input type="submit" name="submit1" class="btn btn-success btn-rounded" value="√""></td>
                                             <input type="hidden"   name="cin1" value="<?PHP echo $row['cin'];?>">
                                                </form> 
 

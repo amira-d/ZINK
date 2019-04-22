@@ -1,31 +1,61 @@
-﻿<HTML>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+﻿<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
 
-	   <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/layout.css">
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+  <title>ZINK</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
-      <link rel="stylesheet" href="css/commande.css">
 
    <!-- Script
    ================================================== -->
-	<script src="js/modernizr.js"></script>
+  <script src="js/modernizr.js"></script>
 
-	 <header id="home">
+   <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="photo.jpg" >
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home">
 
       <nav id="nav-wrap">
 
          <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+        <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
          <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+            <li class="current"><a class="smoothscroll" href="PageMenu.html">Home</a></li>
             <li><a class="smoothscroll" href="#about">About</a></li>
             <li><a class="smoothscroll" href="#portfolio">Menu</a></li>
             <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
             <li><a class="smoothscroll" href="#testimonials">Z-News</a></li>
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
+           <li><a class="smoothscroll" href="listeFAQ.php">FAQ</a></li>
+            <li><a class="smoothscroll" href="clientF.html">Client</a></li>
+            <li><a class="smoothscrollh" href="consulterCommande.html">Consulter Commande</a></li>
+            <!-- <li><a class="smoothscroll" href="clientF.html">Client</a></li>-->
          </ul> <!-- end #nav -->
+          <!--<li><a  href="clientF.html"  ><i class="ti-calendar">Client</a></li>-->
 
       </nav> <!-- end #nav-wrap -->
       

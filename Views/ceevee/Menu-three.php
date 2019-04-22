@@ -99,7 +99,7 @@
                         </ul>-->
                        <ul class="mp-menu-tab-nav nav nav-tabs" style="width: 100%;" role="tablist">
         <li class="nav-item">
-          <a class="nav-link "href="Menu.php" >
+          <a class="nav-link "   href="../PageMenu.html">Home</a>
             <i class="flaticon-001-wine"></i>
             <div class="mpm-text">
               <h5>All</h5>
