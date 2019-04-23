@@ -1,5 +1,5 @@
 <?PHP
-include "C:/wamp64/www/ZINK/zink/config.php";
+include "../config.php";
 class AnnonceC {
 
 
