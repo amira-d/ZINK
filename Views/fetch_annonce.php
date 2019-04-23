@@ -87,7 +87,7 @@ $db = config::getConnexion();
   <td style="width:100px;"><img src="images/'.$row["image"].'" alt="image" class="img-responsive"/></td>
   <td><form method="POST" action="supprimerAnnonce.php">
   <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="'.$row["id"].'" name="id">
+  <input type="hidden" value="'.$row["titre"].'" name="titre">
   </form>
   </td>
   <td><a href="majAnnonce.php?titre='.$row["titre"].'">
