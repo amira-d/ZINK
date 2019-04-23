@@ -29,6 +29,7 @@
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
+        <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -42,9 +43,7 @@ if(isset($_POST["query"]))
 	$query = "
 	SELECT * FROM a_produit
 	WHERE titre LIKE '%".$search."%'
-	OR id LIKE '%".$search."%' 
-	
-	";
+	OR id LIKE '%".$search."%' OR description LIKE '%".$search."%' OR type LIKE '%".$search."%'  ";
 }
 else
 {
@@ -85,7 +84,7 @@ $db = config::getConnexion();
   <td>'.$row["titre"].'</td>
   <td>'.$row["type"].'</td>
   <td>'.$row["description"].'</td>
-  <td style=width: 200px;"><img src="images/'.$row["image"].'" alt="image" class="img-responsive"/></td>
+  <td style="width:100px;"><img src="images/'.$row["image"].'" alt="image" class="img-responsive"/></td>
   <td><form method="POST" action="supprimerAnnonce.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="'.$row["id"].'" name="id">
@@ -95,9 +94,7 @@ $db = config::getConnexion();
   Update</a></td>
   </tr>
 
-</tbody>
-</table>
-</div>
+
 
 		';
 	}

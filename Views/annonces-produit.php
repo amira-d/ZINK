@@ -25,11 +25,12 @@
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/style2.css" rel="stylesheet">
+
 
 </head>
 
@@ -169,11 +170,12 @@
                     <span class="input-group-addon">Search</span>
                     <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
                 </div>
-            </div>
             <br />
             <div id="result"></div>                 
-                        </div>    
-                                  
+                          
+                               </tbody>
+</table>
+</div>   
 
                           
                             </div><!-- /# card -->
