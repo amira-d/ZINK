@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Zink : Upload announcement</title>
-	
-	<!-- ================= Favicon ================== -->
+    
+    <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -19,8 +19,8 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-	
-	<!-- Styles -->
+    
+    <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
@@ -28,6 +28,9 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
+        <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -123,6 +126,7 @@
             </ul>
         </div>
     </div>
+ 
 
 
     <div class="content-wrap">
@@ -153,62 +157,97 @@
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcements</h4>
-                                </div>
-                                <div class="card-body">
+                                    <div style="position: relative; top: -29px; right: -788px;">
+                                    <select name="Tri" onchange="submit();">
+                                                <option value="plus" selected>Plus récent</option>
+                                                <option value="moins">Moins récent</option>
+                                              </select>
+                                              </div>
+
+                         <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+                </div>
+            </div>
+            <br />
+            <div id="result"></div>                 
+                        </div>    
+                                  
+<div class="order-list-item">
+
+<table class="table" id="dataTable" width="100%" cellspacing="0">
+    <div class="col-sm-12 col-md-6">
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Titre</th>
+<th>Type</th>
+<th>Description</th>
+<th>Image</th>
+<th>Supprimer</th>
+<th>Modifier</th>
+</tr>
+
+ </thead>
+ <tbody>
                                    
-                                        <?PHP
+ <?PHP
+include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
+include "C:/wamp64/www/ZINK/zink/Entities/annonce.php";
+$ann2C=new AnnonceC();
+ $listeannonces=$ann2C->afficherAnnonce();
+$data=$listeannonces->fetch();
 
-                                                include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-                                                $ann1C=new AnnonceC();
-                                                $listeannonces=$ann1C->afficherAnnonce();
 
-                                                //var_dump($listeannonces->fetchAll());
+foreach($listeannonces as $row){
+  ?>
+  <tr>
+  <td><?PHP echo $row['id']; ?></td>
+  <td><?PHP echo $row['titre']; ?></td>
+  <td><?PHP echo $row['type']; ?></td>
+  <td><?PHP echo $row['description']; ?></td>
+  <td style="width: 200px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
+  <td><form method="POST" action="supprimerAnnonce.php">
+  <input type="submit" name="supprimer" value="supprimer">
+  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+  </form>
+  </td>
+  <td><a href="majAnnonce.php?titre=<?PHP echo $row['titre']; ?>">
+  Update</a></td>
+  </tr>
 
-
-                                                while ($data=$listeannonces->fetch())
-                                                {
-                                                     {echo "<div class='col-md-4 col-sm-6 graphics ads'>";
-                                                                           echo "<img src='web/".$data['image']."' alt='image' class='img-responsive'/>";
-                                                                           echo "<p>".$data['titre']."</p>";
-                                                                            echo "<p>".$data['description']."</p>";
-                                                                            echo "<div class='portfolio_item_hover'>";
-                                                                              echo  "<div class='portfolio-border clearfix'>";
-                                                                                    echo "<div class='item_info'>";
-                                                                                       echo "<p>".$data['type']." </p>";
-                                                                                       echo"<a href=majAnnonce.php > Update </a>";
-                                                                                        echo"<a href=majAnnonce.php > Delete </a>";
-
-                                                                                    echo"</div>";
-                                                                                echo "</div>";
-                                                                            echo "</div>";
-                                                                    echo"</div>";}
-                                                            }
+  <?PHP
   
+}
 
-
-                                                    ?>
-                                   
-                                </div>
+?>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+                          
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
                 </div><!-- /# main content -->
+
+
                 <div class="main-content">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
-									<div class="card-header-right-icon">
-                                        <ul>
-                                            <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
-                                            <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
-                                        </ul>
+                                    <div class="card-header-right-icon">
+                                      
                                     </div>
                                 </div>
                                 <div class="card-body">
-									<div class="menu-upload-form">
-										<form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
+                                    <div class="menu-upload-form">
+                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
                                             <div class="col-sm-10">
@@ -251,29 +290,81 @@
                                             </div>
                                         </div>
                                     </form>
-									</div>
+                                    </div>
                                 </div>
-							</div><!-- /# card -->
-						</div><!-- /# column -->
-					</div><!-- /# row -->
-				</div><!-- /# main content -->
+                            </div><!-- /# card -->
+                        </div><!-- /# column -->
+                    </div><!-- /# row -->
+                </div><!-- /# main content -->
                 
 
                 
             </div><!-- /# container-fluid -->
         </div><!-- /# main -->
-    </div><!-- /# content wrap --=
+    </div><!-- /# content wrap -->
 
     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
+    <!--<script src="assets/js/lib/bootstrap.min.js"></script>--><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
+    <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
+    <script src="assets/js/scripts.js"></script><!-- scripit init-->
+      <!-- Page level plugins -->
+  <script src="assets/datatables/jquery.dataTables.min.js"></script>
+  <script src="assets/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="assets/demo/datatables-demo.js"></script>
+            <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+
+  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
+    <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
+    <script src="assets/js/lib/mmc-common.js"></script>
+    <script src="assets/js/lib/mmc-chat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
 
 </body>
 
 
 <!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(query)
+    {
+        $.ajax({
+            url:"fetch_annonce.php",
+            method:"post",
+            data:{query:query},
+            success:function(data)
+            {
+                $('#result').html(data);
+            }
+        });
+    }
+    
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();            
+        }
+    });
+});
+</script>
+
+
+
+
