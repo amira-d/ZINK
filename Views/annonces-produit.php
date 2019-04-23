@@ -28,8 +28,8 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-      <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-        <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+        <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -164,26 +164,14 @@
                                               </select>
                                               </div>
 
-                                             <!-- <div class="form-group>-->
-                                               <!--<form method="POST" action="rechercheAnnonce.php">-->
-
-                                                    
-
-                                                
-                                             <!-- </form>
-                                             </div>-->
+                                          
                             
                                   
-<!--<div class="order-list-item">-->
-<div class="table-responsive">
-<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
- <div class="dataTables_filter" id="dataTable_filter">
+<div class="order-list-item">
 
-                                                   <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable">        
-                                        </div>   
-                                        </div> 
+<table class="table" id="dataTable" width="100%" cellspacing="0">
+    <div class="col-sm-12 col-md-6">
+
 <thead>
 <tr>
 <th>ID</th>
@@ -213,7 +201,7 @@ foreach($listeannonces as $row){
   <td><?PHP echo $row['titre']; ?></td>
   <td><?PHP echo $row['type']; ?></td>
   <td><?PHP echo $row['description']; ?></td>
-  <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
+  <td style="width: 200px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
   <td><form method="POST" action="supprimerAnnonce.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">

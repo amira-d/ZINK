@@ -22,7 +22,7 @@
 	<!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
-    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet">
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
@@ -30,7 +30,7 @@
 </head>
 <body>
 	
-	< <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+	<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -129,7 +129,7 @@ if (isset($_GET['id'])){
     $result=$rC->recupererRecrutement($_GET['id']);
   foreach($result as $row){
     $titre=$row['titre'];
-    $type=$row['departement'];
+    $type=$row['service'];
     $description=$row['description'];
     $deadline=$row['deadline'];
     $image=$row['image'];
@@ -158,7 +158,7 @@ if (isset($_GET['id'])){
                                                                     <i class="fa fa-file-archive-o"></i>
                                                                 </span>
                                                     </label>
-                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="<?PHP echo $image ?>">
+                                                    <input class="file-name input-flat" type="text" readonly="readonly" placeholder="<?PHP echo $image ;?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -202,7 +202,7 @@ if (isset($_GET['id'])){
 }
 
 if (isset($_POST['update'])){
-	$target="../zink".basename($_FILES['image']['name']);
+	$target=basename($_FILES['image']['name']);
 			$image =$_FILES['image']['name'];
 					if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
 						{
@@ -214,7 +214,7 @@ if (isset($_POST['update'])){
 					}
   $recrutement=new recrutement($_POST['titre'],$_POST['description'],$_POST['type'],$_POST['deadline'],$image);
   $rC->modifierRecrutement($recrutement,$_POST['id_ini']);
- /* echo"<script>window.location.replace('carriere.php')</script>";*/
+  echo " <script>if (confirm(\"Annonce enregistrée avec succès ! Voulez vous voir un aperçu ?\")) { window.location.replace('ZINK_FI/jobs.php')  ;  }  else { window.location.replace('carriere.php')  ; } </script>";
 
   //header('Location: annonces-produit.php');
 }
@@ -244,4 +244,4 @@ if (isset($_POST['update'])){
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
 
 </body>
-</html>>
+</html>

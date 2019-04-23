@@ -177,26 +177,19 @@
                                               </select>
                                               </div>
 
-                                             <!-- <div class="form-group>-->
-                                               <!--<form method="POST" action="rechercheAnnonce.php">-->
-
-                                                    
-
-                                                
-                                             <!-- </form>
-                                             </div>-->
+                                     
                             
                                   
-<!--<div class="order-list-item">-->
-<div class="table-responsive">
-<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
- <div class="dataTables_filter" id="dataTable_filter">
+<div class="order-list-item">
 
-                                                   <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable">        
-                                        </div>   
-                                        </div> 
+
+
+    <div class="col-sm-12 col-md-6">
+
+
+    <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable"> 
+                                        </div>
+<table class="table" id="dataTable" width="100%" cellspacing="0">
 <thead>
 <tr>
 <th>ID</th>
@@ -216,31 +209,31 @@
 include "C:/wamp64/www/ZINK/zink/Cores/recruC.php";
 include "C:/wamp64/www/ZINK/zink/Entities/recrutement.php";
 $r2C=new recruC();
-$listeannonces1=$r2C->afficherRecrutement();
-$data=$listeannonces1->fetch();
+$listeannonces=$r2C->afficherRecrutement();
+$data=$listeannonces->fetch();
 
 
-foreach($listeannonces1 as $row){
+foreach($listeannonces as $row){
   ?>
   <tr>
   <td><?PHP echo $row['id']; ?></td>
   <td><?PHP echo $row['titre']; ?></td>
-  <td><?PHP echo $row['departement']; ?></td>
+  <td><?PHP echo $row['service']; ?></td>
   <td><?PHP echo $row['description']; ?></td>
   <td><?PHP echo $row['deadline']; ?></td>
-  <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
+  <td style="width: 150px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
+
   <td><form method="POST" action="supprimerRecrutement.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
   </form>
   </td>
-  <td><a href="majRecru.php?id=<?PHP echo $row['id']; ?>">
+  <td><a href="majRecru.php?id=<?PHP echo $row['id'];?>">
   Update</a></td>
   </tr>
 
   <?PHP
-  
-}
+  }
 
 ?>
 </tbody>
