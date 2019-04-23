@@ -167,67 +167,14 @@
                          <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
-                    <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+                    <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
                 </div>
             </div>
             <br />
             <div id="result"></div>                 
                         </div>    
                                   
-<div class="order-list-item">
 
-<table class="table" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
-
-<thead>
-<tr>
-<th>ID</th>
-<th>Titre</th>
-<th>Type</th>
-<th>Description</th>
-<th>Image</th>
-<th>Supprimer</th>
-<th>Modifier</th>
-</tr>
-
- </thead>
- <tbody>
-                                   
- <?PHP
-include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-include "C:/wamp64/www/ZINK/zink/Entities/annonce.php";
-$ann2C=new AnnonceC();
- $listeannonces=$ann2C->afficherAnnonce();
-$data=$listeannonces->fetch();
-
-
-foreach($listeannonces as $row){
-  ?>
-  <tr>
-  <td><?PHP echo $row['id']; ?></td>
-  <td><?PHP echo $row['titre']; ?></td>
-  <td><?PHP echo $row['type']; ?></td>
-  <td><?PHP echo $row['description']; ?></td>
-  <td style="width: 200px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
-  <td><form method="POST" action="supprimerAnnonce.php">
-  <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
-  </form>
-  </td>
-  <td><a href="majAnnonce.php?titre=<?PHP echo $row['titre']; ?>">
-  Update</a></td>
-  </tr>
-
-  <?PHP
-  
-}
-
-?>
-</tbody>
-</table>
-</div>
-</div>
-</div>
                           
                             </div><!-- /# card -->
                         </div><!-- /# column -->
@@ -333,8 +280,8 @@ foreach($listeannonces as $row){
 </body>
 
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
+
 <script>
 $(document).ready(function(){
     load_data();
