@@ -49,11 +49,10 @@
             <li><a class="smoothscroll" href="#portfolio">Menu</a></li>
             <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
             <li><a class="smoothscroll" href="#testimonials">Z-News</a></li>
-
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
-            
-           <li><a class="ti-calendar" href="listeFAQ.php">FAQ</a></li>
-            <li><a class="ti-calendar" href="aa.php">Client</a></li>
+            <li><a class="smoothscroll" href="#contact">Contact</a></li>
+           < <li><a class="ti-calendar" href="listeFAQ.php">FAQ</a></li>
+            <li><a class="ti-calendar" href="clientF.html">Client</a></li>
             <!-- <li><a class="smoothscroll" href="clientF.html">Client</a></li>-->
          </ul> <!-- end #nav -->
           <!--<li><a  href="clientF.html"  ><i class="ti-calendar">Client</a></li>-->

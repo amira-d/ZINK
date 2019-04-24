@@ -1,13 +1,10 @@
-<!DOCTYPE HTML>
-<!DOCTYPE html>
-<html>
 
-</head>
+
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>zink : Client</title>
+    <title>Foodmin : Client Fidèle</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -32,11 +29,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/lib/datatable/buttons.bootstrap.min" rel="stylesheet">
     <link href="assets/css/lib/datatable/dataTables.bootstrap.min" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="paging.js"></script>
- 
-</head>
-<body>
+
      <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
@@ -128,7 +121,7 @@
 
 
 
-  
+
 
 
 
@@ -136,27 +129,9 @@
 
 
 <?PHP
-include "../cores/clientC.php";
-$db=config::getConnexion();
-$client1C=new clientC();
-$listeclient=$client1C->afficherclients();
-
-$produitparpage=3;
-$produittotalreq=$db->query('SELECT cin from client ');
-            $produittotal= $produittotalreq->rowCount();
-        //$produittotal= $listeclient->rowCount();
-        $pagestotales=ceil($produittotal/$produitparpage);
-if( isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0)
-{
-    $_GET['page']=intval($_GET['page']);
-    $pagecourante=$_GET['page'];
-}
-else
-{
-    $pagecourante=1;
-}
-$depart=($pagecourante-1)*$produitparpage;
-$result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage.'');
+include "../cores/clientfC.php";
+$clientf1C=new clientfC();
+$listeclientf=$clientf1C->afficherclientfs();
 
 //var_dump($listeEmployes->fetchAll());
 ?>
@@ -164,11 +139,41 @@ $result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage.'')
 
 
 
-<div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid">
-                <div class="row">
-      
+  
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+\assets\css\lib
+
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+   <!-- <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"> -->
+    <!--<link rel="stylesheet" href="themify-icons.css">
+    <link rel="stylesheet" href="flag-icon.min.css">
+    <link rel="stylesheet" href="cs-skin-elastic.css">
+    <link rel="stylesheet" href="dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="buttons.bootstrap4.min.css">-->
+
+    <link rel="stylesheet" href="style.css">
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                      <div style="width:300px; margin:auto;">
+                        <h1><center>Dashboard</center> </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                           <li class="active">Data table</li>
+                        </ol>
+                    </div>
+                </div>
+            </div> 
+        </div>
 
         <div class="content mt-3">
             <div class="animated fadeIn">
@@ -179,67 +184,44 @@ $result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage.'')
                             <div class="card-header">
                                 <h3><center><strong class="card-title">Data Table</strong></center></h3>
                               <!--  <input type="" name="">-->
+                            </div>
 
-                        <div class="form-group">
+                     <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
                     <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
                 </div>
             <br />
             <div id="result"></div>                 
-                          </div>  
+                          
                                </tbody>
 </table>
- 
-
-
-                     
-         
-
                              
 
-                            
+                            <div class="card-body">
+                               <form action="afficherclientf.php" method="GET">
                                 
                          
                                  
                               
-                         
 
 
    </div>
-
                         </div>
-                                  <?php 
-                                for ($i=1;$i<$pagestotales;$i++)
-                                {?>
-                                    <ul class="pagination">
-                                 <!-- echo ' <a href="shop.php?page='.$i.'">'.$i.'</a>' ; -->
-                                  <li> 
-                                    <?php 
-                                    echo ' <a href="afficherclient.php?page='.$i.'">'.$i.'</a>' ;
-                                    ?>
-                                  </li>
-                              </ul>
-                                 <?php
-                                }
-                                ?>
                     </div>
 
 
                 </div>
             </div><!-- .animated -->
-
-  
         </div><!-- .content -->
 
 
 
  </div> 
-
     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-  <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller --> 
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-   <!-- <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap --> 
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     
@@ -255,15 +237,11 @@ $result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage.'')
     <script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>  
     <script src="assets/js/lib/data-table/jszip.min.js"></script>  
     <script src="assets/js/lib/data-table/datatables-init.js"></script>  
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
-    <script src="assets/js/paging.min.js"></script>
-    <script src="assets/js/paging.js"></script>
-</body>
 
 
-</html>
 
 
 <script>
@@ -296,10 +274,6 @@ $(document).ready(function(){
 });
 
 
+</script>
 
-      $(function() {
-        $("#listPage").JPaging({
-          pageSize: 7
-        });
-      });
-    </script>
+

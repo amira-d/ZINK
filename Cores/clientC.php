@@ -52,8 +52,8 @@ function afficherclient ($client){
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierclient($client,$cinn){
-		$sql="UPDATE client SET cin=:cin, nom=:nom, prenom=:prenom,mail=:mail, sexe=:sexe WHERE cin=:cinn";
+	function modifierclient($client,$cin){
+		$sql="UPDATE client SET cin=:cin, nom=:nom, prenom=:prenom,mail=:mail, sexe=:sexe WHERE cin=:cin";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -70,8 +70,6 @@ try{
 		$req->bindValue(':prenom',$prenom);
 		$req->bindValue(':mail',$mail);
 		$req->bindValue(':sexe',$sexe);
-				$req->bindValue(':cinn',$cinn);
-
 		
 		
             $s=$req->execute();
@@ -97,8 +95,8 @@ try{
         }
 	}
 	
-	function rechercherListeclient($prenom){
-		$sql="SELECT * from client where prenom=$prenom";
+	function rechercherListeclient($cin){
+		$sql="SELECT * from client where cin=$cin";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

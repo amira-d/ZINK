@@ -1,12 +1,35 @@
-<!DOCTYPE html>
+ 
+<?PHP
+include "../Entities/clientf.php";
+include "../Cores/clientfC.php";
+$db=config::getConnexion();
+$cin = $_GET['edit'];
+$emps=$db->query("SELECT * FROM  clientf WHERE cin=$cin");
+           while ($row = $emps->fetch()) {
+            $cin= $row['cin'];
+            $nom = $row['nom'];
+            $prenom = $row['prenom'];
+            $mail = $row['mail'];
+            $sexe = $row['sexe'];
+            
+        }
+?>
+
+
+
 <html lang="en-FR">
 
-<head>
+
+
+
+
+  <!-- Mirrored from zebratheme.com/html/fooadmin/app-event-calender.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<title> CONNEXION </title>
- <title>Foodmin : Calendar</title>
+
+    <title>Foodmin : Calendar</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -28,21 +51,13 @@
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
- <link href="assets/css/style.css" rel="stylesheet">
-</head>
+    <link href="assets/css/style.css" rel="stylesheet">
 
 
 
 
 
-
-
-
-
-<body>
-
-
-      <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -76,6 +91,7 @@
             </div>
         </div>
     </div><!-- /# sidebar -->
+
 
 
 
@@ -133,8 +149,7 @@
 
 
 
-    
-          <div class="content-wrap">
+    <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
@@ -162,7 +177,7 @@
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Client</h4>
+                                    <h4></h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -176,50 +191,47 @@
 
 
 
+    
+<title> Modifier clientf </title>
 
 
 
 
+    <form method="POST" action="editclientf.php" id="connexion">
 
-
-
-
-
-    <form method="POST" action="ajoutclient1.php" id="connexion">
-
-    <h1> </h1>
+    <h2>Modifier clientf</h2>
     <div class="col-lg-6">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <strong></strong> 
                                                     </div>
                                                     <div class="card-body card-block">
-                                                        <form action="ajoutclient.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                                        <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                                                  <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">nom</label></div>
-                                                                <div class="col-12 col-md-9"><input type="nom" id="nom" name="nom" placeholder="nom" class="form-control" required><small class="form-text text-muted">please entrer votre nom </small><span id="missing_nom"></span></div>
+                                                                <div class="col-12 col-md-9"><input type="nom" id="nom" name="nom" placeholder="nom" class="form-control" value="<?PHP echo $nom ?>"required><small class="form-text text-muted">please entrer votre nom </small><span id="missing_nom"></span></div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">prenom</label></div>
-                                                                <div class="col-12 col-md-9"><input type="prenom" id="prenom" name="prenom" placeholder="prenom" class="form-control"required><small class="form-text text-muted">please entrer votre prenom </small><span id="missing_prenom"></span></div>
+                                                                <div class="col-12 col-md-9"><input type="prenom" id="prenom" name="prenom" placeholder="prenom" class="form-control"value="<?PHP echo $prenom ?>" required><small class="form-text text-muted">please entrer votre prenom </small><span id="missing_prenom"></span></div>
                                                             </div>
                                                              
                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">cin</label></div>
-                                                                <div class="col-12 col-md-9"><input type="cin" id="cin" name="cin" placeholder="cin" class="form-control"required><small class="help-block form-text">Please enter votre cin</small><span id="missing_cin"></span></div>
+                                                                <div class="col-12 col-md-9"><input type="cin" id="cin" name="cin" placeholder="cin" value="<?PHP echo $cin ?>"class="form-control"required><small class="help-block form-text">Please enter votre cin</small><span id="missing_cin"></span></div>
 
                                                             </div>
                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">mail</label></div>
-                                                                <div class="col-12 col-md-9"><input type="mail" id="mail" name="mail" placeholder="nour.trabelsi@esprit.tn" class="form-control"required><small class="help-block form-text">Please enter votre mail</small><span id="missing_mail"></span></div>
+                                                                <div class="col-12 col-md-9"><input type="mail" id="mail" name="mail" placeholder="nour.trabelsi@esprit.tn" value="<?PHP echo $mail ?>"class="form-control" required><small class="help-block form-text">Please enter votre mail</small><span id="missing_mail"></span></div>
                                                             </div>
             
                                                             <!--</div>-->
                                                                 <div class="row form-group">
-                                                                    <div class="col col-md-3"><label for="select" class=" form-contegotrol-label"required>sexe</label></div>
+                                                                    <div class="col col-md-3"><label for="select" class=" form-contegotrol-label">sexe</label></div>
                                                                     <div class="col-12 col-md-9">
-                                                                        <select name="sexe" id="sexe" class="form-control">
-                                                                            <option value="sexe">sexe</option>
+                                                                        <select name="sexe" id="sexe" value="<?PHP echo $sexe?>"class="form-control">
+                                                                            <option value="0">sexe</option>
                                                                             <option value="homme">homme</option>
                                                                             <option value="femme">femme</option>
                                                                             
@@ -228,17 +240,22 @@
                                                                 </div>
                                                                  
 
-                                                        </form>
-                                                    </div>
-                                                    <div class="card-footer">
-                                                        <button type="submit" id="ajouter" class="btn btn-primary btn-sm" value="ajouter" onclick="myFunction()" >
-                                                            <i class="fa fa-dot-circle-o"></i> Submit
-                                                        </button>
-                                                        <button type="reset" id="reset" class="btn btn-danger btn-sm">
-                                                            <i class="fa fa-ban"></i> Reset
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                                        </form> <input type="hidden" name="cine" value="<?php echo $cin;?>">
+                                                        <button type="submit" id="modfier"value="modifier" class="btn btn-primary btn-sm"><i class="fa fa-dot-circle-o"></i>modifier</button>
+
+
+                                                    </form>
+                                                    <!--  <?PHP
+ 
+
+if (isset($_POST['modifier'])){
+  $clientf=new clientf($_POST['cin'],$_POST['nom'],$_POST['prenom'],$_POST['mail'],$_POST['sexe']);
+  $clientfC->modifierclientf($clientf,$_POST['cin_ini']);
+  echo $_POST['cin_ini'];
+  header('Location: afficherclientf.php');
+}
+?>-->
+                                                 
     
   <script type="text/javascript" src="connexion.js">
       
@@ -248,12 +265,74 @@
 
 
 
-     
 
 
+   
+                                <div class="modal fade none-border" id="event-modal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title"><strong>Add New Event</strong></h4>
+                                            </div>
+                                            <div class="modal-body"></div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
+                                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-</body>
-<script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+                                <!-- Modal Add Category -->
+                                <div class="modal fade none-border" id="add-category">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title"><strong>Add a category </strong></h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Category Name</label>
+                                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Choose Category Color</label>
+                                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                                                <option value="success">Success</option>
+                                                                <option value="danger">Danger</option>
+                                                                <option value="info">Info</option>
+                                                                <option value="pink">Pink</option>
+                                                                <option value="primary">Primary</option>
+                                                                <option value="warning">Warning</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END MODAL -->
+                                    </div>
+                                </div>
+                            </div><!-- /# card -->
+                        </div><!-- /# column -->
+                    </div><!-- /# row -->
+                </div><!-- /# main content -->
+            </div><!-- /# container-fluid -->
+        </div><!-- /# main -->
+    </div><!-- /# content wrap -->
+
+    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
     <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
@@ -267,7 +346,13 @@
     
 
 
+
+
+
+
+
+
+
+
+
 </html>
-
-
-

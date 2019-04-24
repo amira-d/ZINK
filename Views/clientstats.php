@@ -1,13 +1,9 @@
-<!DOCTYPE HTML>
-<!DOCTYPE html>
-<html>
-
-</head>
-  <meta charset="utf-8">
+ 
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>zink : Client</title>
+    <title>Foodmin : Calendar</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -32,11 +28,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/lib/datatable/buttons.bootstrap.min" rel="stylesheet">
     <link href="assets/css/lib/datatable/dataTables.bootstrap.min" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="paging.js"></script>
- 
-</head>
-<body>
+
      <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
@@ -128,6 +120,10 @@
 
 
 
+
+
+
+
   
 
 
@@ -135,111 +131,105 @@
 
 
 
-<?PHP
-include "../cores/clientC.php";
+
+
+ <?php
+include "../config.php";
+include "../entities/client.php";
+include "../entities/clientf.php";
+
 $db=config::getConnexion();
-$client1C=new clientC();
-$listeclient=$client1C->afficherclients();
+$result=$db->query('SELECT * FROM client');
+$results=$db->query('SELECT * FROM clientf');
+$nbc=0;
+$nbf=0;
+ while ($row = $result->fetch()) 
+ {
+ $nbc++;
+ }
+ while ($row = $results->fetch()) 
+ {
+ $nbf++;
+ }
+ $nbt=$nbc+$nbf;
+ $nbcp=($nbc*100)/$nbt;
+ $nbfp=($nbf*100)/$nbt;
 
-$produitparpage=3;
-$produittotalreq=$db->query('SELECT cin from client ');
-            $produittotal= $produittotalreq->rowCount();
-        //$produittotal= $listeclient->rowCount();
-        $pagestotales=ceil($produittotal/$produitparpage);
-if( isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0)
-{
-    $_GET['page']=intval($_GET['page']);
-    $pagecourante=$_GET['page'];
-}
-else
-{
-    $pagecourante=1;
-}
-$depart=($pagecourante-1)*$produitparpage;
-$result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage.'');
-
-//var_dump($listeEmployes->fetchAll());
 ?>
 
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endiff]-->
 
-
-
-<div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid">
-                <div class="row">
-      
-
-        <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><center><strong class="card-title">Data Table</strong></center></h3>
-                              <!--  <input type="" name="">-->
-
-                        <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon">Search</span>
-                    <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
-                </div>
-            <br />
-            <div id="result"></div>                 
-                          </div>  
-                               </tbody>
-</table>
- 
-
-
-                     
-         
-
-                             
-
-                            
-                                
-                         
-                                 
-                              
-                         
-
-
-   </div>
-
-                        </div>
-                                  <?php 
-                                for ($i=1;$i<$pagestotales;$i++)
-                                {?>
-                                    <ul class="pagination">
-                                 <!-- echo ' <a href="shop.php?page='.$i.'">'.$i.'</a>' ; -->
-                                  <li> 
-                                    <?php 
-                                    echo ' <a href="afficherclient.php?page='.$i.'">'.$i.'</a>' ;
-                                    ?>
-                                  </li>
-                              </ul>
-                                 <?php
-                                }
-                                ?>
-                    </div>
-
-
-                </div>
-            </div><!-- .animated -->
-
+<head>
   
-        </div><!-- .content -->
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
 
 
 
- </div> 
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-  <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller --> 
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['clients', <?php echo $nbc?>],
+          ['client fidèle', <?php echo $nbf ?>]
+        ]);
+
+        var options = {
+          title: 'la partitions des clients'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+</head>
+
+<body>
+  
+	
+	    <div id="piechart" style="width: 1400px; height: 600px;"></div>
+		<br>
+ <center><table style="width:50%">
+  <tr>
+   <th>clients</th>
+    <th>clients fidèle</th> 
+    <th><center>clients totale</center></th>
+  </tr>
+  <tr>
+    <td> <?php  echo $nbc;?></td>
+    <td><?php  echo $nbf;?></td> 
+   <td> <center><?php  echo $nbt;?></center></td>
+  </tr>
+  <tr>
+    <td> <?php  echo $nbcp?> %</td>
+    <td> <?php echo $nbfp?> %</td> 
+   <td> <center>100 %</center></td>
+  </tr>
+</table></center>
+			                                                                                      
+</body>
+</html>
+  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-   <!-- <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap --> 
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     
@@ -255,51 +245,6 @@ $result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage.'')
     <script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>  
     <script src="assets/js/lib/data-table/jszip.min.js"></script>  
     <script src="assets/js/lib/data-table/datatables-init.js"></script>  
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-
-    <script src="assets/js/paging.min.js"></script>
-    <script src="assets/js/paging.js"></script>
-</body>
-
-
-</html>
-
-
-<script>
-$(document).ready(function(){
-    load_data();
-    function load_data(query)
-    {
-        $.ajax({
-            url:"fetch_client.php",
-            method:"post",
-            data:{query:query},
-            success:function(data)
-            {
-                $('#result').html(data);
-            }
-        });
-    }
-    
-    $('#search_text').keyup(function(){
-        var search = $(this).val();
-        if(search != '')
-        {
-            load_data(search);
-        }
-        else
-        {
-            load_data();            
-        }
-    });
-});
 
 
 
-      $(function() {
-        $("#listPage").JPaging({
-          pageSize: 7
-        });
-      });
-    </script>

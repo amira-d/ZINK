@@ -1,12 +1,47 @@
-<!DOCTYPE html>
-<html lang="en-FR">
+<?php
 
-<head>
-    <meta charset="utf-8">
+include "../config.php";
+$db=config::getConnexion();
+
+if (isset($_GET['edit']))
+{
+$id = $_GET['edit'];
+if (isset($_POST['question'])||isset($_POST['reponse'])||(isset($_POST['question'])&&isset($_POST['reponse'])))
+{
+    
+    $emps=$db->query("SELECT * FROM  faq WHERE id='$id'");
+           while ($row = $emps->fetch())
+            {
+            
+            $question = $_POST['question'];
+            $reponse =$_POST['reponse'];
+
+ $abcd=$db->prepare("UPDATE  faq SET question=:question,reponse=:reponse WHERE id='$id' ");
+ $abcd->bindValue(":question",$question);
+ $abcd->bindValue(":reponse",$reponse);
+ $abcd->execute();
+    
+}
+        }
+        }
+
+?>
+
+
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endiff]-->
+
+ <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<title> CONNEXION </title>
- <title>Foodmin : Calendar</title>
+
+    <title>Foodmin : Client</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -28,21 +63,23 @@
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
- <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/lib/datatable/buttons.bootstrap.min" rel="stylesheet">
+    <link href="assets/css/lib/datatable/dataTables.bootstrap.min" rel="stylesheet">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 
-
-
-
-
-
-
-
-
 <body>
+ 
 
 
-      <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+
+
+
+
+ <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -162,7 +199,7 @@
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Client</h4>
+                                    <h4></h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -176,83 +213,27 @@
 
 
 
-
-
-
-
-
-
-
-
-
-    <form method="POST" action="ajoutclient1.php" id="connexion">
-
-    <h1> </h1>
-    <div class="col-lg-6">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <strong></strong> 
-                                                    </div>
-                                                    <div class="card-body card-block">
-                                                        <form action="ajoutclient.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
-                                                                 <div class="row form-group">
-                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">nom</label></div>
-                                                                <div class="col-12 col-md-9"><input type="nom" id="nom" name="nom" placeholder="nom" class="form-control" required><small class="form-text text-muted">please entrer votre nom </small><span id="missing_nom"></span></div>
+<form action="modifier-faq.php?edit=<?php echo $id; ?>" method="POST" name="faqf" class="form-horizontal">
+                                                <div class="row form-group">
+                                                                <div class="col col-md-3"><label for="password-input" class=" form-control-label">Question </label></div>
+                                                                <div class="col-12 col-md-9"><textarea id="question" name="question" rows="5" cols="40"></textarea> </div>
                                                             </div>
                                                             <div class="row form-group">
-                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">prenom</label></div>
-                                                                <div class="col-12 col-md-9"><input type="prenom" id="prenom" name="prenom" placeholder="prenom" class="form-control"required><small class="form-text text-muted">please entrer votre prenom </small><span id="missing_prenom"></span></div>
+                                                                <div class="col col-md-3"><label for="password-input" class=" form-control-label">Réponse </label></div>
+                                                                <div class="col-12 col-md-9"><textarea id="reponse" name="reponse" rows="5" cols="40"></textarea> </div>
                                                             </div>
-                                                             
-                                                            <div class="row form-group">
-                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">cin</label></div>
-                                                                <div class="col-12 col-md-9"><input type="cin" id="cin" name="cin" placeholder="cin" class="form-control"required><small class="help-block form-text">Please enter votre cin</small><span id="missing_cin"></span></div>
-
-                                                            </div>
-                                                            <div class="row form-group">
-                                                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">mail</label></div>
-                                                                <div class="col-12 col-md-9"><input type="mail" id="mail" name="mail" placeholder="nour.trabelsi@esprit.tn" class="form-control"required><small class="help-block form-text">Please enter votre mail</small><span id="missing_mail"></span></div>
-                                                            </div>
-            
-                                                            <!--</div>-->
-                                                                <div class="row form-group">
-                                                                    <div class="col col-md-3"><label for="select" class=" form-contegotrol-label"required>sexe</label></div>
-                                                                    <div class="col-12 col-md-9">
-                                                                        <select name="sexe" id="sexe" class="form-control">
-                                                                            <option value="sexe">sexe</option>
-                                                                            <option value="homme">homme</option>
-                                                                            <option value="femme">femme</option>
-                                                                            
-                                                                        </select><span id="missing_sexe"></span>
-                                                                    </div>
-                                                                </div>
-                                                                 
-
-                                                        </form>
-                                                    </div>
-                                                    <div class="card-footer">
-                                                        <button type="submit" id="ajouter" class="btn btn-primary btn-sm" value="ajouter" onclick="myFunction()" >
+																
+                                                        <button type="submit" class="btn btn-primary btn-sm">
                                                             <i class="fa fa-dot-circle-o"></i> Submit
                                                         </button>
-                                                        <button type="reset" id="reset" class="btn btn-danger btn-sm">
+                                                        <button type="reset" class="btn btn-danger btn-sm">
                                                             <i class="fa fa-ban"></i> Reset
                                                         </button>
-                                                    </div>
-                                                </div>
-    
-  <script type="text/javascript" src="connexion.js">
-      
-
-  </script>
-
-
-
-
-     
-
-
-
+                                                        </form>
+   				                                                                                      
 </body>
+
+
 <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
@@ -264,10 +245,5 @@
     <script src="assets/js/lib/moment/moment.js"></script>
     <script src="assets/js/lib/calendar/fullcalendar.min.js"></script>
     <script src="assets/js/lib/calendar/fullcalendar-init.js"></script>
-    
-
 
 </html>
-
-
-

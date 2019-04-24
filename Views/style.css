@@ -11533,4 +11533,15 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+.card-body card
+{
+   margin: 0; /* pour éviter les marges */
+   margin-left: auto;
+ margin-right: auto;
+  width: 1200px;
+  text-align: left; /* on rétablit l'alignement normal du texte */
+  background-color:#FFF;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */

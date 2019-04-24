@@ -24,12 +24,9 @@ if (!prenom) {
 
 prenom_m.textContent="prenom missing";
 prenom_m.style.color='red';}
-else 
-	if (isFinite(prenom))
-i++;
 else
-	{prenom_m.textContent="not a number";
-prenom_m.style.color='red';}
+i++;
+
 
 
 var cin=document.getElementById('cin').value;
@@ -46,7 +43,7 @@ else
 	if (isFinite(cin))
 i++;
 else
-	{cin_m.textContent="not a number";
+	{cin_m.textContent="not";
 cin_m.style.color='red';}
 
 var mail=document.getElementById('mail').value;
@@ -68,7 +65,7 @@ var sexe=document.getElementById('sexe').value;
 var sexe_m=document.getElementById("missing_sexe");
 sexe_m.textContent="";
 
-if (sexe==0) {
+if (sexe==sexe) {
 
 //e.preventDefault();
 //alert("false");
@@ -81,7 +78,7 @@ i++;
 
 if(i==5)
 	alert("yaas");
-else
-	e.preventDefault();
+//else
+	//e.preventDefault();
 
 }

@@ -1,23 +1,23 @@
 <?PHP
 include "../config.php";
-class clientC {
-function afficherclient ($client){
-		echo "cin: ".$client->getCin()."<br>";
-		echo "nom: ".$client->getnom()."<br>";
-		echo "prenom: ".$client->getprenom()."<br>";
-		echo "mail: ".$client->getmail()."<br>";
-		echo "sexe: ".$client->getsexe()."<br>";		
+class clientfC {
+function afficherclientf ($clientf){
+		echo "cin: ".$clientf->getCin()."<br>";
+		echo "nom: ".$clientf->getnom()."<br>";
+		echo "prenom: ".$clientf->getprenom()."<br>";
+		echo "mail: ".$clientf->getmail()."<br>";
+		echo "sexe: ".$clientf->getsexe()."<br>";		
 	}
 	
-	function ajouterclient($client){
-		$sql = "insert INTO client (cin,nom,prenom,mail,sexe) VALUES (:cin,:nom,:prenom,:mail, :sexe)";
+	function ajouterclientf($clientf){
+		$sql = "insert INTO clientf (cin,nom,prenom,mail,sexe) VALUES (:cin,:nom,:prenom,:mail, :sexe)";
 		$db = config::getConnexion();
 		$req = $db->prepare($sql);
-		$req->bindValue(':cin',$client->getCin());
-		$req->bindValue(':nom',$client->getnom());
-		$req->bindValue(':prenom',$client->getprenom());
-		$req->bindValue(':mail',$client->getmail());
-		$req->bindValue(':sexe',$client->getsexe());
+		$req->bindValue(':cin',$clientf->getCin());
+		$req->bindValue(':nom',$clientf->getnom());
+		$req->bindValue(':prenom',$clientf->getprenom());
+		$req->bindValue(':mail',$clientf->getmail());
+		$req->bindValue(':sexe',$clientf->getsexe());
 		try{
 		$req->execute();
 		}
@@ -27,9 +27,9 @@ function afficherclient ($client){
 		
 	}
 	
-	function afficherclients(){
+	function afficherclientfs(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * From client order by cin";
+		$sql="SElECT * From clientf order by cin";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -39,8 +39,8 @@ function afficherclient ($client){
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function supprimerclient($cin){
-		$sql="DELETE FROM client where cin= :cin";
+	function supprimerclientf($cin){
+		$sql="DELETE FROM clientf where cin= :cin";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
 		$req->bindValue(':cin',$cin);
@@ -52,26 +52,24 @@ function afficherclient ($client){
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierclient($client,$cinn){
-		$sql="UPDATE client SET cin=:cin, nom=:nom, prenom=:prenom,mail=:mail, sexe=:sexe WHERE cin=:cinn";
+	function modifierclientf($clientf,$cin){
+		$sql="UPDATE clientf SET cin=:cin, nom=:nom, prenom=:prenom,mail=:mail, sexe=:sexe WHERE cin=:cin";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
-		$cin=$client->getCin();
-        $nom=$client->getnom();
-        $prenom=$client->getprenom();
-        $mail=$client->getmail();
-        $sexe=$client->getsexe();
+		$cin=$clientf->getCin();
+        $nom=$clientf->getnom();
+        $prenom=$clientf->getprenom();
+        $mail=$clientf->getmail();
+        $sexe=$clientf->getsexe();
 		$datas = array(':cin'=>$cin, ':nom'=>$nom,':prenom'=>$prenom,':mail'=>$mail,':sexe'=>$sexe);
 		$req->bindValue(':cin',$cin);
 		$req->bindValue(':nom',$nom);
 		$req->bindValue(':prenom',$prenom);
 		$req->bindValue(':mail',$mail);
 		$req->bindValue(':sexe',$sexe);
-				$req->bindValue(':cinn',$cinn);
-
 		
 		
             $s=$req->execute();
@@ -85,8 +83,8 @@ try{
         }
 		
 	}
-	function recupererclient($cin){
-		$sql="SELECT * from client where cin=$cin";
+	function recupererclientf($cin){
+		$sql="SELECT * from clientf where cin=$cin";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -97,8 +95,8 @@ try{
         }
 	}
 	
-	function rechercherListeclient($prenom){
-		$sql="SELECT * from client where prenom=$prenom";
+	function rechercherListeclientf($prenom){
+		$sql="SELECT * from clientf where prenom=$prenom";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
