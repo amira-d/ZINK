@@ -1,10 +1,15 @@
 
 
+  <!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+
+</head>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Client Fidèle</title>
+    <title>zink : Client</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -29,7 +34,11 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/lib/datatable/buttons.bootstrap.min" rel="stylesheet">
     <link href="assets/css/lib/datatable/dataTables.bootstrap.min" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="paging.js"></script>
+ 
+</head>
+<body>
      <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
@@ -121,6 +130,10 @@
 
 
 
+  
+
+
+
 
 
 
@@ -139,41 +152,11 @@ $listeclientf=$clientf1C->afficherclientfs();
 
 
 
-  
-   <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-\assets\css\lib
-
-    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
-   <!-- <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"> -->
-    <!--<link rel="stylesheet" href="themify-icons.css">
-    <link rel="stylesheet" href="flag-icon.min.css">
-    <link rel="stylesheet" href="cs-skin-elastic.css">
-    <link rel="stylesheet" href="dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="buttons.bootstrap4.min.css">-->
-
-    <link rel="stylesheet" href="style.css">
-<div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                      <div style="width:300px; margin:auto;">
-                        <h1><center>Dashboard</center> </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                           <li class="active">Data table</li>
-                        </ol>
-                    </div>
-                </div>
-            </div> 
-        </div>
+  <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+      
 
         <div class="content mt-3">
             <div class="animated fadeIn">
@@ -184,35 +167,45 @@ $listeclientf=$clientf1C->afficherclientfs();
                             <div class="card-header">
                                 <h3><center><strong class="card-title">Data Table</strong></center></h3>
                               <!--  <input type="" name="">-->
-                            </div>
 
-                     <div class="form-group">
+                        <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
                     <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
                 </div>
             <br />
             <div id="result"></div>                 
-                          
+                          </div>  
                                </tbody>
 </table>
+ 
+
+
+                       <div class="card-body">
+                               <form action="afficherclientf.php" method="GET">
+         
+
                              
 
-                            <div class="card-body">
-                               <form action="afficherclientf.php" method="GET">
+                            
                                 
                          
                                  
                               
+                         
 
 
    </div>
+
                         </div>
+                               
                     </div>
 
 
                 </div>
             </div><!-- .animated -->
+
+  
         </div><!-- .content -->
 
 
@@ -250,7 +243,7 @@ $(document).ready(function(){
     function load_data(query)
     {
         $.ajax({
-            url:"fetch_client.php",
+            url:"fetch_clientf.php",
             method:"post",
             data:{query:query},
             success:function(data)

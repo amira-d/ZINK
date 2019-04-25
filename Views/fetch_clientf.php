@@ -41,14 +41,14 @@ if(isset($_POST["query"]))
 {
 	$search=$_POST['query'];
 	$query = "
-	SELECT * FROM client
+	SELECT * FROM clientf
 	WHERE nom LIKE '%".$search."%'
 	OR cin LIKE '%".$search."%' OR prenom LIKE '%".$search."%' OR mail LIKE '%".$search."%'  ";
 }
 else
 {
 	$query = "
-	SELECT * FROM client ORDER BY cin ";
+	SELECT * FROM clientf ORDER BY cin ";
 }
 
 $db = config::getConnexion();
@@ -85,12 +85,12 @@ $db = config::getConnexion();
   <td>'.$row['prenom'].'</td>
   <td>'.$row['mail'].'</td>
   <td>'.$row['sexe'].'</td>
-  <td><form method="POST" action="supprimerclient.php">
+  <td><form method="POST" action="supprimerclientf.php">
  <h2> <center><input type="submit"  value="Delete" class="btn btn-danger btn-xs"class ="fa fa-trash-o"></center></h2>
   <input type="hidden" value="'.$row['cin'].'" name="cin">
   </form>
   </td>
-  <td><center><a href="modifierclient.php?edit='.$row['cin'].'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 
+  <td><center><a href="modifierclientf.php?edit='.$row['cin'].'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 
   edit</a></center></td>
   </tr>
   <?PHP
