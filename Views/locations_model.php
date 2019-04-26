@@ -57,6 +57,7 @@ function delete_location(){
    
     $query = "DELETE FROM locations  where id = $id ";
     $result = mysqli_query($con,$query);
+    
     echo "deleted Successfully";
     if (!$result) {
         die('Invalid query: ' . mysqli_error($con));

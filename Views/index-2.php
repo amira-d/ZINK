@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Admin Kit</title>
+    <title>ZINK : Admin </title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -105,12 +105,30 @@
                                }}
                                ?>
 
+                            <li><a href="ceevee/index.html">Resto</a></li>
+                            <li><a href="restaurant-favourite-list.html">Favourite</a></li>
+                            <li><a href="afficherCommandeAdmin.php">Order List</a></li>
+                            <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
+                                                        <li><a href="modifierp1.html">Change Product</a></li>
+                                                                                    <li><a href="supprimerp.php">Delete Product</a></li>
+                                                                                    <li><a href="afficheringprod.php"> Product Details</a></li>
+
+                            <li><a href="annonces-produit.php">Annonces produit</a></li>
+                                   <li><a href="afficherclient.php">Clients</a></li>
+                                   <li><a href="afficherclient1.php">Clients fideles</a></li>
+                                   <li><a href="client.html">ajouter client</a></li>
+                                   <li><a href="tables-faq.php">FAQ</a></li>
+                                   <li><a href="ajout-faq.php">ajouter FAQ</a></li>
+                                   <li><a href="clientstats.php">Statistiques</a></li>
+
                         </ul>
                     </li>
                     
                     <li class="label">Apps</li>
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
+                                        <li><a href="carriere.php"><i class="ti-cup"></i>Carriere</a></li>
+
                     
                     
                     

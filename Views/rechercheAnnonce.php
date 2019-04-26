@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Zink : Upload announcement</title>
-    
-    <!-- ================= Favicon ================== -->
+	
+	<!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -19,25 +19,15 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-    
-    <!-- Styles -->
+	
+	<!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">jkjkjkk
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-      <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-        <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-
-    <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
-    <link href="assets/css/lib/unix.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-
-        <link href="assets/css/style2.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -171,26 +161,27 @@
                                               </select>
                                               </div>
 
-                                             <!-- <div class="form-group>-->
-                                               <!--<form method="POST" action="rechercheAnnonce.php">-->
+                                              <div class="form-group">
+                                               <form method="POST" action="annonces-produit.php">
 
-                                                    
-
-                                                
-                                             <!-- </form>
-                                             </div>-->
+                                              <div class="input-group input-group-rounded">
+                                                <span class="input-group-btn">
+                                                <button class="btn btn-primary btn-group-left" type="submit"><i class="ti-close"></i></button>
+                                                 </span>  
+                                                 <input type="text" placeholder="Search "  class="form-control" name="search">
+                                                 
+                                                <span class="input-group-btn">
+                                
+                                                 <input  type="submit" value="Search" name="search1" class="btn btn-primary btn-group-right">
+                                                <input type="hidden" name="search1" value="<?php  echo $_POST['search'];?>" >                                                <!--<i class="ti-search"></i>-->
+                                            </span>
+                                             </div>
+                                             </div>
                             
                                   
-<!--<div class="order-list-item">-->
-<div class="table-responsive">
-<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
- <div class="dataTables_filter" id="dataTable_filter">
 
-                                                   <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable">        
-                                        </div>   
-                                        </div> 
+<div class="order-list-item">
+<table class="table">
 <thead>
 <tr>
 <th>ID</th>
@@ -208,11 +199,12 @@
  <?PHP
 include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
 include "C:/wamp64/www/ZINK/zink/Entities/annonce.php";
+if (isset($_GET['titre'])){
 $ann2C=new AnnonceC();
- $listeannonces=$ann2C->afficherAnnonce();
+ $listeannonces=$ann2C->recherchetitre($_GET['search1']);
 $data=$listeannonces->fetch();
 
-
+  
 foreach($listeannonces as $row){
   ?>
   <tr>
@@ -233,27 +225,15 @@ foreach($listeannonces as $row){
   <?PHP
   
 }
+}
+
 
 ?>
 </tbody>
 </table>
 </div>
-</div>
-</div>
 
-                         <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon">Search</span>
-                    <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
-                </div>
-            <br />
-            <div id="result"></div>                 
                           
-                               </tbody>
-</table>
-</div>   
-
-                         
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
@@ -267,14 +247,12 @@ foreach($listeannonces as $row){
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
 									<div class="card-header-right-icon">
-
-                                    <div class="card-header-right-icon">
                                       
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="menu-upload-form">
-                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
+									<div class="menu-upload-form">
+										<form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
                                             <div class="col-sm-10">
@@ -317,12 +295,12 @@ foreach($listeannonces as $row){
                                             </div>
                                         </div>
                                     </form>
-                                    </div>
+									</div>
                                 </div>
-                            </div><!-- /# card -->
-                        </div><!-- /# column -->
-                    </div><!-- /# row -->
-                </div><!-- /# main content -->
+							</div><!-- /# card -->
+						</div><!-- /# column -->
+					</div><!-- /# row -->
+				</div><!-- /# main content -->
                 
 
                 
@@ -333,66 +311,15 @@ foreach($listeannonces as $row){
     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-    <!--<script src="assets/js/lib/bootstrap.min.js"></script>--><!-- bootstrap -->
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
     <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
-      <!-- Page level plugins -->
-  <script src="assets/datatables/jquery.dataTables.min.js"></script>
-  <script src="assets/datatables/dataTables.bootstrap4.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="assets/demo/datatables-demo.js"></script>
-
-            <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
-
-  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
-    <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
-    <script src="assets/js/lib/mmc-common.js"></script>
-    <script src="assets/js/lib/mmc-chat.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </body>
 
 
+<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
-
-<script>
-$(document).ready(function(){
-    load_data();
-    function load_data(query)
-    {
-        $.ajax({
-            url:"fetch_annonce.php",
-            method:"post",
-            data:{query:query},
-            success:function(data)
-            {
-                $('#result').html(data);
-            }
-        });
-    }
-    
-    $('#search_text').keyup(function(){
-        var search = $(this).val();
-        if(search != '')
-        {
-            load_data(search);
-        }
-        else
-        {
-            load_data();            
-        }
-    });
-});
-
-
-</script>
-
-
-
-
