@@ -54,6 +54,40 @@
             
            <li><a class="ti-calendar" href="listeFAQ.php">FAQ</a></li>
             <li><a class="ti-calendar" href="aa.php">Client</a></li>
+            <?php 
+                      if (isset($_SESSION['mail']))
+                      {
+                        ?>
+              <li><a class="ti-calendar" href="aa.php">mon compte</a></li>
+<?php } ?>
+
+<?php 
+                      if (isset($_SESSION['mail']))
+                      {
+                        ?>
+
+                        <a class="dropdown-item" href="moncompte.php" >Mon compte</a>
+                        <?php
+                      }
+                      ?>
+                                          <a class="dropdown-item" <?php if (isset($_SESSION['mail']))echo 'href="deconnexion.php"';else echo 'href="page-login.php"'; ?> >
+                                            <?php if (isset($_SESSION['mail'])) 
+                                            {
+                                            echo "Déconnexion";
+                                            }
+                                            else
+                                            {
+                                            echo "Inscription/Connexion ";  
+                                            }
+
+                                            ?>
+                                          
+                                        </a>
+      
+
+
+
+
             <!-- <li><a class="smoothscroll" href="clientF.html">Client</a></li>-->
          </ul> <!-- end #nav -->
           <!--<li><a  href="clientF.html"  ><i class="ti-calendar">Client</a></li>-->

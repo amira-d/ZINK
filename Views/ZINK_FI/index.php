@@ -1,3 +1,12 @@
+<?php
+include"C:\wamp\www\ZINK\Views\ZINK_FI\session.php";
+include "C:\wamp\www\ZINK\cores\clientfC.php";
+include "C:\wamp\www\ZINK\Entities\clientf.php";
+testConnexion();
+?>
+
+
+
 <!DOCTYPE html>
 <!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
@@ -49,10 +58,46 @@
             <li><a class="smoothscroll" href="#portfolio">Menu</a></li>
             <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
             <li><a class="smoothscroll" href="#testimonials">Z-News</a></li>
+
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-           < <li><a class="ti-calendar" href="listeFAQ.php">FAQ</a></li>
-            <li><a class="ti-calendar" href="clientF.html">Client</a></li>
+            
+           <li><a class="ti-calendar" href="listeFAQ.php">FAQ</a></li>
+            <li><a class="ti-calendar" href="aa.php">Client</a></li>
+            <?php 
+                      if (isset($_SESSION['cin']))
+                      {
+                        ?>
+              <!--<li><a class="ti-calendar" href="aa.php">mon compte</a></li>-->
+<?php } ?>
+
+<?php 
+                      if (isset($_SESSION['cin']))
+                      {
+                        ?>
+
+                        <li><a class="ti-calendar" href="moncompte.php" >Mon compte</a></li>
+                        <?php
+                      }
+                      ?>
+                                          <a class="dropdown-item" <?php if (isset($_SESSION['cin']))echo 'href="deconnexion.php"';else echo 'href="login-register.php"'; ?> >
+                                            <?php if (isset($_SESSION['cin'])) 
+                                            {
+                                            echo "Déconnexion";
+                                            }
+                                            else
+                                            {
+                                              
+                                            echo "Inscription/Connexion ";  
+                                            }
+
+                                            ?>
+                                          
+                                        </a>
+      
+
+
+
+
             <!-- <li><a class="smoothscroll" href="clientF.html">Client</a></li>-->
          </ul> <!-- end #nav -->
           <!--<li><a  href="clientF.html"  ><i class="ti-calendar">Client</a></li>-->

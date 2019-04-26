@@ -199,9 +199,7 @@ $result=$db->query('SELECT * from client LIMIT '.$depart.','.$produitparpage.'')
 
 
 
- <form method="POST" action="afficherclientpdf.php">
- <h2> <center><input type="submit"  value="pdf" class="btn btn-danger btn-xs"class ="fa fa-trash-o"></center></h2>
-</form>
+ 
                         </div>
                                   <?php 
                                 for ($i=1;$i<$pagestotales;$i++)

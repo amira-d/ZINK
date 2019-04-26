@@ -6,16 +6,18 @@ function afficherclientf ($clientf){
 		echo "nom: ".$clientf->getnom()."<br>";
 		echo "prenom: ".$clientf->getprenom()."<br>";
 		echo "mail: ".$clientf->getmail()."<br>";
-		echo "sexe: ".$clientf->getsexe()."<br>";		
+		echo "sexe: ".$clientf->getsexe()."<br>";	
+		echo "mdp: ".$clientf->getmdp()."<br>";	
 	}
 	
 	function ajouterclientf($clientf){
-		$sql = "insert INTO clientf (cin,nom,prenom,mail,sexe) VALUES (:cin,:nom,:prenom,:mail, :sexe)";
+		$sql = "insert INTO clientf (cin,nom,prenom,mdp,mail,sexe) VALUES (:cin,:nom,:prenom,:mdp,:mail, :sexe)";
 		$db = config::getConnexion();
 		$req = $db->prepare($sql);
 		$req->bindValue(':cin',$clientf->getCin());
 		$req->bindValue(':nom',$clientf->getnom());
 		$req->bindValue(':prenom',$clientf->getprenom());
+		$req->bindValue(':mdp',$clientf->getmdp());
 		$req->bindValue(':mail',$clientf->getmail());
 		$req->bindValue(':sexe',$clientf->getsexe());
 		try{
@@ -53,7 +55,7 @@ function afficherclientf ($clientf){
         }
 	}
 	function modifierclientf($clientf,$cin){
-		$sql="UPDATE clientf SET cin=:cin, nom=:nom, prenom=:prenom,mail=:mail, sexe=:sexe WHERE cin=:cin";
+		$sql="UPDATE clientf SET cin=:cin, nom=:nom, prenom=:prenom,mdp=:mdp,mail=:mail, sexe=:sexe WHERE cin=:cin";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -62,12 +64,14 @@ try{
 		$cin=$clientf->getCin();
         $nom=$clientf->getnom();
         $prenom=$clientf->getprenom();
+        $mdp=$clientf->getmdp();
         $mail=$clientf->getmail();
         $sexe=$clientf->getsexe();
-		$datas = array(':cin'=>$cin, ':nom'=>$nom,':prenom'=>$prenom,':mail'=>$mail,':sexe'=>$sexe);
+		$datas = array(':cin'=>$cin, ':nom'=>$nom,':prenom'=>$prenom,':mdp'=>$mdp,':mail'=>$mail,':sexe'=>$sexe);
 		$req->bindValue(':cin',$cin);
 		$req->bindValue(':nom',$nom);
 		$req->bindValue(':prenom',$prenom);
+		$req->bindValue(':mdp',$mdp);
 		$req->bindValue(':mail',$mail);
 		$req->bindValue(':sexe',$sexe);
 		
@@ -108,4 +112,18 @@ try{
 	}
 }
 
+
+ function exist()
+	{
+		$db=config::getConnexion();
+		$req=$db->prepare('SELECT * FROM clientf WHERE cin=:cin');
+		$req->bindValue(':cin',$this->cin);
+		$req->execute();
+		if ($req->rowCount()==0)
+			return false;
+		$clientf=$req->fetch();
+		if ($clientf['mdp']!=$this->mdp)
+			return false;
+		return true;
+	}
 ?>
