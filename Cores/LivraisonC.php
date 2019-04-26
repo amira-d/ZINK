@@ -70,7 +70,7 @@ function ajouterLivraison($livraison){
 
 
 		function supprimerlivraison($cin){
-		$sql="DELETE FROM commande where cin= $cin";
+		$sql="DELETE FROM livraison where cin= $cin";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
 		$req->bindValue(':cin',$cin);
