@@ -1,21 +1,23 @@
 <?PHP
 include "C:/wamp64/www/ZINK/zink/config.php";
-class AnnonceC {
+class recruC {
 
 
-	function ajouterAnnonce($ann){
-		$sql="insert into a_produit(titre,type,description,image) values (:titre,:type,:description,:image)";
+	function ajouterRecrutement($ann){
+		$sql="insert into a_recrutement(titre,description,service,deadline,image) values (:titre,:description,:service,:deadline,:image)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
 		
         $titre=$ann->getTitre();
-        $type=$ann->getType();
         $description=$ann->getDesc();
+        $service=$ann->getService();
+        $deadline=$ann->getDeadline();
         $image=$ann->getImage();
 		$req->bindValue(':titre',$titre);
-		$req->bindValue(':type',$type);
 		$req->bindValue(':description',$description);
+		$req->bindValue(':service',$service);
+		$req->bindValue(':deadline',$deadline);
 		$req->bindValue(':image',$image);
 		
             $req->execute();
@@ -27,8 +29,8 @@ class AnnonceC {
 		
 	}
 	
-	function afficherAnnonce(){
-		$sql="SElECT * From a_produit ";
+	function afficherRecrutement(){
+		$sql="SELECT id , titre , description,service, deadline,image FROM a_recrutement Order by id Desc";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -38,53 +40,56 @@ class AnnonceC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function supprimerannonce($titre){
-		$sql="DELETE FROM a_produit where titre= :titre";
+	function supprimerRecrutement($id){
+		$sql="DELETE FROM a_recrutement where id= :id";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':titre',$titre);
+		$req->bindValue(':id',$id);
 		try{
             $req->execute();
-           header('Location: annonces-produit.php');
+           header('Location: index.php');
         }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierAnnonce($ann,$titre){
-		$sql="UPDATE a_produit SET titre=:titre ,type=:type , description=:description , image=:image WHERE titre='".$titre."' ";
+	function modifierRecrutement($ann,$id){
+		$sql="UPDATE a_recrutement SET  titre=:titre , description=:description ,  service=:service , deadline=:deadline, image=:image  WHERE id='".$id."'";
 		
 		$db = config::getConnexion();
-		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+		//  $db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
         //$id=$ann->getId();
         $titre=$ann->getTitre();
+        $service=$ann->getService();
         $description=$ann->getDesc();
-        $type=$ann->getType();
+        $deadline=$ann->getDeadline();
         $image=$ann->getImage();
 
-        echo"<script>alert('!!!!!!!!!'')</script>";
+        
+
 		
-		$datas = array(':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
+		$datas = array(':titre'=>$titre,':description'=>$description,':service'=>$service,':deadline'=>$deadline ,':image'=>$image);
 		//$req->bindValue(':id',$id);
 		$req->bindValue(':titre',$titre);
-	    $req->bindValue(':type',$type);
+	    $req->bindValue(':service',$service);
 		$req->bindValue(':description',$description);
+		$req->bindValue(':deadline',$deadline);
 		$req->bindValue(':image',$image);
 		
             $s=$req->execute();
 			
-          // header('Location: annonces-produit.php');
+
         }
         catch (Exception $e){
             echo " Erreur ! ".$e->getMessage();
-  
+ 
         }
 		
 	}
-	function recupererAnnonce($titre){
-		$sql="SELECT * from a_produit where titre='$titre' ";
+	function recupererRecrutement($id){
+		$sql="SELECT * from a_recrutement where id='$id'";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -100,7 +105,7 @@ try{
 
 		function recherchetitre($titre){
 		//$sql=`SElECT * From a_produit where titre="'.$titre'"` ;
-		$sql ="SELECT * FROM a_produit WHERE titre LIKE '%:titre%' ORDER BY id";
+		$sql ="SELECT * FROM a_recrutement WHERE titre LIKE '%:titre%' ORDER BY id";
 		//$sql="SElECT * From a_produit where titre like "'&$titre&'" ";
 		$db = config::getConnexion();
 		try{
@@ -114,7 +119,7 @@ try{
 		}
 
 		function triAlph(){
-			$sql="SElECT * From a_produit ORDER by titre DESC ";
+			$sql="SElECT * From a_recrutement ORDER by titre DESC ";
 			$db = config::getConnexion();
 			try{
 			$liste=$db->query($sql);
