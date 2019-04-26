@@ -4,6 +4,10 @@ $annonceC=new annonceC();
 if (isset($_POST["id"])){
 	$annonceC->supprimerannonce($_POST["id"]);
 	header('Location:annonces-produit.php');
+$annonce=new annonceC();
+if (isset($_POST["titre"])){
+	$annonce->supprimerannonce($_POST["titre"]);
+	header('Location: annonces-produit.php');
 }
 
 ?>

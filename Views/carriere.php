@@ -46,6 +46,7 @@
                 <ul>
                     <li class="label">Main</li>
                     <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
+                    <li ><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
                    
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
@@ -69,6 +70,7 @@
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
                     <li><a href="carriere.html"><i class="ti-carriere"></i>Carriere</a></li>
+                    <li class="active"><a href="carriere.php" ><i class="ti-cup"></i>Carriere</a></li>
 
                     
                     
@@ -197,12 +199,29 @@
                                                    <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable">        
                                         </div>   
                                         </div> 
+                                     
+                            
+                                  
+<div class="order-list-item">
+
+
+
+    <div class="col-sm-12 col-md-6">
+
+
+    <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable"> 
+                                        </div>
+<table class="table" id="dataTable" width="100%" cellspacing="0">
 <thead>
 <tr>
 <th>ID</th>
 <th>Titre</th>
 <th>Type</th>
 <th>Description</th>
+
+<th>Service</th>
+<th>Description</th>
+<th>Deadline</th>
 <th>Image</th>
 <th>Supprimer</th>
 <th>Modifier</th>
@@ -216,6 +235,7 @@ include "C:/wamp64/www/ZINK/zink/Cores/recruC.php";
 include "C:/wamp64/www/ZINK/zink/Entities/recrutement.php";
 $r2C=new recruC();
  $listeannonces=$r2C->afficherRecrutement();
+$listeannonces=$r2C->afficherRecrutement();
 $data=$listeannonces->fetch();
 
 
@@ -228,18 +248,24 @@ foreach($listeannonces as $row){
   <td><?PHP echo $row['description']; ?></td>
   <td><?PHP echo $row['deadline']; ?></td>
   <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
+  <td style="width: 150px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
+
   <td><form method="POST" action="supprimerRecrutement.php">
   <input type="submit" name="supprimer" value="supprimer">
   <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
   </form>
   </td>
+
   <td><a href="majRecru.php?id=<?PHP echo $row['id']; ?>">
+  <td><a href="majRecru.php?id=<?PHP echo $row['id'];?>">
+
   Update</a></td>
   </tr>
 
   <?PHP
   
 }
+  }
 
 ?>
 </tbody>
@@ -260,6 +286,8 @@ foreach($listeannonces as $row){
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
+
+                                    <h4>Job offer Upload</h4>
                                     <div class="card-header-right-icon">
                                       
                                     </div>
@@ -269,6 +297,10 @@ foreach($listeannonces as $row){
                                         <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
+
+                                        <form class="form-horizontal" method="POST" action="ajoutRecru.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Upload job offer</label>
                                             <div class="col-sm-10">
                                                 <div class="form-control file-input dark-browse-input-box">
                                                     <label for="inputFile-2">
@@ -291,6 +323,15 @@ foreach($listeannonces as $row){
                                             <label class="col-sm-2 control-label">Type Product</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Type your announcement Type" name="type">
+                                            <label class="col-sm-2 control-label">Name Job</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="Type your job Title" name="titre">
+                                            </div>
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="col-sm-2 control-label">Job type</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="Type your job Type" name="type">
                                             </div>
                                         </div>
 
@@ -298,6 +339,16 @@ foreach($listeannonces as $row){
                                             <label class="col-sm-2 control-label">Product Details</label>
                                             <div class="col-sm-10">
                                                 <textarea class="form-control" rows="3" placeholder="Type your announcement Details" name="description"></textarea>
+
+                                            <label class="col-sm-2 control-label">Job Details</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" rows="3" placeholder="Type your job Details" name="description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Job deadline</label>
+                                            <div class="col-sm-10">
+                                                <input type="date" class="form-control" rows="3" placeholder="Type your job deadline" name="deadline">
                                             </div>
                                         </div>
 

@@ -8,6 +8,9 @@
     <title>Zink : Update announcement</title>
 	
 	<!-- ================= Favicon ================== -->
+    
+    <!-- ================= Favicon ================== -->
+
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -18,8 +21,8 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-	
-	<!-- Styles -->
+    
+    <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
@@ -31,6 +34,9 @@
 <body>
 	
 	< <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+
+    
+     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -147,6 +153,11 @@ if (isset($_GET['titre'])){
                                 <div class="card-body">
 									<div class="menu-upload-form">
 										<form class="form-horizontal" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous modifier cette annonce ?')">
+                                    
+                                </div>
+                                <div class="card-body">
+                                    <div class="menu-upload-form">
+                                        <form class="form-horizontal" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous modifier cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
                                             <div class="col-sm-10">
@@ -187,6 +198,7 @@ if (isset($_GET['titre'])){
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                             	<input type="submit" name="update" value="Update">
+                                                <input type="submit" name="update" value="Update">
                                            
                                                 <input type="hidden" name="titre_ini" value="<?PHP echo $_GET['titre'];?>">
                                             </div>
@@ -206,6 +218,17 @@ if (isset($_POST['update'])){
 					{
 						$msg = "Problem with uploading";
 					}
+
+    $target="../zink".basename($_FILES['image']['name']);
+            $image =$_FILES['image']['name'];
+                    if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
+                        {
+                            $msg= "IMAGE LOADED SUCCESSFULLY" ; 
+                        }
+                    else
+                    {
+                        $msg = "Problem with uploading";
+                    }
   $annonce=new annonce($_POST['titre'],$_POST['type'],$_POST['description'],$image);
   $annC->modifierAnnonce($annonce,$_POST['titre_ini']);
   echo"<script>window.location.replace('annonces-produit.php')</script>";
@@ -220,6 +243,12 @@ if (isset($_POST['update'])){
 						</div><!-- /# column -->
 					</div><!-- /# row -->
 				</div><!-- /# main content -->
+                                    </div><!--form div-->
+                                </div><!--body card-->
+                            </div><!-- /# card -->
+                        </div><!-- /# column -->
+                    </div><!-- /# row -->
+                </div><!-- /# main content -->
                 
 
                 
