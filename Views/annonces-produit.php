@@ -25,23 +25,18 @@
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
+
     <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
         <link href="assets/css/style2.css" rel="stylesheet">
 
-=======
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">jkjkjkk
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
       <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
->>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 
 </head>
 
@@ -176,10 +171,7 @@
                                               </select>
                                               </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
+
                          <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
@@ -187,14 +179,12 @@
                 </div>
             <br />
             <div id="result"></div>                 
-<<<<<<< HEAD
-                          
+             
                                </tbody>
 </table>
 </div>   
 
-                          
-=======
+                        
                                              <!-- <div class="form-group>-->
                                                <!--<form method="POST" action="rechercheAnnonce.php">-->
 
