@@ -28,7 +28,8 @@ class AnnonceC {
 	}
 	
 	function afficherAnnonce(){
-		$sql="SElECT * From a_produit ";
+		
+		$sql="SElECT * From a_produit Order by id Desc";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -45,46 +46,46 @@ class AnnonceC {
 		$req->bindValue(':titre',$titre);
 		try{
             $req->execute();
-           header('Location: annonces-produit.php');
+           // header('Location: index.php');
         }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
 	}
-	function modifierAnnonce($ann,$titre){
-		$sql="UPDATE a_produit SET titre=:titre ,type=:type , description=:description , image=:image WHERE titre='".$titre."' ";
+	function modifierAnnonce($prod,$nom){
+		$sql="UPDATE a_produit SET titre=:titre, type=:type,description=:description,image=:img WHERE titre=:titre";
 		
 		$db = config::getConnexion();
-		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+	
 try{		
         $req=$db->prepare($sql);
-        //$id=$ann->getId();
-        $titre=$ann->getTitre();
-        $description=$ann->getDesc();
-        $type=$ann->getType();
-        $image=$ann->getImage();
-
-        echo"<script>alert('!!!!!!!!!'')</script>";
 		
-		$datas = array(':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
-		//$req->bindValue(':id',$id);
-		$req->bindValue(':titre',$titre);
-	    $req->bindValue(':type',$type);
+       
+        $titre=$ann->getTitre();
+        $type=$ann->getType();
+        $description=$ann->getDesc();
+        $image=$ann->getImage();
+		
+		$datas = array(':titre'=>$titre, ':type'=>$type, ':description'=>$description,':img'=>$image);
+	    $req->bindValue(':titre',$titre);
+		$req->bindValue(':type',$type);
 		$req->bindValue(':description',$description);
 		$req->bindValue(':image',$image);
 		
+		
             $s=$req->execute();
 			
-          // header('Location: annonces-produit.php');
+           // header('Location: index.php');
         }
         catch (Exception $e){
             echo " Erreur ! ".$e->getMessage();
-  
+   echo " Les datas : " ;
+  print_r($datas);
         }
 		
 	}
 	function recupererAnnonce($titre){
-		$sql="SELECT * from a_produit where titre='$titre' ";
+		$sql="SELECT * from produit where nom_P=$nom";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -96,34 +97,6 @@ try{
 	}
 	
 	
+}
 
-
-		function recherchetitre($titre){
-		//$sql=`SElECT * From a_produit where titre="'.$titre'"` ;
-		$sql ="SELECT * FROM a_produit WHERE titre LIKE '%:titre%' ORDER BY id";
-		//$sql="SElECT * From a_produit where titre like "'&$titre&'" ";
-		$db = config::getConnexion();
-		try{
-		$liste=$db->query($sql);
-	
-		return $liste;
-		}
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }	
-		}
-
-		function triAlph(){
-			$sql="SElECT * From a_produit ORDER by titre DESC ";
-			$db = config::getConnexion();
-			try{
-			$liste=$db->query($sql);
-		
-			return $liste;
-			}
-	        catch (Exception $e){
-	            die('Erreur: '.$e->getMessage());
-	        }	
-		}
-	}
 ?>

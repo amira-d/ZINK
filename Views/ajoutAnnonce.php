@@ -15,9 +15,15 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 
      else
      {
+<<<<<<< HEAD
 	        $target="images/";
 			$image =$_FILES['image']['name'];
 					if (move_uploaded_file($_FILES['image']['tmp_name'],$target.$image ))
+=======
+	        $target="../zink".basename($_FILES['image']['name']);
+			$image =$_FILES['image']['name'];
+					if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
+>>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 						{
 							$msg= "IMAGE LOADED SUCCESSFULLY" ; 
 						}

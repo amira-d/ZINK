@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Zink : Upload announcement</title>
-    
-    <!-- ================= Favicon ================== -->
+	
+	<!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -19,18 +19,26 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-    
-    <!-- Styles -->
+	
+	<!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+<<<<<<< HEAD
     <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
         <link href="assets/css/style2.css" rel="stylesheet">
 
+=======
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">jkjkjkk
+    <link href="assets/css/lib/unix.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+      <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+>>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 
 </head>
 
@@ -165,6 +173,7 @@
                                               </select>
                                               </div>
 
+<<<<<<< HEAD
                          <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
@@ -178,6 +187,78 @@
 </div>   
 
                           
+=======
+                                             <!-- <div class="form-group>-->
+                                               <!--<form method="POST" action="rechercheAnnonce.php">-->
+
+                                                    
+
+                                                
+                                             <!-- </form>
+                                             </div>-->
+                            
+                                  
+<!--<div class="order-list-item">-->
+<div class="table-responsive">
+<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <div class="col-sm-12 col-md-6">
+ <div class="dataTables_filter" id="dataTable_filter">
+
+                                                   <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable">        
+                                        </div>   
+                                        </div> 
+<thead>
+<tr>
+<th>ID</th>
+<th>Titre</th>
+<th>Type</th>
+<th>Description</th>
+<th>Image</th>
+<th>Supprimer</th>
+<th>Modifier</th>
+</tr>
+
+ </thead>
+ <tbody>
+                                   
+ <?PHP
+include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
+include "C:/wamp64/www/ZINK/zink/Entities/annonce.php";
+$ann2C=new AnnonceC();
+ $listeannonces=$ann2C->afficherAnnonce();
+$data=$listeannonces->fetch();
+
+
+foreach($listeannonces as $row){
+  ?>
+  <tr>
+  <td><?PHP echo $row['id']; ?></td>
+  <td><?PHP echo $row['titre']; ?></td>
+  <td><?PHP echo $row['type']; ?></td>
+  <td><?PHP echo $row['description']; ?></td>
+  <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
+  <td><form method="POST" action="supprimerAnnonce.php">
+  <input type="submit" name="supprimer" value="supprimer">
+  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+  </form>
+  </td>
+  <td><a href="majAnnonce.php?titre=<?PHP echo $row['titre']; ?>">
+  Update</a></td>
+  </tr>
+
+  <?PHP
+  
+}
+
+?>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+                          
+>>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
@@ -190,13 +271,17 @@
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
+<<<<<<< HEAD
                                     <div class="card-header-right-icon">
+=======
+									<div class="card-header-right-icon">
+>>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                       
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="menu-upload-form">
-                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
+									<div class="menu-upload-form">
+										<form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
                                             <div class="col-sm-10">
@@ -239,12 +324,12 @@
                                             </div>
                                         </div>
                                     </form>
-                                    </div>
+									</div>
                                 </div>
-                            </div><!-- /# card -->
-                        </div><!-- /# column -->
-                    </div><!-- /# row -->
-                </div><!-- /# main content -->
+							</div><!-- /# card -->
+						</div><!-- /# column -->
+					</div><!-- /# row -->
+				</div><!-- /# main content -->
                 
 
                 
@@ -267,6 +352,7 @@
 
   <!-- Page level custom scripts -->
   <script src="assets/demo/datatables-demo.js"></script>
+<<<<<<< HEAD
             <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
 
   <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
@@ -276,44 +362,12 @@
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+=======
+
+>>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 
 </body>
 
 
+<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
-
-<script>
-$(document).ready(function(){
-    load_data();
-    function load_data(query)
-    {
-        $.ajax({
-            url:"fetch_annonce.php",
-            method:"post",
-            data:{query:query},
-            success:function(data)
-            {
-                $('#result').html(data);
-            }
-        });
-    }
-    
-    $('#search_text').keyup(function(){
-        var search = $(this).val();
-        if(search != '')
-        {
-            load_data(search);
-        }
-        else
-        {
-            load_data();            
-        }
-    });
-});
-
-
-</script>
-
-
-
-
