@@ -1,6 +1,6 @@
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 
 <!-- Mirrored from zebratheme.com/html/fooadmin/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:15:18 GMT -->
@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Widget</title>
+    <title>ZINK : ADMIN LOGIN</title>
 	
 	<!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -29,9 +29,12 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-primary">
+
+
 
 	<div class="unix-login">
 		<div class="container">
@@ -39,14 +42,14 @@
 				<div class="col-lg-6 col-lg-offset-3">
 					<div class="login-content">
 						<div class="login-logo">
-							<a href=><span>Foodmin</span></a>
+							<a href=><span>ZINK ADMIN</span></a>
 						</div>
 						<div class="login-form">
 							<h4>Administratior Login</h4>
-							<form action="verifier.php" method="POST" id="connexion">
+							<form action="connexion.php" method="POST" id="connexion">
 								<div class="form-group">
-									<label>Email address</label>
-									<input type="email" class="form-control" placeholder="Email" id="Email" name="Email">
+									<label>Login</label>
+									<input type="login" class="form-control" placeholder="login" id="login" name="login">
 								</div>
 								<div class="form-group">
 									<label>Password</label>
@@ -59,14 +62,18 @@
 									
 									
 								</div>
-								<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" >Sign in</button><br/>
+								<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" @click="toggleModal()" >Sign in</button><br/>
 								<div class="social-login-content">
 									<a href="page-register.html" style="color: red"><center>Sign Up</center></a>
 								</div>
 								
-									
+								
 								
 							</form>
+
+							
+
+						
 						</div>
 					</div>
 				</div>
@@ -74,6 +81,8 @@
 		</div>
 	</div>
 <script src="page-login.js"></script>
+    </main>
+
 </body>
 
 
