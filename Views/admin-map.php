@@ -93,11 +93,11 @@ include_once 'locations_model.php';
         var id = document.getElementById('id').value;
         var url = 'locations_model.php?delete_location&id=' + id + '&confirmed=' + confirmed ;
         downloadUrl(url, function(data, responseCode) {
-            if (responseCode === 200  && data.length > 1) {
+           if (responseCode === 200  && data.length > 1) {
                 infowindow.close();
                 window.location.reload(true);
             }else{
-                infowindow.setContent("<div style='color: purple; font-size: 25px;'>Deleting Errors</div>");
+                infowindow.setContent("<div style='color: purple; font-size: 25px;'>Inserting Errors</div>");
             }
         });
     }
@@ -148,6 +148,9 @@ include_once 'locations_model.php';
    display: inline-block;
     
    margin-left: 80px;"  type='button' value='Save' onclick='saveData()'/> <br><br>
+              
+      <form  method="post" action="supprimerLocalisation.php" >
+
                <input style= "    text-transform: uppercase;
     letter-spacing: 3px;
     color:#fff;
@@ -157,7 +160,9 @@ include_once 'locations_model.php';
    height: auto;
    display: inline-block;
     border-radius: 3px;
-   margin-left: 70px;" type='button' value='delete'  onclick='deleteData()'/></td></tr>
+   margin-left: 70px;" type='button' value='delete' name='hey' /></td></tr>
+    <input type="hidden" value="<?PHP echo $_POST['id']; ?>" name="id">
+     </form>
     </table>
 </div>
 <script async defer

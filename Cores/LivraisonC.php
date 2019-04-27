@@ -67,6 +67,21 @@ function ajouterLivraison($livraison){
             die('Erreur: '.$e->getMessage());
         }	
 	}
+
+
+		function supprimerlivraison($cin){
+		$sql="DELETE FROM livraison where cin= $cin";
+		$db = config::getConnexion();
+        $req=$db->prepare($sql);
+		$req->bindValue(':cin',$cin);
+		try{
+            $req->execute();
+           // header('Location: index.php');
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
 	}
 
 ?>

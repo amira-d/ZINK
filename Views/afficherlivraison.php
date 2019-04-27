@@ -251,7 +251,7 @@ $livraison1=new livraison($cin,$nom,$prenom,$numero,$email,$heures,$minutes,$_PO
 ?>
                                            
 
-                                            <form  method="post" action="supprimerCommandeAdmin.php" >    
+                                            <form  method="post" action="supprimerlivraisonAdmin.php" >    
                                             <td><button   type="submit" class="btn btn-primary btn-rounded">X</button></td>
                                                <input type="hidden" value="<?PHP echo $row['cin']; ?>" name="cin">
                                                </form>
