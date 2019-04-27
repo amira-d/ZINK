@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 <head>
     <meta charset="utf-8">
@@ -33,68 +31,24 @@ session_start();
 
 </head>
 <body>
-
-
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+	<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
                     <li class="label">Main</li>
-                    <li class="active"><a href="index-2.php"><i class="ti-home"></i> Dashboard </a></li>                   
-                    
-
-      <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
+                    <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <?php
-                            if (isset($_SESSION['l']) && isset($_SESSION['r']))
-                            {
-                                if ($_SESSION['r'] == "lamia")
-                            {echo "<li><a href='ceevee/index.html'>Resto</a></li>
-                            <li><a href='restaurant-favourite-list.html'>Favourite</a></li>
-                            <li><a href='afficherCommandeAdmin.php'>Order List</a></li>
-                            <li><a href='restaurant-upload-menu.php'>Upload Menu</a></li>
-                                                        <li><a href='modifierp1.php'>Change Product</a></li>
-                                                                                    <li><a href='supprimerp.php'>Delete Product</a></li>
-                                                                                    <li><a href='afficheringprod.php'> Product Details</a></li>
+                          <li><a href="ceevee/index.html">Resto</a></li>
+                            <li><a href="restaurant-favourite-list.html">Favourite</a></li>
+                            <li><a href="restaurant-order-list.html">Order List</a></li>
+                            <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
+                                                        <li><a href="modifierp1.html">Change Product</a></li>
+                                                                                    <li><a href="supprimerp.php">Delete Product</a></li>
+                                                                                    <li><a href="afficheringprod.php"> Product Details</a></li>
 
-                            <li><a href='annonces-produit.html'>Annonces produit</a></li>
-                                   <li><a href='afficherclient.php'>Clients</a></li>
-                                   <li><a href='afficherclient1.php'>Clients fideles</a></li>
-                                   <li><a href='client.html'>ajouter client</a></li>
-                                   <li><a href='tables-faq.php'>FAQ</a></li>
-                                   <li><a href='ajout-faq.php'>ajouter FAQ</a></li>
-                                   <li><a href='clientstats.php'>Statistiques</a></li>";
-                               }
-                               if ($_SESSION['r']== 'doniaksia' ) {
-                                
-                               
-                               echo "<li><a href='ceevee/index.html'>Resto</a></li>
-                            <li><a href='restaurant-upload-menu.php'>Upload Menu</a></li>
-                                                        <li><a href='modifierp1.php'>Change Product</a></li>
-                                                                                    <li><a href='supprimerp.php'>Delete Product</a></li>
-                                                                                    <li><a href='afficheringprod.php'> Product Details</a></li>";
+                            <li><a href="annonces-produit.html">Annonces produit</a></li>
 
-                    
-                               }
-                               else  {
-                                echo "<li><a href='ceevee/index.html'>Resto</a></li>
-                            <li><a href='restaurant-favourite-list.html'>Favourite</a></li>
-                            <li><a href='afficherCommandeAdmin.php'>Order List</a></li>
-                            <li><a href='restaurant-upload-menu.php'>Upload Menu</a></li>
-                                                        <li><a href='modifierp1.php'>Change Product</a></li>
-                                                                                    <li><a href='supprimerp.php'>Delete Product</a></li>
-                                                                                    <li><a href='afficheringprod.php'> Product Details</a></li>
-
-                            <li><a href='annonces-produit.html'>Annonces produit</a></li>
-                                   <li><a href='afficherclient.php'>Clients</a></li>
-                                   <li><a href='afficherclient1.php'>Clients fideles</a></li>
-                                   <li><a href='client.html'>ajouter client</a></li>
-                                   <li><a href='tables-faq.php'>FAQ</a></li>
-                                   <li><a href='ajout-faq.php'>ajouter FAQ</a></li>
-                                   <li><a href='clientstats.php'>Statistiques</a></li>";
-
-                               }}
-                               ?>
 
                         </ul>
                     </li>
@@ -112,7 +66,7 @@ session_start();
                         </ul>
                     </li>
                     
-                 <li><a href="logout.php"><i class="ti-close"></i> Logout</a></li>
+                 <li><a href="page-login.html"><i class="ti-close"></i> Logout</a></li>
 
                 </ul>
             </div>
@@ -165,12 +119,7 @@ session_start();
                     </div>
                 </li>
                 
-                <li class="header-icon dib"><span class="user-avatar">
-                    <?php
-                      if (isset($_SESSION['l']) && isset($_SESSION['r']))
-                       { echo ''.$_SESSION['r'];
-                        }?>
-                        <i class="ti-angle-down f-s-10"></i></span>
+                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
                    
                      
                 </li>

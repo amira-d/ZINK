@@ -25,12 +25,6 @@
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">jkjkjkk
-    <link href="assets/css/lib/unix.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-      <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-        <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-
     <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
@@ -171,76 +165,6 @@
                                               </select>
                                               </div>
 
-                                             <!-- <div class="form-group>-->
-                                               <!--<form method="POST" action="rechercheAnnonce.php">-->
-
-                                                    
-
-                                                
-                                             <!-- </form>
-                                             </div>-->
-                            
-                                  
-<!--<div class="order-list-item">-->
-<div class="table-responsive">
-<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
- <div class="dataTables_filter" id="dataTable_filter">
-
-                                                   <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable">        
-                                        </div>   
-                                        </div> 
-<thead>
-<tr>
-<th>ID</th>
-<th>Titre</th>
-<th>Type</th>
-<th>Description</th>
-<th>Image</th>
-<th>Supprimer</th>
-<th>Modifier</th>
-</tr>
-
- </thead>
- <tbody>
-                                   
- <?PHP
-include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-include "C:/wamp64/www/ZINK/zink/Entities/annonce.php";
-$ann2C=new AnnonceC();
- $listeannonces=$ann2C->afficherAnnonce();
-$data=$listeannonces->fetch();
-
-
-foreach($listeannonces as $row){
-  ?>
-  <tr>
-  <td><?PHP echo $row['id']; ?></td>
-  <td><?PHP echo $row['titre']; ?></td>
-  <td><?PHP echo $row['type']; ?></td>
-  <td><?PHP echo $row['description']; ?></td>
-  <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
-  <td><form method="POST" action="supprimerAnnonce.php">
-  <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
-  </form>
-  </td>
-  <td><a href="majAnnonce.php?titre=<?PHP echo $row['titre']; ?>">
-  Update</a></td>
-  </tr>
-
-  <?PHP
-  
-}
-
-?>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
                          <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
@@ -253,7 +177,7 @@ foreach($listeannonces as $row){
 </table>
 </div>   
 
-                         
+                          
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
@@ -266,8 +190,6 @@ foreach($listeannonces as $row){
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
-									<div class="card-header-right-icon">
-
                                     <div class="card-header-right-icon">
                                       
                                     </div>
@@ -345,7 +267,6 @@ foreach($listeannonces as $row){
 
   <!-- Page level custom scripts -->
   <script src="assets/demo/datatables-demo.js"></script>
-
             <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
 
   <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->

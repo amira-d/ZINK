@@ -1,9 +1,11 @@
 
                 <!-- portfolio_filter -->
                 <div class="filtering" id="fix" style="  float: right;  
-  border: 1px solid #ffbf00 ; padding: 10px; margin: 10px;
+  border: 1px solid #ffbf00 ; padding: 10px;
+
+
  
- position: fixed;right: 12px;">
+ position: fixed;right: 80px;top: 200px; bottom: 150px;">
                   <h2 style="color: #ffbf00;font-size: 25px; font-family: stencil;text-align: center;">Filter by :</h2>
                   
                     
@@ -151,12 +153,10 @@ $(document).ready(function(){
  <script type="text/javascript">
   function fixDiv() {
   var $cache = $('#fix'); 
-  if ($(window).scrollTop() > 250) 
-    $cache.css({'position': 'fixed', 'top': '300px'}); 
   if ($(window).scrollTop() > 180) 
     $cache.css({'position': 'fixed', 'top': '280px'}); 
   else
-    $cache.css({'position': 'relative', 'top': '100px' });
+    $cache.css({'position': 'relative', 'top': 'auto'});
 }
 $(window).scroll(fixDiv);
 fixDiv();

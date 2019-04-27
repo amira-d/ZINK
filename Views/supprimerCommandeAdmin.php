@@ -1,6 +1,6 @@
 <?PHP
-include "../Entities/Commande.php";
-include "../Cores/CommandeC.php";
+include "../entites/Commande.php";
+include "../cores/CommandeC.php";
    $commande1C=new CommandeC();
  if (isset($_POST["cin"])){
 $commande1C->supprimerCommande($_POST["cin"]); 

@@ -17,7 +17,7 @@ class AdminC {
 		$req->bindValue(':Email',$email);
 		$req->bindValue(':PWD',$pwd);
 		
-		 
+		
 		
             if($req->execute())
             {

@@ -45,7 +45,6 @@
             <div class="nano-content">
                 <ul>
                     <li class="label">Main</li>
-                    <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
                     <li ><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
                    
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -69,7 +68,6 @@
                     <li class="label">Apps</li>
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                    <li><a href="carriere.html"><i class="ti-carriere"></i>Carriere</a></li>
                     <li class="active"><a href="carriere.php" ><i class="ti-cup"></i>Carriere</a></li>
 
                     
@@ -179,26 +177,6 @@
                                               </select>
                                               </div>
 
-                                             <!-- <div class="form-group>-->
-                                               <!--<form method="POST" action="rechercheAnnonce.php">-->
-
-                                                    
-
-                                                
-                                             <!-- </form>
-                                             </div>-->
-                            
-                                  
-<!--<div class="order-list-item">-->
-<div class="table-responsive">
-<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
- <div class="dataTables_filter" id="dataTable_filter">
-
-                                                   <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable">        
-                                        </div>   
-                                        </div> 
                                      
                             
                                   
@@ -216,9 +194,6 @@
 <tr>
 <th>ID</th>
 <th>Titre</th>
-<th>Type</th>
-<th>Description</th>
-
 <th>Service</th>
 <th>Description</th>
 <th>Deadline</th>
@@ -234,7 +209,6 @@
 include "C:/wamp64/www/ZINK/zink/Cores/recruC.php";
 include "C:/wamp64/www/ZINK/zink/Entities/recrutement.php";
 $r2C=new recruC();
- $listeannonces=$r2C->afficherRecrutement();
 $listeannonces=$r2C->afficherRecrutement();
 $data=$listeannonces->fetch();
 
@@ -247,7 +221,6 @@ foreach($listeannonces as $row){
   <td><?PHP echo $row['service']; ?></td>
   <td><?PHP echo $row['description']; ?></td>
   <td><?PHP echo $row['deadline']; ?></td>
-  <td><?PHP echo "<img src='../web/".$data['image']."' alt='image' class='img-responsive'/>";?></td>
   <td style="width: 150px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
 
   <td><form method="POST" action="supprimerRecrutement.php">
@@ -255,16 +228,11 @@ foreach($listeannonces as $row){
   <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
   </form>
   </td>
-
-  <td><a href="majRecru.php?id=<?PHP echo $row['id']; ?>">
   <td><a href="majRecru.php?id=<?PHP echo $row['id'];?>">
-
   Update</a></td>
   </tr>
 
   <?PHP
-  
-}
   }
 
 ?>
@@ -285,8 +253,6 @@ foreach($listeannonces as $row){
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
-                                    <h4>Announcement Upload</h4>
-
                                     <h4>Job offer Upload</h4>
                                     <div class="card-header-right-icon">
                                       
@@ -294,10 +260,6 @@ foreach($listeannonces as $row){
                                 </div>
                                 <div class="card-body">
                                     <div class="menu-upload-form">
-                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Upload announcement</label>
-
                                         <form class="form-horizontal" method="POST" action="ajoutRecru.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload job offer</label>
@@ -314,15 +276,6 @@ foreach($listeannonces as $row){
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Name Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your announcement Title" name="titre">
-                                            </div>
-                                        </div>
-                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Type Product</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your announcement Type" name="type">
                                             <label class="col-sm-2 control-label">Name Job</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Type your job Title" name="titre">
@@ -336,10 +289,6 @@ foreach($listeannonces as $row){
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Product Details</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" placeholder="Type your announcement Details" name="description"></textarea>
-
                                             <label class="col-sm-2 control-label">Job Details</label>
                                             <div class="col-sm-10">
                                                 <textarea class="form-control" rows="3" placeholder="Type your job Details" name="description"></textarea>

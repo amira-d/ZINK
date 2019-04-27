@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Zink : Update announcement</title>
-	
-	<!-- ================= Favicon ================== -->
     
     <!-- ================= Favicon ================== -->
-
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -32,9 +29,6 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-	
-	< <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-
     
      <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
@@ -148,11 +142,6 @@ if (isset($_GET['titre'])){
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcement Update</h4>
-									
-                                </div>
-                                <div class="card-body">
-									<div class="menu-upload-form">
-										<form class="form-horizontal" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous modifier cette annonce ?')">
                                     
                                 </div>
                                 <div class="card-body">
@@ -197,7 +186,6 @@ if (isset($_GET['titre'])){
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                            	<input type="submit" name="update" value="Update">
                                                 <input type="submit" name="update" value="Update">
                                            
                                                 <input type="hidden" name="titre_ini" value="<?PHP echo $_GET['titre'];?>">
@@ -208,17 +196,6 @@ if (isset($_GET['titre'])){
 }
 
 if (isset($_POST['update'])){
-	$target="../zink".basename($_FILES['image']['name']);
-			$image =$_FILES['image']['name'];
-					if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
-						{
-							$msg= "IMAGE LOADED SUCCESSFULLY" ; 
-						}
-					else
-					{
-						$msg = "Problem with uploading";
-					}
-
     $target="../zink".basename($_FILES['image']['name']);
             $image =$_FILES['image']['name'];
                     if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
@@ -237,12 +214,6 @@ if (isset($_POST['update'])){
 }
 ?>
                                     </form>
-									</div><!--form div-->
-                                </div><!--body card-->
-							</div><!-- /# card -->
-						</div><!-- /# column -->
-					</div><!-- /# row -->
-				</div><!-- /# main content -->
                                     </div><!--form div-->
                                 </div><!--body card-->
                             </div><!-- /# card -->
