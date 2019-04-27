@@ -1,6 +1,9 @@
 <?PHP
 include "../Cores/annonceC.php";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 $annonce=new annonceC();
 if (isset($_POST["titre"])){
 	$annonce->supprimerannonce($_POST["titre"]);

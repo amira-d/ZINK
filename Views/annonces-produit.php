@@ -26,6 +26,9 @@
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
     <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
@@ -174,6 +177,9 @@
                                               </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                          <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
@@ -181,6 +187,7 @@
                 </div>
             <br />
             <div id="result"></div>                 
+<<<<<<< HEAD
                           
                                </tbody>
 </table>
@@ -259,6 +266,14 @@ foreach($listeannonces as $row){
 </div>
                           
 >>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
+=======
+                          
+                               </tbody>
+</table>
+</div>   
+
+                          
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
@@ -272,6 +287,9 @@ foreach($listeannonces as $row){
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                     <div class="card-header-right-icon">
 =======
 									<div class="card-header-right-icon">
@@ -353,6 +371,9 @@ foreach($listeannonces as $row){
   <!-- Page level custom scripts -->
   <script src="assets/demo/datatables-demo.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
             <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
 
   <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->

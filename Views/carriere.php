@@ -46,6 +46,9 @@
                 <ul>
                     <li class="label">Main</li>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                     <li ><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
 =======
                     <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
@@ -73,6 +76,9 @@
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                     <li class="active"><a href="carriere.php" ><i class="ti-cup"></i>Carriere</a></li>
 =======
                     <li><a href="carriere.html"><i class="ti-carriere"></i>Carriere</a></li>
@@ -186,6 +192,9 @@
                                               </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                      
                             
                                   
@@ -199,6 +208,7 @@
     <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable"> 
                                         </div>
 <table class="table" id="dataTable" width="100%" cellspacing="0">
+<<<<<<< HEAD
 =======
                                              <!-- <div class="form-group>-->
                                                <!--<form method="POST" action="rechercheAnnonce.php">-->
@@ -221,11 +231,16 @@
                                         </div>   
                                         </div> 
 >>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 <thead>
 <tr>
 <th>ID</th>
 <th>Titre</th>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 <th>Service</th>
 <th>Description</th>
 <th>Deadline</th>
@@ -246,6 +261,9 @@ include "C:/wamp64/www/ZINK/zink/Cores/recruC.php";
 include "C:/wamp64/www/ZINK/zink/Entities/recrutement.php";
 $r2C=new recruC();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 $listeannonces=$r2C->afficherRecrutement();
 =======
  $listeannonces=$r2C->afficherRecrutement();
@@ -262,6 +280,9 @@ foreach($listeannonces as $row){
   <td><?PHP echo $row['description']; ?></td>
   <td><?PHP echo $row['deadline']; ?></td>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
   <td style="width: 150px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
 
 =======
@@ -273,20 +294,28 @@ foreach($listeannonces as $row){
   </form>
   </td>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <td><a href="majRecru.php?id=<?PHP echo $row['id'];?>">
 =======
   <td><a href="majRecru.php?id=<?PHP echo $row['id']; ?>">
 >>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
+=======
+  <td><a href="majRecru.php?id=<?PHP echo $row['id'];?>">
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
   Update</a></td>
   </tr>
 
   <?PHP
+<<<<<<< HEAD
 <<<<<<< HEAD
   }
 =======
   
 }
 >>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
+=======
+  }
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 
 ?>
 </tbody>
@@ -307,6 +336,9 @@ foreach($listeannonces as $row){
                             <div class="card alert">
                                 <div class="card-header">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                     <h4>Job offer Upload</h4>
 =======
                                     <h4>Announcement Upload</h4>
@@ -318,6 +350,9 @@ foreach($listeannonces as $row){
                                 <div class="card-body">
                                     <div class="menu-upload-form">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                         <form class="form-horizontal" method="POST" action="ajoutRecru.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload job offer</label>
@@ -340,6 +375,7 @@ foreach($listeannonces as $row){
                                         </div>
                                         <div class="form-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                             <label class="col-sm-2 control-label">Name Job</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Type your job Title" name="titre">
@@ -351,6 +387,9 @@ foreach($listeannonces as $row){
                                                 <input type="text" class="form-control" placeholder="Type your job Type" name="type">
 =======
                                             <label class="col-sm-2 control-label">Name Product</label>
+=======
+                                            <label class="col-sm-2 control-label">Name Job</label>
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Type your announcement Title" name="titre">
                                             </div>
@@ -365,6 +404,9 @@ foreach($listeannonces as $row){
 
                                         <div class="form-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                             <label class="col-sm-2 control-label">Job Details</label>
                                             <div class="col-sm-10">
                                                 <textarea class="form-control" rows="3" placeholder="Type your job Details" name="description"></textarea>

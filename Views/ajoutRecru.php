@@ -1,5 +1,6 @@
 <?PHP
 <<<<<<< HEAD
+<<<<<<< HEAD
 include "../Entities/recrutement.php";
 include "../Cores/recruC.php";
 
@@ -14,6 +15,10 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 =======
 include "../Entities/annonce.php";
 include "../Cores/annonceC.php";
+=======
+include "../Entities/recrutement.php";
+include "../Cores/recruC.php";
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 
 $msg="";
 
@@ -30,6 +35,9 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
      else
      {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 	        $target="images/";
 			$image =$_FILES['image']['name'];
 					if (move_uploaded_file($_FILES['image']['tmp_name'],$target.$image ))
@@ -46,6 +54,9 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 						$msg = "Problem with uploading";
 					}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 			$r=new Recrutement($_POST['titre'],$_POST['description'],$_POST['type'],$_POST['deadline'],$image);
 			$rC=new recruC();
 			echo "<script>alert(\"Votre annonce est en cours de traitement \")</script>";
@@ -68,6 +79,9 @@ else
 {
 	echo "<script>alert(\"Veuillez vérifier les champs !\")</script>";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
     header("Refresh: 1.25 ;url=carriere.php");
 =======
     header("Refresh: 1.25 ;url=annonces-produit.php");

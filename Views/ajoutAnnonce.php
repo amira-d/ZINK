@@ -16,6 +16,9 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
      else
      {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
 	        $target="images/";
 			$image =$_FILES['image']['name'];
 					if (move_uploaded_file($_FILES['image']['tmp_name'],$target.$image ))

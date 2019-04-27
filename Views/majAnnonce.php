@@ -7,12 +7,17 @@
 
     <title>Zink : Update announcement</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     <!-- ================= Favicon ================== -->
 =======
 	
 	<!-- ================= Favicon ================== -->
 >>>>>>> parent of 2936103... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
+=======
+    
+    <!-- ================= Favicon ================== -->
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -35,6 +40,9 @@
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
     
      <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
 =======
@@ -153,6 +161,9 @@ if (isset($_GET['titre'])){
                                 <div class="card-header">
                                     <h4>Announcement Update</h4>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                     
                                 </div>
                                 <div class="card-body">
@@ -205,6 +216,9 @@ if (isset($_GET['titre'])){
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                                 <input type="submit" name="update" value="Update">
 =======
                                             	<input type="submit" name="update" value="Update">
@@ -219,6 +233,9 @@ if (isset($_GET['titre'])){
 
 if (isset($_POST['update'])){
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
     $target="../zink".basename($_FILES['image']['name']);
             $image =$_FILES['image']['name'];
                     if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
@@ -250,6 +267,9 @@ if (isset($_POST['update'])){
 ?>
                                     </form>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0ba5cf1... Merge branch 'donia' of https://github.com/projet-web-elite/ZINK into donia
                                     </div><!--form div-->
                                 </div><!--body card-->
                             </div><!-- /# card -->
