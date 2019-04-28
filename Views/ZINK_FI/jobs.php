@@ -91,7 +91,7 @@
             <div id="da-slider" class="da-slider" >
             
                 <!-- mask elemet use for masking background image -->
-                <div class="mask" style="height: 600px;"></div>
+                <div class="mask" style="height: 612px;"></div>
                 <!-- All slides centred in container element -->
                 <div class="container">
                     <!-- Start first slide -->
@@ -141,7 +141,7 @@
    </div> <!-- Header End -->
 
 
-   <section id="jobs" style="height: 3000px; width: 1800px; margin-top: 100px;">
+   <section id="jobs" style="height: 3000px; width: 1800px; margin-top: 100px; background-color: grey;">
 <div class="menu-upload-form" >
 
 <?PHP
