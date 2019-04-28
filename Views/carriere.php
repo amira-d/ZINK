@@ -178,70 +178,18 @@
                                               </div>
 
                                      
-                            
-                                  
-<div class="order-list-item">
-
-
-
-    <div class="col-sm-12 col-md-6">
-
-
-    <input  type="search"  name="search1" class="form-control form-control-sm" placeholder="search" aria-controls="dataTable"> 
-                                        </div>
-<table class="table" id="dataTable" width="100%" cellspacing="0">
-<thead>
-<tr>
-<th>ID</th>
-<th>Titre</th>
-<th>Service</th>
-<th>Description</th>
-<th>Deadline</th>
-<th>Image</th>
-<th>Supprimer</th>
-<th>Modifier</th>
-</tr>
-
- </thead>
- <tbody>
-                                   
- <?PHP
-include "C:/wamp64/www/ZINK/zink/Cores/recruC.php";
-include "C:/wamp64/www/ZINK/zink/Entities/recrutement.php";
-$r2C=new recruC();
-$listeannonces=$r2C->afficherRecrutement();
-$data=$listeannonces->fetch();
-
-
-foreach($listeannonces as $row){
-  ?>
-  <tr>
-  <td><?PHP echo $row['id']; ?></td>
-  <td><?PHP echo $row['titre']; ?></td>
-  <td><?PHP echo $row['service']; ?></td>
-  <td><?PHP echo $row['description']; ?></td>
-  <td><?PHP echo $row['deadline']; ?></td>
-  <td style="width: 150px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
-
-  <td><form method="POST" action="supprimerRecrutement.php">
-  <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
-  </form>
-  </td>
-  <td><a href="majRecru.php?id=<?PHP echo $row['id'];?>">
-  Update</a></td>
-  </tr>
-
-  <?PHP
-  }
-
-?>
-</tbody>
+              
+                                                 <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
+                </div>
+            <br />
+            <div id="result"></div>                
+                          
+                               </tbody>
 </table>
 </div>
-</div>
-</div>
-                          
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
@@ -344,6 +292,8 @@ foreach($listeannonces as $row){
     <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
     <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 </body>
 
 
@@ -353,7 +303,37 @@ foreach($listeannonces as $row){
 
 
 
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(query)
+    {
+        $.ajax({
+            url:"fetch_recru.php",
+            method:"post",
+            data:{query:query},
+            success:function(data)
+            {
+                $('#result').html(data);
+            }
+        });
+    }
+    
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();            
+        }
+    });
+});
 
+
+</script>
 
 
 

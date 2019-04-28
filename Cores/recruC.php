@@ -89,7 +89,7 @@ try{
 		
 	}
 	function recupererRecrutement($id){
-		$sql="SELECT * from a_recrutement where id='$id'";
+		$sql="SELECT * from a_recrutement where id=$id";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

@@ -41,30 +41,28 @@ if(isset($_POST["query"]))
 {
 	$search=$_POST['query'];
 	$query = "
-	SELECT * FROM a_produit
+	SELECT * FROM a_recrutement
 	WHERE titre LIKE '%".$search."%'
-	OR id LIKE '%".$search."%' OR description LIKE '%".$search."%' OR type LIKE '%".$search."%'  ";
+	OR id LIKE '%".$search."%' OR service LIKE '%".$search."%' OR description LIKE '%".$search."%' ";
 }
 else
 {
 	$query = "
-	SELECT * FROM a_produit ORDER BY id ";
+	SELECT * FROM a_recrutement ORDER BY id ";
 }
 
-$db = config::getConnexion();
-		$liste=$db->query($query);
+$db =config::getConnexion();
+$liste=$db->query($query);
 
 	$output .= '<div class="order-list-item">
-
 <table class="table" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
-
 <thead>
 <tr>
 <th>ID</th>
 <th>Titre</th>
-<th>Type</th>
+<th>Service</th>
 <th>Description</th>
+<th>Deadline</th>
 <th>Image</th>
 <th>Supprimer</th>
 <th>Modifier</th>
@@ -72,31 +70,28 @@ $db = config::getConnexion();
 
  </thead>
 
-
 ';
 	while ($row =$liste->fetch())
 	{
 		$output .=  '<tbody>
-                                   
-
+                                  
   <tr>
-  <td>'.$row["id"].'</td>
-  <td>'.$row["titre"].'</td>
-  <td>'.$row["type"].'</td>
-  <td>'.$row["description"].'</td>
-  <td style="width:100px;"><img src="images/'.$row["image"].'" alt="image" class="img-responsive"/></td>
-  <td><form method="POST" action="supprimerAnnonce.php">
-  <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger"<i class="fa fa-trash"</i>>
-  <input type="hidden" value="'.$row["titre"].'" name="titre">
+  <td>'.$row['id'].'</td>
+  <td>'.$row['titre'].'</td>
+  <td>'.$row['service'].'</td>
+  <td>'.$row['description'].'</td>
+  <td>'.$row['deadline'].'</td>
+  <td style="width: 150px;"><img src="images/'.$row['image'].'" alt="image" class="img-responsive"/></td>
+
+  <td><form method="POST" action="supprimerRecrutement.php">
+  <input type="submit" name="supprimer" value="supprimer">
+  <input type="hidden" value='.$row['id'].' name="id">
   </form>
   </td>
-  <td><a href="majAnnonce.php?titre='.$row["titre"].'" class="btn btn-info ">
+  <td><a href="majRecru.php?id='.$row['id'].'">
   Update</a></td>
   </tr>
-
-
-
-		';
+';
 	}
 	echo $output;
 

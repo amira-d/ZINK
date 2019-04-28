@@ -42,28 +42,10 @@ session_start ();
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
-
-
-
-<?php
-// On récupère nos variables de session
-/*if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
-{ 
-
-     echo 'Votre login est <b>'.$_SESSION['l'].'</b> <br>et votre mot de passe est <b>'.$_SESSION['p'].
-    '</b><br>Votre role est : '.$_SESSION['r'].' <br/> Identifiant de la session est :'.session_id().'</br>'; 
-    echo '<a href="./logout.php">Cliquer pour se déconnecter</a>';
-
-}
-
-else { 
-      echo 'Veuillez vous connecter </br>';  
-      echo '<a href="./page-login.html">Cliquer pour se connecter</a>';
-
-}*/ ?>
 
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
@@ -106,7 +88,7 @@ else {
                         </ul>
                     </li>
                     
-                 <li><a href="page-login.html"><i class="ti-close"></i> Logout</a></li>
+                 <li><a href="logout.php"><i class="ti-close"></i> Logout</a></li>
 
                 </ul>
             </div>
@@ -118,7 +100,7 @@ else {
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index-2.html"><span>Foodmin</span></a></div>
+            <div class="logo"><a href="index-2.html"><span>ZINK</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -158,11 +140,29 @@ else {
                         </div>
                     </div>
                 </li>
-                
-                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
-                   
-                     
-                </li>
+             
+  
+   <li class="header-icon dib"><span class="user-avatar"> <?php 
+if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
+{ 
+
+     echo '<b>'.$_SESSION['l'].' : </b>'.$_SESSION['r'].' '; 
+
+}
+
+else { 
+echo"<script>window.location.replace('page-login.html');</script>";
+}
+?><i class="ti-angle-down f-s-10"></i></span></li>
+<div class="drop-down">
+    <div class="dropdown-content-body">
+                            <ul>
+                                
+                                <li class="text-center">
+                                    <a href="app-email.html" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
             </ul>
         </div>
     </div>
@@ -778,5 +778,4 @@ else {
 
 <!-- Mirrored from zebratheme.com/html/fooadmin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:03:45 GMT -->
 </html>
-
 

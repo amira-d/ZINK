@@ -30,7 +30,7 @@
 </head>
 <body>
 	
-	< <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+	 <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -196,22 +196,27 @@ if (isset($_GET['titre'])){
 }
 
 if (isset($_POST['update'])){
-	$target="../zink".basename($_FILES['image']['name']);
-			$image =$_FILES['image']['name'];
-					if (move_uploaded_file($_FILES['image']['tmp_name'],$target ))
-						{
-							$msg= "IMAGE LOADED SUCCESSFULLY" ; 
-						}
-					else
-					{
-						$msg = "Problem with uploading";
-					}
+	 $target="images/";
+            $image =$_FILES['image']['name'];
+                    if (move_uploaded_file($_FILES['image']['tmp_name'],$target.$image ))
+                        {
+                            echo"<script>alert(\"Image loaded successfully ! \")</script>"; 
+                        }
+                    else
+                    {
+                                                    echo"<script>alert(\"Problem with uploading ! \")</script>"; 
+
+                    }
+
   $annonce=new annonce($_POST['titre'],$_POST['type'],$_POST['description'],$image);
   $annC->modifierAnnonce($annonce,$_POST['titre_ini']);
-  echo"<script>window.location.replace('annonces-produit.php')</script>";
 
+            echo " <script>if (confirm(\"Annonce enregistrée avec succès ! Voulez vous voir un aperçu ?\")) { window.location.replace('ZINK_FI/Z-news.php')  ;  }  else { window.location.replace('annonces-produit.php')  ; } </script>";
   //header('Location: annonces-produit.php');
-}
+
+             }
+
+
 ?>
                                     </form>
 									</div><!--form div-->

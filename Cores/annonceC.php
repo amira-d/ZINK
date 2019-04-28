@@ -38,14 +38,14 @@ class AnnonceC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function supprimerannonce($id){
-		$sql="DELETE FROM a_produit where id= :id";
+	function supprimerannonce($titre){
+		$sql="DELETE FROM a_produit where titre= :titre";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':id',$id);
+		$req->bindValue(':titre',$titre);
 		try{
             $req->execute();
-           header('Location: index.php');
+           //header('Location: index.php');
         }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
@@ -58,16 +58,15 @@ class AnnonceC {
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
-        $id=$ann->getId();
+        //$id=$ann->getId();
         $titre=$ann->getTitre();
         $description=$ann->getDesc();
         $type=$ann->getType();
         $image=$ann->getImage();
 
-        echo"<script>alert('!!!!!!!!!'')</script>";
 		
 		$datas = array(':titre'=>$titre, ':description'=>$description, ':type'=>$type,':image'=>$image);
-		$req->bindValue(':id',$id);
+		//$req->bindValue(':id',$id);
 		$req->bindValue(':titre',$titre);
 	    $req->bindValue(':type',$type);
 		$req->bindValue(':description',$description);
@@ -75,7 +74,7 @@ try{
 		
             $s=$req->execute();
 			
-          // header('Location: annonces-produit.php');
+     
         }
         catch (Exception $e){
             echo " Erreur ! ".$e->getMessage();

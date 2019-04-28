@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Zink : Upload announcement</title>
-	
-	<!-- ================= Favicon ================== -->
+    
+    <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -19,17 +19,18 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-	
-	<!-- Styles -->
+    
+    <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/style2.css" rel="stylesheet">
+
 
 </head>
 
@@ -58,7 +59,7 @@
                     <li class="label">Utilities</li>
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                    <li><a href="carriere.html"><i class="ti-carriere"></i>Carriere</a></li> 
+                    <li><a href="carriere.php"><i class="ti-cup"></i>Carriere</a></li> 
                     <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                            
@@ -164,63 +165,18 @@
                                               </select>
                                               </div>
 
-                                          
-                            
-                                  
-<div class="order-list-item">
-
-<table class="table" id="dataTable" width="100%" cellspacing="0">
-    <div class="col-sm-12 col-md-6">
-
-<thead>
-<tr>
-<th>ID</th>
-<th>Titre</th>
-<th>Type</th>
-<th>Description</th>
-<th>Image</th>
-<th>Supprimer</th>
-<th>Modifier</th>
-</tr>
-
- </thead>
- <tbody>
-                                   
- <?PHP
-include "C:/wamp64/www/ZINK/zink/Cores/annonceC.php";
-include "C:/wamp64/www/ZINK/zink/Entities/annonce.php";
-$ann2C=new AnnonceC();
- $listeannonces=$ann2C->afficherAnnonce();
-$data=$listeannonces->fetch();
-
-
-foreach($listeannonces as $row){
-  ?>
-  <tr>
-  <td><?PHP echo $row['id']; ?></td>
-  <td><?PHP echo $row['titre']; ?></td>
-  <td><?PHP echo $row['type']; ?></td>
-  <td><?PHP echo $row['description']; ?></td>
-  <td style="width: 200px;"><?PHP echo "<img src='images/".$row['image']."' alt='image' class='img-responsive'/>";?></td>
-  <td><form method="POST" action="supprimerAnnonce.php">
-  <input type="submit" name="supprimer" value="supprimer">
-  <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
-  </form>
-  </td>
-  <td><a href="majAnnonce.php?titre=<?PHP echo $row['titre']; ?>">
-  Update</a></td>
-  </tr>
-
-  <?PHP
-  
-}
-
-?>
-</tbody>
+                         <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
+                </div>
+            <br />
+            <div id="result"></div>                 
+                          
+                               </tbody>
 </table>
-</div>
-</div>
-</div>
+</div>   
+
                           
                             </div><!-- /# card -->
                         </div><!-- /# column -->
@@ -234,13 +190,13 @@ foreach($listeannonces as $row){
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Announcement Upload</h4>
-									<div class="card-header-right-icon">
+                                    <div class="card-header-right-icon">
                                       
                                     </div>
                                 </div>
                                 <div class="card-body">
-									<div class="menu-upload-form">
-										<form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
+                                    <div class="menu-upload-form">
+                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
                                             <div class="col-sm-10">
@@ -283,12 +239,12 @@ foreach($listeannonces as $row){
                                             </div>
                                         </div>
                                     </form>
-									</div>
+                                    </div>
                                 </div>
-							</div><!-- /# card -->
-						</div><!-- /# column -->
-					</div><!-- /# row -->
-				</div><!-- /# main content -->
+                            </div><!-- /# card -->
+                        </div><!-- /# column -->
+                    </div><!-- /# row -->
+                </div><!-- /# main content -->
                 
 
                 
@@ -311,10 +267,53 @@ foreach($listeannonces as $row){
 
   <!-- Page level custom scripts -->
   <script src="assets/demo/datatables-demo.js"></script>
+            <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
 
+  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
+    <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
+    <script src="assets/js/lib/mmc-common.js"></script>
+    <script src="assets/js/lib/mmc-chat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </body>
 
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/restaurant-upload-menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:04:45 GMT -->
 </html>
+
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(query)
+    {
+        $.ajax({
+            url:"fetch_annonce.php",
+            method:"post",
+            data:{query:query},
+            success:function(data)
+            {
+                $('#result').html(data);
+            }
+        });
+    }
+    
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();            
+        }
+    });
+});
+
+
+</script>
+
+
+
+
