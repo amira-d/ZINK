@@ -1,5 +1,5 @@
 
-
+<<?php  session_start(); ?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,7 +52,8 @@
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
                     
-                    
+                      <li><a href="annonces-produit.php"><i class="ti-target"></i> Annonces produit</a></li>
+                                         <li><a href="carriere.php" ><i class="ti-cup"></i>Carriere</a></li>
                     
                     <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
@@ -114,7 +115,19 @@
                     </div>
                 </li>
                 
-                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
+
+   <li class="header-icon dib"><span class="user-avatar"> <?php 
+if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
+{ 
+
+     echo '<b>'.$_SESSION['l'].' : </b>'.$_SESSION['r'].' '; 
+
+}
+
+else { 
+echo"<script>window.location.replace('page-login.html');</script>";
+}
+?></span></li>
                    
                      
                 </li>

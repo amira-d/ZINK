@@ -1,3 +1,13 @@
+
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,24 +45,25 @@
             <div class="nano-content">
                 <ul>
                     <li class="label">Main</li>
-                    <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
+                    <li class="active"><a href="index-2.php"><i class="ti-home"></i> Dashboard </a></li>                   
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="../ceevee/index-2.html">Resto</a></li>
+                            <li><a href="../ceevee/index-2.php">Resto</a></li>
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
 
                             <li><a href="modifierp1.html">Change Product</a></li>
 
-                         <li><a href="annonces-produit.php">Annonces produit</a></li>
                         </ul>
                     </li>
                     
                     <li class="label">Utilities</li>
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                    <li><a href="carriere.html"><i class="ti-carriere"></i>Carriere</a></li> 
+                    <li class="active"><a href="annonces-produit.php"><i class="ti-target"></i> Annonces produit</a></li>
+                                         <li><a href="carriere.php" ><i class="ti-cup"></i>Carriere</a></li>
+
                     <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                            
@@ -72,7 +83,7 @@
 
    <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index-2.html"><span>ZINK</span></a></div>
+            <div class="logo"><a href="index-2.php"><span>ZINK</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -113,7 +124,19 @@
                     </div>
                 </li>
                 
-                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
+
+   <li class="header-icon dib"><span class="user-avatar"> <?php 
+if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
+{ 
+
+     echo '<b>'.$_SESSION['l'].' : </b>'.$_SESSION['r'].' '; 
+
+}
+
+else { 
+echo"<script>window.location.replace('page-login.html');</script>";
+}
+?></span></li>
                    
                      
                 </li>

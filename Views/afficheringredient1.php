@@ -1,9 +1,17 @@
-
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Calendar</title>
+    <title>ZINK : Ingredients</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->

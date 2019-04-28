@@ -1,3 +1,12 @@
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,6 +63,9 @@ else
 $db = config::getConnexion();
 		$liste=$db->query($query);
 
+
+
+
 	$output .= '<div class="order-list-item">
 
 <table class="table" id="dataTable" width="100%" cellspacing="0">
@@ -74,6 +86,7 @@ $db = config::getConnexion();
 
 
 ';
+
 	while ($row =$liste->fetch())
 	{
 		$output .=  '<tbody>
@@ -92,16 +105,16 @@ $db = config::getConnexion();
   </td>
   <td><a href="majAnnonce.php?titre='.$row["titre"].'">
   Update</a></td>
-  </tr>
-
-
-
-		';
-	}
-	echo $output;
-
-                               
+  </tr>'
+;}
+echo $output;
+                        
                                          
 ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
+           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
+           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
+
 </body>
 </html>

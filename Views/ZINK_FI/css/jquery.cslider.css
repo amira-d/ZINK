@@ -24,7 +24,7 @@ da-slider {
     top:0;
     left:0;
     width:100%;
-    height:50%;
+    height:100%;
     background:#dcba32;
     margin-bottom:200px;
     opacity:100%;
@@ -150,7 +150,7 @@ da-slider {
     width: 45px;
     cursor: pointer;
     z-index: 900;
-    opacity: 0;
+    opacity: 50;
 }
 .da-slider:hover .da-arrows span {
     opacity: 1;
@@ -170,11 +170,11 @@ da-slider {
 }
 .da-arrows span.da-arrows-prev {
     left: 15px;
-    background:transparent url(images/Left.png) no-repeat center center;
+    background:transparent url(../images/Left.png) no-repeat center center;
 }
 .da-arrows span.da-arrows-next {
     right: 15px;
-    background:transparent url(images/Right.png) no-repeat center center;
+    background:transparent url(../images/Right.png) no-repeat center center;
     
 }
 .da-slide-current h2, .da-slide-current h4, .da-slide-current p, .da-slide-current .da-link {

@@ -1,0 +1,157 @@
+.job {
+  padding: 30px;
+  
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.admin {
+}
+
+.icon {
+  margin-right: 3px;
+}
+
+
+.separator {
+  margin: 30px 0px;
+  border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+body {
+  background-color: rgb(236, 240, 245);
+}
+
+.job {
+  background-color: white;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.job:hover {
+  background: rgba(249, 249, 249, 0.5);
+}
+
+.job-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.1) 2px 5px 20px;
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+  margin-bot 30px;
+}
+
+.separator2 {
+  margin: 10px 0px;
+  border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+.description-title,
+.job-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.page {
+  margin-top: 30px;
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.description-text {
+  text-align: justify;
+}
+
+.link-share {
+  font-size: 25px;
+  color: rgb(75, 77, 85);
+  padding: 25px 10px 20px;
+}
+
+.zmdi {
+  margin-top: 10px;
+}
+
+.link-share:hover {
+  color: #1172ce;
+}
+
+.sn-title, .ap-title {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.social-network, .admin {
+  padding: 25px;
+  border: 1px solid rgb(210, 210, 210);
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.sn-title span {
+  display: inline-block;
+  padding: 0 5px;
+  background-color: rgb(236, 240, 245);
+}
+
+.ap-title span {
+  display: inline-block;
+  padding: 0 5px;
+  background-color: rgb(236, 240, 245);
+}
+
+.job-details {
+  font-size: 16px;
+  color: #87888D;
+  margin-right: 2px;
+}
+
+.job-details span {
+  margin-left: 3px;
+  margin-right: 5px;
+}
+
+.company-title {
+  margin-top: 20px; 
+}
+
+.company-logo {
+  margin-right: 20px;
+  margin-left: 15px;
+}
+
+.company-name {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.company-link {
+  color: black;
+}
+
+.company-meta {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.meta-item {
+  margin-right: 15px;
+}
+
+.icon-title {
+  margin-right:5px;
+}

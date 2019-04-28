@@ -38,11 +38,11 @@ class AnnonceC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function supprimerannonce($titre){
-		$sql="DELETE FROM a_produit where titre= :titre";
+	function supprimerannonce($id){
+		$sql="DELETE FROM a_produit where id= :id";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':titre',$titre);
+		$req->bindValue(':id',$id);
 		try{
             $req->execute();
            //header('Location: index.php');

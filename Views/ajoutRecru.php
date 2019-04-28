@@ -1,4 +1,12 @@
-<?PHP
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+
 include "../Entities/recrutement.php";
 include "../Cores/recruC.php";
 
@@ -13,6 +21,7 @@ if ( isset($_POST['submit']) and isset($_POST['titre']) and isset($_POST['type']
 			
      }
 
+      
      else
      {
 	        $target="images/";

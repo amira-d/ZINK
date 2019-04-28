@@ -1,3 +1,12 @@
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+?>
 <HTML>
 <head>
 </head>

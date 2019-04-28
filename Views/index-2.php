@@ -64,7 +64,7 @@ session_start ();
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
                                                         <li><a href="modifierp1.html">Change Product</a></li>
 
-                            <li><a href="annonces-produit.php">Annonces produit</a></li>
+                           
                                    <li><a href="afficherclient.php">Clients</a></li>
                                    <li><a href="afficherclient1.php">Clients fideles</a></li>
                                    <li><a href="client.html">ajouter client</a></li>
@@ -80,7 +80,15 @@ session_start ();
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
                     
                     
-                    
+                     <li><a href="annonces-produit.php"><i class="ti-target"></i> Annonces produit</a></li>
+                                         <li><a  class="sidebar-sub-toggle" ><i class="ti-cup"></i>Carriere <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                           <ul>
+                            <li><a href="carriere.php">Annonces de recrutement</a></li>
+                        </ul>
+                        <ul>
+                              <li><a href="candidatures.php">Candidatures</a></li>
+                   </ul>
+
                     <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                            
@@ -100,7 +108,7 @@ session_start ();
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index-2.html"><span>ZINK</span></a></div>
+            <div class="logo"><a href="index-2.php"><span>ZINK</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -153,16 +161,8 @@ if (isset($_SESSION['l']) && isset($_SESSION['p']))
 else { 
 echo"<script>window.location.replace('page-login.html');</script>";
 }
-?><i class="ti-angle-down f-s-10"></i></span></li>
-<div class="drop-down">
-    <div class="dropdown-content-body">
-                            <ul>
-                                
-                                <li class="text-center">
-                                    <a href="app-email.html" class="more-link">See All</a>
-                                </li>
-                            </ul>
-                        </div>
+?></span></li>
+
             </ul>
         </div>
     </div>

@@ -1,3 +1,12 @@
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -111,7 +120,19 @@
                     </div>
                 </li>
                 
-                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
+
+   <li class="header-icon dib"><span class="user-avatar"> <?php 
+if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
+{ 
+
+     echo '<b>'.$_SESSION['l'].' : </b>'.$_SESSION['r'].' '; 
+
+}
+
+else { 
+echo"<script>window.location.replace('page-login.html');</script>";
+}
+?></span></li>
                    
                      
                 </li>

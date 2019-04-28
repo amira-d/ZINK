@@ -1,3 +1,12 @@
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +42,7 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -45,7 +55,7 @@
             <div class="nano-content">
                 <ul>
                     <li class="label">Main</li>
-                    <li ><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
+                    <li ><a href="index-2.php"><i class="ti-home"></i> Dashboard </a></li>                   
                    
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
@@ -60,7 +70,6 @@
                                                                                     <li><a href="supprimerp.php">Delete Product</a></li>
 
 
-                            <li><a href="annonces-produit.php">Annonces produit</a></li>
 
                         </ul>
                     </li>
@@ -68,8 +77,14 @@
                     <li class="label">Apps</li>
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                    <li class="active"><a href="carriere.php" ><i class="ti-cup"></i>Carriere</a></li>
-
+                      <li><a href="annonces-produit.php"><i class="ti-target"></i> Annonces produit</a></li>
+<li  class="active"><a  class="sidebar-sub-toggle" ><i class="ti-cup"></i>Carriere <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                           <ul>
+                            <li  class="active"><a href="carriere.php">Annonces de recrutement</a></li>
+                        </ul>
+                        <ul>
+                              <li><a href="candidatures.php">Candidatures</a></li>
+                   </ul>
                     
                     
                     
@@ -92,7 +107,7 @@
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index-2.html"><span>ZINK</span></a></div>
+            <div class="logo"><a href="index-2.php"><span>ZINK</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -133,7 +148,19 @@
                     </div>
                 </li>
                 
-                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
+
+   <li class="header-icon dib"><span class="user-avatar"> <?php 
+if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
+{ 
+
+     echo '<b>'.$_SESSION['l'].' : </b>'.$_SESSION['r'].' '; 
+
+}
+
+else { 
+echo"<script>window.location.replace('page-login.html');</script>";
+}
+?></span></li>
                    
                      
                 </li>
@@ -170,27 +197,71 @@
                             <div class="card alert">
                                 <div class="card-header">
                                     <h4>Job offers</h4>
-                                    <div style="position: relative; top: -29px; right: -788px;">
-                                    <select name="Tri" onchange="submit();">
-                                                <option value="plus" selected>Plus récent</option>
-                                                <option value="moins">Moins récent</option>
-                                              </select>
-                                              </div>
+                         
 
                                      
               
-                                                 <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon">Search</span>
-                    <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
-                </div>
-            <br />
-            <div id="result"></div>                
-                          
-                               </tbody>
-</table>
 </div>
-                            </div><!-- /# card -->
+
+     <div class="container " style="width: 100%">                 
+
+      <div class="order-list-item"> 
+      <table class="table"  id="table_produits" width="100%" cellspacing="0">
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Titre</th>
+<th>Service</th>
+<th>Description</th>
+<th>Deadline</th>
+<th>Image</th>
+<th>Supprimer</th>
+<th>Modifier</th>
+</tr>
+
+ </thead>
+ <tbody>
+                                   
+ <?PHP
+ $connect = mysqli_connect("localhost", "root", "amira1999", "projetweb");  
+ $query ="SELECT * FROM a_recrutement ORDER BY id DESC";  
+ $result = mysqli_query($connect, $query);  
+ 
+                          while($row = mysqli_fetch_array($result))  
+                          {  
+
+
+  echo
+  '
+                                   
+
+  <tr>
+  <td>'.$row["id"].'</td>
+  <td>'.$row["titre"].'</td>
+  <td>'.$row["service"].'</td>
+  <td>'.$row["description"].'</td>
+  <td>'.$row["deadline"].'</td>
+  <td style="width:100px;"><img src="images/'.$row["image"].'" alt="image" class="img-responsive"/></td>
+  <td><form method="POST" action="supprimerRecrutement.php">
+  <input type="submit" name="supprimer" value="supprimer">
+  <input type="hidden" value="'.$row["id"].'" name="id">
+  </form>
+  </td>
+  <td><a href="majRecru.php?id='.$row["id"].'">
+  Update</a></td>
+  </tr>
+  '
+;}
+  
+
+
+?>
+                                        </tbody>
+                                </table>
+                              </div>
+
+                             </div>                                  </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
                 </div><!-- /# main content -->
@@ -232,8 +303,23 @@
                                          <div class="form-group">
                                             <label class="col-sm-2 control-label">Job type</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Type your job Type" name="type">
-                                            </div>
+                                             <input type="text" list="services" name="type" />
+                                              <datalist id="services"   name="type">
+                                                
+                                                 <?PHP
+ $connect = mysqli_connect("localhost", "root", "amira1999", "projetweb");  
+ $query ="SELECT * FROM services ORDER BY id DESC";  
+ $result = mysqli_query($connect, $query);  
+ 
+                          while($row = mysqli_fetch_array($result))  
+                          {  
+echo'
+                                                <option  value="'.$row['service'].'"> Service</option>
+                                              ';
+
+                                            }  ?>
+</datalist>
+                                      </div>
                                         </div>
 
                                         <div class="form-group">
@@ -253,10 +339,15 @@
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="submit" name="submit">Upload</button>
+                                                <button type="submit" class="submit" name="submit" value="Get Selected Values">Upload</button>
                                             </div>
                                         </div>
                                     </form>
+                                    <?php
+if(isset($_POST['submit'])){
+$selected_val = $_POST['service'];  // Storing Selected Value In Variable
+echo "You have selected :" .$selected_val;  // Displaying Selected Value
+};?>
                                     </div>
                                 </div>
                             </div><!-- /# card -->
@@ -292,9 +383,17 @@
     <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
     <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+         
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
+           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
+    
 
-</body>
+          
+      </body>  
+
 
 
 <!-- Mirrored from zebratheme.com/html/fooadmin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:03:45 GMT -->
@@ -303,7 +402,7 @@
 
 
 
-<script>
+<!--<script>
 $(document).ready(function(){
     load_data();
     function load_data(query)
@@ -333,8 +432,12 @@ $(document).ready(function(){
 });
 
 
-</script>
+</script>-->
 
 
-
+<script>  
+ $(document).ready(function(){  
+      $('#table_produits').DataTable();  
+ });  
+ </script> 
 

@@ -1,4 +1,15 @@
+<?php
+// On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
+session_start ();  
+ 
+ 
+//définir la session une session est un tableau temporaire 
+//1 er point c quoi une session
+// 
+?>
 <!DOCTYPE html>
+
+
 <html lang="en">
 
 <head>
@@ -23,14 +34,14 @@
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
     <link href="assets/css/lib/mmc-chat.css" rel="stylesheet" />
     <link href="assets/css/lib/sidebar.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min1.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
-        <link href="assets/css/style2.css" rel="stylesheet">
-
 
 </head>
 
@@ -42,25 +53,25 @@
             <div class="nano-content">
                 <ul>
                     <li class="label">Main</li>
-                    <li class="active"><a href="index-2.html"><i class="ti-home"></i> Dashboard </a></li>                   
+                    <li class="active"><a href="index-2.php"><i class="ti-home"></i> Dashboard </a></li>                   
                     <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="../ceevee/index-2.html">Resto</a></li>
+                            <li><a href="../ceevee/index-2.php">Resto</a></li>
                             <li><a href="restaurant-favourite-list.html">Favourite</a></li>
                             <li><a href="restaurant-order-list.html">Order List</a></li>
                             <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
 
                             <li><a href="modifierp1.html">Change Product</a></li>
 
-                         <li><a href="annonces-produit.html">Annonces produit</a></li>
                         </ul>
                     </li>
                     
                     <li class="label">Utilities</li>
                     <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                     <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                    <li><a href="carriere.php"><i class="ti-cup"></i>Carriere</a></li> 
-                    <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+
+  <li class="active"><a href="annonces-produit.php"><i class="ti-target"></i> Annonces produit</a></li>
+                                         <li><a href="carriere.php" ><i class="ti-cup"></i>Carriere</a></li>                    <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                            
                             <li><a href="page-reset-password.html">Forgot password</a></li>
@@ -79,7 +90,7 @@
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index-2.html"><span>ZINK</span></a></div>
+            <div class="logo"><a href="index-2.php"><span>ZINK</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -120,7 +131,20 @@
                     </div>
                 </li>
                 
-                <li class="header-icon dib"><span class="user-avatar">Lamia <i class="ti-angle-down f-s-10"></i></span>
+               
+   <li class="header-icon dib"><span class="user-avatar"> <?php 
+if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
+{ 
+
+     echo '<b>'.$_SESSION['l'].' : </b>'.$_SESSION['r'].' '; 
+
+}
+
+else { 
+echo"<script>window.location.replace('page-login.html');</script>";
+}
+?></span></li>
+
                    
                      
                 </li>
@@ -152,32 +176,75 @@
                         </div>
                     </div><!-- /# column -->
                 </div><!-- /# row -->
+
+
                 <div class="main-content">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card alert">
                                 <div class="card-header">
+
                                     <h4>Announcements</h4>
-                                    <div style="position: relative; top: -29px; right: -788px;">
-                                    <select name="Tri" onchange="submit();">
-                                                <option value="plus" selected>Plus récent</option>
-                                                <option value="moins">Moins récent</option>
-                                              </select>
-                                              </div>
+                                </div>
 
-                         <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon">Search</span>
-                    <input type="text" name="search_text" id="search_text" placeholder="Search by  Details" class="form-control" />
-                </div>
-            <br />
-            <div id="result"></div>                 
-                          
-                               </tbody>
-</table>
-</div>   
+     <div class="container " style="width: 100%">                 
 
-                          
+      <div class="order-list-item"> 
+      <table class="table"  id="table_produits" width="100%" cellspacing="0">
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Titre</th>
+<th>Type</th>
+<th>Description</th>
+<th>Image</th>
+<th>Supprimer</th>
+<th>Modifier</th>
+</tr>
+
+ </thead>
+ <tbody>
+                                   
+ <?PHP
+ $connect = mysqli_connect("localhost", "root", "amira1999", "projetweb");  
+ $query ="SELECT * FROM a_produit ORDER BY id DESC";  
+ $result = mysqli_query($connect, $query);  
+ 
+                          while($row = mysqli_fetch_array($result))  
+                          {  
+
+
+  echo
+  '
+                                   
+
+  <tr>
+  <td>'.$row["id"].'</td>
+  <td>'.$row["titre"].'</td>
+  <td>'.$row["type"].'</td>
+  <td>'.$row["description"].'</td>
+  <td style="width:100px;"><img src="images/'.$row["image"].'" alt="image" class="img-responsive"/></td>
+  <td><form method="POST" action="supprimerAnnonce.php">
+  <input type="submit" name="supprimer" value="supprimer">
+  <input type="hidden" value="'.$row["id"].'" name="id">
+  </form>
+  </td>
+  <td><a href="majAnnonce.php?titre='.$row["titre"].'">
+  Update</a></td>
+  </tr>
+  '
+;}
+  
+
+
+?>
+                                        </tbody>
+                                </table>
+                              </div>
+
+                             </div>                 
+                        
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
@@ -245,7 +312,7 @@
                         </div><!-- /# column -->
                     </div><!-- /# row -->
                 </div><!-- /# main content -->
-                
+               
 
                 
             </div><!-- /# container-fluid -->
@@ -262,27 +329,29 @@
     <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
       <!-- Page level plugins -->
-  <script src="assets/datatables/jquery.dataTables.min.js"></script>
-  <script src="assets/datatables/dataTables.bootstrap4.min.js"></script>
+
 
   <!-- Page level custom scripts -->
-  <script src="assets/demo/datatables-demo.js"></script>
             <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
 
-  <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
-    <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
-    <script src="assets/js/lib/mmc-common.js"></script>
-    <script src="assets/js/lib/mmc-chat.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+         
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
+           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
+    
 
-</body>
+          
+      </body>  
+
+
 
 
 </html>
 
-<script>
+<!--<script>
 $(document).ready(function(){
     load_data();
     function load_data(query)
@@ -315,5 +384,28 @@ $(document).ready(function(){
 </script>
 
 
-
-
+<script>  
+ $(document).ready(function(){  
+      load_data();  
+      function load_data(page)  
+      {  
+           $.ajax({  
+                url:"pagination.php",  
+                method:"POST",  
+                data:{page:page},  
+                success:function(data){  
+                     $('#pagination_data').html(data);  
+                }  
+           })  
+      }  
+      $(document).on('click', '.pagination_link', function(){  
+           var page = $(this).attr("id");  
+           load_data(page);  
+      });  
+ });  
+ </script>  -->
+<script>  
+ $(document).ready(function(){  
+      $('#table_produits').DataTable();  
+ });  
+ </script> 

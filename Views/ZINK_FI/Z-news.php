@@ -157,10 +157,10 @@ while ($data=$listeannonces->fetch())
 {
      {echo "<div class='col-md-4 col-sm-6 graphics ads' style='width:340px; margin: 64px;'>";
      echo "<div style='width:320px ; height:320px;'>";
-                           echo "<img src=' ../web/".$data['image']."' alt='image' class='img-responsive'/>";
+                           echo "<img src='../images/".$data['image']."' alt='image' class='img-responsive'/>";
                            echo"</div>";
                             echo "<div style='width:200px ; height:100px;'>";
-                           echo "<p>".$data['titre']."</p>";
+                           echo "<p style='color=black;''>".$data['titre']."</p>";
                             echo "<p>".$data['description']."</p>";
                             echo "<div class='portfolio_item_hover'>";
                               echo  "<div class='portfolio-border clearfix'>";
@@ -189,7 +189,7 @@ while ($data=$listeannonces->fetch())
 
             <div class="ten columns">
 <br>
-                  <p class="lead">To answer any questio you have, or any reclamation please send a mail over here
+                  <p class="lead">To answer any question you have, or any reclamation please send a mail over here
                   </p>
 
             </div>
