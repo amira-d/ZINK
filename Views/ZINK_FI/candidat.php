@@ -64,47 +64,66 @@
 
 <body>
 
-  <!-- Header
-   ================================================== -->
-   <header style="height:100px;">
+  <<nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+        <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+      <ul class="nav" id="nav">
+           <li class="current"><a  href="index.html">Home</a></li>
+        
+
+                       
+                            <li ><a class="smoothscroll" href="#news">News</a></li>
+             
+                              <li class="current"><a href="jobs.php">Job offers</a></li>
+                 
+            <li><a href="#contact">Contact</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#jobs"><i class="icon-down-circle"></i></a>
+      </p>
+    <div style="height:100px;" id="home" >
 
        <!-- Start cSlider -->
             <div id="da-slider" class="da-slider">
-                <div class="triangle"></div>
+            
                 <!-- mask elemet use for masking background image -->
                 <div class="mask"></div>
                 <!-- All slides centred in container element -->
                 <div class="container">
                     <!-- Start first slide -->
                     <div class="da-slide">
-                        <h2 class="fittext2">Welcome to pluton theme</h2>
-                        <h4>Clean & responsive</h4>
-                        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.</p>
-                        <a href="#" class="da-link button">Read more</a>
+
+                        <h2 class="fittext2" style="color: white; margin-top: 50px;">Join the ZINK TEAM </h2>
+
+                        <p>Job opportunities all year long ! </p>
+                       
+                        <a href="#jobs" class="da-link button">Read more</a>
                         <div class="da-img">
-                            <img src="../web/coffee.jpg" alt="image01" width="400">
+                            <img src="../images/zink.jpg" alt="image01" width="400">
                         </div>
                     </div>
                     <!-- End first slide -->
                     <!-- Start second slide -->
                     <div class="da-slide">
-                        <h2>Easy management</h2>
-                        <h4>Easy to use</h4>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                        <h2 class ="fittext2" style="color: white; margin-top: 50px;">A cook is needed in ZINK </h2>
+                        <h4 style="color: white; margin-top: 50px;">Don't miss the chance ! </h4>
+                        <p style="margin-top: 50px;">Check the job details and more others .</p>
                         <a href="#" class="da-link button">Read more</a>
                         <div class="da-img">
-                            <img src="../web/console.jpg" width="320" alt="image02">
+                            <img src="../images/rocks.jpg" width="320" alt="image02">
                         </div>
                     </div>
                     <!-- End second slide -->
                     <!-- Start third slide -->
                     <div class="da-slide">
-                        <h2>Revolution</h2>
-                        <h4>Customizable</h4>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <h2>The best burger house in town</h2>
+                        <h4>Spend your summer working with us ! </h4>
+                        <p>Join our waiters Team ! </p>
                         <a href="#" class="da-link button">Read more</a>
                         <div class="da-img">
-                            <img src="images/Slider03.png" width="320" alt="image03">
+                            <img src="../images/Slider03.png" width="320" alt="image03">
                         </div>
                     </div>
                     <!-- Start third slide -->  
@@ -114,28 +133,10 @@
                         <span class="da-arrows-next"></span>
                     </div>
                     <!-- End cSlide navigation arrows -->
-                        <nav id="nav-wrap">
-
-         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-        <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" class="nav">
-            <li><a class="smoothscroll" href="#home">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-            <li><a class="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
-            <li class="current"><a class="smoothscroll" href="#news">Z-News</a></li>
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-         </ul> <!-- end #nav -->
-
-      </nav> <!-- end #nav-wrap -->
-
-      <p class="scrolldown">
-         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
-      </p>
+                       
                 </div>
             </div>
-   </header> <!-- Header End -->
+   </div> <!-- Header End -->
 
 
 
@@ -176,6 +177,104 @@ while ($data=$listeannonces->fetch())
 }
 ?>
 
+</div>
+</section>
+  <section id="jobs" style="height: 1120px;">
+
+
+<div class="container company-title">
+  <div class="row">
+    <div class="">
+      <img class="company-logo" src="http://via.placeholder.com/100x100" alt="">
+    </div>
+    <div class="header-title">
+      <h1 class="company-name">Company name</h1>
+      <h2 class="company-meta">
+        <a href="">
+          <span class="meta-item">
+            <i class="icon-title icon zmdi zmdi-pin"></i>Paris</span>
+        </a>
+        <a href="company.name.com" class="company-link">
+          <span class="meta-item"><i class="icon-title zmdi zmdi-globe"></i>company.name.com</span>
+        </a>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-between page">
+    <section class="col">
+      <div class="row job-title">Jobs</div>
+      <div class="row separator"></div>
+      <div class="job-wrapper">
+        <a href="www.google.fr" target="_blank">
+          <div class="row job">
+            <div class="col-12 title">Designer web</div>
+            <div class="col-12 job-details">
+              <span><i class="icon zmdi zmdi-case"></i>CDI</span>
+              <span><i class="icon zmdi zmdi-pin"></i>Paris</span>
+              <span><i class="icon zmdi zmdi-time"></i>Depuis 2 jours</span>
+            </div>
+          </div>
+        </a>
+        <div class="row job">
+          <div class="col-12 title">Java developer</div>
+          <div class="col-12 job-details">
+            <span><i class="icon zmdi zmdi-case"></i>CDI</span>
+            <span><i class="icon zmdi zmdi-pin"></i>Paris</span>
+            <span><i class="icon zmdi zmdi-time"></i>Depuis 2 jours</span>
+          </div>
+        </div>
+        <div class="row job">
+          <div class="col-12 title">Developer</div>
+          <div class="col-12 job-details">
+            <span><i class="icon zmdi zmdi-case"></i>CDI</span>
+            <span><i class="icon zmdi zmdi-pin"></i>Paris</span>
+            <span><i class="icon zmdi zmdi-time"></i>Depuis 2 jours</span>
+          </div>
+        </div>
+        <div class="row job">
+          <div class="col-12 title">title</div>
+          <div class="col-12 job-details">
+            <span><i class="icon zmdi zmdi-case"></i>CDI</span>
+            <span><i class="icon zmdi zmdi-pin"></i>Paris</span>
+            <span><i class="icon zmdi zmdi-time"></i>Depuis 2 jours</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="col-lg-4 aside-page">
+
+      <div class="row admin">
+        <p class="col-12 ap-title"><span>Admin Panel</span></p>
+        <div class="col-12">
+          <a class="btn btn-primary">Edit</a>
+          <a class="btn btn-primary">Delete</a>
+          <a class="btn btn-primary">Add a job</a>
+        </div>
+      </div>
+      <div class="row social-network">
+        <p class="col-12 sn-title"><span>Social Networks</span></p>
+        <div class="col-12">
+          <a href="" class="link-share">
+          <i class="zmdi zmdi-facebook"></i>            
+          </a>
+          <a href="" class="link-share">
+          <i class="zmdi zmdi-twitter"></i>
+          </a>
+          <a href="" class="link-share">
+            <i class="zmdi zmdi-linkedin"></i>
+          </a>
+        </div>
+      </div>
+      <div class="row description-title">Description</div>
+      <div class="row separator2"></div>
+      <div class="row description-text">
+    
+      </div>
+    </section>
+  </div>
 </div>
 </section>
 

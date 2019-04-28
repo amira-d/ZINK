@@ -1,6 +1,6 @@
 <?php require("phpToPDF.php"); 
  
- 
+
 include "../Cores/candiC.php";
 $candi1C=new candiC();
 $listecandi=$candi1C->afficherCandi();
@@ -24,7 +24,8 @@ $listecandi=$candi1C->afficherCandi();
     <link rel="stylesheet" href="cs-skin-elastic.css">
     <link rel="stylesheet" href="dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="buttons.bootstrap4.min.css">-->
-     <div class="content-wrap">
+    <?php  
+ $my_html='<div class="content-wrap">
 
     <link rel="stylesheet" href="style.css">
 <div class="breadcrumbs">
@@ -71,20 +72,19 @@ $listecandi=$candi1C->afficherCandi();
                                     </thead>
                                     <tbody>
                                         <tr>
-<?PHP
-foreach($listeclients as $row){
-    ?>
+<?php foreach($listecandi as $row){?>
+    
     <tr>
-<td><?PHP echo $row['cin']; ?></td>
-    <td><?PHP echo $row['nom']; ?></td>
-    <td><?PHP echo $row['prenom']; ?></td>
-    <td><?PHP echo $row['mail']; ?></td>
-    <td><?PHP echo $row['num']; ?></td>
+<td>'.$row['cin'].'</td>
+    <td>'.$row['nom'].'</td>
+    <td>'.$row['prenom'].'</td>
+    <td>'.$row['mail'].'</td>
+    <td>'.$row['num'].'</td>
     
     
-    </tr>
-    <?PHP
-}
+    </tr>';
+ 
+
 // SET YOUR PDF OPTIONS -- FOR ALL AVAILABLE OPTIONS, VISIT HERE:  http://phptopdf.com/documentation/
 $pdf_options = array(
   "source_type" => 'html',

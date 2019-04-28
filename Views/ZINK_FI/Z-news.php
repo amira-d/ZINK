@@ -64,47 +64,68 @@
 
 <body>
 
-  <!-- Header
-   ================================================== -->
-   <header style="height:100px;">
+  <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+        <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+      <ul class="nav" id="nav">
+           <li class="current"><a  href="index.html">Home</a></li>
+        
+
+                       
+                            <li class="current"><a class="smoothscroll" href="#news">News</a></li>
+             
+                              <li><a href="jobs.php">Job offers</a></li>
+                 
+            <li><a href="#contact">Contact</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#news"><i class="icon-down-circle"></i></a>
+      </p>
+
+    <div id="home" >
 
        <!-- Start cSlider -->
             <div id="da-slider" class="da-slider">
-                <div class="triangle"></div>
+            
                 <!-- mask elemet use for masking background image -->
                 <div class="mask"></div>
                 <!-- All slides centred in container element -->
                 <div class="container">
                     <!-- Start first slide -->
                     <div class="da-slide">
-                        <h2 class="fittext2">Welcome to pluton theme</h2>
-                        <h4>Clean & responsive</h4>
-                        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.</p>
-                        <a href="#" class="da-link button">Read more</a>
+
+                        <h2 class="fittext2" style="color: white; margin-top: 50px;">Stay tuned ZINK's people ! </h2>
+
+                        <p>New creations every week ! </p>
+                       
+                        <a href="#jobs" class="da-link button">Read more</a>
                         <div class="da-img">
-                            <img src="../web/coffee.jpg" alt="image01" width="400">
+                            <img src="../images/portfolio/console.jpg" alt="image01" width="400">
                         </div>
                     </div>
                     <!-- End first slide -->
                     <!-- Start second slide -->
                     <div class="da-slide">
-                        <h2>Easy management</h2>
-                        <h4>Easy to use</h4>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                        <h2 class ="fittext2" style="color: white; margin-top: 50px;">Zinkaholik </h2>
+                        <h4 style="color: white; margin-top: 50px;">Bestseller ! </h4>
+                        <p style="margin-top: 50px;">Check this and more others .</p>
                         <a href="#" class="da-link button">Read more</a>
                         <div class="da-img">
-                            <img src="../web/console.jpg" width="320" alt="image02">
+                            <img src="../images/portfolio/farmerboy.jpg" idth="320" alt="image02">
                         </div>
                     </div>
                     <!-- End second slide -->
                     <!-- Start third slide -->
                     <div class="da-slide">
-                        <h2>Revolution</h2>
-                        <h4>Customizable</h4>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <h2>The best burger house in town</h2>
+                        <h4>Come eat here! </h4>
+                        <p>Join us ! </p>
                         <a href="#" class="da-link button">Read more</a>
                         <div class="da-img">
-                            <img src="images/Slider03.png" width="320" alt="image03">
+                            <img src="../images/portfolio/judah.jpg" width="320" alt="image03">
                         </div>
                     </div>
                     <!-- Start third slide -->  
@@ -114,29 +135,10 @@
                         <span class="da-arrows-next"></span>
                     </div>
                     <!-- End cSlide navigation arrows -->
-                        <nav id="nav-wrap">
-
-         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-        <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" class="nav">
-            <li><a class="smoothscroll" href="#home">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-            <li><a class="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
-            <li class="current"><a class="smoothscroll" href="#news">Z-News</a></li>
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-         </ul> <!-- end #nav -->
-
-      </nav> <!-- end #nav-wrap -->
-
-      <p class="scrolldown">
-         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
-      </p>
+                       
                 </div>
             </div>
-   </header> <!-- Header End -->
-
+   </div> <!-- Header End -->
 
 
  
@@ -167,10 +169,14 @@ while ($data=$listeannonces->fetch())
                                     echo "<div class='item_info'>";
                                        echo "<p>".$data['type']." </p>";
                                     echo"</div>";
+                                    echo"<iframe src='http://www.facebook.com/plugins/like.php?href=http://www.example.com/page.html&layout=box_count&show_faces=true&width=65&action=like&font=arial&colorscheme=light&height=65' scrolling='no' frameborder='0' style='border:none; overflow:hidden; width:65px; height:65px; margin-top:3px;' allowTransparency='true'></iframe>" ;
+                                    
                                 echo "</div>";
                             echo "</div>";
                             echo"</div>";
-                    echo"</div>";}
+                    echo"</div>";
+
+                  }
 }
 ?>
 
@@ -317,6 +323,8 @@ while ($data=$listeannonces->fetch())
         <!-- Load google maps api and call initializeMap function defined in app.js -->
         <script async="" defer="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap"></script>
         <script type="text/javascript" src="js/app.js"></script>
+        <script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script>
+        <script type="text/javascript" src="partage.js"></script>
 
 </body>
 
