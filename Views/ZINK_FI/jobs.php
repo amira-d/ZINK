@@ -85,17 +85,17 @@
       <p class="scrolldown">
          <a class="smoothscroll" href="#jobs"><i class="icon-down-circle"></i></a>
       </p>
-    <div style="height:100px;" id="home" >
+    <div id="home" >
 
        <!-- Start cSlider -->
-            <div id="da-slider" class="da-slider">
+            <div id="da-slider" class="da-slider" >
             
                 <!-- mask elemet use for masking background image -->
-                <div class="mask"></div>
+                <div class="mask" style="height: 600px;"></div>
                 <!-- All slides centred in container element -->
                 <div class="container">
                     <!-- Start first slide -->
-                    <div class="da-slide">
+                    <div class="da-slide" >
 
                         <h2 class="fittext2" style="color: white; margin-top: 50px;">Join the ZINK TEAM </h2>
 
@@ -130,7 +130,7 @@
                     </div>
                     <!-- Start third slide -->  
                     <!-- Start cSlide navigation arrows -->
-                    <div class="da-arrows">
+                    <div class="da-arrows" >
                         <span class="da-arrows-prev"></span>
                         <span class="da-arrows-next"></span>
                     </div>
@@ -141,11 +141,45 @@
    </div> <!-- Header End -->
 
 
-   <section id="jobs" style="height: 3000px;">
+   <section id="jobs" style="height: 3000px; width: 1800px; margin-top: 100px;">
+<div class="menu-upload-form" >
+
+<?PHP
+
+include "C:/wamp64/www/ZINK/zink/Cores/recruC.php";
+$recru1C=new recruC();
+$listeannonces=$recru1C->afficherRecrutement();
+
+//var_dump($listeannonces->fetchAll());
+
+
+while ($data=$listeannonces->fetch())
+{
+     {echo "<div class='col-md-4 col-sm-6 graphics ads' style='width:340px; margin: 64px;'>";
+     echo "<div style='width:320px ; height:320px;'>";
+                           echo "<img src='../images/".$data['image']."' alt='image' class='img-responsive'/>";
+                           echo"</div>";
+                            echo "<div style='width:200px ; height:100px;'>";
+                           echo "<p style='color=black;''>".$data['titre']."</p>";
+                            echo "<p>".$data['description']."</p>";
+                            echo "<div class='portfolio_item_hover'>";
+                              echo  "<div class='portfolio-border clearfix'>";
+                                    echo "<div class='item_info'>";
+                                       echo "<p>".$data['service']." </p>";
+                                                                              echo "<p>".$data['deadline']." </p>";
+
+                                    echo"</div>";
+                                echo "</div>";
+                            echo "</div>";
+                            echo"</div>";
+                    echo"</div>";}
+}
+?>
+
+</div>
 
 
 
-=
     </section>
 
 

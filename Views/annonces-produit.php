@@ -241,7 +241,7 @@ echo"<script>window.location.replace('page-login.html');</script>";
 ?>
                                         </tbody>
                                 </table>
-                              </div>
+                                <a href="ZINK_FI/Z-news.php" class="btn btn-danger" >Aperçu</a>                              </div>
 
                              </div>                 
                         
