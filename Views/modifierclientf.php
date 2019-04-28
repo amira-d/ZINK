@@ -29,7 +29,7 @@ $emps=$db->query("SELECT * FROM  clientf WHERE cin=$cin");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Calendar</title>
+    <title>ZINK : Client</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->

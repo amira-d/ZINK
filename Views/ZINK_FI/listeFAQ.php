@@ -63,7 +63,7 @@ $x=0;
                     <div class="col-12 text-center">
                         <h1 class="page-title"style="color:#ffd025">ZINK</h1>
                         <ul class="breadcrumb justify-content-center">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.php">Home</a></li>
                            <!-- <li class="current"><a href="shop.html">Shop</a></li>-->
                         </ul>
                     </div>
@@ -79,7 +79,7 @@ $x=0;
                     <div class="row pb--40">
                         <div class="col-12">
                             <div class="faq-heading">
-                                <h2 class="mb--20">Voici les questions fréquemment posées, vous pouvez trouver la réponse vous-même</h2>
+                               <center> <h2 class="mb--20">Voici les questions fréquemment posées, vous pouvez trouver la réponse vous-même</h2></center>
                                 
                             </div>
                         </div>

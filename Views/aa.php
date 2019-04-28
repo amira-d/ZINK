@@ -86,7 +86,6 @@
 								<br/>
 								<p id="erreur"></p>
 
-								 <button type="submit" id="ajouter" class="btn btn-primary " style="background-color: black ; color: #FFFB09"value="ajouter" onclick="myFunction()" >
                                                             <i class="fa fa-dot-circle-o"></i> Save
                                                         </button>
                   </br></br>

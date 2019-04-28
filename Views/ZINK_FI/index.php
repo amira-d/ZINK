@@ -62,7 +62,7 @@ testConnexion();
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
             
            <li><a class="ti-calendar" href="listeFAQ.php">FAQ</a></li>
-            <li><a class="ti-calendar" href="aa.php">Client</a></li>
+           <!-- <li><a class="ti-calendar" href="aa.php">Client</a></li>-->
             <?php 
                       if (isset($_SESSION['cin']))
                       {

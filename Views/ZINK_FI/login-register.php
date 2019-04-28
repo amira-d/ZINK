@@ -1,22 +1,27 @@
 <?php
 include 'session.php';
-include "C:\wamp\www\ZINK\cores\clientfC.php";
-include "C:\wamp\www\ZINK\Entities\clientf.php";
+
+testConnexion();
+    include "C:\wamp\www\ZINK\Views\ajoutclient.php";
 
 //include "captcha.php";
-testConnexion();
-    
+
+    if (isset($_SESSION['prob']))
+    {
+        echo "<script>alert(\"prob\")</script>";
+        unset($_SESSION['prob']);
+    }
 	
-if (isset($_POST['logidentifiant'])&&isset($_POST['logmotdepasse']))
+if (isset($_POST['cin'])&&isset($_POST['motdepasse']))
 {
-    if (($_POST['logidentifiant']=='admin')&&($_POST['logmotdepasse']='admin'))
+    if (($_POST['cin']=='admin')&&($_POST['motdepasse']='admin'))
         header('Location: index.php');
-    $clientf=new clientf($_POST['logmotdepasse'],"","",$_POST['logidentifiant'],"","");
+    $clientf=new clientf($_POST['cin'],"","",$_POST['motdepasse'],"","");
    
     if ($clientf->exist())
     {
-        $_SESSION['cin']=$_POST['logmotdepasse'];
-        $_SESSION['mdp']=$_POST['logidentifiant'];
+        $_SESSION['cin']=$_POST['cin'];
+        $_SESSION['mdp']=$_POST['motdepasse'];
         
        
 		header('Location: index.php');
@@ -86,7 +91,7 @@ if (isset($_POST['logidentifiant'])&&isset($_POST['logmotdepasse']))
 
 <!--<a><h2><center><span class="heading-secondary mb--30" style="color:#fffc3c">ZINK</span></center><h2></a>-->
 
-    <?php /* frontUp();
+    <?php /*
 
 if(isset($_POST['captcha_challenge']) && ($_POST['captcha_challenge'] !== $_SESSION['captcha_text']))
 {
@@ -99,82 +104,22 @@ if(isset($_POST['captcha_challenge']) && ($_POST['captcha_challenge'] !== $_SESS
 
 
 	  if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSION['captcha_text']){
-if (strpos($_POST['email'],"@")==false || strpos($_POST['email'],".")==false)
-{
-?>
-<p>
-<?php echo"email non valide"; ?>
-</p>	 
-<?php		
-}
 
-if (strlen($_POST['motdepasse'])<6)	
-{
-?>
-<p>
-<?php echo"mot de passe court"; ?>
-</p>	 
-<?php	
-}
+
 	  
-    if ($_POST['identifiant']!=""&&isset($_POST['email'])&&isset($_POST['motdepasse'])&&(strlen($_POST['motdepasse'])>5))
+    if ($_POST['cin']!=""&&isset($_POST['mail'])&&isset($_POST['mdp']))
     {
 	
-	
-	
-        if ($_POST['accounttype']=="per")
-        {
-            $e=new client($_POST['identifiant'],$_POST['email'],$_POST['motdepasse'],"","","",5575);
-            if ($e->ajouter())
+
+            $clientfC=new client($_POST['cin'],$_POST['nom'],$_POST['prenom'],$_POST['mdp'],$_POST['mail'],$_POST['sexe']);
+            if ($clientf->ajouterclientf())
             {
-                $panier=new panier($_POST['identifiant']);
-                $panierC=new panierC();
-                $panierC->ajouter($panier);
-                foreach ($_SESSION['produitpanier'] as $idp => $qte)
-                {
-                    $panierC->ajouterProduit($_POST['identifiant'],$idp,$qte);
-                }
+
+               
             }
         }   
-        else
-        {
-            $s=new clientste($_POST['identifiant'],$_POST['email'],$_POST['motdepasse'],"","","",5575);
-            $s->ajouter();
-            if (!preg_match("/[a-zA-Z0-9]{4,22}(STE)$/",$_POST['identifiant']))
-                $id=$_POST['identifiant'].'STE';
-            $panier=new panier($id);
-            $panierC=new panierC();
-            $panierC->ajouter($panier);
-            foreach ($_SESSION['produitpanier'] as $idp => $qte)
-            {
-                $panierC->ajouterProduit($_POST['identifiant'],$idp,$qte);
-            }
-        }
-		
-		$mailto = $_POST['email'];
-    $mailSub = 'The Must';
-    //$mailMsg = ' confirmer votre email <a href=\"localhost/front/views/index.php\"> ';
-	$mailMsg = "Bonjour ".$_POST['identifiant']." clickez sur <a href=\"localhost/themust/front/views/verification.php\">le lien</a> pour confirmer votre compte";
-
-   $mail = new PHPMailer();
-   $mail ->IsSmtp();
-   $mail ->SMTPDebug = 0;
-   $mail ->SMTPAuth = true;
-   $mail ->SMTPSecure = 'ssl';
-   $mail ->Host = "smtp.gmail.com";
-   $mail ->Port = 465; // or 587
-   $mail ->IsHTML(true);
-   $mail ->Username = 'themust.gammarth@gmail.com';
-   $mail ->Password = "themust123";
-   $mail ->SetFrom($_POST['email']);
-   $mail ->Subject = $mailSub;
-   $mail ->Body = $mailMsg;
-   $mail ->AddAddress($mailto);
-   $mail->Send();
-    }
-	}
-	
-    */?>
+    */
+    ?>
 	
 
         <!-- Main Wrapper Start -->
@@ -190,16 +135,16 @@ if (strlen($_POST['motdepasse'])<6)
                                         <label class="form__label" for="username">
                                             CIN<span>*</span>
                                         </label>
-                                        <input type="text" name="logidentifiant" id="logidentifiant" class="form__input form__input--2">
+                                        <input type="text" name="cin" id="cin" class="form__input form__input--2" required><small class="form-text text-muted">veuillez entrer votre cin </small>
                                     </div>
                                     <div class="form__group mb--20">
                                         <label class="form__label" for="password">
                                             Mot de passe <span>*</span>
                                         </label>
-                                        <input type="password" name="logmotdepasse" id="logmotdepasse" class="form__input form__input--2">
+                                        <input type="password" name="motdepasse" id="motdepasse" class="form__input form__input--2" required><small class="form-text text-muted">veuillez entrer votre mdp </small>
                                     </div>
                                     <div class="form__group d-flex align-items-center">
-                                        <button type="submit" class="btn btn-5 btn-style-1 color-1">Se connecter</button>
+                                        <button type="submit" class="btn btn-5 btn-style-1 color-1" >Se connecter</button>
                                         
 										
                                         <div class="custom-checkbox ml--20">
@@ -218,25 +163,25 @@ if (strlen($_POST['motdepasse'])<6)
                         <div class="col-lg-6">
                             <h1>INSCRIPTION</h1>
                             <div class="login-reg-box p-4 bg--2">
-                                <form class="form" method="POST" action="login-register.php" name="formf" id="testform">
+                                <form class="form" method="POST" action="../ajoutclient.php"  id="testform">
 								<div class="form__group mb--20">
-                                        <label class="form__label" for="identifiant">
+                                        <label class="form__label" for="cin">
                                            CIN <span>*</span>
                                         </label>
-                                        <input type="text" name="identifiant" id="identifiant" class="form__input form__input--2" onblur="verifPseudo(this)">
+                                        <input type="text" name="cin" id="cin" class="form__input form__input--2"class="form-control"required ><small class="form-text text-muted">veuillez entrer votre cin </small><span id="missing_cin"></span>
                                     </div>
                                       <div class="form__group mb--20">
                                         <label class="form__label" for="register_nom">
                                             NOM <span>*</span>
                                         </label>
-                                        <input type="text" name="nom" id="nom" class="form__input form__input--2" >
+                                        <input type="text" name="nom" id="nom" class="form__input form__input--2"required ><small class="form-text text-muted">veuillez entrer votre nom </small><span id="missing_nom"></span>
                                     </div>
                                    
                                        <div class="form__group mb--20">
                                         <label class="form__label" for="register_password">
                                             Prenom <span>*</span>
                                         </label>
-                                        <input type="prenom" name="prenom" id="prenom" class="form__input form__input--2" >
+                                        <input type="prenom" name="prenom" id="prenom" class="form__input form__input--2" class="form-control"required><small class="form-text text-muted">veuillez entrer votre prenom </small><span id="missing_prenom"></span>
                                     </div>
                                     
 
@@ -244,22 +189,22 @@ if (strlen($_POST['motdepasse'])<6)
                                         <label class="form__label" for="register_email">
                                             Email <span>*</span>
                                         </label>
-                                        <input type="text" name="email" id="email" class="form__input form__input--2" >
+                                        <input type="text" name="mail" id="mail" class="form__input form__input--2"class="form-control"required ><small class="form-text text-muted">veuillez entrer votre mail </small><span id="missing_mail"></span>
                                     </div>
 
                                     <div class="form__group mb--20">
                                         <label class="form__label" for="register_password">
                                             Mot de passe <span>*</span>
                                         </label>
-                                        <input type="password" name="motdepasse" id="motdepasse" class="form__input form__input--2" >
+                                        <input type="text" name="mdp" id="mdp" class="form__input form__input--2"class="form-control"required ><small class="form-text text-muted">veuillez entrer votre mdp </small><span id="missing_mdp"></span>
                                     </div>
 									
 									<div class="form__group mb--20">
                                         <label class="form__label" for="accounttype">
                                             sexe <span>*</span></label>
 											<br>
-                                        <label><input type="radio" name="accounttype" checked="checked" value="per"> Homme</label>
-    									<label><input type="radio" name="accounttype" value="ste"> Femme</label><br>
+                                        <label><input type="radio" name="sexe" checked="checked" value="Homme"> Homme</label>
+    									<label><input type="radio" name="sexe" value="Femme"> Femme</label><br><span id="missing_sexe"></span>
                                     </div>
 									
 									<div class="form__group mb--20">
@@ -272,7 +217,7 @@ if (strlen($_POST['motdepasse'])<6)
 									</div>
 									
                                     <div class="form__group">
-                                        <button type="submit" form="testform" class="btn btn-5 btn-style-2">Inscription</button>
+                                        <button type="submit" id="ajouter" value="ajouter" form="testform" class="btn btn-5 btn-style-2"onclick="myFunction()">Inscription</button>
                              
                                         <button type="reset" class="btn btn-5 btn-style-2">reset</button>
                                     </div>
@@ -284,6 +229,10 @@ if (strlen($_POST['motdepasse'])<6)
                 </div>
             </div>
         </div>
+         <script type="text/javascript" src="connexionF.js">
+  </script>
+  <!-- <script type="text/javascript" src="connexionF2.js">
+  </script>-->
       		<script src="assets/js/vendor/inscription.js"></script>
 		<script>
 		var refreshButton = document.querySelector(".refresh-captcha");

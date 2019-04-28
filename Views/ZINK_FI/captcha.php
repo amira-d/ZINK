@@ -41,7 +41,7 @@ $black = imagecolorallocate($image, 0, 0, 0);
 $white = imagecolorallocate($image, 255, 255, 255);
 $textcolors = [$black, $white];
  
-$fonts = [dirname(__FILE__).'\fonts\Hand Boys.ttf', dirname(__FILE__).'\fonts\JanethJohn.ttf', dirname(__FILE__).'\fonts\Jennifer demo.ttf', dirname(__FILE__).'\fonts\Peach Pen.ttf'];
+$fonts = [dirname(__FILE__).'\fonts\miracle.ttf', dirname(__FILE__).'\fonts\Commanders.ttf', dirname(__FILE__).'\fonts\PragneaDemo-Regular.ttf', dirname(__FILE__).'\fonts\Keep the Faith - TTF.ttf'];
  
 $string_length = 6;
 $captcha_string = generate_string($permitted_chars, $string_length);

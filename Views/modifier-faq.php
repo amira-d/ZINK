@@ -41,7 +41,7 @@ if (isset($_POST['question'])||isset($_POST['reponse'])||(isset($_POST['question
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Foodmin : Client</title>
+    <title>ZINK : Client</title>
     
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
