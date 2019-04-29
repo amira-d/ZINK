@@ -260,6 +260,7 @@ echo"<script>window.location.replace('page-login.html');</script>";
                                         </tbody>
                                 </table>
                                                                 <a href="ZINK_FI/jobs.php" class="btn btn-danger" >Aperçu</a>                              </div>
+<a href='pdf_invoice.pdf' class="btn btn-info">Download Your PDF</a>
 
                               </div>
 

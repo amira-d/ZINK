@@ -46,6 +46,7 @@ session_start ();
 </head>
 
 <body>
+    <script src="cntrl.js"></script>
 
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
@@ -263,7 +264,7 @@ echo"<script>window.location.replace('page-login.html');</script>";
                                 </div>
                                 <div class="card-body">
                                     <div class="menu-upload-form">
-                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')">
+                                        <form class="form-horizontal" method="POST" action="ajoutAnnonce.php" enctype="multipart/form-data" onsubmit="return confirm('Voulez vous ajouter cette annonce ?')" id="Upload">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Upload announcement</label>
                                             <div class="col-sm-10">
@@ -341,7 +342,6 @@ echo"<script>window.location.replace('page-login.html');</script>";
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-    
 
           
       </body>  

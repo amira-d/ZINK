@@ -182,6 +182,13 @@ while ($data=$listeannonces->fetch())
 
 </div>
 </section>
+<div>
+  <form class="form-horizontal" method="POST" action="sendmail1.php" enctype="multipart/form-data">
+  <input type="text" name="email" placeholder="email here" name="email">
+<button type="submit" name="submit">S'inscrire au NewsLetter ! </button>
+</form>
+</div>
+
 
 <section id="contact" >
 

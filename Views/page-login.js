@@ -1,7 +1,7 @@
 document.getElementById("connexion").addEventListener("submit",function(e)
 {	
 
-var email=document.getElementById("Email");
+var email=document.getElementById("login");
 var Pwd=document.getElementById("PWD");
 var erreur;
 if (!email.value)
