@@ -11,7 +11,6 @@ session_start ();
 <html lang="en">
 
 
-<!-- Mirrored from zebratheme.com/html/fooadmin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Feb 2019 15:03:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

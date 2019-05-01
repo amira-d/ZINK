@@ -10,15 +10,14 @@ session_destroy ();
 
 // On redirige le visiteur vers la page d'accueil
 header ('location: page-login.html');
+
+if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
+{ 
+
+     echo '<b>'.$_SESSION['l'].' : </b>'.$_SESSION['r'].' '; 
+
+}
+
+else { 
+echo"<script>window.location.replace('page-login.html');</script>";
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Logout</title>
-</head>
-
-<body>
-</body>
-</html>
