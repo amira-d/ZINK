@@ -53,7 +53,6 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-                <link rel="stylesheet" type="text/css" href="css/style1.css" />
 
         <link rel="stylesheet" type="text/css" href="css/pluton.css" />
         <!--[if IE 7]>
@@ -62,6 +61,7 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.cslider.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
         <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="css1/flaticon.css" />
 
 </head>
 
@@ -75,7 +75,7 @@
         
 
                        
-                            <li><a >News</a></li>
+                            <li><a href="Z-news.php">News</a></li>
              
                               <li class="current"><a class="smoothscroll" href="#jobs" >Job offers</a></li>
                  
@@ -141,7 +141,7 @@
    </div> <!-- Header End -->
 
 
-   <section id="jobs" style="height: 3000px; width: 1800px; margin-top: 100px; background-color: grey;">
+   <section id="jobs" style="height: 3000px; width: 1800px; margin-top: 100px; background-color: white;">
 <div class="menu-upload-form" >
 
 <?PHP
@@ -155,40 +155,50 @@ $listeannonces=$recru1C->afficherRecrutement();
 
 while ($data=$listeannonces->fetch())
 {
-     {echo "<div class='col-md-4 col-sm-6 graphics ads' style='height:200px;width:570px; margin:80px 40px 80px 40px;'>";
-                   echo  "<div href='' class='portfolio_item'>";
-                           echo "<img src=' ../images/".$data['image']."' alt='image'class='img-responsive' style='height:180px;width:180px;border-radius:20px;'/>";
+     {
 
+  echo'<div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf" ">
 
-                           echo "<div style='padding:5px;'>";
-                              echo "<h1 style='bottom: 50px;'>".$data['titre']."</h1>";
+               <div class="columns portfolio-item" style="margin-top:120px;margin-left:50px;">
+          
 
-                            echo "<p class='desc' style='position:relative; bottom: 250px; left: 200px;width:250px; max-height:200px; overflow:hidden; border-top: 2px inset grey;border-bottom: 2px inset grey;font: 18px grey 'opensans-light';'>".$data['description']."</p>";
-                            echo "</div>";
+                     <a href="candidat.php?id='.$data["id"].'" title="" >
+                        <div class="item-wrap" style="height:280px;width:280px;border-radius:20px;">';
+  
+                         echo "<img src='../images/".$data['image']."' alt='image' class='img-responsive' style='height:280px;width:280px;border-radius:20px;'/>";
+                         
 
+                     echo '   <div class="overlay">
+                           <div class="portfolio-item-meta">
+                           <button>POSTULER</button>
+ 
+                           </div>
+                        </div>
+                     </div>
 
-                            echo "<div class='portfolio_item_hover' style=' width:500px; height:200px;'>";
+                     </a>';
+                              echo "<div style='width:200px ; height:100px;'>";
+                           echo "<p style='color:black;''>".$data['titre']."</p>";
+                            echo "<p style='color:black;'>".$data['description']."</p>";
+                            echo "<div class='portfolio_item_hover'>";
                               echo  "<div class='portfolio-border clearfix'>";
-                                    echo "<div class='item_info' style=''>";
-                                       echo "<span>".$data['service']." dt</span>";
-                                       echo "<em>Add to cart</em>";
+                                    echo "<div class='item_info'>";
+                                       echo "<p style='color:black;'>".$data['service']." </p>";
+                                                                              echo "<p style='color:black;'>".$data['deadline']." </p>";
+
                                     echo"</div>";
                                 echo "</div>";
                             echo "</div>";
-                        echo "</div>";
-                    echo"</div>";
+                            echo"</div>";
+
+                                              echo"</div>";
+
+                                         
 
 
-
-
-
-
-
-
-
-      echo "<div class='col-md-4 col-sm-6 graphics ads' style='width:340px; margin: 64px;'>";
+   /*echo "<div class='col-md-4 col-sm-6 graphics ads' style='width:340px; margin: 64px;'>";
      echo "<div style='width:320px ; height:320px;'>";
-                           echo "<img src='../images/".$data['image']."' alt='image' class='img-responsive'/>";
+                           echo "<img src='../images/".$data['image']."' alt='image' class='img-responsive' style='height:180px;width:180px;border-radius:20px;' />";
                            echo"</div>";
                             echo "<div style='width:200px ; height:100px;'>";
                            echo "<p style='color=black;''>".$data['titre']."</p>";
@@ -203,7 +213,7 @@ while ($data=$listeannonces->fetch())
                                 echo "</div>";
                             echo "</div>";
                             echo"</div>";
-                    echo"</div>";}
+                    echo"</div>";*/}
 }
 ?>
 

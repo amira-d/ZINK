@@ -69,15 +69,11 @@
          <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
         <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
       <ul class="nav" id="nav">
-           <li class="current"><a  href="index.html">Home</a></li>
-        
-
-                       
-                            <li ><a class="smoothscroll" href="#news">News</a></li>
-             
-                              <li class="current"><a href="jobs.php">Job offers</a></li>
-                 
-            <li><a href="#contact">Contact</a></li>
+                                
+                                <li><a  href="index.html">Home</a></li>
+                                <li><a  href="Z-news.php">News</a></li>
+                                <li class="current"><a  href="jobs.php" >Job offers</a></li>
+                                <li><a  href="index.html">CONTACT</a></li>
          </ul> <!-- end #nav -->
     </nav> <!-- end #nav-wrap -->
       
@@ -86,11 +82,31 @@
 <section id="contact" >
 
         
+<?PHP
+include "../../Entities/recrutement.php";
+include "../../Cores/recruC.php";
+if (isset($_GET['id'])){
+  $rC=new recruC();
+    $result=$rC->recupererRecrutement($_GET['id']);
+  foreach($result as $row){
+    $id=$row['id'];
+    $titre=$row['titre'];
+    $type=$row['service'];
+    $description=$row['description'];
+    $deadline=$row['deadline'];
+    $image=$row['image'];
 
+                                               }}
+?>
             <div class="ten columns"  style="margin-left: 230px;">
             <br>
                   <p>Fill the blank to send your candidature !</p>
-
+                  <p> <?PHP echo $id ;?></p>
+                  <p> <?PHP echo $titre ;?></p>
+                  <p> <?PHP echo $type ;?></p>
+                  <p> <?PHP echo $description ;?></p>
+                  <p> <?PHP echo $deadline ;?></p>
+                  <p> <?PHP echo $image ;?></p>
             </div>
 
          
@@ -138,33 +154,16 @@
                  <input type="file" id="contactSubject" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value"  name="letter">
                         </div>
 
-                    <div>
-               <label for="contactEmail">Service <span class="required">*</span></label>
-               <input type="text" list="services" name="type"/>
-                                              <datalist id="services"   name="type">
-                                                
-                                                 <?PHP
- $connect = mysqli_connect("localhost", "root", "amira1999", "projetweb");  
- $query ="SELECT * FROM services ORDER BY id DESC";  
- $result = mysqli_query($connect, $query);  
- 
-                          while($row = mysqli_fetch_array($result))  
-                          {  
-echo'
-                                                <option  value="'.$row['service'].'"> Service</option>
-                                              ';
-
-                                            }  ?>
-</datalist>
-                  </div>
-
+                    
                              <div>
                <label for="contactSubject">Photo<span class="required">*</span></label>              
                  <input type="file" id="contactSubject" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value"  name="photo">
                         </div>
 
                   <div>
-                     <button  name="submit1" value="Get Selected Values">Submit</button>
+                     <button  name="submit" value="Get Selected Values">Submit</button>
+                     <input type="hidden" name="id_ini" value="<?PHP echo $_GET['id'];?>">
+                     <input type="hidden" name="type" value="<?PHP echo $type;?>">
                      <span id="image-loader">
                         <img alt="" src="images/loader.gif">
                      </span>

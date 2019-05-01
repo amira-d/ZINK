@@ -4,8 +4,6 @@ include "../../Cores/candiC.php";
 
 $msg="";
 
-if ( isset($_POST['submit1']) and isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['email']) and isset($_POST['num'])   and isset($_POST['date_naissance'])   and isset($_POST['type']))
-{
 	if (empty($_POST['submit1']) and empty($_POST['nom']) and empty($_POST['prenom']) and empty($_POST['email']) and empty($_POST['num'])and empty($_POST['date_naissance']) and empty($_POST['cv']) and empty($_POST['lettre']) and empty($_POST['type']) and empty($_POST['photo'])  )
      {	
      	echo "<script>alert(\"Veuillez vérifier les champs ! Tous les champs doivent être remplis . \")</script>";
@@ -43,7 +41,7 @@ if ( isset($_POST['submit1']) and isset($_POST['nom']) and isset($_POST['prenom'
 					{
 						$msg = "Problem with uploading";
 					}*/
-			$r=new Candidature($_POST['nom'],$_POST['prenom'],$_POST['date_naissance'],$_POST['email'],$_POST['num'],$_POST['cv'],$_POST['letter'],$_POST['type'],$_POST['photo'],2);
+			$r=new Candidature($_POST['nom'],$_POST['prenom'],$_POST['date_naissance'],$_POST['email'],$_POST['num'],$_POST['cv'],$_POST['letter'],$_POST['type'],$_POST['photo'],$_POST['id_ini']);
 			$cC=new candiC();
 			echo "<script>alert(\"Votre annonce est en cours de traitement \")</script>";
 			$cC->ajouterCandi($r);
@@ -52,12 +50,6 @@ if ( isset($_POST['submit1']) and isset($_POST['nom']) and isset($_POST['prenom'
 
 		    
 	 }
-}
-else
-{
-	echo "<script>alert(\"Veuillez vérifier les champs !\")</script>";
-    header("Refresh: 1.25 ;url=candidat.php");
-}
 
 
 

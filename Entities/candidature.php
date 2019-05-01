@@ -22,6 +22,7 @@ class Candidature{
 		$this->lettre=$lettre;
 		$this->service=$service;
 		$this->photo=$photo;
+		$this->id_rec=$id_rec;
 
 	}
 	
@@ -52,6 +53,10 @@ class Candidature{
 	function getPhoto(){
 		return $this->photo;
 	}
+	function getID(){
+		return $this->id_rec;
+	}
+
 
 	 function setNom($nom){
 		$this->nom=$nom;

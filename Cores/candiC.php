@@ -4,7 +4,7 @@ class candiC {
 
 
 	function ajouterCandi($ann){
-		$sql="insert into candidature(nom,prenom,date_naissance,email,num,cv,lettre,service,photo) values (:nom,:prenom,:date_naissance,:email,:num,:cv,:lettre,:service,:photo)";
+		$sql="insert into candidature(nom,prenom,date_naissance,email,num,cv,lettre,service,photo,id_recrutement) values (:nom,:prenom,:date_naissance,:email,:num,:cv,:lettre,:service,:photo,:id_rec)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
@@ -18,6 +18,7 @@ class candiC {
         $lettre=$ann->getLettre();
         $service=$ann->getService();
         $photo=$ann->getPhoto();
+        $id_recrutement=$ann->getID();
 
 		$req->bindValue(':nom',$nom);
 		$req->bindValue(':prenom',$prenom);
@@ -28,6 +29,7 @@ class candiC {
 		$req->bindValue(':lettre',$lettre);
 		$req->bindValue(':service',$service);
 		$req->bindValue(':photo',$photo);
+		$req->bindValue(':id_rec',$id_recrutement);
 
             $req->execute();
            
@@ -93,7 +95,7 @@ try{
         }
 		
 	}
-	function recupererAnnonce($titre){
+	function recupererCandi($id){
 		$sql="SELECT * from candidature where id='$id'";
 		$db = config::getConnexion();
 		try{

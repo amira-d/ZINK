@@ -159,10 +159,10 @@ while ($data=$listeannonces->fetch())
 {
      {echo "<div class='col-md-4 col-sm-6 graphics ads' style='width:340px; margin: 64px;'>";
      echo "<div style='width:320px ; height:320px;'>";
-                           echo "<img src='../images/".$data['image']."' alt='image' class='img-responsive'/>";
+                           echo "<img src='../images/".$data['image']."' alt='image' class='img-responsive' style='height:180px;width:180px;border-radius:20px;'/>";
                            echo"</div>";
                             echo "<div style='width:200px ; height:100px;'>";
-                           echo "<p style='color=black;''>".$data['titre']."</p>";
+                           echo "<h1 style='width:250px; max-height:200px; overflow:hidden; border-top: 2px inset black;border-bottom: 2px inset black;'>".$data['titre']."</h1>";
                             echo "<p>".$data['description']."</p>";
                             echo "<div class='portfolio_item_hover'>";
                               echo  "<div class='portfolio-border clearfix'>";
