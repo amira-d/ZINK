@@ -31,7 +31,8 @@ session_start ();
     <!-- Standard iPhone Touch Icon--> 
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 	
-	<!-- Styles -->
+
+  <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
@@ -42,11 +43,11 @@ session_start ();
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-
-   <body>
 
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
@@ -113,6 +114,7 @@ session_start ();
                 <span class="line"></span>
             </div>
         </div>
+      </div>
 
         <div class="pull-right p-r-15">
             <ul>
@@ -127,7 +129,7 @@ session_start ();
                                 <li class="text-center">
                                     <a href="" class="more-link">See All</a>
                                 </li>
-                            </ul>
+                           </ul>
                         </div>
                     </div>
                 </li>
@@ -162,12 +164,10 @@ echo"<script>window.location.replace('page-login.html');</script>";
 ?></span></li>
 
                      
-                </li>
+            
             </ul>
         </div>
-    </div>
-</div>
-
+ 
    <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -197,11 +197,9 @@ echo"<script>window.location.replace('page-login.html');</script>";
                                 <div class="card-header">
                                     <h4>Job applications</h4>
                               
-                                     
-              
-                                                                                </div>
+      </div>
 
-     <div class="container " style="width: 100%">                 
+     <div class="container" style="width: 100%">                 
 
       <div class="order-list-item"> 
       <table class="table"  id="table_produits" width="100%" cellspacing="0">
@@ -214,15 +212,17 @@ echo"<script>window.location.replace('page-login.html');</script>";
 <th>Prénom</th>
 <th>Date de naissance</th>
 <th>Email</th>
+<th>Numéro</th>
 <th>CV</th>
 <th>Lettre de motivation</th>
 <th>Service</th>
 <th>Date d'envoi</th>
+<th>Supprimer</th>
+<th>Consulter</th>
 </tr>
 
  </thead>
- <tbody>
-                                   
+    <tbody>                              
  <?PHP
  $connect = mysqli_connect("localhost", "root", "amira1999", "projetweb");  
  $query ="SELECT * FROM candidature ORDER BY nom DESC";  
@@ -244,9 +244,9 @@ echo"<script>window.location.replace('page-login.html');</script>";
   <td>'.$row["date_naissance"].'</td>
 <td>'.$row["email"].'</td>
   <td>'.$row["num"].'</td>
- <td style="width:100px;"><file src="images/'.$row["cv"].'" alt="cv" class="img-responsive"/></td>
-      <td>'.$row["lettre"].'</td>
-        <td>'.$row["service"].'</td>
+ <td style="width:100px;"><img src="images/'.$row["cv"].'" alt="cv" class="img-responsive"/></td>
+ <td style="width:100px;"><img src="images/'.$row["lettre"].'" alt="cv" class="img-responsive"/></td>
+              <td>'.$row["service"].'</td>
             <td>'.$row["date_envoi"].'</td>
   
   <td><form method="POST" action="supprimerCandi.php">
@@ -263,48 +263,50 @@ echo"<script>window.location.replace('page-login.html');</script>";
 
 
 ?>
-                                        </tbody>
-                                </table>
-                              </div>
-
+</tbody> 
+  </table>
                              </div>   
                             </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
                 </div><!-- /# main content -->
 
-
                 
                 
 
-                
+                </div>
             </div><!-- /# container-fluid -->
         </div><!-- /# main -->
     </div><!-- /# content wrap -->
 	
-    <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
+     <script src="assets/js/lib/jquery.min.js"></script><!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->    
     <script src="assets/js/lib/sidebar.js"></script><!-- sidebar -->
-    <!--<script src="assets/js/lib/bootstrap.min.js"></script>--><!-- bootstrap -->
+    <script src="assets/js/lib/bootstrap.min.js"></script><!-- bootstrap -->
     <script src="assets/js/lib/mmc-common.js"></script>
     <script src="assets/js/lib/mmc-chat.js"></script>
+  <!--  Chart js -->
+  <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+  <script src="assets/js/lib/chart-js/chartjs-init.js"></script>
+  <!-- // Chart js -->
+  
+  <!--  Datamap -->
+    <script src="assets/js/lib/datamap/d3.min.js"></script>
+    <script src="assets/js/lib/datamap/topojson.js"></script>
+    <script src="assets/js/lib/datamap/datamaps.world.min.js"></script>
+    <script src="assets/js/lib/datamap/datamap-init.js"></script>
+  <!-- // Datamap -->-->
+    <script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script> 
+    <script src="assets/js/lib/weather/weather-init.js"></script>
+    <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
     <script src="assets/js/scripts.js"></script><!-- scripit init-->
-    <script src="assets/js/lib/rating1/jRate.init.js"></script><!-- scripit init-->
-    <script src="assets/js/scripts.js"></script><!-- scripit init-->
-      <!-- Page level plugins -->
-
-
-  <!-- Page level custom scripts -->
-            <script src="assets/js/lib/jquery.nanoscroller.min.js"></script><!-- nano scroller -->
-
-    
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
          
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
-           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-    
+           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>   
 
 </body>
 

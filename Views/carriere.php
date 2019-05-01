@@ -47,8 +47,6 @@ session_start ();
 
 <body>
 
-   <body>
-
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
@@ -263,8 +261,7 @@ echo"<script>window.location.replace('page-login.html');</script>";
 <a href='pdf_invoice.pdf' class="btn btn-info">Download Your PDF</a>
 
                               </div>
-
-                             </div>                                  </div><!-- /# card -->
+                           </div><!-- /# card -->
                         </div><!-- /# column -->
                     </div><!-- /# row -->
                 </div><!-- /# main content -->
