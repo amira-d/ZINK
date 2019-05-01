@@ -10,8 +10,9 @@ class Candidature{
 	private $lettre;
 	private $service;
     private $photo;
+    private $id_recrutement;
 
-	function __construct($nom,$prenom,$date_naissance,$email,$num,$cv,$lettre,$service,$photo){
+	function __construct($nom,$prenom,$date_naissance,$email,$num,$cv,$lettre,$service,$photo,$id_rec){
 		$this->nom=$nom;
 		$this->prenom=$prenom;
 		$this->date_naissance=$date_naissance;
