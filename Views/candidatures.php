@@ -253,7 +253,7 @@ echo"<script>window.location.replace('page-login.html');</script>";
   <input type="hidden" value="'.$row["id"].'" name="id">
   </form>
   </td>
-  <td><a href="pdfCandi.php?id='.$row["id"].'">
+  <td><a href="pdfCandi1.php?id='.$row["id"].'">
   Consulter en pdf</a></td>
   </tr>
   '
@@ -264,6 +264,8 @@ echo"<script>window.location.replace('page-login.html');</script>";
 ?>
 </tbody> 
   </table>
+  <a href='pdfCandi.php' class="btn btn-info">Download Your PDF</a>
+
                              </div>   
                             </div><!-- /# card -->
                         </div><!-- /# column -->

@@ -33,20 +33,15 @@ function Footer()
 $db = config::getConnexion();
 
 
-
-$sql1="SELECT * FROM candidature";
+$id=$_GET['id'];
+$sql1="SELECT * FROM candidature where id=$id";
 
 
 $result=$db->query($sql1);
-
-$pdf = new PDF();
-$pdf->AddPage();
-$pdf->AliasNbPages();
-
-
 foreach($result as $row)
 {
     $id=$row['id'];
+    $id=$row['photo'];
     $nom=$row['nom'];
     $prenom=$row['prenom'];
     $date_n=$row['date_naissance'];
@@ -54,19 +49,22 @@ foreach($result as $row)
     $num=$row['num'];
     $service=$row['service'];
     $date_e=$row['date_envoi'];
-    $pdf->SetFont('Arial','I',12); 
-$pdf->Cell(130,10,$id,1,1,'C');
-$pdf->Cell(130,10,$nom,1,1,'C');
-$pdf->Cell(130,10,$prenom,1,1,'C');
-$pdf->Cell(130,10,$date_n,1,1,'C');
-$pdf->Cell(130,10,$email,1,1,'C');
-$pdf->Cell(130,10,$num,1,1,'C');
-$pdf->Cell(130,10,$service,1,1,'C');
-$pdf->Cell(130,10,$date_e,1,1,'C');
-$pdf->Cell(130,30,'  ',0,1,'C');
-
 
 }
+$pdf = new PDF();
+$pdf->AddPage();
+$pdf->AliasNbPages();
+
+
+$pdf->SetFont('Arial','I',12);      
+$pdf->Cell(130,10,$nom,0,1,'C');
+$pdf->Cell(130,10,$prenom,0,1,'C');
+$pdf->Cell(130,10,$date_n,0,1,'C');
+$pdf->Cell(130,10,$email,0,1,'C');
+$pdf->Cell(130,10,$num,0,1,'C');
+$pdf->Cell(130,10,$service,0,1,'C');
+$pdf->Cell(130,10,$date_e,0,1,'C');
+
 
 
 
