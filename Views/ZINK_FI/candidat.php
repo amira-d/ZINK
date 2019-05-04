@@ -120,28 +120,29 @@ if (isset($_GET['id'])){
           <fieldset>
 
                   <div>
-               <label for="contactName">Name <span class="required">*</span></label>
-               <input type="text" value="" size="35" id="contactName" name="nom">
+               <label for="contactName">Name<span class="required">*</span></label>
+               <input type="text"  size="35" id="nom" name="nom" required ><span id="missing_nom"></span>
+
                   </div>
 
                    <div>
                <label for="contactSurName">Surname <span class="required">*</span></label>
-               <input type="text" value="" size="35" id="contactName" name="prenom">
+               <input type="text" size="35" id="prenom" name="prenom" required><span id="missing_prenom"></span>
                   </div>
 
                     <div>
                <label for="BirthDate">Birth date <span class="required">*</span></label>
-               <input type="date" value=""  id="contactName" name="date_naissance">
+               <input type="date"   id="date_n" name="date_naissance" required><span id="missing_date"></span>
                   </div>
 
                   <div>
                <label for="contactEmail">Email <span class="required">*</span></label>
-               <input type="text" value="" size="35" id="contactEmail" name="email">
+               <input type="text"  size="35" id="email" name="email" required><span id="missing_email"></span>
                   </div>
 
                   <div>
                <label for="contactSubject">Number<span class="required">*</span></label>
-               <input type="text" value="" size="35" id="contactSubject" name="num">
+               <input type="text"  size="35" id="num" name="num" required><span id="missing_num"></span>
                   </div>
 
                    <div>
@@ -161,7 +162,7 @@ if (isset($_GET['id'])){
                         </div>
 
                   <div>
-                     <button  name="submit" value="Get Selected Values">Submit</button>
+                     <button  name="submit" value="Get Selected Values" onclick="return verifa()">Submit</button>
                      <input type="hidden" name="id_ini" value="<?PHP echo $_GET['id'];?>">
                      <input type="hidden" name="type" value="<?PHP echo $type;?>">
                      <span id="image-loader">
@@ -219,6 +220,8 @@ echo "You have selected :" .$selected_val;  // Displaying Selected Value
 
    <!-- Java Script
    ================================================== -->
+           <script type="text/javascript" src="../cntrl1.js"></script>
+
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>

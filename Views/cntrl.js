@@ -24,64 +24,52 @@ if (!prenom) {
 
 prenom_m.textContent="prenom missing";
 prenom_m.style.color='red';}
-else 
-	if (isFinite(prenom))
-i++;
 else
-	{prenom_m.textContent="not a number";
-prenom_m.style.color='red';}
+i++;
+var date_n=document.getElementById('date_n').value;
+var date_m=document.getElementById("missing_date");
+date_m.textContent="";
 
-
-var cin=document.getElementById('cin').value;
-var cin_m=document.getElementById("missing_cin");
-cin_m.textContent="";
-if (!cin) {
+if (!date_n) {
 
 //e.preventDefault();
 //alert("false");
 
-cin_m.textContent="cin missing";
-cin_m.style.color='red';}
+date_m.textContent="nom missing";
+date_m.style.color='red';}
 else
-	if (isFinite(cin))
 i++;
-else
-	{cin_m.textContent="not a number";
-cin_m.style.color='red';}
+var email=document.getElementById('email').value;
+var email_m=document.getElementById("missing_email");
+email_m.textContent="";
 
-var titre=document.getElementById('titre').value;
-var titre_m=document.getElementById("missing_mail");
-mail_m.textContent="";
-if (titre==0) {
+if (!email) {
 
 //e.preventDefault();
 //alert("false");
 
-mail_m.textContent="mail missing";
-mail_m.style.color='red';}
+email_m.textContent="email missing";
+email_m.style.color='red';}
 else
 i++;
+var num=document.getElementById('num').value;
+var num_m=document.getElementById("missing_num");
+num_m.textContent="";
 
-
-
-var sexe=document.getElementById('sexe').value;
-var sexe_m=document.getElementById("missing_sexe");
-sexe_m.textContent="";
-
-if (sexe==0) {
+if (!num) {
 
 //e.preventDefault();
 //alert("false");
 
-sexe_m.textContent="sexe missing";
-sexe_m.style.color='red';
+num_m.textContent="Number missing";
+num_m.style.color='red';}
+else
+{
+	if(!isfinite(num)) 
+	{
+		num_m.textContent="Not a number";
+        num_m.style.color='red';
+	}
 }
-else
 i++;
-
-if(i==5)
-	alert("yaas");
-else
-	e.preventDefault();
-
 }
